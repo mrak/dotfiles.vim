@@ -1,4 +1,4 @@
-" Maintainer:  Eric Mrak (enmrak@gmail.com)
+" Maintainer:  Eric Mrak (mail at ericmrak dot info)
 " Last Change: June 11 2012
 
 set background=dark
