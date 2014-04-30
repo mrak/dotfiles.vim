@@ -22,29 +22,28 @@ if version >= 700
 endif
 
 " General colors
-"hi Normal          guifg=#dadada guibg=#272521 gui=NONE    ctermfg=253  ctermbg=235  cterm=NONE
 hi Normal          guifg=#dadada guibg=#272521 gui=NONE    ctermfg=253  ctermbg=NONE cterm=NONE
 hi NonText         guifg=#444444 guibg=NONE    gui=NONE    ctermfg=238  ctermbg=NONE cterm=NONE
 
 hi Cursor          guifg=NONE    guibg=#626262 gui=NONE    ctermfg=NONE ctermbg=241  cterm=NONE
-hi LineNr          guifg=#626262 guibg=#000000 gui=NONE    ctermfg=241  ctermbg=016  cterm=NONE
-hi SignColumn      guifg=#626262 guibg=#000000 gui=NONE    ctermfg=241  ctermbg=016  cterm=NONE
-hi ColorColumn     guifg=#626262 guibg=#000000 gui=NONE    ctermfg=241  ctermbg=016  cterm=NONE
-hi VertSplit       guifg=#444444 guibg=#444444 gui=NONE    ctermfg=234  ctermbg=238  cterm=NONE
+hi VertSplit       guifg=#272521 guibg=#272521 gui=NONE    ctermfg=234  ctermbg=NONE cterm=NONE
+hi LineNr          guifg=#4e4e4e guibg=#1c1c1c gui=NONE    ctermfg=239  ctermbg=234  cterm=NONE
+hi! link SignColumn LineNr
+hi! link CursorColumn LineNr
 
-hi StatusLine      guifg=#9e9e9e guibg=#444444 gui=NONE    ctermfg=247  ctermbg=238  cterm=NONE
-hi StatusLineNC    guifg=#9e9e9e guibg=#444444 gui=NONE    ctermfg=252  ctermbg=238  cterm=NONE
-hi User1           guifg=#262626 guibg=#9e9e9e gui=NONE    ctermfg=235  ctermbg=247  cterm=NONE
-hi User2           guifg=#262626 guibg=#6c6c6c gui=NONE    ctermfg=235  ctermbg=242  cterm=NONE
-hi User3           guifg=#9e9e9e guibg=#444444 gui=NONE    ctermfg=247  ctermbg=238  cterm=NONE
+hi StatusLineNor   guifg=#262626 guibg=#9e9e9e gui=bold    ctermfg=235  ctermbg=247  cterm=bold
+hi StatusLineIns   guifg=#262626 guibg=#00af5f gui=bold    ctermfg=235  ctermbg=35   cterm=bold
+hi StatusLineRep   guifg=#262626 guibg=#8787d7 gui=bold    ctermfg=235  ctermbg=104  cterm=bold
+hi! link StatusLineVRep StatusLineRep
+hi! link StatusLine StatusLineNor
+hi! link StatusLineNC LineNr
 
 hi Folded          guifg=#a8a8a8 guibg=#3a3a3a gui=NONE    ctermfg=248  ctermbg=237  cterm=NONE
 hi Title           guifg=#ffffff guibg=NONE    gui=bold    ctermfg=231  ctermbg=NONE cterm=bold
 hi Visual          guifg=NONE    guibg=#444444 gui=NONE    ctermfg=252  ctermbg=238  cterm=NONE
-hi Error           guifg=#df0000 guibg=NONE    gui=bold    ctermfg=160  ctermbg=NONE cterm=bold
-hi ErrorMsg        guifg=#df0000 guibg=NONE    gui=bold    ctermfg=160  ctermbg=NONE cterm=bold
-
 hi SpecialKey      guifg=#808080 guibg=NONE    gui=NONE    ctermfg=244  ctermbg=NONE cterm=NONE
+hi Error           guifg=#df0000 guibg=NONE    gui=bold    ctermfg=160  ctermbg=NONE cterm=bold
+hi! link ErrorMsg Error
 
 " Diff tool colors
 hi DiffAdd         guifg=#000000 guibg=#00af5f gui=bold    ctermfg=16   ctermbg=35   cterm=bold
@@ -53,22 +52,19 @@ hi DiffChange      guifg=#000000 guibg=#af87ff gui=bold    ctermfg=16   ctermbg=
 hi DiffText        guifg=#dadada guibg=#5f00df gui=bold    ctermfg=253  ctermbg=56   cterm=bold
 
 " Syntax
-hi Comment         guifg=#949494 guibg=NONE    gui=italic  ctermfg=246  ctermbg=NONE cterm=NONE
+hi Comment         guifg=#626262 guibg=NONE    gui=NONE    ctermfg=241  ctermbg=NONE cterm=NONE
 hi String          guifg=#dfaf5f guibg=NONE    gui=NONE    ctermfg=179  ctermbg=NONE cterm=NONE
 hi Number          guifg=#df5f87 guibg=NONE    gui=NONE    ctermfg=168  ctermbg=NONE cterm=NONE
-
 hi Keyword         guifg=#87afff guibg=NONE    gui=NONE    ctermfg=111  ctermbg=NONE cterm=NONE
+hi! link Conditional Keyword
+hi! link Statement Keyword
 hi PreProc         guifg=#AFAFDF guibg=NONE    gui=bold    ctermfg=146  ctermbg=NONE cterm=bold
-hi Conditional     guifg=#87afff guibg=NONE    gui=NONE    ctermfg=111  ctermbg=NONE cterm=NONE
-
 hi Todo            guifg=#dfdf00 guibg=NONE    gui=italic  ctermfg=184  ctermbg=NONE cterm=NONE
 hi Constant        guifg=#df5f87 guibg=NONE    gui=NONE    ctermfg=168  ctermbg=NONE cterm=NONE
-
 hi Identifier      guifg=#AFD787 guibg=NONE    gui=NONE    ctermfg=150  ctermbg=NONE cterm=NONE
+hi! link Type Identifier
 hi Function        guifg=#00af5f guibg=NONE    gui=NONE    ctermfg=035  ctermbg=NONE cterm=NONE
-hi Type            guifg=#AFD787 guibg=NONE    gui=NONE    ctermfg=150  ctermbg=NONE cterm=NONE
-hi Statement       guifg=#87afff guibg=NONE    gui=NONE    ctermfg=111  ctermbg=NONE cterm=NONE
-
 hi Special         guifg=#af87ff guibg=NONE    gui=NONE    ctermfg=141  ctermbg=NONE cterm=NONE
 hi Delimiter       guifg=#00AfAf guibg=NONE    gui=NONE    ctermfg=037  ctermbg=NONE cterm=NONE
-hi Operator        guifg=#00AfAf guibg=NONE    gui=NONE    ctermfg=037  ctermbg=NONE cterm=NONE
+hi! link Operator Delimeter
+
