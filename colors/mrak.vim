@@ -1,25 +1,17 @@
 " Maintainer:  Eric Mrak (mail at ericmrak dot info)
-" Last Change: June 11 2012
+let g:colors_name = "mrak"
+
+hi clear
+syntax reset
 
 set background=dark
 
-hi clear
-
-if exists("syntax_on")
-   syntax reset
-endif
-
-let colors_name = "mrak"
-
-" Vim >= 7.0 specific colors
-if version >= 700
-   hi CursorLine   guifg=NONE    guibg=#000000 gui=NONE    ctermfg=NONE ctermbg=016  cterm=NONE
-   hi CursorColumn guifg=NONE    guibg=#303030 gui=NONE    ctermfg=NONE ctermbg=236  cterm=NONE
-   hi MatchParen   guifg=#000000 guibg=#ffffff gui=bold    ctermfg=016  ctermbg=231  cterm=bold
-   hi Pmenu        guifg=#dadada guibg=#444444 gui=NONE    ctermfg=253  ctermbg=238  cterm=NONE
-   hi PmenuSel     guifg=#444444 guibg=#AFD787 gui=NONE    ctermfg=238  ctermbg=150  cterm=NONE
-   hi Search       guifg=NONE    guibg=NONE    gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
-endif
+hi CursorLine   guifg=NONE    guibg=#1c1c1c gui=NONE    ctermfg=NONE ctermbg=234  cterm=NONE
+hi! link CursorLine CursorColumn
+hi MatchParen   guifg=#000000 guibg=#ffffff gui=bold    ctermfg=016  ctermbg=231  cterm=bold
+hi Pmenu        guifg=#dadada guibg=#444444 gui=NONE    ctermfg=253  ctermbg=238  cterm=NONE
+hi PmenuSel     guifg=#444444 guibg=#AFD787 gui=NONE    ctermfg=238  ctermbg=150  cterm=NONE
+hi Search       guifg=NONE    guibg=NONE    gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
 
 " General colors
 hi Normal          guifg=#dadada guibg=#272521 gui=NONE    ctermfg=253  ctermbg=NONE cterm=NONE
@@ -30,6 +22,7 @@ hi VertSplit       guifg=#272521 guibg=#272521 gui=NONE    ctermfg=234  ctermbg=
 hi LineNr          guifg=#4e4e4e guibg=#1c1c1c gui=NONE    ctermfg=239  ctermbg=234  cterm=NONE
 hi! link SignColumn LineNr
 hi! link CursorColumn LineNr
+hi! link CursorLineNr LineNr
 
 hi StatusLineNor   guifg=#262626 guibg=#9e9e9e gui=bold    ctermfg=235  ctermbg=247  cterm=bold
 hi StatusLineIns   guifg=#262626 guibg=#00af5f gui=bold    ctermfg=235  ctermbg=35   cterm=bold
