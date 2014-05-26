@@ -1,6 +1,6 @@
 " Scheme: Eric Mrak (http://ericmrak.info)
 " Based off of Base16 (https://github.com/chriskempson/base16)
-let g:colors_name = "base16-default"
+let g:colors_name = "mrak16"
 
 hi clear
 syntax reset
@@ -9,41 +9,43 @@ syntax reset
 let s:gui = {}
 let s:gui.black    = "121212"
 let s:gui.darkest  = "1c1c1c"
-let s:gui.darker   = "272521"
+let s:gui.darker   = "262626"
 let s:gui.dark     = "444444"
 let s:gui.light    = "767676"
 let s:gui.lighter  = "a8a8a8"
 let s:gui.lightest = "bcbcbc"
 let s:gui.white    = "eeeeee"
 
-let s:gui.red    = "df5f87"
-let s:gui.orange = "dfaf5f"
-let s:gui.yellow = "dfdf00"
-let s:gui.green  = "00af5f"
-let s:gui.cyan   = "00afaf"
-let s:gui.blue   = "87afff"
-let s:gui.purple = "afafdf"
-let s:gui.brown  = "875f00"
+let s:gui.red         = "df5f87"
+let s:gui.orange      = "dfaf5f"
+let s:gui.yellow      = "dfdf00"
+let s:gui.green       = "afd787"
+let s:gui.cyan        = "00afaf"
+let s:gui.blue        = "87afff"
+let s:gui.purple      = "afafdf"
+let s:gui.brown       = "875f00"
+"let s:gui.brightgreen = "00af5f"
 
 " Terminal color definitions
 let s:cterm = {}
 let s:cterm.black    = "233"
 let s:cterm.darkest  = "234"
-let s:cterm.darker   = "NONE"
+let s:cterm.darker   = "235"
 let s:cterm.dark     = "238"
 let s:cterm.light    = "243"
 let s:cterm.lighter  = "248"
 let s:cterm.lightest = "250"
 let s:cterm.white    = "255"
 
-let s:cterm.red    = "168"
-let s:cterm.orange = "179"
-let s:cterm.yellow = "184"
-let s:cterm.green  = "35"
-let s:cterm.cyan   = "037"
-let s:cterm.blue   = "111"
-let s:cterm.purple = "146"
-let s:cterm.brown  = "94"
+let s:cterm.red         = "168"
+let s:cterm.orange      = "179"
+let s:cterm.yellow      = "184"
+let s:cterm.green       = "150"
+let s:cterm.cyan        = "037"
+let s:cterm.blue        = "111"
+let s:cterm.purple      = "146"
+let s:cterm.brown       = "094"
+"let s:cterm.brightgreen = "035"
 
 " Highlighting function
 fun <sid>hi(group, fg, bg, attr)
@@ -124,6 +126,20 @@ fun s:cterm_color(color)
 endfun
 
 " Vim editor colors
+"call <sid>hi("Normal",        "lightest", "darker", "")
+call <sid>hi("Cursor",        "", "light", "")
+call <sid>hi("CursorColumn",  "dark", "darkest", "none")
+call <sid>hi("CursorLine",    "", "darkest", "none")
+call <sid>hi("LineNr",        "dark", "darkest", "")
+call <sid>hi("CursorLineNr",  "dark", "darkest", "")
+call <sid>hi("VertSplit",     "darker", "darker", "none")
+call <sid>hi("NonText",       "dark", "", "")
+call <sid>hi("StatusLine",    "darker", "lighter", "bold")
+call <sid>hi("StatusLineNC",  "dark", "darkest", "none")
+call <sid>hi("StatusLineNor", "darker", "lighter", "bold")
+call <sid>hi("StatusLineIns", "darker", "green", "bold")
+call <sid>hi("StatusLineRep", "darker", "purple", "bold")
+call <sid>hi("StatusLineVRep","darker", "purple", "bold")
 call <sid>hi("Bold",          "", "", "bold")
 call <sid>hi("Debug",         "red", "", "")
 call <sid>hi("Directory",     "blue", "", "")
@@ -143,29 +159,15 @@ call <sid>hi("Search",        "", "",  "reverse")
 call <sid>hi("SpecialKey",    "dark", "", "")
 call <sid>hi("TooLong",       "red", "", "")
 call <sid>hi("Underlined",    "red", "", "")
-call <sid>hi("Visual",        "", "darker", "")
+call <sid>hi("Visual",        "", "", "reverse")
 call <sid>hi("VisualNOS",     "red", "", "")
 call <sid>hi("WarningMsg",    "red", "", "")
 call <sid>hi("WildMenu",      "red", "", "")
 call <sid>hi("Title",         "blue", "", "none")
 call <sid>hi("Conceal",       "blue", "black", "")
-call <sid>hi("Cursor",        "", "light", "")
-call <sid>hi("NonText",       "dark", "", "")
-call <sid>hi("Normal",        "lightest", "darker", "")
-call <sid>hi("LineNr",        "dark", "darkest", "")
 call <sid>hi("SignColumn",    "dark", "darkest", "")
 call <sid>hi("SpecialKey",    "dark", "", "")
-call <sid>hi("StatusLine",    "light", "darker", "bold")
-call <sid>hi("StatusLineNC",  "dark", "darkest", "none")
-call <sid>hi("StatusLineNor", "darker", "lighter", "bold")
-call <sid>hi("StatusLineIns", "darker", "green", "bold")
-call <sid>hi("StatusLineRep", "darker", "purple", "bold")
-call <sid>hi("StatusLineVRep","darker", "purple", "bold")
-call <sid>hi("VertSplit",     "darker", "darker", "none")
 call <sid>hi("ColorColumn",   "dark", "darkest", "none")
-call <sid>hi("CursorColumn",  "dark", "darkest", "none")
-call <sid>hi("CursorLine",    "", "darkest", "none")
-call <sid>hi("CursorLineNr",  "dark", "darkest", "")
 call <sid>hi("PMenu",         "light", "darkest", "none")
 call <sid>hi("PMenuSel",      "darkest", "green", "")
 call <sid>hi("TabLine",       "dark", "darkest", "none")
@@ -178,17 +180,17 @@ call <sid>hi("Character",    "red", "", "")
 call <sid>hi("Comment",      "dark", "", "")
 call <sid>hi("Conditional",  "blue", "", "")
 call <sid>hi("Constant",     "red", "", "")
-call <sid>hi("Define",       "brown", "", "none")
+call <sid>hi("Define",       "yellow", "", "none")
 call <sid>hi("Delimiter",    "cyan", "", "")
 call <sid>hi("Float",        "orange", "", "")
-call <sid>hi("Function",     "cyan", "", "")
+call <sid>hi("Function",     "green", "", "")
 call <sid>hi("Identifier",   "green", "", "none")
 call <sid>hi("Include",      "blue", "", "")
 call <sid>hi("Keyword",      "blue", "", "")
 call <sid>hi("Label",        "yellow", "", "")
 call <sid>hi("Number",       "red", "", "")
 call <sid>hi("Operator",     "cyan", "", "none")
-call <sid>hi("PreProc",      "brown", "", "bold")
+call <sid>hi("PreProc",      "purple", "", "bold")
 call <sid>hi("Repeat",       "yellow", "", "")
 call <sid>hi("Special",      "purple", "", "")
 call <sid>hi("SpecialChar",  "purple", "", "")
@@ -198,7 +200,7 @@ call <sid>hi("String",       "orange", "", "")
 call <sid>hi("Structure",    "purple", "", "")
 call <sid>hi("Tag",          "yellow", "", "")
 call <sid>hi("Todo",         "yellow", "darkest", "")
-call <sid>hi("Type",         "cyan", "", "none")
+call <sid>hi("Type",         "green", "", "none")
 call <sid>hi("Typedef",      "yellow", "", "")
 
 " Spelling highlighting
@@ -222,7 +224,7 @@ call <sid>hi("DiffRemoved",  "red", "black", "")
 call <sid>hi("rubyAttribute",               "blue", "", "")
 call <sid>hi("rubyConstant",                "yellow", "", "")
 call <sid>hi("rubyInterpolation",           "green", "", "")
-call <sid>hi("rubyInterpolationDelimiter",  "brown", "", "")
+call <sid>hi("rubyInterpolationDelimiter",  "purple", "", "")
 call <sid>hi("rubyRegexp",                  "cyan", "", "")
 call <sid>hi("rubySymbol",                  "green", "", "")
 call <sid>hi("rubyStringDelimiter",         "green", "", "")

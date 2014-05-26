@@ -4,8 +4,6 @@ let g:colors_name = "mrak"
 hi clear
 syntax reset
 
-set background=dark
-
 hi CursorLine   guifg=NONE    guibg=#1c1c1c gui=NONE    ctermfg=NONE ctermbg=234  cterm=NONE
 hi! link CursorLine CursorColumn
 hi MatchParen   guifg=#000000 guibg=#ffffff gui=bold    ctermfg=016  ctermbg=231  cterm=bold
@@ -14,11 +12,11 @@ hi PmenuSel     guifg=#444444 guibg=#AFD787 gui=NONE    ctermfg=238  ctermbg=150
 hi Search       guifg=NONE    guibg=NONE    gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
 
 " General colors
-hi Normal          guifg=#dadada guibg=#272521 gui=NONE    ctermfg=253  ctermbg=NONE cterm=NONE
+hi Normal          guifg=#dadada guibg=#262626 gui=NONE    ctermfg=253  ctermbg=235 cterm=NONE
 hi NonText         guifg=#444444 guibg=NONE    gui=NONE    ctermfg=238  ctermbg=NONE cterm=NONE
 
 hi Cursor          guifg=NONE    guibg=#626262 gui=NONE    ctermfg=NONE ctermbg=241  cterm=NONE
-hi VertSplit       guifg=#272521 guibg=#272521 gui=NONE    ctermfg=234  ctermbg=NONE cterm=NONE
+hi VertSplit       guifg=#262626 guibg=#262626 gui=NONE    ctermfg=235  ctermbg=235  cterm=NONE
 hi LineNr          guifg=#4e4e4e guibg=#1c1c1c gui=NONE    ctermfg=239  ctermbg=234  cterm=NONE
 hi! link SignColumn LineNr
 hi! link CursorColumn LineNr
