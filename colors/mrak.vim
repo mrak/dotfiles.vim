@@ -1,8 +1,7 @@
 " Maintainer:  Eric Mrak (mail at ericmrak dot info)
-let g:colors_name = "mrak"
-
 hi clear
 syntax reset
+let g:colors_name = "mrak"
 
 hi CursorLine   guifg=NONE    guibg=#1c1c1c gui=NONE    ctermfg=NONE ctermbg=234  cterm=NONE
 hi! link CursorLine CursorColumn

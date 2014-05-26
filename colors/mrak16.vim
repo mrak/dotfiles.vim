@@ -1,20 +1,19 @@
 " Scheme: Eric Mrak (http://ericmrak.info)
 " Based off of Base16 (https://github.com/chriskempson/base16)
-let g:colors_name = "mrak16"
-
 hi clear
 syntax reset
+let g:colors_name = "mrak16"
 
 " GUI color definitions
 let s:gui = {}
-let s:gui.black    = "121212"
-let s:gui.darkest  = "1c1c1c"
-let s:gui.darker   = "262626"
+let s:gui.black    = "1c1c1c"
+let s:gui.darkest  = "262626"
+let s:gui.darker   = "303030"
 let s:gui.dark     = "444444"
-let s:gui.light    = "767676"
-let s:gui.lighter  = "a8a8a8"
-let s:gui.lightest = "bcbcbc"
-let s:gui.white    = "eeeeee"
+let s:gui.light    = "d0d0d0"
+let s:gui.lighter  = "e4e4e4"
+let s:gui.lightest = "eeeeee"
+let s:gui.white    = "ffffff"
 
 let s:gui.red         = "df5f87"
 let s:gui.orange      = "dfaf5f"
@@ -28,14 +27,14 @@ let s:gui.brown       = "875f00"
 
 " Terminal color definitions
 let s:cterm = {}
-let s:cterm.black    = "233"
-let s:cterm.darkest  = "234"
-let s:cterm.darker   = "235"
+let s:cterm.black    = "234"
+let s:cterm.darkest  = "235"
+let s:cterm.darker   = "236"
 let s:cterm.dark     = "238"
-let s:cterm.light    = "243"
-let s:cterm.lighter  = "248"
-let s:cterm.lightest = "250"
-let s:cterm.white    = "255"
+let s:cterm.light    = "252"
+let s:cterm.lighter  = "254"
+let s:cterm.lightest = "255"
+let s:cterm.white    = "015"
 
 let s:cterm.red         = "168"
 let s:cterm.orange      = "179"
@@ -126,20 +125,19 @@ fun s:cterm_color(color)
 endfun
 
 " Vim editor colors
-"call <sid>hi("Normal",        "lightest", "darker", "")
 call <sid>hi("Cursor",        "", "light", "")
-call <sid>hi("CursorColumn",  "dark", "darkest", "none")
+call <sid>hi("CursorColumn",  "dark", "black", "none")
 call <sid>hi("CursorLine",    "", "darkest", "none")
-call <sid>hi("LineNr",        "dark", "darkest", "")
-call <sid>hi("CursorLineNr",  "dark", "darkest", "")
-call <sid>hi("VertSplit",     "darker", "darker", "none")
+call <sid>hi("LineNr",        "dark", "black", "")
+call <sid>hi("CursorLineNr",  "dark", "black", "")
+call <sid>hi("VertSplit",     "darkest", "darkest", "none")
 call <sid>hi("NonText",       "dark", "", "")
-call <sid>hi("StatusLine",    "darker", "lighter", "bold")
+call <sid>hi("StatusLine",    "darkest", "light", "bold")
 call <sid>hi("StatusLineNC",  "dark", "darkest", "none")
-call <sid>hi("StatusLineNor", "darker", "lighter", "bold")
-call <sid>hi("StatusLineIns", "darker", "green", "bold")
-call <sid>hi("StatusLineRep", "darker", "purple", "bold")
-call <sid>hi("StatusLineVRep","darker", "purple", "bold")
+call <sid>hi("StatusLineNor", "darkest", "light", "bold")
+call <sid>hi("StatusLineIns", "darkest", "green", "bold")
+call <sid>hi("StatusLineRep", "darkest", "purple", "bold")
+call <sid>hi("StatusLineVRep","darkest", "purple", "bold")
 call <sid>hi("Bold",          "", "", "bold")
 call <sid>hi("Debug",         "red", "", "")
 call <sid>hi("Directory",     "blue", "", "")
@@ -151,7 +149,7 @@ call <sid>hi("Folded",        "dark", "darkest", "")
 call <sid>hi("IncSearch",     "darkest", "orange", "none")
 call <sid>hi("Italic",        "", "", "none")
 call <sid>hi("Macro",         "red", "", "")
-call <sid>hi("MatchParen",    "black", "dark",  "")
+call <sid>hi("MatchParen",    "darkest", "dark",  "")
 call <sid>hi("ModeMsg",       "green", "", "")
 call <sid>hi("MoreMsg",       "green", "", "")
 call <sid>hi("Question",      "yellow", "", "")
@@ -164,8 +162,8 @@ call <sid>hi("VisualNOS",     "red", "", "")
 call <sid>hi("WarningMsg",    "red", "", "")
 call <sid>hi("WildMenu",      "red", "", "")
 call <sid>hi("Title",         "blue", "", "none")
-call <sid>hi("Conceal",       "blue", "black", "")
-call <sid>hi("SignColumn",    "dark", "darkest", "")
+call <sid>hi("Conceal",       "blue", "darkest", "")
+call <sid>hi("SignColumn",    "dark", "black", "")
 call <sid>hi("SpecialKey",    "dark", "", "")
 call <sid>hi("ColorColumn",   "dark", "darkest", "none")
 call <sid>hi("PMenu",         "light", "darkest", "none")
@@ -204,21 +202,21 @@ call <sid>hi("Type",         "green", "", "none")
 call <sid>hi("Typedef",      "yellow", "", "")
 
 " Spelling highlighting
-call <sid>hi("SpellBad",     "", "black", "undercurl")
-call <sid>hi("SpellLocal",   "", "black", "undercurl")
-call <sid>hi("SpellCap",     "", "black", "undercurl")
-call <sid>hi("SpellRare",    "", "black", "undercurl")
+call <sid>hi("SpellBad",     "", "darkest", "undercurl")
+call <sid>hi("SpellLocal",   "", "darkest", "undercurl")
+call <sid>hi("SpellCap",     "", "darkest", "undercurl")
+call <sid>hi("SpellRare",    "", "darkest", "undercurl")
 
 " Additional diff highlighting
-call <sid>hi("DiffAdd",      "black", "green", "bold")
-call <sid>hi("DiffChange",   "black", "purple", "bold")
-call <sid>hi("DiffDelete",   "black", "black", "")
-call <sid>hi("DiffText",     "black", "purple", "bold")
-call <sid>hi("DiffAdded",    "green", "black", "")
-call <sid>hi("DiffFile",     "red", "black", "")
-call <sid>hi("DiffNewFile",  "green", "black", "")
-call <sid>hi("DiffLine",     "blue", "black", "")
-call <sid>hi("DiffRemoved",  "red", "black", "")
+call <sid>hi("DiffAdd",      "darkest", "green", "bold")
+call <sid>hi("DiffChange",   "darkest", "purple", "bold")
+call <sid>hi("DiffDelete",   "darkest", "darkest", "")
+call <sid>hi("DiffText",     "darkest", "purple", "bold")
+call <sid>hi("DiffAdded",    "green", "darkest", "")
+call <sid>hi("DiffFile",     "red", "darkest", "")
+call <sid>hi("DiffNewFile",  "green", "darkest", "")
+call <sid>hi("DiffLine",     "blue", "darkest", "")
+call <sid>hi("DiffRemoved",  "red", "darkest", "")
 
 " Ruby highlighting
 call <sid>hi("rubyAttribute",               "blue", "", "")
@@ -280,6 +278,12 @@ call <sid>hi("SignifySignDelete",  "red", "darkest", "")
 " NERDTree highlighting
 call <sid>hi("NERDTreeDirSlash",  "blue", "", "")
 call <sid>hi("NERDTreeExecFile",  "lighter", "", "")
+
+" Since 'Normal' resets the &background, do last
+let s:background = &background
+call <sid>hi("Normal",        "lightest", "darkest", "")
+let &background = s:background
+unlet s:background
 
 " Remove functions
 delf <sid>hi
