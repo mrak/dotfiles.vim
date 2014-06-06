@@ -125,7 +125,7 @@ fun s:cterm_color(color)
 endfun
 
 " Vim editor colors
-call <sid>hi("Cursor",        "", "", "reverse")
+call <sid>hi("Cursor",        "black", "white", "")
 call <sid>hi("CursorColumn",  "dark", "black", "none")
 call <sid>hi("CursorLine",    "", "darkest", "none")
 call <sid>hi("LineNr",        "dark", "black", "")
@@ -149,7 +149,7 @@ call <sid>hi("Folded",        "dark", "darkest", "")
 call <sid>hi("IncSearch",     "darkest", "orange", "none")
 call <sid>hi("Italic",        "", "", "none")
 call <sid>hi("Macro",         "red", "", "")
-call <sid>hi("MatchParen",    "darkest", "dark",  "")
+call <sid>hi("MatchParen",    "darkest", "light",  "")
 call <sid>hi("ModeMsg",       "green", "", "")
 call <sid>hi("MoreMsg",       "green", "", "")
 call <sid>hi("Question",      "yellow", "", "")
@@ -157,7 +157,7 @@ call <sid>hi("Search",        "", "",  "reverse")
 call <sid>hi("SpecialKey",    "dark", "", "")
 call <sid>hi("TooLong",       "red", "", "")
 call <sid>hi("Underlined",    "red", "", "")
-call <sid>hi("Visual",        "", "", "reverse")
+call <sid>hi("Visual",        "white", "dark", "")
 call <sid>hi("VisualNOS",     "red", "", "reverse")
 call <sid>hi("WarningMsg",    "red", "", "")
 call <sid>hi("WildMenu",      "red", "", "")
@@ -166,7 +166,7 @@ call <sid>hi("Conceal",       "blue", "darkest", "")
 call <sid>hi("SignColumn",    "dark", "black", "")
 call <sid>hi("SpecialKey",    "dark", "", "")
 call <sid>hi("ColorColumn",   "dark", "darkest", "none")
-call <sid>hi("PMenu",         "light", "black", "none")
+call <sid>hi("PMenu",         "light", "dark", "none")
 call <sid>hi("PMenuSel",      "darkest", "green", "")
 call <sid>hi("TabLine",       "dark", "darkest", "none")
 call <sid>hi("TabLineFill",   "dark", "darkest", "none")
@@ -278,6 +278,12 @@ call <sid>hi("SignifySignDelete",  "red", "darkest", "")
 " NERDTree highlighting
 call <sid>hi("NERDTreeDirSlash",  "blue", "", "")
 call <sid>hi("NERDTreeExecFile",  "lighter", "", "")
+
+" CtrlP
+call <sid>hi("CtrlPMatch", "red", "", "underline")
+"call <sid>hi("CtrlPLinePre", "white", "", "")
+call <sid>hi("CtrlPMode1", "dark", "light", "bold")
+call <sid>hi("CtrlPMode2", "red", "light", "bold")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
