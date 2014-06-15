@@ -279,9 +279,8 @@ call <sid>hi("NERDTreeExecFile",  "lighter", "", "")
 
 " CtrlP
 call <sid>hi("CtrlPMatch", "red", "", "underline")
-"call <sid>hi("CtrlPLinePre", "white", "", "")
-call <sid>hi("CtrlPMode1", "dark", "light", "bold")
-call <sid>hi("CtrlPMode2", "red", "light", "bold")
+call <sid>hi("CtrlPMode1", "blue", "darkest", "bold")
+call <sid>hi("CtrlPMode2", "dark", "light", "bold")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
