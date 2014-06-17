@@ -2,7 +2,7 @@
 " Based off of Base16 (https://github.com/chriskempson/base16)
 hi clear
 syntax reset
-let g:colors_name = "mrak16"
+let g:colors_name = "mrak"
 
 " GUI color definitions
 let s:gui = {}
