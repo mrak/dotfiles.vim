@@ -3,29 +3,19 @@
 hi clear
 syntax reset
 let g:colors_name = "mrak"
-
-" GUI color definitions
 let s:gui = {}
-let s:gui.black    = "1c1c1c"
-let s:gui.darkest  = "262626"
-let s:gui.darker   = "303030"
-let s:gui.dark     = "444444"
-let s:gui.light    = "d0d0d0"
-let s:gui.lighter  = "e4e4e4"
-let s:gui.lightest = "eeeeee"
-let s:gui.white    = "ffffff"
-
-let s:gui.red         = "df5f87"
-let s:gui.orange      = "dfaf5f"
-let s:gui.yellow      = "dfdf00"
-let s:gui.green       = "afd787"
-let s:gui.cyan        = "00afaf"
-let s:gui.blue        = "87afff"
-let s:gui.purple      = "afafdf"
-let s:gui.brown       = "875f00"
-
-" Terminal color definitions
 let s:cterm = {}
+
+" Greyscale
+let s:gui.black      = "1c1c1c"
+let s:gui.darkest    = "262626"
+let s:gui.darker     = "303030"
+let s:gui.dark       = "444444"
+let s:gui.light      = "d0d0d0"
+let s:gui.lighter    = "e4e4e4"
+let s:gui.lightest   = "eeeeee"
+let s:gui.white      = "f5f5f5"
+
 let s:cterm.black    = "234"
 let s:cterm.darkest  = "235"
 let s:cterm.darker   = "236"
@@ -35,14 +25,41 @@ let s:cterm.lighter  = "254"
 let s:cterm.lightest = "255"
 let s:cterm.white    = "015"
 
-let s:cterm.red         = "168"
-let s:cterm.orange      = "179"
-let s:cterm.yellow      = "184"
-let s:cterm.green       = "150"
-let s:cterm.cyan        = "037"
-let s:cterm.blue        = "111"
-let s:cterm.purple      = "146"
-let s:cterm.brown       = "094"
+" Colors
+let s:gui.red      = "df5f87"
+let s:gui.orange   = "dfaf5f"
+let s:gui.yellow   = "dfdf00"
+let s:gui.green    = "afd787"
+let s:gui.cyan     = "00afaf"
+let s:gui.blue     = "87afff"
+let s:gui.purple   = "afafdf"
+let s:gui.brown    = "875f00"
+let s:cterm.red    = "168"
+let s:cterm.orange = "179"
+let s:cterm.yellow = "184"
+let s:cterm.green  = "150"
+let s:cterm.cyan   = "037"
+let s:cterm.blue   = "111"
+let s:cterm.purple = "146"
+let s:cterm.brown  = "094"
+
+" light background colors
+let s:gui.redL      = "df005f"
+let s:gui.orangeL   = "df5f00"
+let s:gui.yellowL   = "dfaf00"
+let s:gui.greenL    = "5faf5f"
+let s:gui.cyanL     = "00afaf"
+let s:gui.blueL     = "5f87ff"
+let s:gui.purpleL   = "afafdf"
+let s:gui.brownL    = "875f00"
+let s:cterm.redL    = "161"
+let s:cterm.orangeL = "166"
+let s:cterm.yellowL = "178"
+let s:cterm.greenL  = "071"
+let s:cterm.cyanL   = "037"
+let s:cterm.blueL   = "069"
+let s:cterm.purpleL = "146"
+let s:cterm.brownL  = "094"
 
 " Highlighting function
 fun <sid>hi(group, fg, bg, attr)
@@ -92,7 +109,7 @@ fun s:gui_color(color)
     return s:gui.black
   endif
 
-  return s:gui[a:color]
+  return s:gui[a:color . "L"]
 endfun
 
 " Return terminal color for light/dark variants
@@ -119,7 +136,7 @@ fun s:cterm_color(color)
     return s:cterm.black
   endif
 
-  return s:cterm[a:color]
+  return s:cterm[a:color . "L"]
 endfun
 
 " Vim editor colors
@@ -141,18 +158,17 @@ call <sid>hi("Debug",         "red", "", "")
 call <sid>hi("Directory",     "blue", "", "")
 call <sid>hi("Error",         "red", "", "bold")
 call <sid>hi("ErrorMsg",      "red", "", "bold")
-call <sid>hi("Exception",     "red", "", "")
+call <sid>hi("Exception",     "blue", "", "")
 call <sid>hi("FoldColumn",    "", "darkest", "")
 call <sid>hi("Folded",        "dark", "darkest", "")
 call <sid>hi("IncSearch",     "darkest", "orange", "none")
 call <sid>hi("Italic",        "", "", "none")
-call <sid>hi("Macro",         "red", "", "")
+call <sid>hi("Macro",         "yellow", "", "")
 call <sid>hi("MatchParen",    "darkest", "light",  "")
 call <sid>hi("ModeMsg",       "green", "", "")
 call <sid>hi("MoreMsg",       "green", "", "")
 call <sid>hi("Question",      "yellow", "", "")
 call <sid>hi("Search",        "", "",  "reverse")
-call <sid>hi("SpecialKey",    "dark", "", "")
 call <sid>hi("TooLong",       "red", "", "")
 call <sid>hi("Underlined",    "red", "", "")
 call <sid>hi("Visual",        "white", "dark", "")
@@ -172,32 +188,33 @@ call <sid>hi("TabLineSel",    "green", "darkest", "none")
 
 " Standard syntax highlighting
 call <sid>hi("Boolean",      "red", "", "")
-call <sid>hi("Character",    "red", "", "")
+call <sid>hi("Character",    "orange", "", "")
 call <sid>hi("Comment",      "dark", "", "")
 call <sid>hi("Conditional",  "blue", "", "")
 call <sid>hi("Constant",     "red", "", "")
 call <sid>hi("Define",       "yellow", "", "none")
+call <sid>hi("PreCondit",    "yellow", "", "none")
 call <sid>hi("Delimiter",    "cyan", "", "")
-call <sid>hi("Float",        "orange", "", "")
+call <sid>hi("Float",        "red", "", "")
 call <sid>hi("Function",     "green", "", "")
 call <sid>hi("Identifier",   "green", "", "none")
-call <sid>hi("Include",      "blue", "", "")
+call <sid>hi("Include",      "yellow", "", "")
 call <sid>hi("Keyword",      "blue", "", "")
-call <sid>hi("Label",        "yellow", "", "")
+call <sid>hi("Label",        "blue", "", "")
 call <sid>hi("Number",       "red", "", "")
 call <sid>hi("Operator",     "cyan", "", "none")
-call <sid>hi("PreProc",      "purple", "", "bold")
-call <sid>hi("Repeat",       "yellow", "", "")
-call <sid>hi("Special",      "purple", "", "")
-call <sid>hi("SpecialChar",  "purple", "", "")
+call <sid>hi("PreProc",      "yellow", "", "bold")
+call <sid>hi("Repeat",       "blue", "", "")
+call <sid>hi("Special",      "cyan", "", "")
+call <sid>hi("SpecialChar",  "cyan", "", "")
 call <sid>hi("Statement",    "blue", "", "")
-call <sid>hi("StorageClass", "yellow", "", "")
+call <sid>hi("StorageClass", "purple", "", "")
 call <sid>hi("String",       "orange", "", "")
 call <sid>hi("Structure",    "purple", "", "")
-call <sid>hi("Tag",          "yellow", "", "")
+call <sid>hi("Tag",          "cyan", "", "")
 call <sid>hi("Todo",         "yellow", "darkest", "")
-call <sid>hi("Type",         "green", "", "none")
-call <sid>hi("Typedef",      "yellow", "", "")
+call <sid>hi("Type",         "purple", "", "none")
+call <sid>hi("Typedef",      "purple", "", "")
 
 " Spelling highlighting
 call <sid>hi("SpellBad",     "", "darkest", "undercurl")
