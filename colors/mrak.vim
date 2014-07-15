@@ -32,7 +32,7 @@ let s:gui.yellow   = "dfdf00"
 let s:gui.green    = "afd787"
 let s:gui.cyan     = "00afaf"
 let s:gui.blue     = "87afff"
-let s:gui.purple   = "afafdf"
+let s:gui.purple   = "af87d7"
 let s:gui.brown    = "875f00"
 let s:cterm.red    = "168"
 let s:cterm.orange = "179"
@@ -40,7 +40,7 @@ let s:cterm.yellow = "184"
 let s:cterm.green  = "150"
 let s:cterm.cyan   = "037"
 let s:cterm.blue   = "111"
-let s:cterm.purple = "146"
+let s:cterm.purple = "140"
 let s:cterm.brown  = "094"
 
 " light background colors
@@ -50,7 +50,7 @@ let s:gui.yellowL   = "dfaf00"
 let s:gui.greenL    = "5faf5f"
 let s:gui.cyanL     = "00afaf"
 let s:gui.blueL     = "5f87ff"
-let s:gui.purpleL   = "afafdf"
+let s:gui.purpleL   = "af87d7"
 let s:gui.brownL    = "875f00"
 let s:cterm.redL    = "161"
 let s:cterm.orangeL = "166"
@@ -58,7 +58,7 @@ let s:cterm.yellowL = "178"
 let s:cterm.greenL  = "071"
 let s:cterm.cyanL   = "037"
 let s:cterm.blueL   = "069"
-let s:cterm.purpleL = "146"
+let s:cterm.purpleL = "140"
 let s:cterm.brownL  = "094"
 
 " Highlighting function
@@ -148,7 +148,7 @@ call <sid>hi("CursorLineNr",  "dark", "black", "")
 call <sid>hi("VertSplit",     "darkest", "darkest", "none")
 call <sid>hi("NonText",       "dark", "", "")
 call <sid>hi("StatusLine",    "darkest", "light", "bold")
-call <sid>hi("StatusLineNC",  "dark", "black", "none")
+call <sid>hi("StatusLineNC",  "dark", "black", "")
 call <sid>hi("StatusLineNor", "darkest", "light", "bold")
 call <sid>hi("StatusLineIns", "darkest", "green", "bold")
 call <sid>hi("StatusLineRep", "darkest", "purple", "bold")
@@ -289,6 +289,12 @@ call <sid>hi("GitGutterChangeDelete",  "purple", "darkest", "")
 call <sid>hi("SignifySignAdd",     "green", "darkest", "")
 call <sid>hi("SignifySignChange",  "blue", "darkest", "")
 call <sid>hi("SignifySignDelete",  "red", "darkest", "")
+
+" Shell highlighting
+call <sid>hi("shShellVariables",     "purple", "", "")
+
+" VimL hightlighting
+call <sid>hi("vimOption",     "cyan", "", "")
 
 " NERDTree highlighting
 call <sid>hi("NERDTreeDirSlash",  "blue", "", "")
