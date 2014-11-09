@@ -274,6 +274,8 @@ call <sid>hi("javaScriptNumber",  "orange", "", "")
 call <sid>hi("markdownCode",              "cyan", "", "")
 call <sid>hi("markdownCodeBlock",         "cyan", "", "")
 call <sid>hi("markdownHeadingDelimiter",  "purple", "", "bold")
+call <sid>hi("markdownItalic",  "green", "", "italic")
+call <sid>hi("markdownBold",  "green", "", "bold")
 
 " Git highlighting
 call <sid>hi("gitCommitOverflow",  "red", "", "")
