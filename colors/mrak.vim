@@ -235,23 +235,56 @@ call <sid>hi("DiffRemoved",  "red", "darkest", "")
 
 " Ruby highlighting
 call <sid>hi("rubyAttribute",               "blue", "", "")
-call <sid>hi("rubyConstant",                "yellow", "", "")
+call <sid>hi("rubyConstant",                "green", "", "")
 call <sid>hi("rubyInterpolation",           "green", "", "")
 call <sid>hi("rubyInterpolationDelimiter",  "purple", "", "")
 call <sid>hi("rubyRegexp",                  "cyan", "", "")
-call <sid>hi("rubySymbol",                  "green", "", "")
-call <sid>hi("rubyStringDelimiter",         "green", "", "")
+call <sid>hi("rubySymbol",                  "cyan", "", "")
+call <sid>hi("rubyStringDelimiter",         "orange", "", "")
+call <sid>hi("rubyClass",                   "red", "", "")
+call <sid>hi("rubyDefine",                  "red", "", "")
+call <sid>hi("rubyInclude",                 "red", "", "")
+call <sid>hi("rubySharpBang",               "dark", "", "")
+call <sid>hi("rubyControl",                 "blue", "", "")
+call <sid>hi("rubyExceptional",             "blue", "", "")
+call <sid>hi("rubyFunction",                "yellow", "", "")
 
 " PHP highlighting
+call <sid>hi("phpVarSelector",     "cyan", "", "")
 call <sid>hi("phpMemberSelector",  "lighter", "", "")
 call <sid>hi("phpComparison",      "lighter", "", "")
 call <sid>hi("phpParent",          "lighter", "", "")
+call <sid>hi("phpRegion",          "lighter", "", "")
+call <sid>hi("phpStringSingle",    "orange", "", "")
+call <sid>hi("phpType",            "yellow", "", "")
+call <sid>hi("phpDefine",          "blue", "", "")
+call <sid>hi("phpInclude",         "red", "", "")
 
 " HTML highlighting
-call <sid>hi("htmlBold",    "yellow", "", "")
-call <sid>hi("htmlItalic",  "purple", "", "")
-call <sid>hi("htmlEndTag",  "lighter", "", "")
-call <sid>hi("htmlTag",     "lighter", "", "")
+call <sid>hi("htmlBold",           "yellow", "", "")
+call <sid>hi("htmlItalic",         "purple", "", "")
+call <sid>hi("htmlEndTag",         "lighter", "", "")
+call <sid>hi("htmlTag",            "lighter", "", "")
+call <sid>hi("htmlTagName",        "green", "", "")
+call <sid>hi("htmlArg",            "cyan", "", "")
+call <sid>hi("htmlSpecialTagName", "blue", "", "")
+call <sid>hi("htmlTitle",          "", "", "bold")
+call <sid>hi("htmlH1",             "", "", "bold")
+call <sid>hi("htmlItalic",         "", "", "italic")
+call <sid>hi("htmlBold",           "", "", "bold")
+call <sid>hi("htmlLink",           "blue", "", "undercurl")
+
+" Perl
+call <sid>hi("perlMethod",            "", "", "")
+call <sid>hi("perlVarPlain",          "green", "", "")
+call <sid>hi("perlVarPlain2",         "green", "", "")
+call <sid>hi("perlStatementStorage",  "red", "", "")
+call <sid>hi("perlStatementInclude",  "red", "", "")
+call <sid>hi("perlStatementFileDesc", "cyan", "", "")
+call <sid>hi("perlStatementRegexp",   "cyan", "", "")
+call <sid>hi("perlMatchStartEnd",     "cyan", "", "")
+call <sid>hi("perlSpecialString",     "purple", "", "")
+
 
 " CSS highlighting
 call <sid>hi("cssBraces",      "lighter", "", "")
@@ -266,41 +299,54 @@ call <sid>hi("sassMixing",     "purple", "", "")
 call <sid>hi("sassMixinName",  "blue", "", "")
 
 " JavaScript highlighting
-call <sid>hi("javaScript",        "lighter", "", "")
-call <sid>hi("javaScriptBraces",  "lighter", "", "")
-call <sid>hi("javaScriptNumber",  "orange", "", "")
+call <sid>hi("javaScript",            "lighter", "", "")
+call <sid>hi("javaScriptBraces",      "lighter", "", "")
+call <sid>hi("javaScriptNumber",      "red", "", "")
+call <sid>hi("javaScriptFuncArg",     "cyan", "", "bold")
+call <sid>hi("javaScriptFuncKeyword", "yellow", "", "")
+call <sid>hi("javaScriptFuncDef",     "cyan", "", "")
+call <sid>hi("javaScriptParens",      "cyan", "", "")
+call <sid>hi("javaScriptBraces",      "", "", "")
+call <sid>hi("javaScriptEndColons",   "", "", "")
+call <sid>hi("javaScriptBoolean",     "purple", "", "")
+
+" Python
+call <sid>hi("pythonInclude",   "red", "", "")
+call <sid>hi("pythonStatement", "green", "", "")
+call <sid>hi("pythonFunction",  "cyan", "", "")
+call <sid>hi("pythonBuiltin",   "blue", "", "")
 
 " Markdown highlighting
-call <sid>hi("markdownCode",              "cyan", "", "")
-call <sid>hi("markdownCodeBlock",         "cyan", "", "")
-call <sid>hi("markdownHeadingDelimiter",  "purple", "", "bold")
-call <sid>hi("markdownItalic",  "green", "", "italic")
-call <sid>hi("markdownBold",  "green", "", "bold")
+call <sid>hi("markdownCode",             "cyan", "", "")
+call <sid>hi("markdownCodeBlock",        "cyan", "", "")
+call <sid>hi("markdownHeadingDelimiter", "purple", "", "bold")
+call <sid>hi("markdownItalic",           "green", "", "italic")
+call <sid>hi("markdownBold",             "green", "", "bold")
 
 " Git highlighting
-call <sid>hi("gitCommitOverflow",  "red", "", "")
-call <sid>hi("gitCommitSummary",   "green", "", "")
+call <sid>hi("gitCommitOverflow", "red", "", "")
+call <sid>hi("gitCommitSummary",  "green", "", "")
 
 " GitGutter highlighting
-call <sid>hi("GitGutterAdd",     "green", "darkest", "")
-call <sid>hi("GitGutterChange",  "blue", "darkest", "")
-call <sid>hi("GitGutterDelete",  "red", "darkest", "")
-call <sid>hi("GitGutterChangeDelete",  "purple", "darkest", "")
+call <sid>hi("GitGutterAdd",          "green", "darkest", "")
+call <sid>hi("GitGutterChange",       "blue", "darkest", "")
+call <sid>hi("GitGutterDelete",       "red", "darkest", "")
+call <sid>hi("GitGutterChangeDelete", "purple", "darkest", "")
 
 " Signify highlighting
-call <sid>hi("SignifySignAdd",     "green", "darkest", "")
-call <sid>hi("SignifySignChange",  "blue", "darkest", "")
-call <sid>hi("SignifySignDelete",  "red", "darkest", "")
+call <sid>hi("SignifySignAdd",    "green", "darkest", "")
+call <sid>hi("SignifySignChange", "blue", "darkest", "")
+call <sid>hi("SignifySignDelete", "red", "darkest", "")
 
 " Shell highlighting
-call <sid>hi("shShellVariables",     "purple", "", "")
+call <sid>hi("shShellVariables", "purple", "", "")
 
 " VimL hightlighting
-call <sid>hi("vimOption",     "cyan", "", "")
+call <sid>hi("vimOption", "cyan", "", "")
 
 " NERDTree highlighting
-call <sid>hi("NERDTreeDirSlash",  "blue", "", "")
-call <sid>hi("NERDTreeExecFile",  "lighter", "", "")
+call <sid>hi("NERDTreeDirSlash", "blue", "", "")
+call <sid>hi("NERDTreeExecFile", "lighter", "", "")
 
 " CtrlP
 call <sid>hi("CtrlPMatch", "red", "", "underline")
@@ -309,7 +355,7 @@ call <sid>hi("CtrlPMode2", "dark", "light", "bold")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
-call <sid>hi("Normal",        "lightest", "darkest", "")
+call <sid>hi("Normal", "lightest", "darkest", "")
 let &background = s:background
 unlet s:background
 
