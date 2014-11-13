@@ -340,9 +340,20 @@ call <sid>hi("SignifySignDelete", "red", "darkest", "")
 
 " Shell highlighting
 call <sid>hi("shShellVariables", "purple", "", "")
+call <sid>hi("shQuote", "orange", "", "")
+call <sid>hi("shOption", "", "", "bold")
+call <sid>hi("shNumber", "orange", "", "")
+call <sid>hi("shCmdSubRegion", "red", "", "bold")
+
+" Fish
+call <sid>hi("fishCommandSub", "cyan", "", "")
+call <sid>hi("fishConditional", "blue", "", "")
 
 " VimL hightlighting
 call <sid>hi("vimOption", "cyan", "", "")
+call <sid>hi("vimVar", "green", "", "")
+call <sid>hi("vimEnvVar", "green", "", "")
+call <sid>hi("vimFuncName", "yellow", "", "")
 
 " NERDTree highlighting
 call <sid>hi("NERDTreeDirSlash", "blue", "", "")
