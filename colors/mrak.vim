@@ -349,6 +349,13 @@ call <sid>hi("shCmdSubRegion", "red", "", "bold")
 call <sid>hi("fishCommandSub", "cyan", "", "")
 call <sid>hi("fishConditional", "blue", "", "")
 
+" Haskell
+call <sid>hi("hsImport",    "red", "", "")
+call <sid>hi("hsPragma",    "purple", "", "")
+call <sid>hi("hsDelimiter", "cyan", "", "")
+call <sid>hi("VarId",       "", "", "")
+call <sid>hi("ConId",       "green", "", "")
+
 " VimL hightlighting
 call <sid>hi("vimOption", "cyan", "", "")
 call <sid>hi("vimVar", "green", "", "")
