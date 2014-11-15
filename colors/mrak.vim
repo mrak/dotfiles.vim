@@ -353,6 +353,8 @@ call <sid>hi("fishConditional", "blue", "", "")
 call <sid>hi("hsImport",    "red", "", "")
 call <sid>hi("hsPragma",    "purple", "", "")
 call <sid>hi("hsDelimiter", "cyan", "", "")
+call <sid>hi("hsModule",    "blue", "", "")
+call <sid>hi("hsStructure", "blue", "", "")
 call <sid>hi("VarId",       "", "", "")
 call <sid>hi("ConId",       "green", "", "")
 
