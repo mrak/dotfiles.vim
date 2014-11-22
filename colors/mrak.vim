@@ -373,6 +373,10 @@ call <sid>hi("CtrlPMatch", "red", "", "underline")
 call <sid>hi("CtrlPMode1", "blue", "darkest", "bold")
 call <sid>hi("CtrlPMode2", "dark", "light", "bold")
 
+" Syntastic
+call <sid>hi("SyntasticWarningSign", "yellow", "black", "")
+call <sid>hi("SyntasticErrorSign", "red", "black", "")
+
 " Since 'Normal' resets the &background, do last
 let s:background = &background
 call <sid>hi("Normal", "lightest", "darkest", "")
