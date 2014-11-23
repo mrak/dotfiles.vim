@@ -11,24 +11,24 @@ let s:gui.black      = "1c1c1c"
 let s:gui.darkest    = "262626"
 let s:gui.darker     = "303030"
 let s:gui.dark       = "444444"
-let s:gui.light      = "c6c6c6"
-let s:gui.lighter    = "e4e4e4"
-let s:gui.lightest   = "eeeeee"
+let s:gui.light      = "a8a8a8"
+let s:gui.lighter    = "dadada"
+let s:gui.lightest   = "e4e4e4"
 let s:gui.white      = "f5f5f5"
 
 let s:cterm.black    = "234"
 let s:cterm.darkest  = "235"
 let s:cterm.darker   = "236"
 let s:cterm.dark     = "238"
-let s:cterm.light    = "251"
-let s:cterm.lighter  = "254"
-let s:cterm.lightest = "255"
+let s:cterm.light    = "248"
+let s:cterm.lighter  = "253"
+let s:cterm.lightest = "254"
 let s:cterm.white    = "015"
 
 " Colors
 let s:gui.red      = "df5f87"
 let s:gui.orange   = "dfaf5f"
-let s:gui.yellow   = "dfdf00"
+let s:gui.yellow   = "d7d75f"
 let s:gui.green    = "afd787"
 let s:gui.cyan     = "00afaf"
 let s:gui.blue     = "87afff"
@@ -36,7 +36,7 @@ let s:gui.purple   = "ff87ff"
 let s:gui.brown    = "875f00"
 let s:cterm.red    = "168"
 let s:cterm.orange = "179"
-let s:cterm.yellow = "184"
+let s:cterm.yellow = "185"
 let s:cterm.green  = "150"
 let s:cterm.cyan   = "037"
 let s:cterm.blue   = "111"
@@ -225,13 +225,14 @@ call <sid>hi("SpellRare",    "", "darkest", "undercurl")
 " Additional diff highlighting
 call <sid>hi("DiffAdd",      "darkest", "green", "bold")
 call <sid>hi("DiffChange",   "darkest", "purple", "bold")
-call <sid>hi("DiffDelete",   "darkest", "darkest", "")
+call <sid>hi("DiffDelete",   "darkest", "", "")
 call <sid>hi("DiffText",     "darkest", "purple", "bold")
-call <sid>hi("DiffAdded",    "green", "darkest", "")
-call <sid>hi("DiffFile",     "red", "darkest", "")
-call <sid>hi("DiffNewFile",  "green", "darkest", "")
-call <sid>hi("DiffLine",     "blue", "darkest", "")
-call <sid>hi("DiffRemoved",  "red", "darkest", "")
+call <sid>hi("DiffAdded",    "green", "", "")
+call <sid>hi("DiffFile",     "cyan", "", "")
+call <sid>hi("DiffNewFile",  "cyan", "", "bold")
+call <sid>hi("DiffLine",     "blue", "", "")
+call <sid>hi("DiffRemoved",  "red", "", "")
+call <sid>hi("DiffSubname",  "light", "", "")
 
 " Ruby highlighting
 call <sid>hi("rubyAttribute",               "blue", "", "")
@@ -324,8 +325,13 @@ call <sid>hi("markdownItalic",           "green", "", "italic")
 call <sid>hi("markdownBold",             "green", "", "bold")
 
 " Git highlighting
-call <sid>hi("gitCommitOverflow", "red", "", "")
-call <sid>hi("gitCommitSummary",  "green", "", "")
+call <sid>hi("gitcommitOverflow", "red", "", "")
+call <sid>hi("gitcommitSummary",  "", "", "")
+call <sid>hi("gitcommitFirstLine",  "", "", "")
+call <sid>hi("gitcommitHeader",   "blue", "", "")
+call <sid>hi("gitcommitBranch",   "orange", "", "")
+call <sid>hi("gitcommitSelectedFile",   "cyan", "", "")
+call <sid>hi("gitcommitSelectedType",   "cyan", "", "")
 
 " GitGutter highlighting
 call <sid>hi("GitGutterAdd",          "green", "darkest", "")
@@ -363,6 +369,15 @@ call <sid>hi("vimOption", "cyan", "", "")
 call <sid>hi("vimVar", "green", "", "")
 call <sid>hi("vimEnvVar", "green", "", "")
 call <sid>hi("vimFuncName", "yellow", "", "")
+call <sid>hi("vimAutoEvent", "green", "", "")
+call <sid>hi("vimMapMod", "purple", "", "")
+call <sid>hi("vimMapModKey", "purple", "", "")
+call <sid>hi("vimNotation", "cyan", "", "")
+call <sid>hi("helpNotVi", "red","","")
+call <sid>hi("helpSectionDelim", "red","","")
+call <sid>hi("helpSpecial", "purple","","")
+call <sid>hi("helpOption", "cyan","","")
+call <sid>hi("helpHeader", "blue","","")
 
 " NERDTree highlighting
 call <sid>hi("NERDTreeDirSlash", "blue", "", "")
