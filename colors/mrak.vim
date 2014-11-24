@@ -326,12 +326,12 @@ call <sid>hi("markdownBold",             "green", "", "bold")
 
 " Git highlighting
 call <sid>hi("gitcommitOverflow", "red", "", "")
-call <sid>hi("gitcommitSummary",  "", "", "")
+call <sid>hi("gitcommitSummary",  "lightest", "", "")
 call <sid>hi("gitcommitFirstLine",  "", "", "")
 call <sid>hi("gitcommitHeader",   "blue", "", "")
-call <sid>hi("gitcommitBranch",   "orange", "", "")
-call <sid>hi("gitcommitSelectedFile",   "cyan", "", "")
-call <sid>hi("gitcommitSelectedType",   "cyan", "", "")
+call <sid>hi("gitcommitBranch",   "cyan", "", "")
+call <sid>hi("gitcommitSelectedFile",   "orange", "", "")
+call <sid>hi("gitcommitSelectedType",   "yellow", "", "")
 
 " GitGutter highlighting
 call <sid>hi("GitGutterAdd",          "green", "darkest", "")
