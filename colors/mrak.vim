@@ -301,13 +301,12 @@ call <sid>hi("sassMixinName",  "blue", "", "")
 
 " JavaScript highlighting
 call <sid>hi("javaScript",            "lighter", "", "")
-call <sid>hi("javaScriptBraces",      "lighter", "", "")
 call <sid>hi("javaScriptNumber",      "red", "", "")
 call <sid>hi("javaScriptFuncArg",     "cyan", "", "bold")
 call <sid>hi("javaScriptFuncKeyword", "yellow", "", "")
 call <sid>hi("javaScriptFuncDef",     "cyan", "", "")
-call <sid>hi("javaScriptParens",      "cyan", "", "")
-call <sid>hi("javaScriptBraces",      "", "", "")
+call <sid>hi("javaScriptParens",      "", "", "bold")
+call <sid>hi("javaScriptBraces",      "cyan", "", "")
 call <sid>hi("javaScriptEndColons",   "", "", "")
 call <sid>hi("javaScriptBoolean",     "purple", "", "")
 
