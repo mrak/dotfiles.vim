@@ -406,6 +406,7 @@ call <sid>hi("netrwTreeBar",  "dark", "", "")
 
 " Rust
 call <sid>hi("rustMacro", "cyan", "", "")
+call <sid>hi("rustModPath", "purple", "", "")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
