@@ -404,6 +404,9 @@ call <sid>hi("SyntasticErrorSign", "red", "black", "")
 call <sid>hi("netrwMarkFile", "black", "green", "")
 call <sid>hi("netrwTreeBar",  "dark", "", "")
 
+" Rust
+call <sid>hi("rustMacro", "cyan", "", "")
+
 " Since 'Normal' resets the &background, do last
 let s:background = &background
 call <sid>hi("Normal", "lightest", "darkest", "")
