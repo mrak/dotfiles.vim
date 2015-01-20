@@ -405,8 +405,17 @@ call <sid>hi("netrwMarkFile", "black", "green", "")
 call <sid>hi("netrwTreeBar",  "dark", "", "")
 
 " Rust
-call <sid>hi("rustMacro", "cyan", "", "")
-call <sid>hi("rustModPath", "purple", "", "")
+call <sid>hi("rustMacro", "yellow", "", "")
+call <sid>hi("rustModPath", "brown", "", "")
+call <sid>hi("rustFuncName", "orange", "", "")
+call <sid>hi("rustFuncCall", "orange", "", "")
+call <sid>hi("rustType", "cyan", "", "")
+call <sid>hi("rustKeyword", "red", "", "")
+call <sid>hi("rustConditional", "red", "", "")
+call <sid>hi("rustString", "green", "", "")
+call <sid>hi("rustDecNumber", "blue", "", "")
+call <sid>hi("rustEnumVariant", "blue", "", "")
+call <sid>hi("rustBoolean", "purple", "", "")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
