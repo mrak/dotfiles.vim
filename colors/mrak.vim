@@ -142,7 +142,7 @@ endfun
 " Vim editor colors
 call <sid>hi("Cursor",        "black", "white", "")
 call <sid>hi("CursorColumn",  "dark", "black", "none")
-call <sid>hi("CursorLine",    "", "darkest", "none")
+call <sid>hi("CursorLine",    "", "darker", "")
 call <sid>hi("LineNr",        "dark", "black", "")
 call <sid>hi("CursorLineNr",  "dark", "black", "")
 call <sid>hi("VertSplit",     "black", "black", "none")
@@ -415,13 +415,17 @@ call <sid>hi("rustKeyword",        "red", "", "")
 call <sid>hi("rustConditional",    "red", "", "")
 call <sid>hi("rustString",         "green", "", "")
 call <sid>hi("rustDecNumber",      "blue", "", "")
+call <sid>hi("rustFloat",          "blue", "", "")
 call <sid>hi("rustEnumVariant",    "cyan", "", "")
 call <sid>hi("rustBoolean",        "cyan", "", "")
-call <sid>hi("rustIdentifier",     "purple", "", "")
-call <sid>hi("rustOperator",       "brown", "", "")
+call <sid>hi("rustIdentifier",     "light", "", "")
+call <sid>hi("rustOperator",       "lightest", "", "")
 call <sid>hi("rustSigil",          "purple", "", "")
 call <sid>hi("rustStorage",        "purple", "", "")
 call <sid>hi("rustCommentLineDoc", "light", "", "")
+
+" Taskwarrior
+call <sid>hi("Taskwarrior_field", "", "", "bold")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
