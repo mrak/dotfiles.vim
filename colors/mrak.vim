@@ -368,6 +368,10 @@ call <sid>hi("hsModule",    "blue", "", "")
 call <sid>hi("hsStructure", "blue", "", "")
 call <sid>hi("VarId",       "", "", "")
 call <sid>hi("ConId",       "green", "", "")
+" haskell-vim
+call <sid>hi("haskellImportKeywords", "red", "", "")
+call <sid>hi("haskellType", "green", "", "")
+call <sid>hi("haskellIdentifier", "light", "", "")
 
 " VimL hightlighting
 call <sid>hi("vimOption", "cyan", "", "")
