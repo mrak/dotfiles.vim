@@ -1,3 +1,16 @@
+function! mrak#Zoom(amount)
+    let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+    let s:min = 6
+    let s:max = 20
+    let font = substitute(&guifont, s:pattern, '\1', '')
+    let prev = substitute(&guifont, s:pattern, '\2', '')
+    let next = prev + a:amount
+    if (next >= s:min) && (next <= s:max)
+        let result = font . next
+        let &guifont = result
+    endif
+endfunction
+
 function! mrak#StatusLineColor(mode)
     if a:mode == 'i'
         highlight! link StatusLine StatusLineIns
