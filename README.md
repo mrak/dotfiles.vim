@@ -24,10 +24,11 @@ contents.
 
 ## Using XDG_CONFIG_HOME for your `vimrc`
 
-I like to use the [XDG Base Directory]() specification to keep things in
-`~/.config`, `~/.local`, `~/.cache`, etc instead of polluting my home directory
-with dot-directories galore. To accomplish this, some of my vim settings (in
-`plugin/settings.vim`) point to these locations.
+I like to use the
+[XDG Base Directory](http://standards.freedesktop.org/basedir-spec/latest/)
+specification to keep things in `~/.config`, `~/.local`, `~/.cache`, etc instead
+of polluting my home directory with dot-directories galore. To accomplish this,
+some of my vim settings (in `plugin/settings.vim`) point to these locations.
 
 To get vim to recognize `~/.config/vim/vimrc` you will need to add the following
 to your shell rc file (assuming POSIX `sh` below):
