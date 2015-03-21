@@ -14,6 +14,8 @@ set mousemodel=extend
 set keymodel=startsel,stopsel
 set nrformats-=octal
 set selection=inclusive
+set spelllang=en_us
+let &spellfile=expand('<sfile>:h:h') . '/spell/en.utf-8.add'
 " Files/Directories ============================================================
 set exrc
 set autoread
