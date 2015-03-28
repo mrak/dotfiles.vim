@@ -28,7 +28,7 @@ set viminfo+=n$XDG_DATA_HOME/vim/viminfo
 set runtimepath+=$XDG_DATA_HOME/vim
 " Font/Colors ==================================================================
 set background=dark
-set t_Co=256
+"set t_Co=256
 set t_ut=
 "set colorcolumn=81
 colorscheme mrak
@@ -71,7 +71,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=tab:>-,trail:•,eol:↲,extends:~,precedes:~
+set listchars=tab:>-,trail:•,eol:¬,extends:~,precedes:~
 let &showbreak='  ↳  '
 set hlsearch
 set nostartofline
