@@ -8,6 +8,7 @@ set backspace=indent,eol,start
 set ignorecase
 set infercase
 set smartcase
+set noautochdir
 set fileformats=unix,dos,mac
 set selectmode=mouse,key
 set mousemodel=extend
