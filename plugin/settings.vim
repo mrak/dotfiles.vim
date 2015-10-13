@@ -66,7 +66,7 @@ set wildignore+=*.bak,*.lock     " misc
 set wildmode=list:longest
 " Heads-up Display =============================================================
 set hidden
-set mouse=a
+set mouse=
 set ttymouse=sgr
 set incsearch
 set laststatus=2
