@@ -75,9 +75,10 @@ set list
 set listchars=tab:>-,trail:•,eol:¬,extends:~,precedes:~
 let &showbreak='  ↳  '
 set hlsearch
+set nowrapscan
 set nostartofline
 set number
-set numberwidth=5
+set numberwidth=3
 set report=0
 set scrolloff=5
 set sidescrolloff=10
