@@ -93,11 +93,11 @@ let loaded_matchparen = 1
 
 set statusline=
 set statusline+=\ %{mrak#Mode()} " vim mode
-set statusline+=\ [%n]\ %f  " buffer# and filename
+set statusline+=\ %f  " buffer# and filename
 set statusline+=\ %=        " end left. start right
 set statusline+=\ %l:%c     " line:column
 set statusline+=\ %P        " percentage through
-set statusline+=\ %y%r%m[%{&ff}]    " flags
+set statusline+=\ %m%y%r[%{&ff}]    " flags
 " Indent/Folding ===============================================================
 set autoindent
 set smartindent
