@@ -17,7 +17,9 @@ set undofile
 set backupdir=$XDG_CACHE_HOME/vim,/tmp,~/
 set directory=$XDG_CACHE_HOME/vim,/tmp,~/
 set undodir=$XDG_CACHE_HOME/vim,/tmp,~/
-set viminfo+=n$XDG_DATA_HOME/vim/viminfo
+if !has('nvim')
+    set viminfo+=n$XDG_DATA_HOME/vim/viminfo
+endif
 set runtimepath+=$XDG_DATA_HOME/vim
 " Font/Colors ==================================================================
 set background=dark
