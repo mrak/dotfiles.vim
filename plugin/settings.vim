@@ -45,7 +45,7 @@ if $TERM_PROGRAM == 'iTerm.app'
     let &t_EI .= "\<Esc>[2 q"
 endif
 " Completion menus =============================================================
-set cpoptions=aABceFsmqn
+set cpoptions=aABceFsmq
 set completeopt=menu,longest
 set wildmenu
 set wildignore=*.jpg,*.gif,*.png " pictures
@@ -65,7 +65,6 @@ set laststatus=2
 set lazyredraw
 set list
 set listchars=tab:>-,trail:•,eol:¬,extends:~,precedes:~
-let &showbreak='  ↳  '
 set hlsearch
 set nowrapscan
 set nostartofline
