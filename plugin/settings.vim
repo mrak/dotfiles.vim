@@ -100,7 +100,7 @@ set formatoptions=tcqjr
 set nowrap
 set whichwrap=b,s,<,>,~,[,]
 set shiftround
-set shiftwidth=0 " default to tabstop
+set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 "
