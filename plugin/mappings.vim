@@ -2,8 +2,8 @@
 nnoremap Y y$
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-nnoremap <silent> L <ESC>$
-nnoremap <silent> H <ESC>^
+"nnoremap <silent> L <ESC>$
+"nnoremap <silent> H <ESC>^
 " Pasting over content does not replace register contents
 xnoremap <expr> p 'pgv"'.v:register.'y'
 "nnoremap <space> :
