@@ -9,8 +9,6 @@ set infercase
 set smartcase
 set noautochdir
 set fileformats=unix,dos,mac
-set spelllang=en_us
-let &spellfile=expand('<sfile>:h:h') . '/spell/en.utf-8.add'
 " Files/Directories ============================================================
 set autoread
 set undofile
