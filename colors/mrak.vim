@@ -42,7 +42,7 @@ let s:gui.yellow   = "ffd700"
 let s:gui.green    = "87d75f"
 let s:gui.cyan     = "00afaf"
 let s:gui.blue     = "87afff"
-let s:gui.purple   = "af5fff"
+let s:gui.purple   = "af87ff"
 let s:gui.brown    = "875f00"
 if &t_Co == 256
     let s:cterm.red    = "168"
@@ -51,7 +51,7 @@ if &t_Co == 256
     let s:cterm.green  = "113"
     let s:cterm.cyan   = "037"
     let s:cterm.blue   = "111"
-    let s:cterm.purple = "135"
+    let s:cterm.purple = "141"
     let s:cterm.brown  = "094"
 else
     let s:cterm.red    = "001"
@@ -333,12 +333,15 @@ call <sid>hi("sassMixinName",  "blue", "", "")
 
 " JavaScript highlighting
 call <sid>hi("javaScript",             "lighter", "", "")
+call <sid>hi("jsFuncCall",             "green", "", "")
+call <sid>hi("jsOperator",             "blue", "", "")
+call <sid>hi("jsPrototype",            "cyan", "", "")
 call <sid>hi("javaScriptNumber",       "red", "", "")
 call <sid>hi("jsNumber",               "red", "", "")
 call <sid>hi("javaScriptFuncArg",      "cyan", "", "bold")
-call <sid>hi("jsFuncArgs",             "cyan", "", "bold")
+call <sid>hi("jsFuncArgs",             "", "", "")
 call <sid>hi("javaScriptFunction",     "yellow", "", "")
-call <sid>hi("jsFunction",             "yellow", "", "")
+call <sid>hi("jsFunction",             "blue", "", "")
 call <sid>hi("javaScriptFuncKeyword",  "yellow", "", "")
 call <sid>hi("javaScriptFuncDef",      "cyan", "", "")
 call <sid>hi("javaScriptParens",       "", "", "bold")
@@ -348,18 +351,18 @@ call <sid>hi("jsBraces",               "cyan", "", "")
 call <sid>hi("jsFuncBraces",           "cyan", "", "")
 call <sid>hi("javaScriptEndColons",    "", "", "")
 call <sid>hi("javaScriptBoolean",      "red", "", "")
-call <sid>hi("jsBooleanFalse",         "red", "", "")
-call <sid>hi("jsBooleanTrue",          "red", "", "")
+call <sid>hi("jsBooleanFalse",         "yellow", "", "")
+call <sid>hi("jsBooleanTrue",          "yellow", "", "")
 call <sid>hi("javaScriptException",    "blue", "", "")
 call <sid>hi("javaScriptGlobal",       "purple", "", "")
-call <sid>hi("jsGlobalObjects",        "red", "", "")
-call <sid>hi("jsThis",                 "red", "", "")
+call <sid>hi("jsGlobalObjects",        "cyan", "", "")
+call <sid>hi("jsThis",                 "cyan", "", "")
 call <sid>hi("jsBuiltins",             "purple", "", "")
 call <sid>hi("javaScriptIdentifier",   "green", "", "")
-call <sid>hi("jsStorageClass",         "green", "", "")
-call <sid>hi("javaScriptNull",         "purple", "", "")
+call <sid>hi("jsStorageClass",         "blue", "", "")
 call <sid>hi("jsNull",                 "purple", "", "")
-call <sid>hi("javaScriptRegexpString", "green", "", "")
+call <sid>hi("jsUndefined",            "purple", "", "")
+call <sid>hi("javaScriptRegexpString", "orange", "", "")
 
 " Python
 call <sid>hi("pythonInclude",   "red", "", "")
