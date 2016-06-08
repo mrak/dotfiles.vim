@@ -51,7 +51,6 @@ set wildignore+=*.dll,*.exe      " windows
 set wildignore+=*.pyc,*.class    " bytecode
 set wildignore+=*.o,*.obj,*.hi   " intermediary files
 set wildignore+=*.bak,*.lock     " misc
-set wildignore+=.stack-work      " haskell
 set wildmode=list:longest
 set nrformats=hex
 " Heads-up Display =============================================================

@@ -444,9 +444,16 @@ call <sid>hi("NERDTreeDirSlash", "blue", "", "")
 call <sid>hi("NERDTreeExecFile", "lighter", "", "")
 
 " CtrlP
-call <sid>hi("CtrlPMatch", "red", "", "underline")
-call <sid>hi("CtrlPMode1", "blue", "darkest", "bold")
-call <sid>hi("CtrlPMode2", "dark", "light", "bold")
+call <sid>hi("CtrlPMatch",        "cyan", "", "underline")
+call <sid>hi("CtrlPMode1",        "darker", "light", "bold")
+call <sid>hi("CtrlPMode2",        "darker", "light", "bold")
+call <sid>hi("CtrlPBufferNr",     "light", "", "")
+call <sid>hi("CtrlPBufferInd",    "green", "", "")
+call <sid>hi("CtrlPBufferHid",    "light", "", "")
+call <sid>hi("CtrlPBufferHidMod", "red", "", "")
+call <sid>hi("CtrlPBufferVis",    "light", "", "bold")
+call <sid>hi("CtrlPBufferVisMod", "red", "", "bold")
+call <sid>hi("CtrlPBufferPath",   "light", "", "")
 
 " Syntastic
 call <sid>hi("SyntasticWarningSign", "yellow", "black", "")
