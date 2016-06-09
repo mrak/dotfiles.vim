@@ -6,106 +6,136 @@ let g:colors_name = "mrak"
 let s:gui = {}
 let s:cterm = {}
 
-" Greyscale
-let s:gui.black      = "1c1c1c"
-let s:gui.darkest    = "262626"
-let s:gui.darker     = "303030"
-let s:gui.dark       = "444444"
-let s:gui.light      = "a8a8a8"
-let s:gui.lighter    = "dadada"
-let s:gui.lightest   = "e4e4e4"
-let s:gui.white      = "f5f5f5"
-if &t_Co == 256
-    let s:cterm.black    = "234"
-    let s:cterm.darkest  = "235"
-    let s:cterm.darker   = "236"
-    let s:cterm.dark     = "238"
-    let s:cterm.light    = "248"
-    let s:cterm.lighter  = "253"
-    let s:cterm.lightest = "254"
-    let s:cterm.white    = "015"
+if &background == "dark"
+    " dark greyscale
+    let s:gui.bottom  = "1c1c1c"
+    let s:gui.lowest  = "262626"
+    let s:gui.lower   = "303030"
+    let s:gui.low     = "444444"
+    let s:gui.high    = "a8a8a8"
+    let s:gui.higher  = "dadada"
+    let s:gui.highest = "e4e4e4"
+    let s:gui.top     = "f5f5f5"
+    if &t_Co == 256
+        let s:cterm.bottom  = "234"
+        let s:cterm.lowest  = "235"
+        let s:cterm.lower   = "236"
+        let s:cterm.low     = "238"
+        let s:cterm.high    = "248"
+        let s:cterm.higher  = "253"
+        let s:cterm.highest = "254"
+        let s:cterm.top     = "015"
+    else
+        let s:cterm.bottom  = "000"
+        let s:cterm.lowest  = "000"
+        let s:cterm.lower   = "008"
+        let s:cterm.low     = "008"
+        let s:cterm.high    = "007"
+        let s:cterm.higher  = "007"
+        let s:cterm.highest = "015"
+        let s:cterm.top     = "015"
+    endif
+    " dark colors
+    let s:gui.red      = "df5f87"
+    let s:gui.orange   = "d78700"
+    let s:gui.yellow   = "ffd700"
+    let s:gui.green    = "87af5f"
+    let s:gui.cyan     = "00afaf"
+    let s:gui.blue     = "87afff"
+    let s:gui.purple   = "af87ff"
+    let s:gui.brown    = "875f00"
+    if &t_Co == 256
+        let s:cterm.red    = "168"
+        let s:cterm.orange = "172"
+        let s:cterm.yellow = "220"
+        let s:cterm.green  = "107"
+        let s:cterm.cyan   = "037"
+        let s:cterm.blue   = "111"
+        let s:cterm.purple = "141"
+        let s:cterm.brown  = "094"
+    else
+        let s:cterm.red    = "001"
+        let s:cterm.orange = "001"
+        let s:cterm.yellow = "003"
+        let s:cterm.green  = "002"
+        let s:cterm.cyan   = "006"
+        let s:cterm.blue   = "004"
+        let s:cterm.purple = "005"
+        let s:cterm.brown  = "003"
+    endif
 else
-    let s:cterm.black    = "000"
-    let s:cterm.darkest  = "000"
-    let s:cterm.darker   = "008"
-    let s:cterm.dark     = "008"
-    let s:cterm.light    = "007"
-    let s:cterm.lighter  = "007"
-    let s:cterm.lightest = "015"
-    let s:cterm.white    = "015"
+    " light greyscale
+    let s:gui.bottom  = "f5f5f5"
+    let s:gui.lowest  = "e4e4e4"
+    let s:gui.lower   = "dadada"
+    let s:gui.low     = "a8a8a8"
+    let s:gui.high    = "444444"
+    let s:gui.higher  = "303030"
+    let s:gui.highest = "262626"
+    let s:gui.top     = "1c1c1c"
+    if &t_Co == 256
+        let s:cterm.bottom  = "015"
+        let s:cterm.lowest  = "254"
+        let s:cterm.lower   = "253"
+        let s:cterm.low     = "248"
+        let s:cterm.high    = "238"
+        let s:cterm.higher  = "236"
+        let s:cterm.highest = "235"
+        let s:cterm.top     = "234"
+    else
+        let s:cterm.bottom  = "015"
+        let s:cterm.lowest  = "015"
+        let s:cterm.lower   = "007"
+        let s:cterm.low     = "007"
+        let s:cterm.high    = "008"
+        let s:cterm.higher  = "008"
+        let s:cterm.highest = "000"
+        let s:cterm.top     = "000"
+    endif
+    " light colors
+    let s:gui.red      = "df005f"
+    let s:gui.orange   = "df5f00"
+    let s:gui.yellow   = "dfaf00"
+    let s:gui.green    = "5faf5f"
+    let s:gui.cyan     = "00afaf"
+    let s:gui.blue     = "5f87ff"
+    let s:gui.purple   = "af5fff"
+    let s:gui.brown    = "875f00"
+    if &t_Co == 256
+        let s:cterm.red    = "161"
+        let s:cterm.orange = "166"
+        let s:cterm.yellow = "178"
+        let s:cterm.green  = "071"
+        let s:cterm.cyan   = "037"
+        let s:cterm.blue   = "069"
+        let s:cterm.purple = "135"
+        let s:cterm.brown  = "094"
+    else
+        let s:cterm.red    = "001"
+        let s:cterm.orange = "001"
+        let s:cterm.yellow = "003"
+        let s:cterm.green  = "002"
+        let s:cterm.cyan   = "006"
+        let s:cterm.blue   = "004"
+        let s:cterm.purple = "005"
+        let s:cterm.brown  = "003"
+    endif
 endif
 
-" Colors
-let s:gui.red      = "df5f87"
-let s:gui.orange   = "d78700"
-let s:gui.yellow   = "ffd700"
-let s:gui.green    = "87d75f"
-let s:gui.cyan     = "00afaf"
-let s:gui.blue     = "87afff"
-let s:gui.purple   = "af87ff"
-let s:gui.brown    = "875f00"
-if &t_Co == 256
-    let s:cterm.red    = "168"
-    let s:cterm.orange = "172"
-    let s:cterm.yellow = "220"
-    let s:cterm.green  = "113"
-    let s:cterm.cyan   = "037"
-    let s:cterm.blue   = "111"
-    let s:cterm.purple = "141"
-    let s:cterm.brown  = "094"
-else
-    let s:cterm.red    = "001"
-    let s:cterm.orange = "001"
-    let s:cterm.yellow = "003"
-    let s:cterm.green  = "002"
-    let s:cterm.cyan   = "006"
-    let s:cterm.blue   = "004"
-    let s:cterm.purple = "005"
-    let s:cterm.brown  = "003"
-endif
 
-" light background colors
-let s:gui.redL      = "df005f"
-let s:gui.orangeL   = "df5f00"
-let s:gui.yellowL   = "dfaf00"
-let s:gui.greenL    = "5faf5f"
-let s:gui.cyanL     = "00afaf"
-let s:gui.blueL     = "5f87ff"
-let s:gui.purpleL   = "af5fff"
-let s:gui.brownL    = "875f00"
-if &t_Co == 256
-    let s:cterm.redL    = "161"
-    let s:cterm.orangeL = "166"
-    let s:cterm.yellowL = "178"
-    let s:cterm.greenL  = "071"
-    let s:cterm.cyanL   = "037"
-    let s:cterm.blueL   = "069"
-    let s:cterm.purpleL = "135"
-    let s:cterm.brownL  = "094"
-else
-    let s:cterm.redL    = "001"
-    let s:cterm.orangeL = "001"
-    let s:cterm.yellowL = "003"
-    let s:cterm.greenL  = "002"
-    let s:cterm.cyanL   = "006"
-    let s:cterm.blueL   = "004"
-    let s:cterm.purpleL = "005"
-    let s:cterm.brownL  = "003"
-endif
-
-" Highlighting function
+" Highhighing function
 fun <sid>hi(group, fg, bg, attr)
   let l:string = "hi " . a:group
   if a:fg == ""
     let l:string .= " guifg=NONE ctermfg=NONE"
   else
-    let l:string .= " guifg=#" . s:gui_color(a:fg) . " ctermfg=" . s:cterm_color(a:fg)
+    let l:string .= " guifg=#" . s:gui[a:fg] . " ctermfg=" . s:cterm[a:fg]
   endif
 
   if a:bg == ""
     let l:string .= " guibg=NONE ctermbg=NONE"
   else
-    let l:string .= " guibg=#" . s:gui_color(a:bg) . " ctermbg=" . s:cterm_color(a:bg)
+    let l:string .= " guibg=#" . s:gui[a:bg] . " ctermbg=" . s:cterm[a:bg]
   endif
 
   if a:attr == ""
@@ -117,111 +147,57 @@ fun <sid>hi(group, fg, bg, attr)
   exec l:string
 endfun
 
-" Return GUI color for light/dark variants
-fun s:gui_color(color)
-  if &background == "dark"
-    return s:gui[a:color]
-  endif
-
-  if a:color == "black"
-    return s:gui.white
-  elseif a:color == "darkest"
-    return s:gui.lightest
-  elseif a:color == "darker"
-    return s:gui.lighter
-  elseif a:color == "dark"
-    return s:gui.light
-  elseif a:color == "light"
-    return s:gui.dark
-  elseif a:color == "lighter"
-    return s:gui.darker
-  elseif a:color == "lightest"
-    return s:gui.darkest
-  elseif a:color == "white"
-    return s:gui.black
-  endif
-
-  return s:gui[a:color . "L"]
-endfun
-
-" Return terminal color for light/dark variants
-fun s:cterm_color(color)
-  if &background == "dark"
-    return s:cterm[a:color]
-  endif
-
-  if a:color == "black"
-    return s:cterm.white
-  elseif a:color == "darkest"
-    return s:cterm.lightest
-  elseif a:color == "darker"
-    return s:cterm.lighter
-  elseif a:color == "dark"
-    return s:cterm.light
-  elseif a:color == "light"
-    return s:cterm.dark
-  elseif a:color == "lighter"
-    return s:cterm.darker
-  elseif a:color == "lightest"
-    return s:cterm.darkest
-  elseif a:color == "white"
-    return s:cterm.black
-  endif
-
-  return s:cterm[a:color . "L"]
-endfun
-
 " Vim editor colors
-call <sid>hi("Cursor",        "black", "white", "")
-call <sid>hi("CursorColumn",  "dark", "black", "none")
-call <sid>hi("CursorLine",    "", "darker", "")
-call <sid>hi("LineNr",        "dark", "black", "")
-call <sid>hi("CursorLineNr",  "dark", "black", "")
-call <sid>hi("VertSplit",     "black", "black", "none")
-call <sid>hi("NonText",       "dark", "", "")
-call <sid>hi("StatusLine",    "darkest", "light", "bold")
-call <sid>hi("StatusLineNor", "darkest", "light", "bold")
-call <sid>hi("StatusLineIns", "darkest", "green", "bold")
-call <sid>hi("StatusLineRep", "darkest", "purple", "bold")
-call <sid>hi("StatusLineVRep","darkest", "purple", "bold")
-call <sid>hi("StatusLineNC",  "dark", "black", "")
+call <sid>hi("Cursor",        "bottom", "top", "")
+call <sid>hi("CursorColumn",  "low", "bottom", "none")
+call <sid>hi("CursorLine",    "", "lower", "")
+call <sid>hi("LineNr",        "low", "bottom", "")
+call <sid>hi("CursorLineNr",  "low", "bottom", "")
+call <sid>hi("VertSplit",     "bottom", "bottom", "none")
+call <sid>hi("NonText",       "low", "", "")
+call <sid>hi("StatusLine",    "lowest", "high", "bold")
+call <sid>hi("StatusLineNor", "lowest", "high", "bold")
+call <sid>hi("StatusLineIns", "lowest", "green", "bold")
+call <sid>hi("StatusLineRep", "lowest", "purple", "bold")
+call <sid>hi("StatusLineVRep","lowest", "purple", "bold")
+call <sid>hi("StatusLineNC",  "low", "bottom", "")
 call <sid>hi("Bold",          "", "", "bold")
 call <sid>hi("Debug",         "red", "", "")
 call <sid>hi("Directory",     "blue", "", "")
 call <sid>hi("Error",         "red", "", "bold")
 call <sid>hi("ErrorMsg",      "red", "", "bold")
 call <sid>hi("Exception",     "blue", "", "")
-call <sid>hi("FoldColumn",    "", "darkest", "")
-call <sid>hi("Folded",        "dark", "black", "")
-call <sid>hi("IncSearch",     "darkest", "orange", "none")
+call <sid>hi("FoldColumn",    "", "lowest", "")
+call <sid>hi("Folded",        "low", "bottom", "")
+call <sid>hi("IncSearch",     "lowest", "orange", "none")
 call <sid>hi("Italic",        "", "", "none")
 call <sid>hi("Macro",         "yellow", "", "")
-call <sid>hi("MatchParen",    "darkest", "light",  "")
+call <sid>hi("MatchParen",    "lowest", "high",  "")
 call <sid>hi("ModeMsg",       "green", "", "")
 call <sid>hi("MoreMsg",       "green", "", "")
 call <sid>hi("Question",      "yellow", "", "")
 call <sid>hi("Search",        "", "",  "reverse")
 call <sid>hi("TooLong",       "red", "", "")
 call <sid>hi("Underlined",    "red", "", "")
-call <sid>hi("Visual",        "white", "dark", "")
+call <sid>hi("Visual",        "top", "low", "")
 call <sid>hi("VisualNOS",     "red", "", "reverse")
 call <sid>hi("WarningMsg",    "red", "", "")
 call <sid>hi("WildMenu",      "red", "", "")
 call <sid>hi("Title",         "blue", "", "none")
-call <sid>hi("Conceal",       "blue", "darkest", "")
-call <sid>hi("SignColumn",    "dark", "darkest", "")
-call <sid>hi("SpecialKey",    "dark", "", "")
-call <sid>hi("ColorColumn",   "dark", "darkest", "none")
-call <sid>hi("PMenu",         "light", "dark", "none")
-call <sid>hi("PMenuSel",      "darkest", "green", "")
-call <sid>hi("TabLine",       "dark", "darkest", "none")
-call <sid>hi("TabLineFill",   "dark", "darkest", "none")
-call <sid>hi("TabLineSel",    "green", "darkest", "none")
+call <sid>hi("Conceal",       "blue", "lowest", "")
+call <sid>hi("SignColumn",    "low", "lowest", "")
+call <sid>hi("SpecialKey",    "low", "", "")
+call <sid>hi("ColorColumn",   "low", "lowest", "none")
+call <sid>hi("PMenu",         "high", "low", "none")
+call <sid>hi("PMenuSel",      "lowest", "green", "")
+call <sid>hi("TabLine",       "low", "lowest", "none")
+call <sid>hi("TabLineFill",   "low", "lowest", "none")
+call <sid>hi("TabLineSel",    "green", "lowest", "none")
 
-" Standard syntax highlighting
+" Standard syntax highhighing
 call <sid>hi("Boolean",      "red", "", "")
 call <sid>hi("Character",    "orange", "", "")
-call <sid>hi("Comment",      "dark", "", "")
+call <sid>hi("Comment",      "low", "", "")
 call <sid>hi("Conditional",  "blue", "", "")
 call <sid>hi("Constant",     "red", "", "")
 call <sid>hi("Define",       "yellow", "", "none")
@@ -244,29 +220,29 @@ call <sid>hi("StorageClass", "purple", "", "")
 call <sid>hi("String",       "orange", "", "")
 call <sid>hi("Structure",    "purple", "", "")
 call <sid>hi("Tag",          "cyan", "", "")
-call <sid>hi("Todo",         "yellow", "darkest", "")
+call <sid>hi("Todo",         "yellow", "lowest", "")
 call <sid>hi("Type",         "purple", "", "none")
 call <sid>hi("Typedef",      "purple", "", "")
 
-" Spelling highlighting
-call <sid>hi("SpellBad",     "", "darkest", "undercurl")
-call <sid>hi("SpellLocal",   "", "darkest", "undercurl")
-call <sid>hi("SpellCap",     "", "darkest", "undercurl")
-call <sid>hi("SpellRare",    "", "darkest", "undercurl")
+" Spelling highhighing
+call <sid>hi("SpellBad",     "", "lowest", "undercurl")
+call <sid>hi("SpellLocal",   "", "lowest", "undercurl")
+call <sid>hi("SpellCap",     "", "lowest", "undercurl")
+call <sid>hi("SpellRare",    "", "lowest", "undercurl")
 
-" Additional diff highlighting
-call <sid>hi("DiffAdd",      "darkest", "green", "bold")
-call <sid>hi("DiffChange",   "darkest", "purple", "bold")
-call <sid>hi("DiffDelete",   "darkest", "", "")
-call <sid>hi("DiffText",     "darkest", "purple", "bold")
+" Additional diff highhighing
+call <sid>hi("DiffAdd",      "lowest", "green", "bold")
+call <sid>hi("DiffChange",   "lowest", "purple", "bold")
+call <sid>hi("DiffDelete",   "lowest", "", "")
+call <sid>hi("DiffText",     "lowest", "purple", "bold")
 call <sid>hi("DiffAdded",    "green", "", "")
 call <sid>hi("DiffFile",     "cyan", "", "")
 call <sid>hi("DiffNewFile",  "cyan", "", "bold")
 call <sid>hi("DiffLine",     "blue", "", "")
 call <sid>hi("DiffRemoved",  "red", "", "")
-call <sid>hi("DiffSubname",  "light", "", "")
+call <sid>hi("DiffSubname",  "high", "", "")
 
-" Ruby highlighting
+" Ruby highhighing
 call <sid>hi("rubyAttribute",               "blue", "", "")
 call <sid>hi("rubyConstant",                "green", "", "")
 call <sid>hi("rubyInterpolation",           "green", "", "")
@@ -277,27 +253,27 @@ call <sid>hi("rubyStringDelimiter",         "orange", "", "")
 call <sid>hi("rubyClass",                   "red", "", "")
 call <sid>hi("rubyDefine",                  "red", "", "")
 call <sid>hi("rubyInclude",                 "red", "", "")
-call <sid>hi("rubySharpBang",               "dark", "", "")
+call <sid>hi("rubySharpBang",               "low", "", "")
 call <sid>hi("rubyControl",                 "blue", "", "")
 call <sid>hi("rubyExceptional",             "blue", "", "")
 call <sid>hi("rubyFunction",                "yellow", "", "")
 
-" PHP highlighting
+" PHP highhighing
 call <sid>hi("phpVarSelector",     "cyan", "", "")
-call <sid>hi("phpMemberSelector",  "lighter", "", "")
-call <sid>hi("phpComparison",      "lighter", "", "")
-call <sid>hi("phpParent",          "lighter", "", "")
-call <sid>hi("phpRegion",          "lighter", "", "")
+call <sid>hi("phpMemberSelector",  "higher", "", "")
+call <sid>hi("phpComparison",      "higher", "", "")
+call <sid>hi("phpParent",          "higher", "", "")
+call <sid>hi("phpRegion",          "higher", "", "")
 call <sid>hi("phpStringSingle",    "orange", "", "")
 call <sid>hi("phpType",            "yellow", "", "")
 call <sid>hi("phpDefine",          "blue", "", "")
 call <sid>hi("phpInclude",         "red", "", "")
 
-" HTML highlighting
+" HTML highhighing
 call <sid>hi("htmlBold",           "yellow", "", "")
 call <sid>hi("htmlItalic",         "purple", "", "")
-call <sid>hi("htmlEndTag",         "lighter", "", "")
-call <sid>hi("htmlTag",            "lighter", "", "")
+call <sid>hi("htmlEndTag",         "higher", "", "")
+call <sid>hi("htmlTag",            "higher", "", "")
 call <sid>hi("htmlTagName",        "green", "", "")
 call <sid>hi("htmlArg",            "cyan", "", "")
 call <sid>hi("htmlSpecialTagName", "blue", "", "")
@@ -319,20 +295,20 @@ call <sid>hi("perlMatchStartEnd",     "cyan", "", "")
 call <sid>hi("perlSpecialString",     "purple", "", "")
 
 
-" CSS highlighting
-call <sid>hi("cssBraces",      "lighter", "", "")
+" CSS highhighing
+call <sid>hi("cssBraces",      "higher", "", "")
 call <sid>hi("cssClassName",   "purple", "", "")
 call <sid>hi("cssColor",       "cyan", "", "")
 
-" SASS highlighting
+" SASS highhighing
 call <sid>hi("sassidChar",     "red", "", "")
 call <sid>hi("sassClassChar",  "orange", "", "")
 call <sid>hi("sassInclude",    "purple", "", "")
 call <sid>hi("sassMixing",     "purple", "", "")
 call <sid>hi("sassMixinName",  "blue", "", "")
 
-" JavaScript highlighting
-call <sid>hi("javaScript",             "lighter", "", "")
+" JavaScript highhighing
+call <sid>hi("javaScript",             "higher", "", "")
 call <sid>hi("jsFuncCall",             "green", "", "")
 call <sid>hi("jsOperator",             "blue", "", "")
 call <sid>hi("jsPrototype",            "cyan", "", "")
@@ -370,34 +346,34 @@ call <sid>hi("pythonStatement", "green", "", "")
 call <sid>hi("pythonFunction",  "cyan", "", "")
 call <sid>hi("pythonBuiltin",   "blue", "", "")
 
-" Markdown highlighting
+" Markdown highhighing
 call <sid>hi("markdownCode",             "cyan", "", "")
 call <sid>hi("markdownCodeBlock",        "cyan", "", "")
 call <sid>hi("markdownHeadingDelimiter", "purple", "", "bold")
 call <sid>hi("markdownItalic",           "green", "", "italic")
 call <sid>hi("markdownBold",             "green", "", "bold")
 
-" Git highlighting
+" Git highhighing
 call <sid>hi("gitcommitOverflow", "red", "", "")
-call <sid>hi("gitcommitSummary",  "lightest", "", "")
+call <sid>hi("gitcommitSummary",  "highest", "", "")
 call <sid>hi("gitcommitFirstLine",  "", "", "")
 call <sid>hi("gitcommitHeader",   "blue", "", "")
 call <sid>hi("gitcommitBranch",   "cyan", "", "")
 call <sid>hi("gitcommitSelectedFile",   "orange", "", "")
 call <sid>hi("gitcommitSelectedType",   "yellow", "", "")
 
-" GitGutter highlighting
-call <sid>hi("GitGutterAdd",          "green", "darkest", "")
-call <sid>hi("GitGutterChange",       "blue", "darkest", "")
-call <sid>hi("GitGutterDelete",       "red", "darkest", "")
-call <sid>hi("GitGutterChangeDelete", "purple", "darkest", "")
+" GitGutter highhighing
+call <sid>hi("GitGutterAdd",          "green", "lowest", "")
+call <sid>hi("GitGutterChange",       "blue", "lowest", "")
+call <sid>hi("GitGutterDelete",       "red", "lowest", "")
+call <sid>hi("GitGutterChangeDelete", "purple", "lowest", "")
 
-" Signify highlighting
-call <sid>hi("SignifySignAdd",    "green", "darkest", "")
-call <sid>hi("SignifySignChange", "blue", "darkest", "")
-call <sid>hi("SignifySignDelete", "red", "darkest", "")
+" Signify highhighing
+call <sid>hi("SignifySignAdd",    "green", "lowest", "")
+call <sid>hi("SignifySignChange", "blue", "lowest", "")
+call <sid>hi("SignifySignDelete", "red", "lowest", "")
 
-" Shell highlighting
+" Shell highhighing
 call <sid>hi("shShellVariables", "purple", "", "")
 call <sid>hi("shQuote", "orange", "", "")
 call <sid>hi("shOption", "", "", "bold")
@@ -419,9 +395,9 @@ call <sid>hi("ConId",       "green", "", "")
 " haskell-vim
 call <sid>hi("haskellImportKeywords", "red", "", "")
 call <sid>hi("haskellType", "green", "", "")
-call <sid>hi("haskellIdentifier", "light", "", "")
+call <sid>hi("haskellIdentifier", "high", "", "")
 
-" VimL hightlighting
+" VimL highthighing
 call <sid>hi("vimOption", "cyan", "", "")
 call <sid>hi("vimVar", "green", "", "")
 call <sid>hi("vimEnvVar", "green", "", "")
@@ -439,34 +415,34 @@ call <sid>hi("helpSpecial", "purple","","")
 call <sid>hi("helpOption", "cyan","","")
 call <sid>hi("helpHeader", "blue","","")
 
-" NERDTree highlighting
+" NERDTree highhighing
 call <sid>hi("NERDTreeDirSlash", "blue", "", "")
-call <sid>hi("NERDTreeExecFile", "lighter", "", "")
+call <sid>hi("NERDTreeExecFile", "higher", "", "")
 
 " CtrlP
 call <sid>hi("CtrlPMatch",        "cyan", "", "underline")
-call <sid>hi("CtrlPMode1",        "darker", "light", "bold")
-call <sid>hi("CtrlPMode2",        "darker", "light", "bold")
-call <sid>hi("CtrlPBufferNr",     "light", "", "")
+call <sid>hi("CtrlPMode1",        "lower", "high", "bold")
+call <sid>hi("CtrlPMode2",        "lower", "high", "bold")
+call <sid>hi("CtrlPBufferNr",     "high", "", "")
 call <sid>hi("CtrlPBufferInd",    "green", "", "")
-call <sid>hi("CtrlPBufferHid",    "light", "", "")
+call <sid>hi("CtrlPBufferHid",    "high", "", "")
 call <sid>hi("CtrlPBufferHidMod", "red", "", "")
-call <sid>hi("CtrlPBufferVis",    "light", "", "bold")
+call <sid>hi("CtrlPBufferVis",    "high", "", "bold")
 call <sid>hi("CtrlPBufferVisMod", "red", "", "bold")
-call <sid>hi("CtrlPBufferPath",   "light", "", "")
+call <sid>hi("CtrlPBufferPath",   "high", "", "")
 
 " Syntastic
-call <sid>hi("SyntasticWarningSign", "yellow", "black", "")
-call <sid>hi("SyntasticErrorSign", "red", "black", "")
+call <sid>hi("SyntasticWarningSign", "yellow", "bottom", "")
+call <sid>hi("SyntasticErrorSign", "red", "bottom", "")
 
 " netrw
-call <sid>hi("netrwMarkFile", "black", "green", "")
-call <sid>hi("netrwTreeBar",  "dark", "", "")
+call <sid>hi("netrwMarkFile", "bottom", "green", "")
+call <sid>hi("netrwTreeBar",  "low", "", "")
 
 " Rust
 call <sid>hi("rustMacro",          "yellow", "", "")
-call <sid>hi("rustModPath",        "light", "", "")
-call <sid>hi("rustModPathSep",     "light", "", "")
+call <sid>hi("rustModPath",        "high", "", "")
+call <sid>hi("rustModPathSep",     "high", "", "")
 call <sid>hi("rustFuncName",       "orange", "", "")
 call <sid>hi("rustFuncCall",       "orange", "", "")
 call <sid>hi("rustType",           "brown", "", "")
@@ -477,25 +453,23 @@ call <sid>hi("rustDecNumber",      "blue", "", "")
 call <sid>hi("rustFloat",          "blue", "", "")
 call <sid>hi("rustEnumVariant",    "cyan", "", "")
 call <sid>hi("rustBoolean",        "cyan", "", "")
-call <sid>hi("rustIdentifier",     "light", "", "")
-call <sid>hi("rustOperator",       "lightest", "", "")
+call <sid>hi("rustIdentifier",     "high", "", "")
+call <sid>hi("rustOperator",       "highest", "", "")
 call <sid>hi("rustSigil",          "purple", "", "")
 call <sid>hi("rustStorage",        "purple", "", "")
-call <sid>hi("rustCommentLineDoc", "light", "", "")
+call <sid>hi("rustCommentLineDoc", "high", "", "")
 
 " Taskwarrior
 call <sid>hi("Taskwarrior_field", "", "", "bold")
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
-call <sid>hi("Normal", "lightest", "darkest", "")
+call <sid>hi("Normal", "highest", "lowest", "")
 let &background = s:background
 unlet s:background
 
 " Remove functions
 delf <sid>hi
-delf <sid>gui_color
-delf <sid>cterm_color
 
 " Remove color variables
 unlet s:gui
