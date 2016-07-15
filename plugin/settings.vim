@@ -95,7 +95,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=tab:>-,trail:•,eol:¬,extends:~,precedes:~
+set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
 set hlsearch
 set nowrapscan
 set nostartofline
