@@ -55,24 +55,11 @@ set background=dark
 set t_ut=
 colorscheme mrak
 
-if &term =~ '^xterm'
-    " solid bar (Insert)
-    let &t_SI .= "\<Esc>[6 q"
-    " solid block (Normal)
-    let &t_EI .= "\<Esc>[2 q"
-endif
-"if &term =~ '^rxvt'
-    " blink underscore (Insert)
-    "let &t_SI .= "\<Esc>[3 q"
-    " blink block (Normal)
-    "let &t_EI .= "\<Esc>[1 q"
-"endif
-if $TERM_PROGRAM == 'iTerm.app'
-    " solid bar (Insert)
-    let &t_SI .= "\<Esc>[6 q"
-    " solid block (Normal)
-    let &t_EI .= "\<Esc>[2 q"
-endif
+" cursor shape
+" solid bar (Insert)
+let &t_SI = "\<Esc>[6 q"
+" solid block (Normal)
+let &t_EI = "\<Esc>[2 q"
 " Completion menus =============================================================
 set cpoptions=aABceFsmq
 set completeopt=menu,longest
