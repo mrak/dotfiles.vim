@@ -43,8 +43,9 @@ endif
 
 let &backupdir=s:backup_dir
 set backupdir+=/tmp,~/
-let &directory=s:swap_dir
-set directory+=/tmp,~/
+let &directory=s:swap_dir.'//'
+set directory+=/tmp//
+set directory+=~//
 let &undodir=s:undo_dir
 set undodir+=/tmp,~/
 if !has('nvim')
