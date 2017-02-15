@@ -12,45 +12,6 @@ set fileformats=unix,dos,mac
 " Files/Directories ============================================================
 set autoread
 set undofile
-
-if empty($XDG_CACHE_HOME)
-    let s:cache_dir=fnameescape($HOME.'/.vim/cache/')
-else
-    let s:cache_dir=fnameescape($XDG_CACHE_HOME.'/vim/')
-endif
-if empty($XDG_DATA_HOME)
-    let s:rtp_dir=fnameescape($HOME.'/.vim/')
-else
-    let s:rtp_dir=fnameescape($XDG_DATA_HOME.'/vim/')
-endif
-
-let s:backup_dir=s:cache_dir.'backup'
-let s:swap_dir=s:cache_dir.'swap'
-let s:undo_dir=s:cache_dir.'undo'
-
-if !isdirectory(s:backup_dir)
-    call mkdir(s:backup_dir, 'p', '0700')
-endif
-if !isdirectory(s:swap_dir)
-    call mkdir(s:swap_dir, 'p', '0700')
-endif
-if !isdirectory(s:undo_dir)
-    call mkdir(s:undo_dir, 'p', '0700')
-endif
-if !isdirectory(s:rtp_dir)
-    call mkdir(s:rtp_dir, 'p')
-endif
-
-let &backupdir=s:backup_dir
-set backupdir+=/tmp,~/
-let &directory=s:swap_dir.'//'
-set directory+=/tmp//
-set directory+=~//
-let &undodir=s:undo_dir
-set undodir+=/tmp,~/
-if !has('nvim')
-    let &viminfo.=',n'.s:rtp_dir.'viminfo'
-endif
 " Font/Colors ==================================================================
 set background=dark
 set t_ut=
