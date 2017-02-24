@@ -1,7 +1,7 @@
 set shell=/bin/sh
 " super slow startup for ruby files with jruby unless this is set
 "let g:ruby_path='/usr/bin'
-" Basics =======================================================================
+" Basics =====================================================================
 syntax on
 set backspace=indent,eol,start
 set ignorecase
@@ -9,10 +9,10 @@ set infercase
 set smartcase
 set noautochdir
 set fileformats=unix,dos,mac
-" Files/Directories ============================================================
+" Files/Directories ==========================================================
 set autoread
 set undofile
-" Font/Colors ==================================================================
+" Font/Colors ================================================================
 set background=dark
 set t_ut=
 colorscheme mrak
@@ -22,7 +22,7 @@ colorscheme mrak
 let &t_SI = "\<Esc>[6 q"
 " solid block (Normal)
 let &t_EI = "\<Esc>[2 q"
-" Completion menus =============================================================
+" Completion menus ===========================================================
 set cpoptions=aABceFsmq
 set completeopt=menu,longest
 set wildmenu
@@ -33,7 +33,7 @@ set wildignore+=*.o,*.obj,*.hi   " intermediary files
 set wildignore+=*.bak,*.lock     " misc
 set wildmode=list:longest
 set nrformats=hex
-" Heads-up Display =============================================================
+" Heads-up Display ===========================================================
 if has('nvim')
     set mouse=
 else
@@ -69,7 +69,7 @@ set statusline+=\ %=        " end left. start right
 set statusline+=\ %l:%c     " line:column
 set statusline+=\ %P        " percentage through
 set statusline+=\ %y%r[%{&ff}]%m    " flags
-" Indent/Folding ===============================================================
+" Indent/Folding =============================================================
 set autoindent
 set smartindent
 set foldmethod=indent
@@ -83,5 +83,14 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 "
-" Other ========================================================================
+" Other ======================================================================
 set ttimeoutlen=0
+
+" Netrw ======================================================================
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_winsize = -25
+let g:netrw_wiw = -25
+let g:netrw_banner = 0
+" Markdown ===================================================================
+let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'sh', 'yaml']

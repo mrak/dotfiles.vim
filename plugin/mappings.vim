@@ -33,5 +33,5 @@ nnoremap <silent> <leader>= <ESC>mmgg=G'm
 com! Sudo %!sudo tee > /dev/null %
 com! Cd cd %:p:h
 
-nnoremap <silent> <leader>e <ESC>:Vexplore $PWD<CR>
+nnoremap <silent> <leader>e <ESC>:Lexplore $PWD<CR>
 nnoremap <leader>si :call mrak#SynStack()<CR>
