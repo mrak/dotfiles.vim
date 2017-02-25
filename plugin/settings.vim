@@ -94,3 +94,8 @@ let g:netrw_wiw = -25
 let g:netrw_banner = 0
 " Markdown ===================================================================
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'sh', 'yaml']
+" Ripgrep ====================================================================
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
