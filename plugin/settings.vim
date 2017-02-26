@@ -16,12 +16,8 @@ set undofile
 set background=dark
 set t_ut=
 colorscheme mrak
-
 " cursor shape
-" solid bar (Insert)
-let &t_SI = "\<Esc>[6 q"
-" solid block (Normal)
-let &t_EI = "\<Esc>[2 q"
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " Completion menus ===========================================================
 set cpoptions=aABceFsmq
 set completeopt=menu,longest
