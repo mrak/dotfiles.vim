@@ -63,7 +63,7 @@ endfunction
 
 function! mrak#DeleteBufferIfEmpty()
     if bufname('%') == ''
-        bwipe
+        bwipeout ''
         " This will trigger filetype detection, mainly for syntax highlighting
         doautocmd BufRead
     endif
