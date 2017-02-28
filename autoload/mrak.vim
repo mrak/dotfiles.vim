@@ -62,7 +62,7 @@ function! mrak#LocationToggle()
 endfunction
 
 function! mrak#DeleteBufferIfEmpty()
-    if bufname('%') == ''
+    if bufexists('')
         bwipeout ''
         " This will trigger filetype detection, mainly for syntax highlighting
         doautocmd BufRead
