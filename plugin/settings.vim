@@ -30,9 +30,7 @@ set wildignore+=*.bak,*.lock     " misc
 set wildmode=list:longest
 set nrformats=hex
 " Heads-up Display ===========================================================
-if has('nvim')
-    set mouse=
-else
+if !has('nvim')
     set ttymouse=sgr
 endif
 set hidden
