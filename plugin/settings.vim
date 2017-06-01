@@ -44,6 +44,7 @@ set nowrapscan
 set nostartofline
 set number
 set numberwidth=3
+set signcolumn=yes
 set report=0
 set scrolloff=5
 set sidescrolloff=10
