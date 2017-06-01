@@ -188,7 +188,8 @@ call <sid>hi("WarningMsg",    "red", "", "")
 call <sid>hi("WildMenu",      "red", "", "")
 call <sid>hi("Title",         "blue", "", "none")
 call <sid>hi("Conceal",       "blue", "lowest", "")
-call <sid>hi("SignColumn",    "low", "lowest", "")
+"call <sid>hi("SignColumn",    "low", "lowest", "")
+hi! link SignColumn LineNr
 call <sid>hi("SpecialKey",    "low", "", "")
 call <sid>hi("ColorColumn",   "low", "lowest", "none")
 call <sid>hi("PMenu",         "high", "low", "none")
@@ -417,6 +418,7 @@ call <sid>hi("helpSectionDelim", "red","","")
 call <sid>hi("helpSpecial", "purple","","")
 call <sid>hi("helpOption", "cyan","","")
 call <sid>hi("helpHeader", "blue","","")
+call <sid>hi("helpExample", "high","","")
 
 " NERDTree highhighing
 call <sid>hi("NERDTreeDirSlash", "blue", "", "")
