@@ -156,7 +156,7 @@ call <sid>hi("CursorLineNr",  "low", "bottom", "")
 call <sid>hi("VertSplit",     "bottom", "bottom", "none")
 call <sid>hi("NonText",       "low", "", "")
 if has('nvim')
-call <sid>hi("EndOfBuffer",   "lowest", "", "")
+call <sid>hi("EndOfBuffer",   "bottom", "bottom", "")
 endif
 call <sid>hi("StatusLine",    "lowest", "high", "bold")
 call <sid>hi("StatusLineNor", "lowest", "high", "bold")
