@@ -8,3 +8,6 @@ autocmd BufWritePre * :call mrak#TrimTrailingWhitespace()
 autocmd BufAdd * :call mrak#DeleteBufferIfEmpty()
 " remove [No Name] buffer when using --remote-silent
 autocmd QuickFixCmdPost *grep* call mrak#QuickfixToggle()
+" nvim terminal
+autocmd TermOpen * setlocal statusline=\ %{mrak#Mode()}\ %{b:term_title}
+autocmd TermOpen * set signcolumn=no

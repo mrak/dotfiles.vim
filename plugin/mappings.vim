@@ -35,3 +35,5 @@ com! Cd cd %:p:h
 
 nnoremap <silent> <leader>e <ESC>:Lexplore<CR>
 nnoremap <leader>si :call mrak#SynStack()<CR>
+
+tnoremap <silent> <C-g> <C-\><C-n>

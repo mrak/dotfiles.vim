@@ -26,12 +26,18 @@ function! mrak#Mode()
     if     mode ==# "n"  | return "NOR"
     elseif mode ==# "i"  | return "INS"
     elseif mode ==# "R"  | return "REP"
+    elseif mode ==# "Rv" | return "REP"
     elseif mode ==# "v"  | return "VIS"
     elseif mode ==# "V"  | return "-V-"
     elseif mode ==# "" | return "|V|"
     elseif mode ==# "s"  | return "SEL"
     elseif mode ==# "S"  | return "-S-"
     elseif mode ==# "" | return "|S|"
+    elseif mode ==# "c"  | return "CMD"
+    elseif mode ==# "cv" | return "CMD"
+    elseif mode ==# "ce" | return "CMD"
+    elseif mode ==# "t"  | return ">_ "
+    else return "   "
     endif
 endfunction
 " Single fn to toggle the quickfix buffer
