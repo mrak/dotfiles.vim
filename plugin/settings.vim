@@ -18,6 +18,8 @@ set t_ut=
 colorscheme mrak
 " cursor shape
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" vertical separator
+set fillchars+=vert:\ ,fold:-
 " Completion menus ===========================================================
 set cpoptions=aABceFsmq
 set completeopt=menu,longest
