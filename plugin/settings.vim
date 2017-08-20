@@ -65,7 +65,7 @@ set statusline+=\ %f      " filename and [modified]
 set statusline+=\ %=        " end left. start right
 set statusline+=\ %l:%c     " line:column
 set statusline+=\ %P        " percentage through
-set statusline+=\ %y%r[%{&ff}]%m    " flags
+set statusline+=\ %y%r%m    " flags
 " Indent/Folding =============================================================
 set autoindent
 set smartindent
