@@ -2,11 +2,8 @@
 nnoremap Y y$
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-"nnoremap <silent> L <ESC>$
-"nnoremap <silent> H <ESC>^
 " Pasting over content does not replace register contents
 xnoremap <expr> p 'pgv"'.v:register.'y'
-"nnoremap <space> :
 "
 nnoremap <silent> <F2> <ESC>:call mrak#QuickfixToggle()<CR>
 inoremap <silent> <F2> <ESC>:call mrak#QuickfixToggle()<CR>
@@ -21,11 +18,10 @@ inoremap <C-UP> <ESC>:m .-2<CR>==gi
 vnoremap <C-DOWN> :m '>+1<CR>gv=gv
 vnoremap <C-UP> :m '<-2<CR>gv=gv
 "command window mode opens and closes with ::
-nnoremap :: <ESC>q:
-autocmd CmdwinEnter [:>] nnoremap <silent> :: <ESC>:q<CR>
-autocmd CmdwinLeave [:>] nnoremap <silent> :: <ESC>q:
+"nnoremap :: <ESC>q:
+"autocmd CmdwinEnter [:>] nnoremap <silent> :: <ESC>:q<CR>
+"autocmd CmdwinLeave [:>] nnoremap <silent> :: <ESC>q:
 
-"let mapleader = ","
 nnoremap <silent> <leader>\ <ESC>:set hlsearch!<CR>
 "formatting code
 nnoremap <silent> <leader>= <ESC>mmgg=G'm
