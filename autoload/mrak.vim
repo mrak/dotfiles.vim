@@ -24,7 +24,7 @@ endfunction
 function! mrak#Mode()
     let l:mode = mode()
     if     mode ==# "n"  | return "NOR"
-    elseif mode ==# "i"  | return "INS"
+    elseif mode ==# "i"  | return "_↓_"
     elseif mode ==# "R"  | return "REP"
     elseif mode ==# "Rv" | return "REP"
     elseif mode ==# "v"  | return "VIS"
