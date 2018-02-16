@@ -440,6 +440,11 @@ call <sid>hi("CtrlPBufferPath",   "high", "", "")
 call <sid>hi("SyntasticWarningSign", "yellow", "bottom", "")
 call <sid>hi("SyntasticErrorSign", "red", "bottom", "")
 
+" ALE
+call <sid>hi("ALEInfoSign", "blue", "bottom", "")
+call <sid>hi("ALEWarningSign", "yellow", "bottom", "")
+call <sid>hi("ALEErrorSign", "red", "bottom", "")
+
 " netrw
 call <sid>hi("netrwMarkFile", "bottom", "green", "")
 call <sid>hi("netrwTreeBar",  "low", "", "")
