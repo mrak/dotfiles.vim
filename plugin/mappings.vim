@@ -22,6 +22,7 @@ vnoremap <C-UP> :m '<-2<CR>gv=gv
 "autocmd CmdwinEnter [:>] nnoremap <silent> :: <ESC>:q<CR>
 "autocmd CmdwinLeave [:>] nnoremap <silent> :: <ESC>q:
 
+nnoremap <silent> <leader>l <ESC>:set list!<CR>
 nnoremap <silent> <leader>\ <ESC>:set hlsearch!<CR>
 "formatting code
 nnoremap <silent> <leader>= <ESC>mmgg=G'm
