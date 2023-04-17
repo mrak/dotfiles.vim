@@ -129,7 +129,7 @@ function M.setup(colors, config)
     local hi                              = M.highlight
 
     -- Vim editor colors
-    hi.Normal                             = { guifg = M.colors.higher, guibg = M.colors.bottom, gui = nil, guisp = nil }
+    hi.Normal                             = { guifg = M.colors.higher, guibg = M.colors.lowest, gui = nil, guisp = nil }
     hi.Bold                               = { guifg = nil, guibg = nil, gui = 'bold', guisp = nil }
     hi.Debug                              = { guifg = M.colors.red, guibg = nil, gui = nil, guisp = nil }
     hi.Directory                          = { guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
@@ -226,7 +226,7 @@ function M.setup(colors, config)
     -- Git highlighting
     hi.gitcommitOverflow                  = { guifg = M.colors.red, guibg = nil, gui = nil, guisp = nil }
     hi.gitcommitSummary                   = { guifg = M.colors.highest, guibg = nil, gui = nil, guisp = nil }
-    hi.gitcommitFirstLine                 = { guifg = nil, guibg = nil, gui = nil, guisp = nil }
+    --hi.gitcommitFirstLine                 = { guifg = nil, guibg = nil, gui = nil, guisp = nil }
     hi.gitcommitComment                   = { guifg = M.colors.low, guibg = nil, gui = nil, guisp = nil }
     hi.gitcommitUntracked                 = { guifg = M.colors.low, guibg = nil, gui = nil, guisp = nil }
     hi.gitcommitDiscarded                 = { guifg = M.colors.low, guibg = nil, gui = nil, guisp = nil }
@@ -292,7 +292,7 @@ function M.setup(colors, config)
     hi.hsDelimiter                        = { guifg = M.colors.cyan, guibg = nil, gui = nil, guisp = nil }
     hi.hsModule                           = { guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
     hi.hsStructure                        = { guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
-    hi.VarId                              = { guifg = nil, guibg = nil, gui = nil, guisp = nil }
+    --hi.VarId                              = { guifg = nil, guibg = nil, gui = nil, guisp = nil }
     hi.ConId                              = { guifg = M.colors.green, guibg = nil, gui = nil, guisp = nil }
     -- haskell-vim
     hi.haskellImportKeywords              = { guifg = M.colors.red, guibg = nil, gui = nil, guisp = nil }
