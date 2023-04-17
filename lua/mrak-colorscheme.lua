@@ -70,7 +70,7 @@ M.highlight = setmetatable({}, {
             return
         end
 
-        local guifg, guibg, gui, guisp = args.guifg or nil, args.guibg or nil, args.gui or nil, args.guisp or nil
+        local guifg, guibg, gui, guisp = args.guifg or 'NONE', args.guibg or 'NONE', args.gui or 'NONE', args.guisp or 'NONE'
         local cmd = { 'hi', hlgroup }
         if guifg then table.insert(cmd, 'guifg=' .. guifg) end
         if guibg then table.insert(cmd, 'guibg=' .. guibg) end
