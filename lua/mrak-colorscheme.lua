@@ -324,9 +324,9 @@ function M.setup(colors, config)
     hi.NERDTreeFile                       = { guifg = M.colors.higher, guibg = nil, gui = nil, guisp = nil }
 
     -- ALE
-    hi.ALEInfoSign                        = { guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
-    hi.ALEWarningSign                     = { guifg = M.colors.yellow, guibg = nil, gui = nil, guisp = nil }
-    hi.ALEErrorSign                       = { guifg = M.colors.red, guibg = nil, gui = nil, guisp = nil }
+    hi.ALEInfoSign                        = { guifg = M.colors.blue, guibg = M.colors.bottom, gui = nil, guisp = nil }
+    hi.ALEWarningSign                     = { guifg = M.colors.yellow, guibg = M.colors.bottom, gui = nil, guisp = nil }
+    hi.ALEErrorSign                       = { guifg = M.colors.red, guibg = M.colors.bottom, gui = nil, guisp = nil }
 
     -- netrw
     hi.netrwMarkFile                      = { guifg = M.colors.bottom, guibg = M.colors.green, gui = nil, guisp = nil }
