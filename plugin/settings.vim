@@ -15,7 +15,7 @@ set undofile
 " Font/Colors ================================================================
 set background=dark
 set t_ut=
-colorscheme mrak
+colorscheme mrak-treesitter
 " vertical separator
 set fillchars+=vert:\ ,fold:-
 " Completion menus ===========================================================
