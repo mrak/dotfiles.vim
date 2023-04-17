@@ -177,8 +177,8 @@ function M.setup(colors, config)
     hi.QuickFixLine                       = { guifg = nil, guibg = M.colors.lowest, gui = 'none', guisp = nil }
     hi.PMenu                              = { guifg = M.colors.high, guibg = M.colors.low, gui = 'none', guisp = nil }
     hi.PMenuSel                           = { guifg = M.colors.lowest, guibg = M.colors.green, gui = nil, guisp = nil }
-    hi.TabLine                            = { guifg = M.colors.low, guibg = M.colors.lowest, gui = 'none', guisp = nil }
-    hi.TabLineFill                        = { guifg = M.colors.low, guibg = M.colors.lowest, gui = 'none', guisp = nil }
+    hi.TabLine                            = { guifg = M.colors.low, guibg = M.colors.bottom, gui = 'none', guisp = nil }
+    hi.TabLineFill                        = { guifg = M.colors.low, guibg = M.colors.bottom, gui = 'none', guisp = nil }
     hi.TabLineSel                         = { guifg = M.colors.green, guibg = M.colors.lowest, gui = 'none', guisp = nil }
 
     -- Standard syntax highlighting
