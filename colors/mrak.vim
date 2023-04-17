@@ -423,6 +423,7 @@ call <sid>hi("helpExample", "high","","")
 " NERDTree highhighing
 call <sid>hi("NERDTreeDirSlash", "blue", "", "")
 call <sid>hi("NERDTreeExecFile", "higher", "", "")
+call <sid>hi("NERDTreeFile", "higher", "", "")
 
 " CtrlP
 call <sid>hi("CtrlPMatch",        "cyan", "", "underline")
@@ -475,6 +476,7 @@ call <sid>hi("Taskwarrior_field", "", "", "bold")
 " Since 'Normal' resets the &background, do last
 let s:background = &background
 call <sid>hi("Normal", "highest", "lowest", "")
+call <sid>hi("NormalNC", "highest", "bottom", "")
 let &background = s:background
 unlet s:background
 

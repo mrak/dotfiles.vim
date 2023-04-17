@@ -321,6 +321,7 @@ function M.setup(colors, config)
     -- NERDTree
     hi.NERDTreeDirSlash                   = { guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
     hi.NERDTreeExecFile                   = { guifg = M.colors.higher, guibg = nil, gui = nil, guisp = nil }
+    hi.NERDTreeFile                       = { guifg = M.colors.higher, guibg = nil, gui = nil, guisp = nil }
 
     -- ALE
     hi.ALEInfoSign                        = { guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
@@ -515,7 +516,7 @@ function M.setup(colors, config)
 
     hi.NormalFloat       = { guifg = M.colors.higher, guibg = M.colors.bottom, gui = nil, guisp = nil }
     hi.FloatBorder       = { guifg = M.colors.higher, guibg = M.colors.bottom, gui = nil, guisp = nil }
-    hi.NormalNC          = { guifg = M.colors.higher, guibg = M.colors.lowest, gui = nil, guisp = nil }
+    hi.NormalNC          = { guifg = M.colors.higher, guibg = M.colors.bottom, gui = nil, guisp = nil }
     hi.TermCursor        = { guifg = M.colors.bottom, guibg = M.colors.higher, gui = 'none', guisp = nil }
     hi.TermCursorNC      = { guifg = M.colors.bottom, guibg = M.colors.higher, gui = nil, guisp = nil }
 
