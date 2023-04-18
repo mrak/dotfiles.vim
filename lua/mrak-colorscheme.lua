@@ -372,18 +372,18 @@ function M.setup(colors, config)
     hi.TSAttribute                        = { guifg = M.colors.yellow, guibg = nil, gui = 'none', guisp = nil }
     hi.TSBoolean                          = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
     hi.TSCharacter                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSComment                          = { guifg = M.colors.low, guibg = nil, gui = 'italic', guisp = nil }
+    hi.TSComment                          = { guifg = M.colors.low, guibg = nil, gui = 'none', guisp = nil }
     hi.TSConstructor                      = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
     hi.TSConditional                      = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
     hi.TSConstant                         = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSConstBuiltin                     = { guifg = M.colors.orange, guibg = nil, gui = 'italic', guisp = nil }
+    hi.TSConstBuiltin                     = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
     hi.TSConstMacro                       = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
     hi.TSError                            = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
     hi.TSException                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
     hi.TSField                            = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSFloat                            = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
     hi.TSFunction                         = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSFuncBuiltin                      = { guifg = M.colors.blue, guibg = nil, gui = 'italic', guisp = nil }
+    hi.TSFuncBuiltin                      = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
     hi.TSFuncMacro                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
     hi.TSInclude                          = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
     hi.TSKeyword                          = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
@@ -410,22 +410,22 @@ function M.setup(colors, config)
     hi.TSTagDelimiter                     = { guifg = M.colors.brown, guibg = nil, gui = 'none', guisp = nil }
     hi.TSText                             = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSStrong                           = { guifg = nil, guibg = nil, gui = 'bold', guisp = nil }
-    hi.TSEmphasis                         = { guifg = M.colors.orange, guibg = nil, gui = 'italic', guisp = nil }
+    hi.TSEmphasis                         = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
     hi.TSUnderline                        = { guifg = M.colors.bottom, guibg = nil, gui = 'underline', guisp = nil }
     hi.TSStrike                           = { guifg = M.colors.bottom, guibg = nil, gui = 'strikethrough', guisp = nil }
     hi.TSTitle                            = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
     hi.TSLiteral                          = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
     hi.TSURI                              = { guifg = M.colors.orange, guibg = nil, gui = 'underline', guisp = nil }
     hi.TSType                             = { guifg = M.colors.yellow, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSTypeBuiltin                      = { guifg = M.colors.yellow, guibg = nil, gui = 'italic', guisp = nil }
+    hi.TSTypeBuiltin                      = { guifg = M.colors.yellow, guibg = nil, gui = 'none', guisp = nil }
     hi.TSVariable                         = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSVariableBuiltin                  = { guifg = M.colors.red, guibg = nil, gui = 'italic', guisp = nil }
+    hi.TSVariableBuiltin                  = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
 
     hi.TSDefinition                       = { guifg = nil, guibg = nil, gui = 'underline', guisp = M.colors.high }
     hi.TSDefinitionUsage                  = { guifg = nil, guibg = nil, gui = 'underline', guisp = M.colors.high }
     hi.TSCurrentScope                     = { guifg = nil, guibg = nil, gui = 'bold', guisp = nil }
 
-    hi.LspInlayHint                       = { guifg = M.colors.low, guibg = nil, gui = 'italic', guisp = nil }
+    hi.LspInlayHint                       = { guifg = M.colors.low, guibg = nil, gui = 'none', guisp = nil }
 
     if vim.fn.has('nvim-0.8.0') then
         hi['@comment'] = 'TSComment'
