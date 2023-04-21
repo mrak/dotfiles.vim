@@ -1,26 +1,27 @@
+" Commented out things are likely the default on nvim
 set shell=/bin/sh
 " super slow startup for ruby files with jruby unless this is set
 "let g:ruby_path='/usr/bin'
 " Basics =====================================================================
 syntax on
-set backspace=indent,eol,start
+"set backspace=indent,eol,start
 set ignorecase
 set infercase
 set smartcase
-set noautochdir
+"set noautochdir
 set fileformats=unix,dos,mac
 " Files/Directories ==========================================================
-set autoread
+"set autoread
 set undofile
 " Font/Colors ================================================================
-set background=dark
+"set background=dark
 set t_ut=
 " vertical separator
 set fillchars+=vert:\ ,fold:-
 " Completion menus ===========================================================
 set cpoptions=aABceFsmq
 set completeopt=menu,longest
-set wildmenu
+"set wildmenu
 set wildignore=*.jpg,*.gif,*.png " pictures
 set wildignore+=*.dll,*.exe      " windows
 set wildignore+=*.pyc,*.class    " bytecode
@@ -29,18 +30,18 @@ set wildignore+=*.bak,*.lock     " misc
 set wildmode=list:longest
 set nrformats=hex
 " Heads-up Display ===========================================================
-if !has('nvim')
-    set ttymouse=sgr
-endif
-set hidden
-set incsearch
-set laststatus=2
-set lazyredraw
+"if !has('nvim')
+"    set ttymouse=sgr
+"endif
+"set hidden
+"set incsearch
+"set laststatus=2
+"set lazyredraw
 set list
 set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
-set hlsearch
+"set hlsearch
 set nowrapscan
-set nostartofline
+"set nostartofline
 set number
 set numberwidth=3
 set signcolumn=yes
@@ -51,9 +52,8 @@ set shortmess=aOstT
 if has("patch314")
     set shortmess+=c
 endif
-set showcmd
+"set showcmd
 set noshowmode
-let loaded_matchparen = 1
 "let g:is_bash=1 " fixes syntax for shell scripts
 
 set statusline=
@@ -64,7 +64,7 @@ set statusline+=\ %l:%c     " line:column
 set statusline+=\ %P        " percentage through
 set statusline+=\ %y%r%m    " flags
 " Indent/Folding =============================================================
-set autoindent
+"set autoindent
 set smartindent
 set foldmethod=indent
 set foldlevelstart=99
@@ -88,6 +88,8 @@ let g:netrw_wiw = -25
 let g:netrw_banner = 0
 " Markdown ===================================================================
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'sh', 'yaml']
+" Disable matching parenthesis highlighting
+let g:loaded_matchparen = 1
 " Ripgrep ====================================================================
 if executable('rg')
     set grepprg=rg\ --vimgrep
