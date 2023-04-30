@@ -253,6 +253,10 @@ function M.setup(colors, config)
     hi.SpellCap                           = { guifg = nil, guibg = M.colors.lowest, gui = 'undercurl', guisp = M.colors.blue }
     hi.SpellRare                          = { guifg = nil, guibg = M.colors.lowest, gui = 'undercurl', guisp = M.colors.purple }
 
+    hi.DiagnosticSignError                = { guifg = M.colors.red, guibg = M.colors.bottom, gui = 'none', guisp = nil }
+    hi.DiagnosticSignWarn                 = { guifg = M.colors.purple, guibg = M.colors.bottom, gui = 'none', guisp = nil }
+    hi.DiagnosticSignInfo                 = { guifg = M.colors.higher, guibg = M.colors.bottom, gui = 'none', guisp = nil }
+    hi.DiagnosticSignHint                 = { guifg = M.colors.cyan, guibg = M.colors.bottom, gui = 'none', guisp = nil }
     hi.DiagnosticError                    = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
     hi.DiagnosticWarn                     = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
     hi.DiagnosticInfo                     = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
@@ -370,47 +374,47 @@ function M.setup(colors, config)
 
     hi.TSAnnotation                       = { guifg = M.colors.brown, guibg = nil, gui = 'none', guisp = nil }
     hi.TSAttribute                        = { guifg = M.colors.yellow, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSBoolean                          = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSCharacter                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSComment                          = { guifg = M.colors.low, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSBoolean                          = 'Boolean'
+    hi.TSCharacter                        = 'Character'
+    hi.TSComment                          = 'Comment'
     hi.TSConstructor                      = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSConditional                      = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSConstant                         = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSConditional                      = 'Conditional'
+    hi.TSConstant                         = 'Constant'
     hi.TSConstBuiltin                     = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
     hi.TSConstMacro                       = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSError                            = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSException                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSError                            = 'Error'
+    hi.TSException                        = 'Exception'
     hi.TSField                            = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSFloat                            = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSFunction                         = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSFloat                            = 'Float'
+    hi.TSFunction                         = 'Function'
     hi.TSFuncBuiltin                      = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
     hi.TSFuncMacro                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSInclude                          = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSKeyword                          = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSInclude                          = 'Include'
+    hi.TSKeyword                          = 'Keyword'
     hi.TSKeywordFunction                  = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
     hi.TSKeywordOperator                  = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSLabel                            = { guifg = M.colors.yellow, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSLabel                            = 'Label'
     hi.TSMethod                           = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
     hi.TSNamespace                        = { guifg = M.colors.red, guibg = nil, gui = 'none', guisp = nil }
     hi.TSNone                             = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSNumber                           = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSOperator                         = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSNumber                           = 'Number'
+    hi.TSOperator                         = 'Operator'
     hi.TSParameter                        = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSParameterReference               = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSProperty                         = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSPunctDelimiter                   = { guifg = M.colors.brown, guibg = nil, gui = 'none', guisp = nil }
     hi.TSPunctBracket                     = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSPunctSpecial                     = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSRepeat                           = { guifg = M.colors.purple, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSString                           = { guifg = M.colors.green, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSRepeat                           = 'Repeat'
+    hi.TSString                           = 'String'
     hi.TSStringRegex                      = { guifg = M.colors.cyan, guibg = nil, gui = 'none', guisp = nil }
     hi.TSStringEscape                     = { guifg = M.colors.cyan, guibg = nil, gui = 'none', guisp = nil }
     hi.TSSymbol                           = { guifg = M.colors.green, guibg = nil, gui = 'none', guisp = nil }
-    hi.TSTag                              = { guifg = M.colors.yellow, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSTag                              = 'Tag'
     hi.TSTagDelimiter                     = { guifg = M.colors.brown, guibg = nil, gui = 'none', guisp = nil }
     hi.TSText                             = { guifg = M.colors.higher, guibg = nil, gui = 'none', guisp = nil }
     hi.TSStrong                           = { guifg = nil, guibg = nil, gui = 'bold', guisp = nil }
-    hi.TSEmphasis                         = { guifg = M.colors.orange, guibg = nil, gui = 'none', guisp = nil }
+    hi.TSEmphasis                         = { guifg = M.colors.orange, guibg = nil, gui = 'bold', guisp = nil }
     hi.TSUnderline                        = { guifg = M.colors.bottom, guibg = nil, gui = 'underline', guisp = nil }
     hi.TSStrike                           = { guifg = M.colors.bottom, guibg = nil, gui = 'strikethrough', guisp = nil }
     hi.TSTitle                            = { guifg = M.colors.blue, guibg = nil, gui = 'none', guisp = nil }
