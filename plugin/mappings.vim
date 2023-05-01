@@ -34,3 +34,9 @@ nnoremap <silent> <leader>e <ESC>:Lexplore<CR>
 nnoremap <leader>si :call mrak#SynStack()<CR>
 
 tnoremap <silent> <C-g> <C-\><C-n>
+
+" Diagnostics
+nnoremap <silent> <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
+nnoremap <silent> <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
