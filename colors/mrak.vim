@@ -244,11 +244,11 @@ hi! link Conditional  MrakRed
 hi! link Constant     MrakCyan
 hi! link Define       MrakYellow
 hi! link PreCondit    MrakYellow
-hi! link Delimiter    MrakCyan
+hi! link Delimiter    MrakClear
 hi! link Float        MrakRed
 hi! link Function     MrakOrange
-hi! link Identifier   MrakClear
-hi! link Include      MrakYellow
+hi! link Identifier   MrakBlue
+hi! link Include      MrakRed
 hi! link Keyword      MrakRed
 hi! link Label        MrakRed
 hi! link Number       MrakRed
@@ -263,7 +263,7 @@ hi! link String       MrakGreen
 hi! link Structure    MrakPurple
 hi! link Tag          MrakCyan
 call <sid>hi("Todo",  "yellow", "lowest", "")
-hi! link Type         MrakPurple
+hi! link Type         MrakYellow
 hi! link Typedef      MrakPurple
 
 " Spelling highhighing
@@ -337,7 +337,7 @@ if has('nvim-0.8.0')
     hi! link @method Function
     hi! link @method.call Function
     hi! link @constructor Special
-    hi! link @parameter MrakBlueBold
+    hi! link @parameter MrakPurple
     hi! link @keyword Keyword
     hi! link @conditional Conditional
     hi! link @repeat Repeat
