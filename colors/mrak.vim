@@ -166,6 +166,7 @@ call <sid>hi("MrakPurple", "purple", "", "")
 call <sid>hi("MrakBrown",  "brown", "", "")
 
 call <sid>hi("MrakReverse",  "", "", "reverse")
+call <sid>hi("MrakClear",  "", "", "")
 
 call <sid>hi("MrakBottomBold", "bottom", "", "bold")
 call <sid>hi("MrakLowestBold", "lowest", "", "bold")
@@ -221,7 +222,7 @@ call <sid>hi("Conceal",       "blue", "lowest", "")
 hi! link SignColumn LineNr
 call <sid>hi("SpecialKey",    "low", "", "")
 call <sid>hi("ColorColumn",   "low", "lowest", "none")
-call <sid>hi("PMenu",         "high", "low", "none")
+call <sid>hi("PMenu",         "high", "bottom", "none")
 call <sid>hi("PMenuSel",      "lowest", "green", "")
 call <sid>hi("TabLine",       "low", "lowest", "none")
 call <sid>hi("TabLineFill",   "low", "lowest", "none")
@@ -231,34 +232,34 @@ hi! link Debug MrakRed
 hi! link Directory MrakBlue
 hi! link Error MrakRedBold
 hi! link ErrorMsg MrakRedBold
-hi! link Exception MrakBlue
+hi! link Exception MrakRed
 hi! link Macro MrakYellow
 hi! link TooLong MrakRed
 
 " Standard syntax highhighing
 hi! link Boolean      MrakRed
-hi! link Character    MrakOrange
+hi! link Character    MrakGreenBold
 hi! link Comment      MrakLow
-hi! link Conditional  MrakBlue
-hi! link Constant     MrakRed
+hi! link Conditional  MrakRed
+hi! link Constant     MrakCyan
 hi! link Define       MrakYellow
 hi! link PreCondit    MrakYellow
 hi! link Delimiter    MrakCyan
 hi! link Float        MrakRed
-hi! link Function     MrakGreen
-hi! link Identifier   MrakGreen
+hi! link Function     MrakOrange
+hi! link Identifier   MrakClear
 hi! link Include      MrakYellow
-hi! link Keyword      MrakBlue
-hi! link Label        MrakBlue
+hi! link Keyword      MrakRed
+hi! link Label        MrakRed
 hi! link Number       MrakRed
-hi! link Operator     MrakCyan
+hi! link Operator     MrakClear
 hi! link PreProc      MrakYellow
-hi! link Repeat       MrakBlue
+hi! link Repeat       MrakRed
 hi! link Special      MrakCyan
 hi! link SpecialChar  MrakCyan
-hi! link Statement    MrakBlue
+hi! link Statement    MrakRed
 hi! link StorageClass MrakPurple
-hi! link String       MrakOrange
+hi! link String       MrakGreen
 hi! link Structure    MrakPurple
 hi! link Tag          MrakCyan
 call <sid>hi("Todo",  "yellow", "lowest", "")
@@ -270,6 +271,33 @@ call <sid>hi("SpellBad",     "", "lowest", "undercurl")
 call <sid>hi("SpellLocal",   "", "lowest", "undercurl")
 call <sid>hi("SpellCap",     "", "lowest", "undercurl")
 call <sid>hi("SpellRare",    "", "lowest", "undercurl")
+" Diagnostics
+call <sid>hi("DiagnosticSignError"               , "red", "bottom", "")
+call <sid>hi("DiagnosticSignWarn"                , "purple", "bottom", "")
+call <sid>hi("DiagnosticSignInfo"                , "higher", "bottom", "")
+call <sid>hi("DiagnosticSignHint"                , "cyan", "bottom", "")
+call <sid>hi("DiagnosticError"                   , "red", "", "")
+call <sid>hi("DiagnosticFloatingError"           , "red", "bottom", "")
+call <sid>hi("DiagnosticWarn"                    , "purple", "", "")
+call <sid>hi("DiagnosticFloatingWarn"            , "purple", "bottom", "")
+call <sid>hi("DiagnosticInfo"                    , "higher", "", "")
+call <sid>hi("DiagnosticFloatingInfo"            , "higher", "bottom", "")
+call <sid>hi("DiagnosticHint"                    , "cyan", "", "")
+call <sid>hi("DiagnosticFloatingHint"            , "cyan", "bottom", "")
+call <sid>hi("DiagnosticFloatingOk"              , "", "bottom", "")
+call <sid>hi("DiagnosticUnderlineError"          , "", "", 'undercurl')
+call <sid>hi("DiagnosticUnderlineWarning"        , "", "", 'undercurl')
+call <sid>hi("DiagnosticUnderlineWarn"           , "", "", 'undercurl')
+call <sid>hi("DiagnosticUnderlineInformation"    , "", "", 'undercurl')
+call <sid>hi("DiagnosticUnderlineHint"           , "", "", 'undercurl')
+hi! link LspDiagnosticsDefaultError         DiagnosticError
+hi! link LspDiagnosticsDefaultWarning       DiagnosticWarn
+hi! link LspDiagnosticsDefaultInformation   DiagnosticInfo
+hi! link LspDiagnosticsDefaultHint          DiagnosticHint
+hi! link LspDiagnosticsUnderlineError       DiagnosticUnderlineError
+hi! link LspDiagnosticsUnderlineWarning     DiagnosticUnderlineWarning
+hi! link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInformation
+hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
 
 " Additional diff highhighing
 call <sid>hi("DiffAdd",      "lowest", "green", "bold")
@@ -309,7 +337,7 @@ if has('nvim-0.8.0')
     hi! link @method Function
     hi! link @method.call Function
     hi! link @constructor Special
-    hi! link @parameter Identifier
+    hi! link @parameter MrakBlueBold
     hi! link @keyword Keyword
     hi! link @conditional Conditional
     hi! link @repeat Repeat
@@ -322,9 +350,9 @@ if has('nvim-0.8.0')
     hi! link @type.qualifier Special
     hi! link @type.definition Type
     hi! link @storageclass StorageClass
-    hi! link @attribute Normal
-    hi! link @field Normal
-    hi! link @property Normal
+    hi! link @attribute MrakClear
+    hi! link @field MrakClear
+    hi! link @property MrakBrown
     hi! link @variable Identifier
     hi! link @variable.builtin Identifier
     hi! link @constant Constant
@@ -332,7 +360,7 @@ if has('nvim-0.8.0')
     hi! link @constant.macro Macro
     hi! link @namespace MrakHigh
     hi! link @symbol Special
-    hi! link @text Normal
+    hi! link @text MrakClear
     hi! link @text.diff.add DiffAdd
     hi! link @text.diff.delete DiffDelete
 
