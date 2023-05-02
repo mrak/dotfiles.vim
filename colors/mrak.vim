@@ -147,6 +147,43 @@ fun <sid>hi(group, fg, bg, attr)
   exec l:string
 endfun
 
+" linkables
+call <sid>hi("MrakBottom", "bottom", "", "")
+call <sid>hi("MrakLowest", "lowest", "", "")
+call <sid>hi("MrakLower",  "lower", "", "")
+call <sid>hi("MrakLow",    "low", "", "")
+call <sid>hi("MrakHigh",   "high", "", "")
+call <sid>hi("MrakHigher", "higher", "", "")
+call <sid>hi("MrakHighest","highest", "", "")
+call <sid>hi("MrakTop",    "top", "", "")
+call <sid>hi("MrakRed",    "red", "", "")
+call <sid>hi("MrakOrange", "orange", "", "")
+call <sid>hi("MrakYellow", "yellow", "", "")
+call <sid>hi("MrakGreen",  "green", "", "")
+call <sid>hi("MrakCyan",   "cyan", "", "")
+call <sid>hi("MrakBlue",   "blue", "", "")
+call <sid>hi("MrakPurple", "purple", "", "")
+call <sid>hi("MrakBrown",  "brown", "", "")
+
+call <sid>hi("MrakReverse",  "", "", "reverse")
+
+call <sid>hi("MrakBottomBold", "bottom", "", "bold")
+call <sid>hi("MrakLowestBold", "lowest", "", "bold")
+call <sid>hi("MrakLowerBold",  "lower", "", "bold")
+call <sid>hi("MrakLowBold",    "low", "", "bold")
+call <sid>hi("MrakHighBold",   "high", "", "bold")
+call <sid>hi("MrakHigherBold", "higher", "", "bold")
+call <sid>hi("MrakHighestBold","highest", "", "bold")
+call <sid>hi("MrakTopBold",    "top", "", "bold")
+call <sid>hi("MrakRedBold",    "red", "", "bold")
+call <sid>hi("MrakOrangeBold", "orange", "", "bold")
+call <sid>hi("MrakYellowBold", "yellow", "", "bold")
+call <sid>hi("MrakGreenBold",  "green", "", "bold")
+call <sid>hi("MrakCyanBold",   "cyan", "", "bold")
+call <sid>hi("MrakBlueBold",   "blue", "", "bold")
+call <sid>hi("MrakPurpleBold", "purple", "", "bold")
+call <sid>hi("MrakBrownBold",  "brown", "", "bold")
+
 " Vim editor colors
 call <sid>hi("Cursor",        "bottom", "top", "")
 call <sid>hi("CursorColumn",  "low", "bottom", "none")
@@ -156,7 +193,7 @@ call <sid>hi("CursorLineNr",  "low", "bottom", "")
 call <sid>hi("VertSplit",     "bottom", "bottom", "none")
 call <sid>hi("NonText",       "low", "", "")
 if has('nvim')
-call <sid>hi("EndOfBuffer",   "bottom", "bottom", "")
+  call <sid>hi("EndOfBuffer",   "bottom", "bottom", "")
 endif
 call <sid>hi("StatusLine",    "lowest", "high", "bold")
 call <sid>hi("StatusLineNor", "lowest", "high", "bold")
@@ -164,23 +201,16 @@ call <sid>hi("StatusLineIns", "lowest", "green", "bold")
 call <sid>hi("StatusLineRep", "lowest", "purple", "bold")
 call <sid>hi("StatusLineVRep","lowest", "purple", "bold")
 call <sid>hi("StatusLineNC",  "low", "bottom", "")
-call <sid>hi("Bold",          "", "", "bold")
-call <sid>hi("Debug",         "red", "", "")
-call <sid>hi("Directory",     "blue", "", "")
-call <sid>hi("Error",         "red", "", "bold")
-call <sid>hi("ErrorMsg",      "red", "", "bold")
-call <sid>hi("Exception",     "blue", "", "")
 call <sid>hi("FoldColumn",    "", "lowest", "")
 call <sid>hi("Folded",        "low", "bottom", "")
 call <sid>hi("IncSearch",     "lowest", "orange", "none")
-call <sid>hi("Italic",        "", "", "none")
-call <sid>hi("Macro",         "yellow", "", "")
-call <sid>hi("MatchParen",    "lowest", "high",  "")
+call <sid>hi("Bold",          "", "", "bold")
+call <sid>hi("Italic",        "", "", "italic")
 call <sid>hi("ModeMsg",       "green", "", "")
 call <sid>hi("MoreMsg",       "green", "", "")
 call <sid>hi("Question",      "yellow", "", "")
 call <sid>hi("Search",        "", "",  "reverse")
-call <sid>hi("TooLong",       "red", "", "")
+call <sid>hi("MatchParen",    "lowest", "high",  "")
 call <sid>hi("Underlined",    "red", "", "")
 call <sid>hi("Visual",        "top", "low", "")
 call <sid>hi("VisualNOS",     "red", "", "reverse")
@@ -188,7 +218,6 @@ call <sid>hi("WarningMsg",    "red", "", "")
 call <sid>hi("WildMenu",      "red", "", "")
 call <sid>hi("Title",         "blue", "", "none")
 call <sid>hi("Conceal",       "blue", "lowest", "")
-"call <sid>hi("SignColumn",    "low", "lowest", "")
 hi! link SignColumn LineNr
 call <sid>hi("SpecialKey",    "low", "", "")
 call <sid>hi("ColorColumn",   "low", "lowest", "none")
@@ -198,35 +227,43 @@ call <sid>hi("TabLine",       "low", "lowest", "none")
 call <sid>hi("TabLineFill",   "low", "lowest", "none")
 call <sid>hi("TabLineSel",    "green", "lowest", "none")
 
+hi! link Debug MrakRed
+hi! link Directory MrakBlue
+hi! link Error MrakRedBold
+hi! link ErrorMsg MrakRedBold
+hi! link Exception MrakBlue
+hi! link Macro MrakYellow
+hi! link TooLong MrakRed
+
 " Standard syntax highhighing
-call <sid>hi("Boolean",      "red", "", "")
-call <sid>hi("Character",    "orange", "", "")
-call <sid>hi("Comment",      "low", "", "")
-call <sid>hi("Conditional",  "blue", "", "")
-call <sid>hi("Constant",     "red", "", "")
-call <sid>hi("Define",       "yellow", "", "none")
-call <sid>hi("PreCondit",    "yellow", "", "none")
-call <sid>hi("Delimiter",    "cyan", "", "")
-call <sid>hi("Float",        "red", "", "")
-call <sid>hi("Function",     "green", "", "")
-call <sid>hi("Identifier",   "green", "", "none")
-call <sid>hi("Include",      "yellow", "", "")
-call <sid>hi("Keyword",      "blue", "", "")
-call <sid>hi("Label",        "blue", "", "")
-call <sid>hi("Number",       "red", "", "")
-call <sid>hi("Operator",     "cyan", "", "none")
-call <sid>hi("PreProc",      "yellow", "", "")
-call <sid>hi("Repeat",       "blue", "", "")
-call <sid>hi("Special",      "cyan", "", "")
-call <sid>hi("SpecialChar",  "cyan", "", "")
-call <sid>hi("Statement",    "blue", "", "")
-call <sid>hi("StorageClass", "purple", "", "")
-call <sid>hi("String",       "orange", "", "")
-call <sid>hi("Structure",    "purple", "", "")
-call <sid>hi("Tag",          "cyan", "", "")
-call <sid>hi("Todo",         "yellow", "lowest", "")
-call <sid>hi("Type",         "purple", "", "none")
-call <sid>hi("Typedef",      "purple", "", "")
+hi! link Boolean      MrakRed
+hi! link Character    MrakOrange
+hi! link Comment      MrakLow
+hi! link Conditional  MrakBlue
+hi! link Constant     MrakRed
+hi! link Define       MrakYellow
+hi! link PreCondit    MrakYellow
+hi! link Delimiter    MrakCyan
+hi! link Float        MrakRed
+hi! link Function     MrakGreen
+hi! link Identifier   MrakGreen
+hi! link Include      MrakYellow
+hi! link Keyword      MrakBlue
+hi! link Label        MrakBlue
+hi! link Number       MrakRed
+hi! link Operator     MrakCyan
+hi! link PreProc      MrakYellow
+hi! link Repeat       MrakBlue
+hi! link Special      MrakCyan
+hi! link SpecialChar  MrakCyan
+hi! link Statement    MrakBlue
+hi! link StorageClass MrakPurple
+hi! link String       MrakOrange
+hi! link Structure    MrakPurple
+hi! link Tag          MrakCyan
+call <sid>hi("Todo",  "yellow", "lowest", "")
+hi! link Type         MrakPurple
+hi! link Typedef      MrakPurple
 
 " Spelling highhighing
 call <sid>hi("SpellBad",     "", "lowest", "undercurl")
@@ -245,6 +282,73 @@ call <sid>hi("DiffNewFile",  "cyan", "", "bold")
 call <sid>hi("DiffLine",     "blue", "", "")
 call <sid>hi("DiffRemoved",  "red", "", "")
 call <sid>hi("DiffSubname",  "high", "", "")
+
+" treesitter
+if has('nvim-0.8.0')
+    hi! link @comment Comment
+    hi! link @error Error
+    hi! link @preproc PreProc
+    hi! link @define Define
+    hi! link @operator Operator
+    hi! link @punctuation.delimiter Delimiter
+    hi! link @punctuation.bracket Delimiter
+    hi! link @punctuation.special Delimiter
+    hi! link @string String
+    hi! link @string.regex SpecialChar
+    hi! link @string.escape SpecialChar
+    hi! link @string.special SpecialChar
+    hi! link @character Character
+    hi! link @character.special SpecialChar
+    hi! link @boolean Boolean
+    hi! link @number Number
+    hi! link @float Float
+    hi! link @function Function
+    hi! link @function.call Function
+    hi! link @function.builtin Function
+    hi! link @function.macro Macro
+    hi! link @method Function
+    hi! link @method.call Function
+    hi! link @constructor Special
+    hi! link @parameter Identifier
+    hi! link @keyword Keyword
+    hi! link @conditional Conditional
+    hi! link @repeat Repeat
+    hi! link @debug Debug
+    hi! link @label Label
+    hi! link @include Include
+    hi! link @exception Exception
+    hi! link @type Type
+    hi! link @type.builtin Type
+    hi! link @type.qualifier Special
+    hi! link @type.definition Type
+    hi! link @storageclass StorageClass
+    hi! link @attribute Normal
+    hi! link @field Normal
+    hi! link @property Normal
+    hi! link @variable Identifier
+    hi! link @variable.builtin Identifier
+    hi! link @constant Constant
+    hi! link @constant.builtin Constant
+    hi! link @constant.macro Macro
+    hi! link @namespace MrakHigh
+    hi! link @symbol Special
+    hi! link @text Normal
+    hi! link @text.diff.add DiffAdd
+    hi! link @text.diff.delete DiffDelete
+
+    " rust
+    hi! link @lsp.type.namespace.rust  @namespace
+    hi! link @lsp.type.operator.rust   MrakHigh
+    hi! link @lsp.type.function.rust   MrakOrange
+    hi! link @lsp.type.method.rust     MrakOrange
+    hi! link @lsp.type.keyword.rust    MrakRed
+    hi! link @lsp.type.enumMember.rust MrakCyan
+    hi! link @lsp.type.enum.rust       MrakCyanBold
+    hi! link @lsp.type.variable.rust   MrakBlue
+    hi! link @lsp.type.parameter.rust  MrakPurple
+    hi! link @lsp.type.struct.rust     MrakBrown
+    hi! link @lsp.type.interface.rust  MrakBrownBold
+endif
 
 " Ruby highhighing
 call <sid>hi("rubyAttribute",               "blue", "", "")
