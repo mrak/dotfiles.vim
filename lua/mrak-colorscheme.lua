@@ -355,6 +355,24 @@ function M.setup(colors, config)
     hi.rustSigil          = { guifg = M.colors.purple, guibg = nil, gui = nil, guisp = nil }
     hi.rustStorage        = { guifg = M.colors.purple, guibg = nil, gui = nil, guisp = nil }
     hi.rustCommentLineDoc = { guifg = M.colors.high, guibg = nil, gui = nil, guisp = nil }
+    if vim.fn.has('nvim-0.8.0') then
+        hi['@lsp.type.namespace.rust'] = 'rustModPath'
+        hi['@lsp.type.function.rust'] = 'rustFuncName'
+        hi['@lsp.type.method.rust'] = 'rustFuncCall'
+        hi['@lsp.type.property.rust'] = 'TSProperty'
+        hi['@lsp.type.type.rust'] = 'rustType'
+        hi['@lsp.type.keyword.rust'] = 'rustKeyword'
+        hi['@keyword.function.rust'] = 'rustKeyword'
+        hi['@function.rust'] = 'rustFuncName'
+        hi['@function.call.rust'] = 'rustFuncCall'
+        hi['@number.rust'] = 'rustDecNumber'
+        hi['@float.rust'] = 'rustFloat'
+        hi['@boolean.rust'] = 'rustBoolean'
+        hi['@identifier.rust'] = 'rustIdentifier'
+        hi['@punctuation.delimiter.rust'] = 'rustOperator'
+        hi['@type.rust'] = 'rustType'
+        hi['@operator.rust'] = 'rustOperator'
+    end
 
     -- Ruby
     hi.rubyAttribute               = {guifg = M.colors.blue, guibg = nil, gui = nil, guisp = nil }
