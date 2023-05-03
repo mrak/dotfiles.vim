@@ -167,6 +167,7 @@ call <sid>hi("MrakBrown",  "brown", "", "")
 
 call <sid>hi("MrakReverse",  "", "", "reverse")
 call <sid>hi("MrakClear",  "", "", "")
+call <sid>hi("MrakBold",  "", "", "bold")
 
 call <sid>hi("MrakBottomBold", "bottom", "", "bold")
 call <sid>hi("MrakLowestBold", "lowest", "", "bold")
@@ -237,7 +238,7 @@ hi! link Macro MrakYellow
 hi! link TooLong MrakRed
 
 " Standard syntax highhighing
-hi! link Boolean      MrakRed
+hi! link Boolean      MrakCyan
 hi! link Character    MrakGreenBold
 hi! link Comment      MrakLow
 hi! link Conditional  MrakRed
@@ -245,14 +246,14 @@ hi! link Constant     MrakCyan
 hi! link Define       MrakYellow
 hi! link PreCondit    MrakYellow
 hi! link Delimiter    MrakClear
-hi! link Float        MrakRed
+hi! link Float        MrakGreen
 hi! link Function     MrakOrange
-hi! link Identifier   MrakBlue
+hi! link Identifier   MrakClear
 hi! link Include      MrakRed
 hi! link Keyword      MrakRed
 hi! link Label        MrakRed
-hi! link Number       MrakRed
-hi! link Operator     MrakClear
+hi! link Number       MrakGreen
+hi! link Operator     MrakRed
 hi! link PreProc      MrakYellow
 hi! link Repeat       MrakRed
 hi! link Special      MrakCyan
@@ -263,7 +264,7 @@ hi! link String       MrakGreen
 hi! link Structure    MrakPurple
 hi! link Tag          MrakCyan
 call <sid>hi("Todo",  "yellow", "lowest", "")
-hi! link Type         MrakYellow
+hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
 
 " Spelling highhighing
@@ -337,7 +338,7 @@ if has('nvim-0.8.0')
     hi! link @method Function
     hi! link @method.call Function
     hi! link @constructor Special
-    hi! link @parameter MrakPurple
+    hi! link @parameter MrakBold
     hi! link @keyword Keyword
     hi! link @conditional Conditional
     hi! link @repeat Repeat
@@ -346,7 +347,7 @@ if has('nvim-0.8.0')
     hi! link @include Include
     hi! link @exception Exception
     hi! link @type Type
-    hi! link @type.builtin Type
+    hi! link @type.builtin MrakPurple
     hi! link @type.qualifier Special
     hi! link @type.definition Type
     hi! link @storageclass StorageClass
@@ -363,6 +364,7 @@ if has('nvim-0.8.0')
     hi! link @text MrakClear
     hi! link @text.diff.add DiffAdd
     hi! link @text.diff.delete DiffDelete
+    hi! link @lsp.type.interface MrakBlueBold
 
     " rust
     hi! link @lsp.type.namespace.rust  @namespace
