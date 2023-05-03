@@ -254,7 +254,7 @@ hi! link Include      MrakRed
 hi! link Keyword      MrakRed
 hi! link Label        MrakRed
 hi! link Number       MrakGreen
-hi! link Operator     MrakRed
+hi! link Operator     MrakHigh
 hi! link PreProc      MrakYellow
 hi! link Repeat       MrakRed
 hi! link Special      MrakCyan
