@@ -168,6 +168,7 @@ call <sid>hi("MrakBrown",  "brown", "", "")
 call <sid>hi("MrakReverse",  "", "", "reverse")
 call <sid>hi("MrakClear",  "", "", "")
 call <sid>hi("MrakBold",  "", "", "bold")
+call <sid>hi("MrakItalic",  "", "", "italic")
 
 call <sid>hi("MrakBottomBold", "bottom", "", "bold")
 call <sid>hi("MrakLowestBold", "lowest", "", "bold")
@@ -263,7 +264,7 @@ hi! link StorageClass MrakPurple
 hi! link String       MrakGreen
 hi! link Structure    MrakPurple
 hi! link Tag          MrakCyan
-call <sid>hi("Todo",  "yellow", "lowest", "")
+hi! link Todo         MrakYellow
 hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
 
@@ -274,17 +275,17 @@ call <sid>hi("SpellCap",     "", "lowest", "undercurl")
 call <sid>hi("SpellRare",    "", "lowest", "undercurl")
 " Diagnostics
 call <sid>hi("DiagnosticSignError"               , "red", "bottom", "")
-call <sid>hi("DiagnosticSignWarn"                , "purple", "bottom", "")
-call <sid>hi("DiagnosticSignInfo"                , "higher", "bottom", "")
-call <sid>hi("DiagnosticSignHint"                , "cyan", "bottom", "")
+call <sid>hi("DiagnosticSignWarn"                , "yellow", "bottom", "")
+call <sid>hi("DiagnosticSignInfo"                , "blue", "bottom", "")
+call <sid>hi("DiagnosticSignHint"                , "higher", "bottom", "")
 call <sid>hi("DiagnosticError"                   , "red", "", "")
 call <sid>hi("DiagnosticFloatingError"           , "red", "bottom", "")
-call <sid>hi("DiagnosticWarn"                    , "purple", "", "")
-call <sid>hi("DiagnosticFloatingWarn"            , "purple", "bottom", "")
-call <sid>hi("DiagnosticInfo"                    , "higher", "", "")
-call <sid>hi("DiagnosticFloatingInfo"            , "higher", "bottom", "")
-call <sid>hi("DiagnosticHint"                    , "cyan", "", "")
-call <sid>hi("DiagnosticFloatingHint"            , "cyan", "bottom", "")
+call <sid>hi("DiagnosticWarn"                    , "yellow", "", "")
+call <sid>hi("DiagnosticFloatingWarn"            , "yellow", "bottom", "")
+call <sid>hi("DiagnosticInfo"                    , "blue", "", "")
+call <sid>hi("DiagnosticFloatingInfo"            , "blue", "bottom", "")
+call <sid>hi("DiagnosticHint"                    , "higher", "", "")
+call <sid>hi("DiagnosticFloatingHint"            , "higher", "bottom", "")
 call <sid>hi("DiagnosticFloatingOk"              , "", "bottom", "")
 call <sid>hi("DiagnosticUnderlineError"          , "", "", 'undercurl')
 call <sid>hi("DiagnosticUnderlineWarning"        , "", "", 'undercurl')
@@ -381,124 +382,124 @@ if has('nvim-0.8.0')
 endif
 
 " Ruby highhighing
-call <sid>hi("rubyAttribute",               "blue", "", "")
-call <sid>hi("rubyConstant",                "green", "", "")
-call <sid>hi("rubyInterpolation",           "green", "", "")
-call <sid>hi("rubyInterpolationDelimiter",  "purple", "", "")
-call <sid>hi("rubyRegexp",                  "cyan", "", "")
-call <sid>hi("rubySymbol",                  "cyan", "", "")
-call <sid>hi("rubyStringDelimiter",         "orange", "", "")
-call <sid>hi("rubyClass",                   "red", "", "")
-call <sid>hi("rubyDefine",                  "red", "", "")
-call <sid>hi("rubyInclude",                 "red", "", "")
-call <sid>hi("rubySharpBang",               "low", "", "")
-call <sid>hi("rubyControl",                 "blue", "", "")
-call <sid>hi("rubyExceptional",             "blue", "", "")
-call <sid>hi("rubyFunction",                "yellow", "", "")
+hi! link rubyAttribute              MrakBlue
+hi! link rubyConstant               MrakGreen
+hi! link rubyInterpolation          MrakGreen
+hi! link rubyInterpolationDelimiter MrakPurple
+hi! link rubyRegexp                 MrakCyan
+hi! link rubySymbol                 MrakCyan
+hi! link rubyStringDelimiter        MrakOrange
+hi! link rubyClass                  MrakRed
+hi! link rubyDefine                 MrakRed
+hi! link rubyInclude                MrakRed
+hi! link rubySharpBang              MrakLow
+hi! link rubyControl                MrakBlue
+hi! link rubyExceptional            MrakBlue
+hi! link rubyFunction               MrakYellow
 
 " PHP highhighing
-call <sid>hi("phpVarSelector",     "cyan", "", "")
-call <sid>hi("phpMemberSelector",  "higher", "", "")
-call <sid>hi("phpComparison",      "higher", "", "")
-call <sid>hi("phpParent",          "higher", "", "")
-call <sid>hi("phpRegion",          "higher", "", "")
-call <sid>hi("phpStringSingle",    "orange", "", "")
-call <sid>hi("phpType",            "yellow", "", "")
-call <sid>hi("phpDefine",          "blue", "", "")
-call <sid>hi("phpInclude",         "red", "", "")
+hi! link phpVarSelector    MrakCyan
+hi! link phpMemberSelector MrakHigher
+hi! link phpComparison     MrakHigher
+hi! link phpParent         MrakHigher
+hi! link phpRegion         MrakHigher
+hi! link phpStringSingle   MrakOrange
+hi! link phpType           MrakYellow
+hi! link phpDefine         MrakBlue
+hi! link phpInclude        MrakRed
 
 " HTML highhighing
-call <sid>hi("htmlBold",           "yellow", "", "")
-call <sid>hi("htmlItalic",         "purple", "", "")
-call <sid>hi("htmlEndTag",         "higher", "", "")
-call <sid>hi("htmlTag",            "higher", "", "")
-call <sid>hi("htmlTagName",        "green", "", "")
-call <sid>hi("htmlArg",            "cyan", "", "")
-call <sid>hi("htmlSpecialTagName", "blue", "", "")
-call <sid>hi("htmlTitle",          "", "", "bold")
-call <sid>hi("htmlH1",             "", "", "bold")
-call <sid>hi("htmlItalic",         "", "", "italic")
-call <sid>hi("htmlBold",           "", "", "bold")
-call <sid>hi("htmlLink",           "blue", "", "undercurl")
+hi! link htmlBold             MrakYellow
+hi! link htmlItalic           MrakPurple
+hi! link htmlEndTag           MrakHigher
+hi! link htmlTag              MrakHigher
+hi! link htmlTagName          MrakGreen
+hi! link htmlArg              MrakCyan
+hi! link htmlSpecialTagName   MrakBlue
+hi! link htmlTitle            MrakBold
+hi! link htmlH1               MrakBold
+hi! link htmlItalic           MrakItalic
+hi! link htmlBold             MrakBold
+call <sid>hi("htmlLink",      "blue", "", "undercurl")
 
 " Perl
-call <sid>hi("perlMethod",            "", "", "")
-call <sid>hi("perlVarPlain",          "green", "", "")
-call <sid>hi("perlVarPlain2",         "green", "", "")
-call <sid>hi("perlStatementStorage",  "red", "", "")
-call <sid>hi("perlStatementInclude",  "red", "", "")
-call <sid>hi("perlStatementFileDesc", "cyan", "", "")
-call <sid>hi("perlStatementRegexp",   "cyan", "", "")
-call <sid>hi("perlMatchStartEnd",     "cyan", "", "")
-call <sid>hi("perlSpecialString",     "purple", "", "")
+hi! link perlMethod              MrakClear
+hi! link perlVarPlain            MrakGreen
+hi! link perlVarPlain2           MrakGreen
+hi! link perlStatementStorage    MrakRed
+hi! link perlStatementInclude    MrakRed
+hi! link perlStatementFileDesc   MrakCyan
+hi! link perlStatementRegexp     MrakCyan
+hi! link perlMatchStartEnd       MrakCyan
+hi! link perlSpecialString       MrakPurple
 
 
 " CSS highhighing
-call <sid>hi("cssBraces",      "higher", "", "")
-call <sid>hi("cssClassName",   "purple", "", "")
-call <sid>hi("cssColor",       "cyan", "", "")
+hi! link cssBraces        MrakHigher
+hi! link cssClassName     MrakPurple
+hi! link cssColor         MrakCyan
 
 " SASS highhighing
-call <sid>hi("sassidChar",     "red", "", "")
-call <sid>hi("sassClassChar",  "orange", "", "")
-call <sid>hi("sassInclude",    "purple", "", "")
-call <sid>hi("sassMixing",     "purple", "", "")
-call <sid>hi("sassMixinName",  "blue", "", "")
+hi! link sassidChar       MrakRed
+hi! link sassClassChar    MrakOrange
+hi! link sassInclude      MrakPurple
+hi! link sassMixing       MrakPurple
+hi! link sassMixinName    MrakBlue
 
 " JavaScript highhighing
-call <sid>hi("javaScript",             "higher", "", "")
-call <sid>hi("jsFuncCall",             "green", "", "")
-call <sid>hi("jsOperator",             "blue", "", "")
-call <sid>hi("jsPrototype",            "cyan", "", "")
-call <sid>hi("javaScriptNumber",       "red", "", "")
-call <sid>hi("jsNumber",               "red", "", "")
-call <sid>hi("javaScriptFuncArg",      "cyan", "", "bold")
-call <sid>hi("jsFuncArgs",             "", "", "")
-call <sid>hi("javaScriptFunction",     "yellow", "", "")
-call <sid>hi("jsFunction",             "blue", "", "")
-call <sid>hi("javaScriptFuncKeyword",  "yellow", "", "")
-call <sid>hi("javaScriptFuncDef",      "cyan", "", "")
-call <sid>hi("javaScriptParens",       "", "", "bold")
-call <sid>hi("jsParens",               "", "", "bold")
-call <sid>hi("javaScriptBraces",       "cyan", "", "")
-call <sid>hi("jsBraces",               "cyan", "", "")
-call <sid>hi("jsFuncBraces",           "cyan", "", "")
-call <sid>hi("javaScriptEndColons",    "", "", "")
-call <sid>hi("javaScriptBoolean",      "red", "", "")
-call <sid>hi("jsBooleanFalse",         "yellow", "", "")
-call <sid>hi("jsBooleanTrue",          "yellow", "", "")
-call <sid>hi("javaScriptException",    "blue", "", "")
-call <sid>hi("javaScriptGlobal",       "purple", "", "")
-call <sid>hi("jsGlobalObjects",        "cyan", "", "")
-call <sid>hi("jsThis",                 "cyan", "", "")
-call <sid>hi("jsBuiltins",             "purple", "", "")
-call <sid>hi("javaScriptIdentifier",   "green", "", "")
-call <sid>hi("jsStorageClass",         "blue", "", "")
-call <sid>hi("jsNull",                 "purple", "", "")
-call <sid>hi("jsUndefined",            "purple", "", "")
-call <sid>hi("javaScriptRegexpString", "orange", "", "")
+hi! link javaScript               MrakHigher
+hi! link jsFuncCall               MrakGreen
+hi! link jsOperator               MrakBlue
+hi! link jsPrototype              MrakCyan
+hi! link javaScriptNumber         MrakRed
+hi! link jsNumber                 MrakRed
+hi! link javaScriptFuncArg        MrakCyan
+hi! link jsFuncArgs               MrakClear
+hi! link javaScriptFunction       MrakYellow
+hi! link jsFunction               MrakBlue
+hi! link javaScriptFuncKeyword    MrakYellow
+hi! link javaScriptFuncDef        MrakCyan
+hi! link javaScriptParens         MrakBold
+hi! link jsParens                 MrakBold
+hi! link javaScriptBraces         MrakCyan
+hi! link jsBraces                 MrakCyan
+hi! link jsFuncBraces             MrakCyan
+hi! link javaScriptEndColons      MrakClear
+hi! link javaScriptBoolean        MrakRed
+hi! link jsBooleanFalse           MrakYellow
+hi! link jsBooleanTrue            MrakYellow
+hi! link javaScriptException      MrakBlue
+hi! link javaScriptGlobal         MrakPurple
+hi! link jsGlobalObjects          MrakCyan
+hi! link jsThis                   MrakCyan
+hi! link jsBuiltins               MrakPurple
+hi! link javaScriptIdentifier     MrakGreen
+hi! link jsStorageClass           MrakBlue
+hi! link jsNull                   MrakPurple
+hi! link jsUndefined              MrakPurple
+hi! link javaScriptRegexpString   MrakOrange
 
 " Python
-call <sid>hi("pythonInclude",   "red", "", "")
-call <sid>hi("pythonStatement", "green", "", "")
-call <sid>hi("pythonFunction",  "cyan", "", "")
-call <sid>hi("pythonBuiltin",   "blue", "", "")
+hi! link pythonInclude     MrakRed
+hi! link pythonStatement   MrakGreen
+hi! link pythonFunction    MrakCyan
+hi! link pythonBuiltin     MrakBlue
 
 " Markdown highhighing
-call <sid>hi("markdownCode",             "cyan", "", "")
-call <sid>hi("markdownCodeBlock",        "cyan", "", "")
-call <sid>hi("markdownHeadingDelimiter", "purple", "", "bold")
-call <sid>hi("markdownItalic",           "green", "", "italic")
-call <sid>hi("markdownBold",             "green", "", "bold")
+hi! link markdownCode               MrakCyan
+hi! link markdownCodeBlock          MrakCyan
+hi! link markdownHeadingDelimiter   MrakPurpleBold
+call <sid>hi("markdownItalic",      "green", "", "italic")
+hi! link markdownBold               MrakGreenBold
 
 " Git highhighing
-call <sid>hi("gitcommitOverflow", "red", "", "")
-call <sid>hi("gitcommitSummary",  "highest", "", "")
-call <sid>hi("gitcommitFirstLine",  "", "", "")
-call <sid>hi("gitcommitHeader",   "blue", "", "")
-call <sid>hi("gitcommitBranch",   "cyan", "", "")
-call <sid>hi("gitcommitSelectedFile",   "orange", "", "")
-call <sid>hi("gitcommitSelectedType",   "yellow", "", "")
+hi! link gitcommitOverflow         MrakRed
+hi! link gitcommitSummary          MrakHighest
+hi! link gitcommitFirstLine        MrakClear
+hi! link gitcommitHeader           MrakBlue
+hi! link gitcommitBranch           MrakCyan
+hi! link gitcommitSelectedFile     MrakOrange
+hi! link gitcommitSelectedType     MrakYellow
 
 " GitGutter highhighing
 call <sid>hi("GitGutterAdd",          "green", "lowest", "")
@@ -512,100 +513,100 @@ call <sid>hi("SignifySignChange", "blue", "lowest", "")
 call <sid>hi("SignifySignDelete", "red", "lowest", "")
 
 " Shell highhighing
-call <sid>hi("shShellVariables", "purple", "", "")
-call <sid>hi("shQuote", "orange", "", "")
-call <sid>hi("shOption", "", "", "bold")
-call <sid>hi("shNumber", "orange", "", "")
-call <sid>hi("shCmdSubRegion", "red", "", "bold")
+hi! link shShellVariables   MrakPurple
+hi! link shQuote            MrakOrange
+hi! link shOption           MrakBold
+hi! link shNumber           MrakOrange
+hi! link shCmdSubRegion     MrakRedBold
 
 " Fish
-call <sid>hi("fishCommandSub", "cyan", "", "")
-call <sid>hi("fishConditional", "blue", "", "")
+hi! link fishCommandSub   MrakCyan
+hi! link fishConditional  MrakBlue
 
 " Haskell
-call <sid>hi("hsImport",    "red", "", "")
-call <sid>hi("hsPragma",    "purple", "", "")
-call <sid>hi("hsDelimiter", "cyan", "", "")
-call <sid>hi("hsModule",    "blue", "", "")
-call <sid>hi("hsStructure", "blue", "", "")
-call <sid>hi("VarId",       "", "", "")
-call <sid>hi("ConId",       "green", "", "")
+hi! link hsImport      MrakRed
+hi! link hsPragma      MrakPurple
+hi! link hsDelimiter   MrakCyan
+hi! link hsModule      MrakBlue
+hi! link hsStructure   MrakBlue
+hi! link VarId         MrakClear
+hi! link ConId         MrakGreen
 " haskell-vim
-call <sid>hi("haskellImportKeywords", "red", "", "")
-call <sid>hi("haskellType", "green", "", "")
-call <sid>hi("haskellIdentifier", "high", "", "")
+hi! link haskellImportKeywords   MrakRed
+hi! link haskellType             MrakGreen
+hi! link haskellIdentifier       MrakHigh
 
 " VimL highthighing
-call <sid>hi("vimOption", "cyan", "", "")
-call <sid>hi("vimVar", "green", "", "")
-call <sid>hi("vimEnvVar", "green", "", "")
-call <sid>hi("vimFuncName", "red", "", "")
-call <sid>hi("vimFunction", "red", "", "")
-call <sid>hi("vimIsCommand", "yellow", "", "")
-call <sid>hi("vimUserFunc", "red", "", "")
-call <sid>hi("vimAutoEvent", "green", "", "")
-call <sid>hi("vimMapMod", "purple", "", "")
-call <sid>hi("vimMapModKey", "purple", "", "")
-call <sid>hi("vimNotation", "cyan", "", "")
-call <sid>hi("helpNotVi", "red","","")
-call <sid>hi("helpSectionDelim", "red","","")
-call <sid>hi("helpSpecial", "purple","","")
-call <sid>hi("helpOption", "cyan","","")
-call <sid>hi("helpHeader", "blue","","")
-call <sid>hi("helpExample", "high","","")
+hi! link vimOption          MrakCyan
+hi! link vimVar             MrakGreen
+hi! link vimEnvVar          MrakGreen
+hi! link vimFuncName        MrakRed
+hi! link vimFunction        MrakRed
+hi! link vimIsCommand       MrakYellow
+hi! link vimUserFunc        MrakRed
+hi! link vimAutoEvent       MrakGreen
+hi! link vimMapMod          MrakPurple
+hi! link vimMapModKey       MrakPurple
+hi! link vimNotation        MrakCyan
+hi! link helpNotVi          MrakRed
+hi! link helpSectionDelim   MrakRed
+hi! link helpSpecial        MrakPurple
+hi! link helpOption         MrakCyan
+hi! link helpHeader         MrakBlue
+hi! link helpExample        MrakHigh
 
 " NERDTree highhighing
-call <sid>hi("NERDTreeDirSlash", "blue", "", "")
-call <sid>hi("NERDTreeExecFile", "higher", "", "")
-call <sid>hi("NERDTreeFile", "higher", "", "")
+hi! link NERDTreeDirSlash   MrakBlue
+hi! link NERDTreeExecFile   MrakHigher
+hi! link NERDTreeFile       MrakHigher
 
 " CtrlP
 call <sid>hi("CtrlPMatch",        "cyan", "", "underline")
 call <sid>hi("CtrlPMode1",        "lower", "high", "bold")
 call <sid>hi("CtrlPMode2",        "lower", "high", "bold")
-call <sid>hi("CtrlPBufferNr",     "high", "", "")
-call <sid>hi("CtrlPBufferInd",    "green", "", "")
-call <sid>hi("CtrlPBufferHid",    "high", "", "")
-call <sid>hi("CtrlPBufferHidMod", "red", "", "")
-call <sid>hi("CtrlPBufferVis",    "high", "", "bold")
-call <sid>hi("CtrlPBufferVisMod", "red", "", "bold")
-call <sid>hi("CtrlPBufferPath",   "high", "", "")
+hi! link CtrlPBufferNr       MrakHigh
+hi! link CtrlPBufferInd      MrakGreen
+hi! link CtrlPBufferHid      MrakHigh
+hi! link CtrlPBufferHidMod   MrakRed
+hi! link CtrlPBufferVis      MrakHigh
+hi! link CtrlPBufferVisMod   MrakRed
+hi! link CtrlPBufferPath     MrakHigh
 
 " Syntastic
 call <sid>hi("SyntasticWarningSign", "yellow", "bottom", "")
-call <sid>hi("SyntasticErrorSign", "red", "bottom", "")
+call <sid>hi("SyntasticErrorSign",   "red", "bottom", "")
 
 " ALE
-call <sid>hi("ALEInfoSign", "blue", "bottom", "")
+call <sid>hi("ALEInfoSign",    "blue", "bottom", "")
 call <sid>hi("ALEWarningSign", "yellow", "bottom", "")
-call <sid>hi("ALEErrorSign", "red", "bottom", "")
+call <sid>hi("ALEErrorSign",   "red", "bottom", "")
 
 " netrw
 call <sid>hi("netrwMarkFile", "bottom", "green", "")
 call <sid>hi("netrwTreeBar",  "low", "", "")
 
 " Rust
-call <sid>hi("rustMacro",          "yellow", "", "")
-call <sid>hi("rustModPath",        "high", "", "")
-call <sid>hi("rustModPathSep",     "high", "", "")
-call <sid>hi("rustFuncName",       "orange", "", "")
-call <sid>hi("rustFuncCall",       "orange", "", "")
-call <sid>hi("rustType",           "brown", "", "")
-call <sid>hi("rustKeyword",        "red", "", "")
-call <sid>hi("rustConditional",    "red", "", "")
-call <sid>hi("rustString",         "green", "", "")
-call <sid>hi("rustDecNumber",      "blue", "", "")
-call <sid>hi("rustFloat",          "blue", "", "")
-call <sid>hi("rustEnumVariant",    "cyan", "", "")
-call <sid>hi("rustBoolean",        "cyan", "", "")
-call <sid>hi("rustIdentifier",     "high", "", "")
-call <sid>hi("rustOperator",       "highest", "", "")
-call <sid>hi("rustSigil",          "purple", "", "")
-call <sid>hi("rustStorage",        "purple", "", "")
-call <sid>hi("rustCommentLineDoc", "high", "", "")
+hi! link rustMacro            MrakYellow
+hi! link rustModPath          MrakHigh
+hi! link rustModPathSep       MrakHigh
+hi! link rustFuncName         MrakOrange
+hi! link rustFuncCall         MrakOrange
+hi! link rustType             MrakBrown
+hi! link rustKeyword          MrakRed
+hi! link rustConditional      MrakRed
+hi! link rustString           MrakGreen
+hi! link rustDecNumber        MrakBlue
+hi! link rustFloat            MrakBlue
+hi! link rustEnumVariant      MrakCyan
+hi! link rustBoolean          MrakCyan
+hi! link rustIdentifier       MrakHigh
+hi! link rustOperator         MrakHighest
+hi! link rustSigil            MrakPurple
+hi! link rustStorage          MrakPurple
+hi! link rustCommentLineDoc   MrakHigh
 
 " Taskwarrior
-call <sid>hi("Taskwarrior_field", "", "", "bold")
+hi! link Taskwarrior_field   MrakBold
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
