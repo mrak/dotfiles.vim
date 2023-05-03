@@ -320,6 +320,7 @@ if has('nvim-0.8.0')
     hi! link @preproc PreProc
     hi! link @define Define
     hi! link @operator Operator
+    hi! link @lsp.type.operator Operator
     hi! link @punctuation.delimiter Delimiter
     hi! link @punctuation.bracket Delimiter
     hi! link @punctuation.special Delimiter
@@ -340,7 +341,9 @@ if has('nvim-0.8.0')
     hi! link @method.call Function
     hi! link @constructor Special
     hi! link @parameter MrakBold
+    hi! link @lsp.type.parameter MrakBold
     hi! link @keyword Keyword
+    hi! link @lsp.type.keyword Keyword
     hi! link @conditional Conditional
     hi! link @repeat Repeat
     hi! link @debug Debug
@@ -349,36 +352,44 @@ if has('nvim-0.8.0')
     hi! link @exception Exception
     hi! link @type Type
     hi! link @type.builtin MrakPurple
+    hi! link @lsp.type.builtinType MrakPurple
     hi! link @type.qualifier Special
     hi! link @type.definition Type
     hi! link @storageclass StorageClass
     hi! link @attribute MrakClear
     hi! link @field MrakClear
     hi! link @property MrakBrown
+    hi! link @lsp.type.property MrakBrown
     hi! link @variable Identifier
     hi! link @variable.builtin Identifier
     hi! link @constant Constant
     hi! link @constant.builtin Constant
     hi! link @constant.macro Macro
     hi! link @namespace MrakHigh
+    hi! link @lsp.type.namespace MrakHigh
     hi! link @symbol Special
     hi! link @text MrakClear
     hi! link @text.diff.add DiffAdd
     hi! link @text.diff.delete DiffDelete
+    hi! link @lsp.type.formatSpecifier @string.special
+    hi! link @lsp.type.struct MrakBlue
     hi! link @lsp.type.interface MrakBlueBold
+    hi! link @lsp.type.enum MrakCyanBold
+    hi! link @lsp.type.enumMember MrakCyan
+    hi! link @lsp.typemod.struct.defaultLibrary MrakPurple
 
     " rust
-    hi! link @lsp.type.namespace.rust  @namespace
-    hi! link @lsp.type.operator.rust   MrakHigh
-    hi! link @lsp.type.function.rust   MrakOrange
-    hi! link @lsp.type.method.rust     MrakOrange
-    hi! link @lsp.type.keyword.rust    MrakRed
-    hi! link @lsp.type.enumMember.rust MrakCyan
-    hi! link @lsp.type.enum.rust       MrakCyanBold
-    hi! link @lsp.type.variable.rust   MrakBlue
-    hi! link @lsp.type.parameter.rust  MrakPurple
-    hi! link @lsp.type.struct.rust     MrakBrown
-    hi! link @lsp.type.interface.rust  MrakBrownBold
+    "hi! link @lsp.type.namespace.rust  @namespace
+    "hi! link @lsp.type.operator.rust   MrakHigh
+    "hi! link @lsp.type.function.rust   MrakOrange
+    "hi! link @lsp.type.method.rust     MrakOrange
+    "hi! link @lsp.type.keyword.rust    MrakRed
+    "hi! link @lsp.type.enumMember.rust MrakCyan
+    "hi! link @lsp.type.enum.rust       MrakCyanBold
+    "hi! link @lsp.type.variable.rust   MrakBlue
+    "hi! link @lsp.type.parameter.rust  MrakPurple
+    "hi! link @lsp.type.struct.rust     MrakBrown
+    "hi! link @lsp.type.interface.rust  MrakBrownBold
 endif
 
 " Ruby highhighing
@@ -586,24 +597,24 @@ call <sid>hi("netrwMarkFile", "bottom", "green", "")
 call <sid>hi("netrwTreeBar",  "low", "", "")
 
 " Rust
-hi! link rustMacro            MrakYellow
-hi! link rustModPath          MrakHigh
-hi! link rustModPathSep       MrakHigh
-hi! link rustFuncName         MrakOrange
-hi! link rustFuncCall         MrakOrange
-hi! link rustType             MrakBrown
-hi! link rustKeyword          MrakRed
-hi! link rustConditional      MrakRed
-hi! link rustString           MrakGreen
-hi! link rustDecNumber        MrakBlue
-hi! link rustFloat            MrakBlue
-hi! link rustEnumVariant      MrakCyan
-hi! link rustBoolean          MrakCyan
-hi! link rustIdentifier       MrakHigh
-hi! link rustOperator         MrakHighest
-hi! link rustSigil            MrakPurple
-hi! link rustStorage          MrakPurple
-hi! link rustCommentLineDoc   MrakHigh
+"hi! link rustMacro            MrakYellow
+"hi! link rustModPath          MrakHigh
+"hi! link rustModPathSep       MrakHigh
+"hi! link rustFuncName         MrakOrange
+"hi! link rustFuncCall         MrakOrange
+"hi! link rustType             MrakBrown
+"hi! link rustKeyword          MrakRed
+"hi! link rustConditional      MrakRed
+"hi! link rustString           MrakGreen
+"hi! link rustDecNumber        MrakBlue
+"hi! link rustFloat            MrakBlue
+"hi! link rustEnumVariant      MrakCyan
+"hi! link rustBoolean          MrakCyan
+"hi! link rustIdentifier       MrakHigh
+"hi! link rustOperator         MrakHighest
+hi! link rustSigil            MrakHigh
+"hi! link rustStorage          MrakPurple
+"hi! link rustCommentLineDoc   MrakHigh
 
 " Taskwarrior
 hi! link Taskwarrior_field   MrakBold
