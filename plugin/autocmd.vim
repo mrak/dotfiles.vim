@@ -13,4 +13,5 @@ augroup Mrak
     " nvim terminal
     autocmd TermOpen * setlocal statusline=\ %{mrak#Mode()}\ %{b:term_title}
     autocmd TermOpen * set signcolumn=no
+    autocmd TermOpen * set nonumber
 augroup END
