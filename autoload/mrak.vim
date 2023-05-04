@@ -22,11 +22,11 @@ function! mrak#StatusLineColor(mode)
 endfunction
 
 function! mrak#Mode()
-    let l:mode = mode()
+    let l:mode = mode(1)
     if     mode ==# "n"  | return "NOR"
     elseif mode ==# "i"  | return "_↓_"
     elseif mode ==# "R"  | return "REP"
-    elseif mode ==# "Rv" | return "REP"
+    elseif mode ==# "Rv" | return "-R-"
     elseif mode ==# "v"  | return "VIS"
     elseif mode ==# "V"  | return "-V-"
     elseif mode ==# "" | return "|V|"
