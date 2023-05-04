@@ -5,11 +5,11 @@ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 " Pasting over content does not replace register contents
 xnoremap <expr> p 'pgv"'.v:register.'y'
 "
-nnoremap <silent> <F2> <ESC>:call mrak#QuickfixToggle()<CR>
-inoremap <silent> <F2> <ESC>:call mrak#QuickfixToggle()<CR>
-nnoremap <silent> <F3> <ESC>:call mrak#LocationToggle()<CR>
-inoremap <silent> <F3> <ESC>:call mrak#LocationToggle()<CR>
-noremap <silent> <F5> <ESC>:checktime<CR>
+nnoremap <silent> <F2> <cmd>call mrak#QuickfixToggle()<CR>
+inoremap <silent> <F2> <cmd>call mrak#QuickfixToggle()<CR>
+nnoremap <silent> <F3> <cmd>call mrak#LocationToggle()<CR>
+inoremap <silent> <F3> <cmd>call mrak#LocationToggle()<CR>
+noremap  <silent> <F5> <cmd>checktime<CR>
 "moving lines
 nnoremap <C-DOWN> :m .+1<CR>==
 nnoremap <C-UP> :m .-2<CR>==
@@ -22,8 +22,8 @@ vnoremap <C-UP> :m '<-2<CR>gv=gv
 "autocmd CmdwinEnter [:>] nnoremap <silent> :: <ESC>:q<CR>
 "autocmd CmdwinLeave [:>] nnoremap <silent> :: <ESC>q:
 
-nnoremap <silent> <leader>l <ESC>:set list!<CR>
-nnoremap <silent> <leader>\ <ESC>:set hlsearch!<CR>
+nnoremap <silent> <leader>l <cmd>set list!<CR>
+nnoremap <silent> <leader>\ <cmd>set hlsearch!<CR>
 "formatting code
 nnoremap <silent> <leader>= <ESC>mmgg=G'm
 
