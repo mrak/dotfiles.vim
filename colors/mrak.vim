@@ -378,6 +378,7 @@ if has('nvim-0.8.0')
     hi! link @lsp.type.enum MrakCyanBold
     hi! link @lsp.type.enumMember MrakCyan
     hi! link @lsp.typemod.struct.defaultLibrary MrakPurple
+    hi! link @lsp.type.attributeBracket Macro
 
     " rust
     "hi! link @lsp.type.namespace.rust  @namespace
