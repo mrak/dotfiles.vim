@@ -316,6 +316,7 @@ call <sid>hi("DiffSubname",  "high", "", "")
 " treesitter
 if has('nvim-0.8.0')
     hi! link @comment Comment
+    hi! link @lsp.mod.documentation MrakLowBold
     hi! link @error Error
     hi! link @preproc PreProc
     hi! link @define Define
