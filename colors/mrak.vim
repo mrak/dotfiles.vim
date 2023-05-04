@@ -124,7 +124,7 @@ endif
 
 
 " Highhighing function
-fun <sid>hi(group, fg, bg, attr)
+fun s:hi(group, fg, bg, attr)
   let l:string = "hi " . a:group
   if a:fg == ""
     let l:string .= " guifg=NONE ctermfg=NONE"
@@ -148,87 +148,87 @@ fun <sid>hi(group, fg, bg, attr)
 endfun
 
 " linkables
-call <sid>hi("MrakBottom", "bottom", "", "")
-call <sid>hi("MrakLowest", "lowest", "", "")
-call <sid>hi("MrakLower",  "lower", "", "")
-call <sid>hi("MrakLow",    "low", "", "")
-call <sid>hi("MrakHigh",   "high", "", "")
-call <sid>hi("MrakHigher", "higher", "", "")
-call <sid>hi("MrakHighest","highest", "", "")
-call <sid>hi("MrakTop",    "top", "", "")
-call <sid>hi("MrakRed",    "red", "", "")
-call <sid>hi("MrakOrange", "orange", "", "")
-call <sid>hi("MrakYellow", "yellow", "", "")
-call <sid>hi("MrakGreen",  "green", "", "")
-call <sid>hi("MrakCyan",   "cyan", "", "")
-call <sid>hi("MrakBlue",   "blue", "", "")
-call <sid>hi("MrakPurple", "purple", "", "")
-call <sid>hi("MrakBrown",  "brown", "", "")
+call s:hi("MrakBottom", "bottom", "", "")
+call s:hi("MrakLowest", "lowest", "", "")
+call s:hi("MrakLower",  "lower", "", "")
+call s:hi("MrakLow",    "low", "", "")
+call s:hi("MrakHigh",   "high", "", "")
+call s:hi("MrakHigher", "higher", "", "")
+call s:hi("MrakHighest","highest", "", "")
+call s:hi("MrakTop",    "top", "", "")
+call s:hi("MrakRed",    "red", "", "")
+call s:hi("MrakOrange", "orange", "", "")
+call s:hi("MrakYellow", "yellow", "", "")
+call s:hi("MrakGreen",  "green", "", "")
+call s:hi("MrakCyan",   "cyan", "", "")
+call s:hi("MrakBlue",   "blue", "", "")
+call s:hi("MrakPurple", "purple", "", "")
+call s:hi("MrakBrown",  "brown", "", "")
 
-call <sid>hi("MrakReverse",  "", "", "reverse")
-call <sid>hi("MrakClear",  "", "", "")
-call <sid>hi("MrakBold",  "", "", "bold")
-call <sid>hi("MrakItalic",  "", "", "italic")
+call s:hi("MrakReverse",  "", "", "reverse")
+call s:hi("MrakClear",  "", "", "")
+call s:hi("MrakBold",  "", "", "bold")
+call s:hi("MrakItalic",  "", "", "italic")
 
-call <sid>hi("MrakBottomBold", "bottom", "", "bold")
-call <sid>hi("MrakLowestBold", "lowest", "", "bold")
-call <sid>hi("MrakLowerBold",  "lower", "", "bold")
-call <sid>hi("MrakLowBold",    "low", "", "bold")
-call <sid>hi("MrakHighBold",   "high", "", "bold")
-call <sid>hi("MrakHigherBold", "higher", "", "bold")
-call <sid>hi("MrakHighestBold","highest", "", "bold")
-call <sid>hi("MrakTopBold",    "top", "", "bold")
-call <sid>hi("MrakRedBold",    "red", "", "bold")
-call <sid>hi("MrakOrangeBold", "orange", "", "bold")
-call <sid>hi("MrakYellowBold", "yellow", "", "bold")
-call <sid>hi("MrakGreenBold",  "green", "", "bold")
-call <sid>hi("MrakCyanBold",   "cyan", "", "bold")
-call <sid>hi("MrakBlueBold",   "blue", "", "bold")
-call <sid>hi("MrakPurpleBold", "purple", "", "bold")
-call <sid>hi("MrakBrownBold",  "brown", "", "bold")
+call s:hi("MrakBottomBold", "bottom", "", "bold")
+call s:hi("MrakLowestBold", "lowest", "", "bold")
+call s:hi("MrakLowerBold",  "lower", "", "bold")
+call s:hi("MrakLowBold",    "low", "", "bold")
+call s:hi("MrakHighBold",   "high", "", "bold")
+call s:hi("MrakHigherBold", "higher", "", "bold")
+call s:hi("MrakHighestBold","highest", "", "bold")
+call s:hi("MrakTopBold",    "top", "", "bold")
+call s:hi("MrakRedBold",    "red", "", "bold")
+call s:hi("MrakOrangeBold", "orange", "", "bold")
+call s:hi("MrakYellowBold", "yellow", "", "bold")
+call s:hi("MrakGreenBold",  "green", "", "bold")
+call s:hi("MrakCyanBold",   "cyan", "", "bold")
+call s:hi("MrakBlueBold",   "blue", "", "bold")
+call s:hi("MrakPurpleBold", "purple", "", "bold")
+call s:hi("MrakBrownBold",  "brown", "", "bold")
 
 " Vim editor colors
-call <sid>hi("Cursor",        "bottom", "top", "")
-call <sid>hi("CursorColumn",  "low", "bottom", "none")
-call <sid>hi("CursorLine",    "", "lower", "")
-call <sid>hi("LineNr",        "low", "bottom", "")
-call <sid>hi("CursorLineNr",  "low", "bottom", "")
-call <sid>hi("VertSplit",     "bottom", "bottom", "none")
-call <sid>hi("NonText",       "low", "", "")
+call s:hi("Cursor",        "bottom", "top", "")
+call s:hi("CursorColumn",  "low", "bottom", "none")
+call s:hi("CursorLine",    "", "lower", "")
+call s:hi("LineNr",        "low", "bottom", "")
+call s:hi("CursorLineNr",  "low", "bottom", "")
+call s:hi("VertSplit",     "bottom", "bottom", "none")
+call s:hi("NonText",       "low", "", "")
 if has('nvim')
-  call <sid>hi("EndOfBuffer",   "bottom", "bottom", "")
+call s:hi("EndOfBuffer",   "bottom", "bottom", "")
 endif
-call <sid>hi("StatusLine",    "lowest", "high", "bold")
-call <sid>hi("StatusLineNor", "lowest", "high", "bold")
-call <sid>hi("StatusLineIns", "lowest", "green", "bold")
-call <sid>hi("StatusLineRep", "lowest", "purple", "bold")
-call <sid>hi("StatusLineVRep","lowest", "purple", "bold")
-call <sid>hi("StatusLineNC",  "low", "bottom", "")
-call <sid>hi("FoldColumn",    "", "lowest", "")
-call <sid>hi("Folded",        "low", "bottom", "")
-call <sid>hi("IncSearch",     "lowest", "orange", "none")
-call <sid>hi("Bold",          "", "", "bold")
-call <sid>hi("Italic",        "", "", "italic")
-call <sid>hi("ModeMsg",       "green", "", "")
-call <sid>hi("MoreMsg",       "green", "", "")
-call <sid>hi("Question",      "yellow", "", "")
-call <sid>hi("Search",        "", "",  "reverse")
-call <sid>hi("MatchParen",    "lowest", "high",  "")
-call <sid>hi("Underlined",    "red", "", "")
-call <sid>hi("Visual",        "top", "low", "")
-call <sid>hi("VisualNOS",     "red", "", "reverse")
-call <sid>hi("WarningMsg",    "red", "", "")
-call <sid>hi("WildMenu",      "red", "", "")
-call <sid>hi("Title",         "blue", "", "none")
-call <sid>hi("Conceal",       "blue", "lowest", "")
+call s:hi("StatusLine",    "lowest", "high", "bold")
+call s:hi("StatusLineNor", "lowest", "high", "bold")
+call s:hi("StatusLineIns", "lowest", "green", "bold")
+call s:hi("StatusLineRep", "lowest", "purple", "bold")
+call s:hi("StatusLineVRep","lowest", "purple", "bold")
+call s:hi("StatusLineNC",  "low", "bottom", "")
+call s:hi("FoldColumn",    "", "lowest", "")
+call s:hi("Folded",        "low", "bottom", "")
+call s:hi("IncSearch",     "lowest", "orange", "none")
+call s:hi("Bold",          "", "", "bold")
+call s:hi("Italic",        "", "", "italic")
+call s:hi("ModeMsg",       "green", "", "")
+call s:hi("MoreMsg",       "green", "", "")
+call s:hi("Question",      "yellow", "", "")
+call s:hi("Search",        "", "",  "reverse")
+call s:hi("MatchParen",    "lowest", "high",  "")
+call s:hi("Underlined",    "red", "", "")
+call s:hi("Visual",        "top", "low", "")
+call s:hi("VisualNOS",     "red", "", "reverse")
+call s:hi("WarningMsg",    "red", "", "")
+call s:hi("WildMenu",      "red", "", "")
+call s:hi("Title",         "blue", "", "none")
+call s:hi("Conceal",       "blue", "lowest", "")
 hi! link SignColumn LineNr
-call <sid>hi("SpecialKey",    "low", "", "")
-call <sid>hi("ColorColumn",   "low", "lowest", "none")
-call <sid>hi("PMenu",         "high", "bottom", "none")
-call <sid>hi("PMenuSel",      "lowest", "green", "")
-call <sid>hi("TabLine",       "low", "lowest", "none")
-call <sid>hi("TabLineFill",   "low", "lowest", "none")
-call <sid>hi("TabLineSel",    "green", "lowest", "none")
+call s:hi("SpecialKey",    "low", "", "")
+call s:hi("ColorColumn",   "low", "lowest", "none")
+call s:hi("PMenu",         "high", "bottom", "none")
+call s:hi("PMenuSel",      "lowest", "green", "")
+call s:hi("TabLine",       "low", "lowest", "none")
+call s:hi("TabLineFill",   "low", "lowest", "none")
+call s:hi("TabLineSel",    "green", "lowest", "none")
 
 hi! link Debug MrakRed
 hi! link Directory MrakBlue
@@ -269,29 +269,29 @@ hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
 
 " Spelling highhighing
-call <sid>hi("SpellBad",     "", "lowest", "undercurl")
-call <sid>hi("SpellLocal",   "", "lowest", "undercurl")
-call <sid>hi("SpellCap",     "", "lowest", "undercurl")
-call <sid>hi("SpellRare",    "", "lowest", "undercurl")
+call s:hi("SpellBad",     "", "lowest", "undercurl")
+call s:hi("SpellLocal",   "", "lowest", "undercurl")
+call s:hi("SpellCap",     "", "lowest", "undercurl")
+call s:hi("SpellRare",    "", "lowest", "undercurl")
 " Diagnostics
-call <sid>hi("DiagnosticSignError"               , "red", "bottom", "")
-call <sid>hi("DiagnosticSignWarn"                , "yellow", "bottom", "")
-call <sid>hi("DiagnosticSignInfo"                , "blue", "bottom", "")
-call <sid>hi("DiagnosticSignHint"                , "higher", "bottom", "")
-call <sid>hi("DiagnosticError"                   , "red", "", "")
-call <sid>hi("DiagnosticFloatingError"           , "red", "bottom", "")
-call <sid>hi("DiagnosticWarn"                    , "yellow", "", "")
-call <sid>hi("DiagnosticFloatingWarn"            , "yellow", "bottom", "")
-call <sid>hi("DiagnosticInfo"                    , "blue", "", "")
-call <sid>hi("DiagnosticFloatingInfo"            , "blue", "bottom", "")
-call <sid>hi("DiagnosticHint"                    , "higher", "", "")
-call <sid>hi("DiagnosticFloatingHint"            , "higher", "bottom", "")
-call <sid>hi("DiagnosticFloatingOk"              , "", "bottom", "")
-call <sid>hi("DiagnosticUnderlineError"          , "", "", 'undercurl')
-call <sid>hi("DiagnosticUnderlineWarning"        , "", "", 'undercurl')
-call <sid>hi("DiagnosticUnderlineWarn"           , "", "", 'undercurl')
-call <sid>hi("DiagnosticUnderlineInformation"    , "", "", 'undercurl')
-call <sid>hi("DiagnosticUnderlineHint"           , "", "", 'undercurl')
+call s:hi("DiagnosticSignError"               , "red", "bottom", "")
+call s:hi("DiagnosticSignWarn"                , "yellow", "bottom", "")
+call s:hi("DiagnosticSignInfo"                , "blue", "bottom", "")
+call s:hi("DiagnosticSignHint"                , "higher", "bottom", "")
+call s:hi("DiagnosticError"                   , "red", "", "")
+call s:hi("DiagnosticFloatingError"           , "red", "bottom", "")
+call s:hi("DiagnosticWarn"                    , "yellow", "", "")
+call s:hi("DiagnosticFloatingWarn"            , "yellow", "bottom", "")
+call s:hi("DiagnosticInfo"                    , "blue", "", "")
+call s:hi("DiagnosticFloatingInfo"            , "blue", "bottom", "")
+call s:hi("DiagnosticHint"                    , "higher", "", "")
+call s:hi("DiagnosticFloatingHint"            , "higher", "bottom", "")
+call s:hi("DiagnosticFloatingOk"              , "", "bottom", "")
+call s:hi("DiagnosticUnderlineError"          , "", "", 'undercurl')
+call s:hi("DiagnosticUnderlineWarning"        , "", "", 'undercurl')
+call s:hi("DiagnosticUnderlineWarn"           , "", "", 'undercurl')
+call s:hi("DiagnosticUnderlineInformation"    , "", "", 'undercurl')
+call s:hi("DiagnosticUnderlineHint"           , "", "", 'undercurl')
 hi! link LspDiagnosticsDefaultError         DiagnosticError
 hi! link LspDiagnosticsDefaultWarning       DiagnosticWarn
 hi! link LspDiagnosticsDefaultInformation   DiagnosticInfo
@@ -302,16 +302,16 @@ hi! link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInformation
 hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
 
 " Additional diff highhighing
-call <sid>hi("DiffAdd",      "lowest", "green", "bold")
-call <sid>hi("DiffChange",   "lowest", "purple", "bold")
-call <sid>hi("DiffDelete",   "lowest", "", "")
-call <sid>hi("DiffText",     "lowest", "purple", "bold")
-call <sid>hi("DiffAdded",    "green", "", "")
-call <sid>hi("DiffFile",     "cyan", "", "")
-call <sid>hi("DiffNewFile",  "cyan", "", "bold")
-call <sid>hi("DiffLine",     "blue", "", "")
-call <sid>hi("DiffRemoved",  "red", "", "")
-call <sid>hi("DiffSubname",  "high", "", "")
+call s:hi("DiffAdd",      "lowest", "green", "bold")
+call s:hi("DiffChange",   "lowest", "purple", "bold")
+call s:hi("DiffDelete",   "lowest", "", "")
+call s:hi("DiffText",     "lowest", "purple", "bold")
+call s:hi("DiffAdded",    "green", "", "")
+call s:hi("DiffFile",     "cyan", "", "")
+call s:hi("DiffNewFile",  "cyan", "", "bold")
+call s:hi("DiffLine",     "blue", "", "")
+call s:hi("DiffRemoved",  "red", "", "")
+call s:hi("DiffSubname",  "high", "", "")
 
 " treesitter
 if has('nvim-0.8.0')
@@ -433,7 +433,7 @@ hi! link htmlTitle            MrakBold
 hi! link htmlH1               MrakBold
 hi! link htmlItalic           MrakItalic
 hi! link htmlBold             MrakBold
-call <sid>hi("htmlLink",      "blue", "", "undercurl")
+call s:hi("htmlLink",      "blue", "", "undercurl")
 
 " Perl
 hi! link perlMethod              MrakClear
@@ -502,7 +502,7 @@ hi! link pythonBuiltin     MrakBlue
 hi! link markdownCode               MrakCyan
 hi! link markdownCodeBlock          MrakCyan
 hi! link markdownHeadingDelimiter   MrakPurpleBold
-call <sid>hi("markdownItalic",      "green", "", "italic")
+call s:hi("markdownItalic",      "green", "", "italic")
 hi! link markdownBold               MrakGreenBold
 
 " Git highhighing
@@ -515,15 +515,15 @@ hi! link gitcommitSelectedFile     MrakOrange
 hi! link gitcommitSelectedType     MrakYellow
 
 " GitGutter highhighing
-call <sid>hi("GitGutterAdd",          "green", "lowest", "")
-call <sid>hi("GitGutterChange",       "blue", "lowest", "")
-call <sid>hi("GitGutterDelete",       "red", "lowest", "")
-call <sid>hi("GitGutterChangeDelete", "purple", "lowest", "")
+call s:hi("GitGutterAdd",          "green", "lowest", "")
+call s:hi("GitGutterChange",       "blue", "lowest", "")
+call s:hi("GitGutterDelete",       "red", "lowest", "")
+call s:hi("GitGutterChangeDelete", "purple", "lowest", "")
 
 " Signify highhighing
-call <sid>hi("SignifySignAdd",    "green", "lowest", "")
-call <sid>hi("SignifySignChange", "blue", "lowest", "")
-call <sid>hi("SignifySignDelete", "red", "lowest", "")
+call s:hi("SignifySignAdd",    "green", "lowest", "")
+call s:hi("SignifySignChange", "blue", "lowest", "")
+call s:hi("SignifySignDelete", "red", "lowest", "")
 
 " Shell highhighing
 hi! link shShellVariables   MrakPurple
@@ -574,9 +574,9 @@ hi! link NERDTreeExecFile   MrakHigher
 hi! link NERDTreeFile       MrakHigher
 
 " CtrlP
-call <sid>hi("CtrlPMatch",        "cyan", "", "underline")
-call <sid>hi("CtrlPMode1",        "lower", "high", "bold")
-call <sid>hi("CtrlPMode2",        "lower", "high", "bold")
+call s:hi("CtrlPMatch",        "cyan", "", "underline")
+call s:hi("CtrlPMode1",        "lower", "high", "bold")
+call s:hi("CtrlPMode2",        "lower", "high", "bold")
 hi! link CtrlPBufferNr       MrakHigh
 hi! link CtrlPBufferInd      MrakGreen
 hi! link CtrlPBufferHid      MrakHigh
@@ -586,17 +586,17 @@ hi! link CtrlPBufferVisMod   MrakRed
 hi! link CtrlPBufferPath     MrakHigh
 
 " Syntastic
-call <sid>hi("SyntasticWarningSign", "yellow", "bottom", "")
-call <sid>hi("SyntasticErrorSign",   "red", "bottom", "")
+call s:hi("SyntasticWarningSign", "yellow", "bottom", "")
+call s:hi("SyntasticErrorSign",   "red", "bottom", "")
 
 " ALE
-call <sid>hi("ALEInfoSign",    "blue", "bottom", "")
-call <sid>hi("ALEWarningSign", "yellow", "bottom", "")
-call <sid>hi("ALEErrorSign",   "red", "bottom", "")
+call s:hi("ALEInfoSign",    "blue", "bottom", "")
+call s:hi("ALEWarningSign", "yellow", "bottom", "")
+call s:hi("ALEErrorSign",   "red", "bottom", "")
 
 " netrw
-call <sid>hi("netrwMarkFile", "bottom", "green", "")
-call <sid>hi("netrwTreeBar",  "low", "", "")
+call s:hi("netrwMarkFile", "bottom", "green", "")
+call s:hi("netrwTreeBar",  "low", "", "")
 
 " Rust
 "hi! link rustMacro            MrakYellow
@@ -623,13 +623,13 @@ hi! link Taskwarrior_field   MrakBold
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
-call <sid>hi("Normal", "highest", "lowest", "")
-call <sid>hi("NormalNC", "highest", "bottom", "")
+call s:hi("Normal", "highest", "lowest", "")
+call s:hi("NormalNC", "highest", "bottom", "")
 let &background = s:background
 unlet s:background
 
 " Remove functions
-delf <sid>hi
+delf s:hi
 
 " Remove color variables
 unlet s:gui

@@ -13,6 +13,7 @@ set fileformats=unix,dos,mac
 set autoread
 set undofile
 " Font/Colors ================================================================
+set termguicolors
 set background=dark
 set t_ut=
 " vertical separator
