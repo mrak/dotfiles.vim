@@ -380,6 +380,13 @@ if has('nvim-0.8.0')
     hi! link @lsp.typemod.struct.defaultLibrary MrakPurple
     hi! link @lsp.type.attributeBracket Macro
 
+    " terraform
+    hi! link @variable.builtin.terraform MrakRed
+    hi! link @type.terraform NONE
+    hi! link @lsp.type.type.terraform NONE
+    hi! link @lsp.type.keyword.terraform NONE
+    hi! link @lsp.type.property.terraform MrakBlue
+    hi! link @lsp.type.enumMember.terraform MrakOrange
     " rust
     "hi! link @lsp.type.namespace.rust  @namespace
     "hi! link @lsp.type.operator.rust   MrakHigh
