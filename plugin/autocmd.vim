@@ -1,4 +1,4 @@
-augroup Mrak
+augroup Mrak#Plugin
     autocmd!
     autocmd InsertEnter * call mrak#StatusLineColor(v:insertmode)
     autocmd InsertChange * call mrak#StatusLineColor(v:insertmode)
