@@ -82,6 +82,7 @@ set tabstop=4
 set ttimeoutlen=0
 
 " Netrw ======================================================================
+let g:netrw_altfile=1
 let g:netrw_browse_split = 4
 let g:netrw_liststyle = 3
 let g:netrw_winsize = -25
