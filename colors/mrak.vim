@@ -300,6 +300,7 @@ hi! link LspDiagnosticsUnderlineError       DiagnosticUnderlineError
 hi! link LspDiagnosticsUnderlineWarning     DiagnosticUnderlineWarning
 hi! link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInformation
 hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
+call s:hi('LspInfoBorder', 'green', 'bottom', '')
 
 " Additional diff highhighing
 call s:hi("DiffAdd",      "lowest", "green", "bold")
