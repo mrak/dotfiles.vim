@@ -628,6 +628,12 @@ hi! link rustSigil            MrakHigh
 " Taskwarrior
 hi! link Taskwarrior_field   MrakBold
 
+" nvim-tree
+hi! link NvimTreeGitStaged  MrakYellow
+hi! link NvimTreeGitRenamed MrakGreen
+hi! link NvimTreeGitNew     MrakBlue
+hi! link NvimTreeGitMerge   MrakPurple
+
 " Since 'Normal' resets the &background, do last
 let s:background = &background
 call s:hi("Normal", "highest", "lowest", "")
