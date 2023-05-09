@@ -54,9 +54,7 @@ if has("patch314")
 endif
 set showcmd
 set noshowmode
-let loaded_matchparen = 1
 "let g:is_bash=1 " fixes syntax for shell scripts
-
 set statusline=
 set statusline+=\ %{mrak#Mode()} " vim mode
 set statusline+=\ %f      " filename and [modified]
@@ -77,10 +75,8 @@ set shiftround
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-"
 " Other ======================================================================
 set ttimeoutlen=0
-
 " Netrw ======================================================================
 let g:netrw_altfile=1
 let g:netrw_browse_split = 4
