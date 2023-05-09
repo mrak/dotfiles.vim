@@ -230,13 +230,13 @@ call s:hi("TabLine",       "low", "lowest", "none")
 call s:hi("TabLineFill",   "low", "lowest", "none")
 call s:hi("TabLineSel",    "green", "lowest", "none")
 
-hi! link Debug MrakRed
+hi! link Debug     MrakRed
 hi! link Directory MrakBlue
-hi! link Error MrakRedBold
-hi! link ErrorMsg MrakRedBold
+hi! link Error     MrakRedBold
+hi! link ErrorMsg  MrakRedBold
 hi! link Exception MrakRed
-hi! link Macro MrakYellow
-hi! link TooLong MrakRed
+hi! link Macro     MrakYellow
+hi! link TooLong   MrakRed
 
 " Standard syntax highhighing
 hi! link Boolean      MrakCyan
@@ -313,6 +313,8 @@ call s:hi("DiffNewFile",  "cyan", "", "bold")
 call s:hi("DiffLine",     "blue", "", "")
 call s:hi("DiffRemoved",  "red", "", "")
 call s:hi("DiffSubname",  "high", "", "")
+
+hi! link DirvishArg MrakOrangeBold
 
 " treesitter
 if has('nvim-0.8.0')

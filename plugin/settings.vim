@@ -92,6 +92,7 @@ let g:netrw_banner = 0
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'sh', 'yaml']
 " Ripgrep ====================================================================
 if executable('rg')
+    let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
     set grepprg=rg\ --vimgrep\ --hidden\ --smart-case
     set grepformat+=%f:%l:%c:%m
 endif
