@@ -39,30 +39,26 @@ function! mrak#Mode()
     endif
 endfunction
 " Single fn to toggle the quickfix buffer
-let g:quickfix_is_open = 0
 function! mrak#QuickfixToggle()
-    if g:quickfix_is_open
-        cclose
-        let g:quickfix_is_open = 0
-        execute g:quickfix_return_to_window . "wincmd w"
-    else
-        let g:quickfix_return_to_window = winnr()
-        cwindow
-        let g:quickfix_is_open = 1
-    endif
+    for winnr in range(1, winnr('$'))
+        let l:winfo = getwininfo(win_getid(winnr))[0]
+        if l:winfo.quickfix == 1 && l:winfo.loclist == 0
+            cclose
+            return
+        endif
+    endfor
+    cwindow
 endfunction
 
-let g:location_is_open = 0
 function! mrak#LocationToggle()
-    if g:location_is_open
-        lclose
-        let g:location_is_open = 0
-        execute g:location_return_to_window . "wincmd w"
-    else
-        let g:location_return_to_window = winnr()
-        lwindow
-        let g:location_is_open = 1
-    endif
+    for winnr in range(1, winnr('$'))
+        let l:winfo = getwininfo(win_getid(winnr))[0]
+        if l:winfo.loclist == 1
+            lclose
+            return
+        endif
+    endfor
+    lwindow
 endfunction
 
 function! mrak#DeleteBufferIfEmpty()

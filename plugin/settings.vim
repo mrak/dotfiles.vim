@@ -73,6 +73,10 @@ set shiftround
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+" No bells ===================================================================
+set belloff=all
+set noerrorbells
+set visualbell
 " Other ======================================================================
 set ttimeoutlen=0
 " Netrw ======================================================================
