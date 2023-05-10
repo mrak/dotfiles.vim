@@ -58,7 +58,7 @@ function! mrak#LocationToggle()
             return
         endif
     endfor
-    lwindow
+    try | lwindow | catch || endtry
 endfunction
 
 function! mrak#DeleteBufferIfEmpty()
