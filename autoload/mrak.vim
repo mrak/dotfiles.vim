@@ -37,7 +37,7 @@ function! mrak#Mode()
     elseif mode ==# "cv" | return "CMD"
     elseif mode ==# "ce" | return "CMD"
     elseif mode ==# "t"  | return ">_ "
-    else return "   "
+    else                 | return "   "
     endif
 endfunction
 " Single fn to toggle the quickfix buffer
