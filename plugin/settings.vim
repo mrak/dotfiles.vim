@@ -1,4 +1,3 @@
-set shell=/bin/sh
 " super slow startup for ruby files with jruby unless this is set
 "let g:ruby_path='/usr/bin'
 " Basics =====================================================================
@@ -99,4 +98,8 @@ endif
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
+endif
+" If the running Vim lacks support for the Fish shell, use Bash instead.
+if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
+  set shell=/usr/bin/env\ bash
 endif
