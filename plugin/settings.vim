@@ -16,7 +16,7 @@ set termguicolors
 set background=dark
 set t_ut=
 " vertical separator
-set fillchars+=vert:\ ,fold:-
+set fillchars+=vert:\ ,fold:-,stlnc:=
 " Completion menus ===========================================================
 set cpoptions=aABceFsmq
 set completeopt=menu,longest
