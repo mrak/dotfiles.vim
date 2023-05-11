@@ -123,7 +123,7 @@ else
 endif
 
 
-" Highhighing function
+" Highlighting function
 fun s:hi(group, fg, bg, attr)
   let l:string = "hi " . a:group
   if a:fg == ""
@@ -195,9 +195,7 @@ call s:hi("LineNr",        "low", "bottom", "")
 call s:hi("CursorLineNr",  "low", "bottom", "")
 call s:hi("VertSplit",     "bottom", "bottom", "none")
 call s:hi("NonText",       "low", "", "")
-if has('nvim')
 call s:hi("EndOfBuffer",   "bottom", "bottom", "")
-endif
 call s:hi("StatusLine",    "lowest", "high", "bold")
 call s:hi("StatusLineNor", "lowest", "high", "bold")
 call s:hi("StatusLineIns", "lowest", "green", "bold")
@@ -238,7 +236,7 @@ hi! link Exception MrakRed
 hi! link Macro     MrakYellow
 hi! link TooLong   MrakRed
 
-" Standard syntax highhighing
+" Standard syntax highlighting
 hi! link Boolean      MrakCyan
 hi! link Character    MrakGreenBold
 hi! link Comment      MrakLow
@@ -268,7 +266,7 @@ hi! link Todo         MrakYellow
 hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
 
-" Spelling highhighing
+" Spelling highlighting
 call s:hi("SpellBad",     "", "lowest", "undercurl")
 call s:hi("SpellLocal",   "", "lowest", "undercurl")
 call s:hi("SpellCap",     "", "lowest", "undercurl")
@@ -302,7 +300,7 @@ hi! link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInformation
 hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
 call s:hi('LspInfoBorder', 'green', 'bottom', '')
 
-" Additional diff highhighing
+" Additional diff highlighting
 call s:hi("DiffAdd",      "lowest", "green", "bold")
 call s:hi("DiffChange",   "lowest", "purple", "bold")
 call s:hi("DiffDelete",   "lowest", "", "")
@@ -316,7 +314,7 @@ call s:hi("DiffSubname",  "high", "", "")
 
 hi! link DirvishArg MrakOrangeBold
 
-" treesitter
+" treesitter/lsp
 if has('nvim-0.8.0')
     hi! link @comment Comment
     hi! link @lsp.mod.documentation MrakLowBold
@@ -404,7 +402,7 @@ if has('nvim-0.8.0')
     "hi! link @lsp.type.interface.rust  MrakBrownBold
 endif
 
-" Ruby highhighing
+" Ruby highlighting
 hi! link rubyAttribute              MrakBlue
 hi! link rubyConstant               MrakGreen
 hi! link rubyInterpolation          MrakGreen
@@ -420,7 +418,7 @@ hi! link rubyControl                MrakBlue
 hi! link rubyExceptional            MrakBlue
 hi! link rubyFunction               MrakYellow
 
-" PHP highhighing
+" PHP highlighting
 hi! link phpVarSelector    MrakCyan
 hi! link phpMemberSelector MrakHigher
 hi! link phpComparison     MrakHigher
@@ -431,7 +429,7 @@ hi! link phpType           MrakYellow
 hi! link phpDefine         MrakBlue
 hi! link phpInclude        MrakRed
 
-" HTML highhighing
+" HTML highlighting
 hi! link htmlBold             MrakYellow
 hi! link htmlItalic           MrakPurple
 hi! link htmlEndTag           MrakHigher
@@ -457,19 +455,19 @@ hi! link perlMatchStartEnd       MrakCyan
 hi! link perlSpecialString       MrakPurple
 
 
-" CSS highhighing
+" CSS highlighting
 hi! link cssBraces        MrakHigher
 hi! link cssClassName     MrakPurple
 hi! link cssColor         MrakCyan
 
-" SASS highhighing
+" SASS highlighting
 hi! link sassidChar       MrakRed
 hi! link sassClassChar    MrakOrange
 hi! link sassInclude      MrakPurple
 hi! link sassMixing       MrakPurple
 hi! link sassMixinName    MrakBlue
 
-" JavaScript highhighing
+" JavaScript highlighting
 hi! link javaScript               MrakHigher
 hi! link jsFuncCall               MrakGreen
 hi! link jsOperator               MrakBlue
@@ -508,14 +506,14 @@ hi! link pythonStatement   MrakGreen
 hi! link pythonFunction    MrakCyan
 hi! link pythonBuiltin     MrakBlue
 
-" Markdown highhighing
+" Markdown highlighting
 hi! link markdownCode               MrakCyan
 hi! link markdownCodeBlock          MrakCyan
 hi! link markdownHeadingDelimiter   MrakPurpleBold
 call s:hi("markdownItalic",      "green", "", "italic")
 hi! link markdownBold               MrakGreenBold
 
-" Git highhighing
+" Git highlighting
 hi! link gitcommitOverflow         MrakRed
 hi! link gitcommitSummary          MrakHighest
 hi! link gitcommitFirstLine        MrakClear
@@ -524,18 +522,18 @@ hi! link gitcommitBranch           MrakCyan
 hi! link gitcommitSelectedFile     MrakOrange
 hi! link gitcommitSelectedType     MrakYellow
 
-" GitGutter highhighing
+" GitGutter highlighting
 call s:hi("GitGutterAdd",          "green", "lowest", "")
 call s:hi("GitGutterChange",       "blue", "lowest", "")
 call s:hi("GitGutterDelete",       "red", "lowest", "")
 call s:hi("GitGutterChangeDelete", "purple", "lowest", "")
 
-" Signify highhighing
+" Signify highlighting
 call s:hi("SignifySignAdd",    "green", "lowest", "")
 call s:hi("SignifySignChange", "blue", "lowest", "")
 call s:hi("SignifySignDelete", "red", "lowest", "")
 
-" Shell highhighing
+" Shell highlighting
 hi! link shShellVariables   MrakPurple
 hi! link shQuote            MrakOrange
 hi! link shOption           MrakBold
@@ -559,7 +557,7 @@ hi! link haskellImportKeywords   MrakRed
 hi! link haskellType             MrakGreen
 hi! link haskellIdentifier       MrakHigh
 
-" VimL highthighing
+" VimL highlighting
 hi! link vimOption          MrakCyan
 hi! link vimVar             MrakGreen
 hi! link vimEnvVar          MrakGreen
@@ -580,7 +578,7 @@ hi! link helpExample        MrakHigh
 hi! link qfFileName         MrakRed
 hi! link qfLineNr           MrakCyan
 
-" NERDTree highhighing
+" NERDTree highlighting
 hi! link NERDTreeDirSlash   MrakBlue
 hi! link NERDTreeExecFile   MrakHigher
 hi! link NERDTreeFile       MrakHigher
