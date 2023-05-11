@@ -203,7 +203,7 @@ call s:hi("StatusLineNor", "lowest", "high", "bold")
 call s:hi("StatusLineIns", "lowest", "green", "bold")
 call s:hi("StatusLineRep", "lowest", "purple", "bold")
 call s:hi("StatusLineVRep","lowest", "purple", "bold")
-call s:hi("StatusLineNC",  "low", "bottom", "")
+call s:hi("StatusLineNC",  "higher", "bottom", "bold")
 call s:hi("FoldColumn",    "", "lowest", "")
 call s:hi("Folded",        "low", "bottom", "")
 call s:hi("IncSearch",     "lowest", "orange", "none")
@@ -226,8 +226,8 @@ call s:hi("SpecialKey",    "low", "", "")
 call s:hi("ColorColumn",   "low", "lowest", "none")
 call s:hi("PMenu",         "high", "bottom", "none")
 call s:hi("PMenuSel",      "lowest", "green", "")
-call s:hi("TabLine",       "low", "lowest", "none")
-call s:hi("TabLineFill",   "low", "lowest", "none")
+call s:hi("TabLine",       "low", "bottom", "none")
+call s:hi("TabLineFill",   "low", "bottom", "none")
 call s:hi("TabLineSel",    "green", "lowest", "none")
 
 hi! link Debug     MrakRed
@@ -577,6 +577,8 @@ hi! link helpSpecial        MrakPurple
 hi! link helpOption         MrakCyan
 hi! link helpHeader         MrakBlue
 hi! link helpExample        MrakHigh
+hi! link qfFileName         MrakRed
+hi! link qfLineNr           MrakCyan
 
 " NERDTree highhighing
 hi! link NERDTreeDirSlash   MrakBlue
