@@ -93,8 +93,12 @@ let g:loaded_matchparen=1
 " Markdown ===================================================================
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'sh', 'yaml']
 " Ripgrep ====================================================================
-if executable('rg')
+if executable('fd')
+    let $FZF_DEFAULT_COMMAND = "fd --type file --follow --hidden --exclude .git"
+elseif executable('rg')
     let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
+endif
+if executable('rg')
     set grepprg=rg\ --vimgrep\ --hidden\ --smart-case
     set grepformat+=%f:%l:%c:%m
 endif
