@@ -637,6 +637,12 @@ hi! link NvimTreeGitRenamed MrakGreen
 hi! link NvimTreeGitNew     MrakBlue
 hi! link NvimTreeGitMerge   MrakPurple
 
+" Fern
+call s:hi("FernMarkedText", "orange", "bottom", "bold")
+hi! link FernMarkedLine MrakOrangeBold
+hi! link FernBranchSymbol MrakHigh
+hi! link FernLeafSymbol MrakLow
+
 " Since 'Normal' resets the &background, do last
 let s:background = &background
 call s:hi("Normal", "highest", "lowest", "")
