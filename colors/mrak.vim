@@ -380,6 +380,8 @@ if has('nvim-0.8.0')
     hi! link @lsp.type.enumMember MrakCyan
     hi! link @lsp.typemod.struct.defaultLibrary MrakPurple
     hi! link @lsp.type.attributeBracket Macro
+    " yaml
+    hi! link @field.yaml MrakHighest
 
     " terraform
     hi! link @variable.builtin.terraform MrakRed
