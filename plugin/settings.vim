@@ -36,7 +36,7 @@ set hidden
 set incsearch
 set laststatus=2
 "set lazyredraw
-set list
+set nolist
 set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
 set hlsearch
 set nowrapscan
