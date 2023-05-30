@@ -314,6 +314,8 @@ call s:hi("DiffSubname",  "high", "", "")
 
 hi! link DirvishArg MrakOrangeBold
 
+hi! link LeapBackdrop Comment
+
 " treesitter/lsp
 if has('nvim-0.8.0')
     hi! link @comment Comment
