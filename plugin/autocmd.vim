@@ -7,7 +7,6 @@ augroup Mrak#Plugin
     autocmd FocusLost * silent! wa
     autocmd BufEnter * silent! checktime %
     autocmd BufWritePre * :call mrak#TrimTrailingWhitespace()
-    " autocmd BufAdd * :call mrak#DeleteBufferIfEmpty()
 
     if has('nvim') " nvim terminal
         autocmd TermOpen * setlocal statusline=\ %{mrak#Mode()}\ %{b:term_title}
