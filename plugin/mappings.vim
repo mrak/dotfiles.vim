@@ -5,10 +5,10 @@ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 " Pasting over content does not replace register contents
 xnoremap <expr> p 'pgv"'.v:register.'y'
 " F keys
-nnoremap <F2> <cmd>call mrak#QuickfixToggle()<CR>
-inoremap <F2> <cmd>call mrak#QuickfixToggle()<CR>
-nnoremap <F3> <cmd>call mrak#LocationToggle()<CR>
-inoremap <F3> <cmd>call mrak#LocationToggle()<CR>
+nnoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
+inoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
+nnoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
+inoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 noremap  <F5> <cmd>checktime<CR>
 "moving lines
 nnoremap <C-DOWN> :m .+1<CR>==

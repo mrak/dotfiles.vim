@@ -54,7 +54,7 @@ endif
 set showcmd
 set noshowmode
 set statusline=
-set statusline+=\ %{mrak#Mode()} " vim mode
+set statusline+=\ %{mrak#mode#fn()} " vim mode
 set statusline+=\ %f      " filename and [modified]
 set statusline+=\ %=        " end left. start right
 set statusline+=\ %l:%c     " line:column

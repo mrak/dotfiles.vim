@@ -1,4 +1,4 @@
-augroup Mrak#Diff
+augroup Mrak#diff
     autocmd!
     autocmd FilterWritePre * if &diff | set foldcolumn=0 | endif
     if &diff
