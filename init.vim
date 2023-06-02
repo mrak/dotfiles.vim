@@ -8,6 +8,7 @@ let g:loaded_matchparen=1
 "let g:loaded_netrw = 1
 "let g:loaded_netrwPlugin = 1
 let g:sneak#label = 1
+let g:sneak#prompt = '↯ '
 
 if isdirectory('/opt/homebrew/opt/fzf')
     set rtp+=/opt/homebrew/opt/fzf
