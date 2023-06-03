@@ -11,6 +11,9 @@ set fileformats=unix,dos,mac
 " Files/Directories ==========================================================
 set autoread
 set undofile
+if !has('nvim')
+    set viminfofile=expand("$HOME/.vim/viminfo")
+endif
 " Font/Colors ================================================================
 set termguicolors
 set background=dark

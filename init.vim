@@ -20,15 +20,11 @@ endif
 packadd cfilter
 packadd matchit
 
-call plug#begin()
+call plug#begin(expand("$HOME/.local/share/nvim/plugged"))
 Plug 'hashicorp/sentinel.vim'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'simrat39/rust-tools.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -36,6 +32,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+if has('nvim')
+    Plug 'simrat39/rust-tools.nvim'
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter'
+endif
 call plug#end()
 
 colorscheme mrak
@@ -47,6 +49,7 @@ nnoremap <leader>ft <cmd>Tags<CR>
 nnoremap <leader>fm <cmd>History<CR>
 nnoremap <leader>fr <cmd>Rg<CR>
 
+if has('nvim')
 :lua << EOL
 vim.diagnostic.config({ update_in_insert = false })
 require'rust-tools'.setup{}
@@ -93,3 +96,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 EOL
+endif
