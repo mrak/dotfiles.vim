@@ -301,12 +301,12 @@ hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
 call s:hi('LspInfoBorder', 'green', 'bottom', '')
 
 " Additional diff highlighting
-call s:hi("DiffAdd",      "lowest", "green", "bold")
+call s:hi("DiffAdd",      "green", "", "bold")
 call s:hi("DiffChange",   "lowest", "purple", "bold")
-call s:hi("DiffDelete",   "lowest", "", "")
+call s:hi("DiffDelete",   "red", "", "bold")
 call s:hi("DiffText",     "lowest", "purple", "bold")
 call s:hi("DiffAdded",    "green", "", "")
-call s:hi("DiffFile",     "cyan", "", "")
+call s:hi("DiffFile",     "low", "", "")
 call s:hi("DiffNewFile",  "cyan", "", "bold")
 call s:hi("DiffLine",     "blue", "", "")
 call s:hi("DiffRemoved",  "red", "", "")
