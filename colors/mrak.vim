@@ -305,12 +305,14 @@ call s:hi("DiffAdd",      "green", "", "bold")
 call s:hi("DiffChange",   "lowest", "purple", "bold")
 call s:hi("DiffDelete",   "red", "", "bold")
 call s:hi("DiffText",     "lowest", "purple", "bold")
-call s:hi("DiffAdded",    "green", "", "")
+call s:hi("DiffAdded",    "green", "", "bold")
 call s:hi("DiffFile",     "low", "", "")
-call s:hi("DiffNewFile",  "cyan", "", "bold")
-call s:hi("DiffLine",     "blue", "", "")
-call s:hi("DiffRemoved",  "red", "", "")
+call s:hi("diffOldFile",  "brown", "", "")
+call s:hi("DiffNewFile",  "orange", "", "")
+call s:hi("DiffLine",     "cyan", "", "")
+call s:hi("DiffRemoved",  "red", "", "bold")
 call s:hi("DiffSubname",  "high", "", "")
+call s:hi("diffIndexLine","purple", "", "")
 
 hi! link DirvishArg MrakOrangeBold
 
