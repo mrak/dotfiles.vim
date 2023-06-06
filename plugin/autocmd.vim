@@ -1,5 +1,6 @@
 augroup Mrak#autocmd
     autocmd!
+    autocmd VimResized * wincmd =
     autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
     autocmd InsertEnter * call mrak#statuslinecolor#fn(v:insertmode)
     autocmd InsertChange * call mrak#statuslinecolor#fn(v:insertmode)
