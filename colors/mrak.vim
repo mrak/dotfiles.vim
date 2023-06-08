@@ -134,9 +134,7 @@ fun s:hi(group, ...)
   let l:bg   = get(a:,2,0)
   let l:attr = get(a:,3,0)
   let l:afg  = get(a:,4,0)
-  if l:attr == ""
-    let l:attr = "NONE"
-  endif
+  if l:attr is "" | let l:attr = "NONE" | endif
 
   let l:string = "hi " . a:group
   if l:fg   isnot 0 | let l:string .= " guifg=" . s:gui[l:fg] . " ctermfg=" . s:cterm[l:fg] | endif
