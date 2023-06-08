@@ -274,10 +274,10 @@ hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
 
 " Spelling highlighting
-call s:hi("SpellBad",     "", "lowest", "undercurl")
-call s:hi("SpellLocal",   "", "lowest", "undercurl")
-call s:hi("SpellCap",     "", "lowest", "undercurl")
-call s:hi("SpellRare",    "", "lowest", "undercurl")
+call s:hi("SpellBad",     "", "", "undercurl", "red")
+call s:hi("SpellLocal",   "", "", "undercurl", "orange")
+call s:hi("SpellCap",     "", "", "undercurl", "blue")
+call s:hi("SpellRare",    "", "", "undercurl", "green")
 " Diagnostics
 call s:hi("DiagnosticSignError"               , "red", "bottom", "")
 call s:hi("DiagnosticSignWarn"                , "yellow", "bottom", "")
