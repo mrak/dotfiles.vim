@@ -202,7 +202,7 @@ call s:hi("StatusLineIns", "lowest", "green", "bold")
 call s:hi("StatusLineRep", "lowest", "purple", "bold")
 call s:hi("StatusLineVRep","lowest", "purple", "bold")
 call s:hi("StatusLineNC",  "low", "bottom", "bold")
-call s:hi("FoldColumn",    "", "lowest", "")
+hi! link FoldColumn LineNr
 call s:hi("Folded",        "low", "bottom", "")
 call s:hi("IncSearch",     "lowest", "orange", "none")
 call s:hi("Bold",          "", "", "bold")
@@ -300,11 +300,12 @@ hi! link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInformation
 hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
 call s:hi('LspInfoBorder', 'green', 'bottom', '')
 
+" Diff mode
+call s:hi("DiffAdd",      "lowest", "green", "bold")
+call s:hi("DiffChange",   "lowest", "purple", "")
+call s:hi("DiffDelete",   "lowest", "red", "bold")
+call s:hi("DiffText",     "lowest", "purple", "bold,underline")
 " Additional diff highlighting
-call s:hi("DiffAdd",      "green", "", "bold")
-call s:hi("DiffChange",   "lowest", "purple", "bold")
-call s:hi("DiffDelete",   "red", "", "bold")
-call s:hi("DiffText",     "lowest", "purple", "bold")
 call s:hi("DiffAdded",    "green", "", "bold")
 call s:hi("DiffFile",     "low", "", "")
 call s:hi("diffOldFile",  "brown", "", "")
