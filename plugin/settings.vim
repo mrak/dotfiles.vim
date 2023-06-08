@@ -12,7 +12,10 @@ set fileformats=unix,dos,mac
 set autoread
 set undofile
 if !has('nvim')
-    set viminfofile=expand("$HOME/.vim/viminfo")
+    let &viminfofile=expand("$HOME/.vim/viminfo")
+endif
+if has('nvim')
+    let &spellfile=stdpath("config")."/spell/personal.utf-8.add"
 endif
 " Font/Colors ================================================================
 set termguicolors
