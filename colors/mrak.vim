@@ -3,133 +3,80 @@
 hi clear
 syntax reset
 let g:colors_name = "mrak"
-let s:gui = {}
-let s:gui[""] = "NONE"
-let s:gui.none = "NONE"
-let s:cterm = {}
-let s:cterm[""] = "NONE"
-let s:cterm.none = "NONE"
+let s:gui = {"": "NONE", "none": "NONE"}
+let s:cterm = {"": "NONE", "none": "NONE"}
 
 if &background == "dark"
-    " dark greyscale
-    let s:gui.bottom  = "#1c1c1c"
-    let s:gui.lowest  = "#262626"
-    let s:gui.lower   = "#303030"
-    let s:gui.low     = "#444444"
-    let s:gui.high    = "#a8a8a8"
-    let s:gui.higher  = "#dadada"
-    let s:gui.highest = "#e4e4e4"
-    let s:gui.top     = "#f5f5f5"
-    if &t_Co == 256
-        let s:cterm.bottom  = "234"
-        let s:cterm.lowest  = "235"
-        let s:cterm.lower   = "236"
-        let s:cterm.low     = "238"
-        let s:cterm.high    = "248"
-        let s:cterm.higher  = "253"
-        let s:cterm.highest = "254"
-        let s:cterm.top     = "015"
-    else
-        let s:cterm.bottom  = "000"
-        let s:cterm.lowest  = "000"
-        let s:cterm.lower   = "008"
-        let s:cterm.low     = "008"
-        let s:cterm.high    = "007"
-        let s:cterm.higher  = "007"
-        let s:cterm.highest = "015"
-        let s:cterm.top     = "015"
+    call extend(s:gui, #{
+    \  bottom  : "#1c1c1c" , red    : "#df5f87"
+    \, lowest  : "#262626" , orange : "#d78700"
+    \, lower   : "#303030" , yellow : "#ffd700"
+    \, low     : "#444444" , green  : "#87af5f"
+    \, high    : "#a8a8a8" , cyan   : "#00afaf"
+    \, higher  : "#dadada" , blue   : "#87afff"
+    \, highest : "#e4e4e4" , purple : "#af87ff"
+    \, top     : "#f5f5f5" , brown  : "#875f00"
+    \})
+    call extend(s:cterm, #{
+    \  bottom  : "234" , red    : "168"
+    \, lowest  : "235" , orange : "172"
+    \, lower   : "236" , yellow : "220"
+    \, low     : "238" , green  : "107"
+    \, high    : "248" , cyan   : "037"
+    \, higher  : "253" , blue   : "111"
+    \, highest : "254" , purple : "141"
+    \, top     : "015" , brown  : "094"
+    \})
+    if &t_Co != 256
+        call extend(s:cterm, #{
+        \  bottom  : "000" , red    : "001"
+        \, lowest  : "000" , orange : "001"
+        \, lower   : "008" , yellow : "003"
+        \, low     : "008" , green  : "002"
+        \, high    : "007" , cyan   : "006"
+        \, higher  : "007" , blue   : "004"
+        \, highest : "015" , purple : "005"
+        \, top     : "015" , brown  : "003"
+        \})
     endif
-    " dark colors
-    let s:gui.red      = "#df5f87"
-    let s:gui.orange   = "#d78700"
-    let s:gui.yellow   = "#ffd700"
-    let s:gui.green    = "#87af5f"
-    let s:gui.cyan     = "#00afaf"
-    let s:gui.blue     = "#87afff"
-    let s:gui.purple   = "#af87ff"
-    let s:gui.brown    = "#875f00"
-    if &t_Co == 256
-        let s:cterm.red    = "168"
-        let s:cterm.orange = "172"
-        let s:cterm.yellow = "220"
-        let s:cterm.green  = "107"
-        let s:cterm.cyan   = "037"
-        let s:cterm.blue   = "111"
-        let s:cterm.purple = "141"
-        let s:cterm.brown  = "094"
-    else
-        let s:cterm.red    = "001"
-        let s:cterm.orange = "001"
-        let s:cterm.yellow = "003"
-        let s:cterm.green  = "002"
-        let s:cterm.cyan   = "006"
-        let s:cterm.blue   = "004"
-        let s:cterm.purple = "005"
-        let s:cterm.brown  = "003"
-    endif
-else
-    " light greyscale
-    let s:gui.bottom  = "#f5f5f5"
-    let s:gui.lowest  = "#e4e4e4"
-    let s:gui.lower   = "#dadada"
-    let s:gui.low     = "#a8a8a8"
-    let s:gui.high    = "#444444"
-    let s:gui.higher  = "#303030"
-    let s:gui.highest = "#262626"
-    let s:gui.top     = "#1c1c1c"
-    if &t_Co == 256
-        let s:cterm.bottom  = "015"
-        let s:cterm.lowest  = "254"
-        let s:cterm.lower   = "253"
-        let s:cterm.low     = "248"
-        let s:cterm.high    = "238"
-        let s:cterm.higher  = "236"
-        let s:cterm.highest = "235"
-        let s:cterm.top     = "234"
-    else
-        let s:cterm.bottom  = "015"
-        let s:cterm.lowest  = "015"
-        let s:cterm.lower   = "007"
-        let s:cterm.low     = "007"
-        let s:cterm.high    = "008"
-        let s:cterm.higher  = "008"
-        let s:cterm.highest = "000"
-        let s:cterm.top     = "000"
-    endif
-    " light colors
-    let s:gui.red      = "#df005f"
-    let s:gui.orange   = "#df5f00"
-    let s:gui.yellow   = "#dfaf00"
-    let s:gui.green    = "#5faf5f"
-    let s:gui.cyan     = "#00afaf"
-    let s:gui.blue     = "#5f87ff"
-    let s:gui.purple   = "#af5fff"
-    let s:gui.brown    = "#875f00"
-    if &t_Co == 256
-        let s:cterm.red    = "161"
-        let s:cterm.orange = "166"
-        let s:cterm.yellow = "178"
-        let s:cterm.green  = "071"
-        let s:cterm.cyan   = "037"
-        let s:cterm.blue   = "069"
-        let s:cterm.purple = "135"
-        let s:cterm.brown  = "094"
-    else
-        let s:cterm.red    = "001"
-        let s:cterm.orange = "001"
-        let s:cterm.yellow = "003"
-        let s:cterm.green  = "002"
-        let s:cterm.cyan   = "006"
-        let s:cterm.blue   = "004"
-        let s:cterm.purple = "005"
-        let s:cterm.brown  = "003"
+else " &background == "light"
+    call extend(s:gui, #{
+    \  bottom  : "#f5f5f5" , red    : "#df005f"
+    \, lowest  : "#e4e4e4" , orange : "#df5f00"
+    \, lower   : "#dadada" , yellow : "#dfaf00"
+    \, low     : "#a8a8a8" , green  : "#5faf5f"
+    \, high    : "#444444" , cyan   : "#00afaf"
+    \, higher  : "#303030" , blue   : "#5f87ff"
+    \, highest : "#262626" , purple : "#af5fff"
+    \, top     : "#1c1c1c" , brown  : "#875f00"
+    \})
+    call extend(s:cterm, #{
+    \  bottom  : "015" , red    : "161"
+    \, lowest  : "254" , orange : "166"
+    \, lower   : "253" , yellow : "178"
+    \, low     : "248" , green  : "071"
+    \, high    : "238" , cyan   : "037"
+    \, higher  : "236" , blue   : "069"
+    \, highest : "235" , purple : "135"
+    \, top     : "234" , brown  : "094"
+    \})
+    if &t_Co != 256
+        call extend(s:cterm, #{
+        \  bottom  : "015" , red    : "001"
+        \, lowest  : "015" , orange : "001"
+        \, lower   : "007" , yellow : "003"
+        \, low     : "007" , green  : "002"
+        \, high    : "008" , cyan   : "006"
+        \, higher  : "008" , blue   : "004"
+        \, highest : "000" , purple : "005"
+        \, top     : "000" , brown  : "003"
+        \})
     endif
 endif
 
-
 " Highlighting function
 " parameters: (group, guifg, guibg, gui, guisp)
-fun s:hi(group, ...)
+function s:hi(group, ...)
   let l:fg   = get(a:,1,0)
   let l:bg   = get(a:,2,0)
   let l:attr = get(a:,3,0)
@@ -143,7 +90,7 @@ fun s:hi(group, ...)
   if l:afg  isnot 0 | let l:string .= " guisp=" . s:gui[l:afg]                              | endif
 
   exec l:string
-endfun
+endfunction
 
 " linkables
 call s:hi("MrakBottom", "bottom", "", "")
