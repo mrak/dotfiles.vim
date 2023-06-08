@@ -18,7 +18,7 @@ inoremap <C-UP> <ESC>:m .-2<CR>==gi
 vnoremap <C-DOWN> :m '>+1<CR>gv=gv
 vnoremap <C-UP> :m '<-2<CR>gv=gv
 "formatting code
-nnoremap <silent> <leader>= <ESC>mmgg=G'm
+nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 nnoremap <leader>e <cmd>Lexplore<CR>
 " escape the terminal pane
 tnoremap <silent> <C-g> <C-\><C-n>
