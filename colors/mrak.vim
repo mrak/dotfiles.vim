@@ -1,21 +1,25 @@
-" Scheme: Eric Mrak (http://ericmrak.info)
+" Scheme: Eric Mrak (http://mrak.online)
 " Based off of Base16 (https://github.com/chriskempson/base16)
 hi clear
 syntax reset
 let g:colors_name = "mrak"
 let s:gui = {}
+let s:gui[""] = "NONE"
+let s:gui.none = "NONE"
 let s:cterm = {}
+let s:cterm[""] = "NONE"
+let s:cterm.none = "NONE"
 
 if &background == "dark"
     " dark greyscale
-    let s:gui.bottom  = "1c1c1c"
-    let s:gui.lowest  = "262626"
-    let s:gui.lower   = "303030"
-    let s:gui.low     = "444444"
-    let s:gui.high    = "a8a8a8"
-    let s:gui.higher  = "dadada"
-    let s:gui.highest = "e4e4e4"
-    let s:gui.top     = "f5f5f5"
+    let s:gui.bottom  = "#1c1c1c"
+    let s:gui.lowest  = "#262626"
+    let s:gui.lower   = "#303030"
+    let s:gui.low     = "#444444"
+    let s:gui.high    = "#a8a8a8"
+    let s:gui.higher  = "#dadada"
+    let s:gui.highest = "#e4e4e4"
+    let s:gui.top     = "#f5f5f5"
     if &t_Co == 256
         let s:cterm.bottom  = "234"
         let s:cterm.lowest  = "235"
@@ -36,14 +40,14 @@ if &background == "dark"
         let s:cterm.top     = "015"
     endif
     " dark colors
-    let s:gui.red      = "df5f87"
-    let s:gui.orange   = "d78700"
-    let s:gui.yellow   = "ffd700"
-    let s:gui.green    = "87af5f"
-    let s:gui.cyan     = "00afaf"
-    let s:gui.blue     = "87afff"
-    let s:gui.purple   = "af87ff"
-    let s:gui.brown    = "875f00"
+    let s:gui.red      = "#df5f87"
+    let s:gui.orange   = "#d78700"
+    let s:gui.yellow   = "#ffd700"
+    let s:gui.green    = "#87af5f"
+    let s:gui.cyan     = "#00afaf"
+    let s:gui.blue     = "#87afff"
+    let s:gui.purple   = "#af87ff"
+    let s:gui.brown    = "#875f00"
     if &t_Co == 256
         let s:cterm.red    = "168"
         let s:cterm.orange = "172"
@@ -65,14 +69,14 @@ if &background == "dark"
     endif
 else
     " light greyscale
-    let s:gui.bottom  = "f5f5f5"
-    let s:gui.lowest  = "e4e4e4"
-    let s:gui.lower   = "dadada"
-    let s:gui.low     = "a8a8a8"
-    let s:gui.high    = "444444"
-    let s:gui.higher  = "303030"
-    let s:gui.highest = "262626"
-    let s:gui.top     = "1c1c1c"
+    let s:gui.bottom  = "#f5f5f5"
+    let s:gui.lowest  = "#e4e4e4"
+    let s:gui.lower   = "#dadada"
+    let s:gui.low     = "#a8a8a8"
+    let s:gui.high    = "#444444"
+    let s:gui.higher  = "#303030"
+    let s:gui.highest = "#262626"
+    let s:gui.top     = "#1c1c1c"
     if &t_Co == 256
         let s:cterm.bottom  = "015"
         let s:cterm.lowest  = "254"
@@ -93,14 +97,14 @@ else
         let s:cterm.top     = "000"
     endif
     " light colors
-    let s:gui.red      = "df005f"
-    let s:gui.orange   = "df5f00"
-    let s:gui.yellow   = "dfaf00"
-    let s:gui.green    = "5faf5f"
-    let s:gui.cyan     = "00afaf"
-    let s:gui.blue     = "5f87ff"
-    let s:gui.purple   = "af5fff"
-    let s:gui.brown    = "875f00"
+    let s:gui.red      = "#df005f"
+    let s:gui.orange   = "#df5f00"
+    let s:gui.yellow   = "#dfaf00"
+    let s:gui.green    = "#5faf5f"
+    let s:gui.cyan     = "#00afaf"
+    let s:gui.blue     = "#5f87ff"
+    let s:gui.purple   = "#af5fff"
+    let s:gui.brown    = "#875f00"
     if &t_Co == 256
         let s:cterm.red    = "161"
         let s:cterm.orange = "166"
@@ -124,25 +128,21 @@ endif
 
 
 " Highlighting function
-fun s:hi(group, fg, bg, attr)
+" parameters: (group, guifg, guibg, gui, guisp)
+fun s:hi(group, ...)
+  let l:fg   = get(a:,1,0)
+  let l:bg   = get(a:,2,0)
+  let l:attr = get(a:,3,0)
+  let l:afg  = get(a:,4,0)
+  if l:attr == ""
+    let l:attr = "NONE"
+  endif
+
   let l:string = "hi " . a:group
-  if a:fg == ""
-    let l:string .= " guifg=NONE ctermfg=NONE"
-  else
-    let l:string .= " guifg=#" . s:gui[a:fg] . " ctermfg=" . s:cterm[a:fg]
-  endif
-
-  if a:bg == ""
-    let l:string .= " guibg=NONE ctermbg=NONE"
-  else
-    let l:string .= " guibg=#" . s:gui[a:bg] . " ctermbg=" . s:cterm[a:bg]
-  endif
-
-  if a:attr == ""
-    let l:string .= " gui=NONE cterm=NONE"
-  else
-    let l:string .= " gui=" . a:attr . " cterm=" . a:attr
-  endif
+  if l:fg   isnot 0 | let l:string .= " guifg=" . s:gui[l:fg] . " ctermfg=" . s:cterm[l:fg] | endif
+  if l:bg   isnot 0 | let l:string .= " guibg=" . s:gui[l:bg] . " ctermbg=" . s:cterm[l:bg] | endif
+  if l:attr isnot 0 | let l:string .= " gui=" . l:attr . " cterm=" . l:attr                 | endif
+  if l:afg  isnot 0 | let l:string .= " guisp=" . s:gui[l:afg]                              | endif
 
   exec l:string
 endfun
@@ -164,12 +164,12 @@ call s:hi("MrakCyan",   "cyan", "", "")
 call s:hi("MrakBlue",   "blue", "", "")
 call s:hi("MrakPurple", "purple", "", "")
 call s:hi("MrakBrown",  "brown", "", "")
-
+" linkables style
 call s:hi("MrakReverse",  "", "", "reverse")
 call s:hi("MrakClear",  "", "", "")
 call s:hi("MrakBold",  "", "", "bold")
 call s:hi("MrakItalic",  "", "", "italic")
-
+" linkables bold
 call s:hi("MrakBottomBold", "bottom", "", "bold")
 call s:hi("MrakLowestBold", "lowest", "", "bold")
 call s:hi("MrakLowerBold",  "lower", "", "bold")
@@ -186,11 +186,18 @@ call s:hi("MrakCyanBold",   "cyan", "", "bold")
 call s:hi("MrakBlueBold",   "blue", "", "bold")
 call s:hi("MrakPurpleBold", "purple", "", "bold")
 call s:hi("MrakBrownBold",  "brown", "", "bold")
+" linkables test
+call s:hi("MrakTestUnderline",     "low", "bottom", "underline",     "red")
+call s:hi("MrakTestUndercurl",     "low", "bottom", "undercurl",     "red")
+call s:hi("MrakTestUnderdouble",   "low", "bottom", "underdouble",   "red")
+call s:hi("MrakTestUnderdotted",   "low", "bottom", "underdotted",   "red")
+call s:hi("MrakTestUnderdashed",   "low", "bottom", "underdashed",   "red")
+call s:hi("MrakTestStrikethrough", "low", "bottom", "strikethrough", "red")
 
 " Vim editor colors
 call s:hi("Cursor",        "bottom", "top", "")
-call s:hi("CursorColumn",  "low", "bottom", "none")
-call s:hi("CursorLine",    "", "lower", "")
+call s:hi("CursorColumn",  "", "bottom", "")
+call s:hi("CursorLine",    "", "bottom", "")
 call s:hi("LineNr",        "low", "bottom", "")
 call s:hi("CursorLineNr",  "low", "bottom", "")
 call s:hi("VertSplit",     "bottom", "bottom", "none")
