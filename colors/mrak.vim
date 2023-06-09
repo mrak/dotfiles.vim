@@ -3,7 +3,7 @@
 hi clear
 syntax reset
 let g:colors_name = "mrak"
-let s:gui = {"": "NONE", "none": "NONE"}
+let s:gui   = {"": "NONE", "none": "NONE"}
 let s:cterm = {"": "NONE", "none": "NONE"}
 
 if &background == "dark"
@@ -74,111 +74,101 @@ else " &background == "light"
     endif
 endif
 
-" Highlighting function
-" parameters: (group, guifg, guibg, gui, guisp)
-function s:hi(group, ...)
-  let l:fg   = get(a:,1,0)
-  let l:bg   = get(a:,2,0)
-  let l:attr = get(a:,3,0)
-  let l:afg  = get(a:,4,0)
-  if l:attr is "" | let l:attr = "NONE" | endif
-
-  let l:string = "hi " . a:group
-  if l:fg   isnot 0 | let l:string .= " guifg=" . s:gui[l:fg] . " ctermfg=" . s:cterm[l:fg] | endif
-  if l:bg   isnot 0 | let l:string .= " guibg=" . s:gui[l:bg] . " ctermbg=" . s:cterm[l:bg] | endif
-  if l:attr isnot 0 | let l:string .= " gui=" . l:attr . " cterm=" . l:attr                 | endif
-  if l:afg  isnot 0 | let l:string .= " guisp=" . s:gui[l:afg]                              | endif
-
-  exec l:string
+function s:hl(group, settings)
+  let l:fg = get(a:settings,"fg","none")
+  let l:bg = get(a:settings,"bg","none")
+  let l:at = get(a:settings,"at","none")
+  let l:sp = get(a:settings,"sp","none")
+  exe "hi" a:group "guifg=".s:gui[l:fg]     "guibg=".s:gui[l:bg]     "gui=".l:at "guisp=".s:gui[l:sp]
+               \ "ctermfg=".s:cterm[l:fg] "ctermbg=".s:cterm[l:bg] "cterm=".l:at
 endfunction
 
 " linkables
-call s:hi("MrakBottom", "bottom", "", "")
-call s:hi("MrakLowest", "lowest", "", "")
-call s:hi("MrakLower",  "lower", "", "")
-call s:hi("MrakLow",    "low", "", "")
-call s:hi("MrakHigh",   "high", "", "")
-call s:hi("MrakHigher", "higher", "", "")
-call s:hi("MrakHighest","highest", "", "")
-call s:hi("MrakTop",    "top", "", "")
-call s:hi("MrakRed",    "red", "", "")
-call s:hi("MrakOrange", "orange", "", "")
-call s:hi("MrakYellow", "yellow", "", "")
-call s:hi("MrakGreen",  "green", "", "")
-call s:hi("MrakCyan",   "cyan", "", "")
-call s:hi("MrakBlue",   "blue", "", "")
-call s:hi("MrakPurple", "purple", "", "")
-call s:hi("MrakBrown",  "brown", "", "")
+call s:hl("MrakBottom", #{fg:"bottom"})
+call s:hl("MrakLowest", #{fg:"lowest"})
+call s:hl("MrakLower",  #{fg:"lower"})
+call s:hl("MrakLow",    #{fg:"low"})
+call s:hl("MrakHigh",   #{fg:"high"})
+call s:hl("MrakHigher", #{fg:"higher"})
+call s:hl("MrakHighest",#{fg:"highest"})
+call s:hl("MrakTop",    #{fg:"top"})
+call s:hl("MrakRed",    #{fg:"red"})
+call s:hl("MrakOrange", #{fg:"orange"})
+call s:hl("MrakYellow", #{fg:"yellow"})
+call s:hl("MrakGreen",  #{fg:"green"})
+call s:hl("MrakCyan",   #{fg:"cyan"})
+call s:hl("MrakBlue",   #{fg:"blue"})
+call s:hl("MrakPurple", #{fg:"purple"})
+call s:hl("MrakBrown",  #{fg:"brown"})
 " linkables style
-call s:hi("MrakReverse",  "", "", "reverse")
-call s:hi("MrakClear",  "", "", "")
-call s:hi("MrakBold",  "", "", "bold")
-call s:hi("MrakItalic",  "", "", "italic")
+call s:hl("MrakReverse",#{at:"reverse"})
+call s:hl("MrakClear",  #{})
+call s:hl("MrakBold",   #{at:"bold"})
+call s:hl("MrakItalic", #{at:"italic"})
 " linkables bold
-call s:hi("MrakBottomBold", "bottom", "", "bold")
-call s:hi("MrakLowestBold", "lowest", "", "bold")
-call s:hi("MrakLowerBold",  "lower", "", "bold")
-call s:hi("MrakLowBold",    "low", "", "bold")
-call s:hi("MrakHighBold",   "high", "", "bold")
-call s:hi("MrakHigherBold", "higher", "", "bold")
-call s:hi("MrakHighestBold","highest", "", "bold")
-call s:hi("MrakTopBold",    "top", "", "bold")
-call s:hi("MrakRedBold",    "red", "", "bold")
-call s:hi("MrakOrangeBold", "orange", "", "bold")
-call s:hi("MrakYellowBold", "yellow", "", "bold")
-call s:hi("MrakGreenBold",  "green", "", "bold")
-call s:hi("MrakCyanBold",   "cyan", "", "bold")
-call s:hi("MrakBlueBold",   "blue", "", "bold")
-call s:hi("MrakPurpleBold", "purple", "", "bold")
-call s:hi("MrakBrownBold",  "brown", "", "bold")
+call s:hl("MrakBottomBold", #{fg:"bottom",  at:"bold"})
+call s:hl("MrakLowestBold", #{fg:"lowest",  at:"bold"})
+call s:hl("MrakLowerBold",  #{fg:"lower",   at:"bold"})
+call s:hl("MrakLowBold",    #{fg:"low",     at:"bold"})
+call s:hl("MrakHighBold",   #{fg:"high",    at:"bold"})
+call s:hl("MrakHigherBold", #{fg:"higher",  at:"bold"})
+call s:hl("MrakHighestBold",#{fg:"highest", at:"bold"})
+call s:hl("MrakTopBold",    #{fg:"top",     at:"bold"})
+call s:hl("MrakRedBold",    #{fg:"red",     at:"bold"})
+call s:hl("MrakOrangeBold", #{fg:"orange",  at:"bold"})
+call s:hl("MrakYellowBold", #{fg:"yellow",  at:"bold"})
+call s:hl("MrakGreenBold",  #{fg:"green",   at:"bold"})
+call s:hl("MrakCyanBold",   #{fg:"cyan",    at:"bold"})
+call s:hl("MrakBlueBold",   #{fg:"blue",    at:"bold"})
+call s:hl("MrakPurpleBold", #{fg:"purple",  at:"bold"})
+call s:hl("MrakBrownBold",  #{fg:"brown",   at:"bold"})
 " linkables test
-call s:hi("MrakTestUnderline",     "low", "bottom", "underline",     "red")
-call s:hi("MrakTestUndercurl",     "low", "bottom", "undercurl",     "red")
-call s:hi("MrakTestUnderdouble",   "low", "bottom", "underdouble",   "red")
-call s:hi("MrakTestUnderdotted",   "low", "bottom", "underdotted",   "red")
-call s:hi("MrakTestUnderdashed",   "low", "bottom", "underdashed",   "red")
-call s:hi("MrakTestStrikethrough", "low", "bottom", "strikethrough", "red")
-
+call s:hl("MrakTestUnderline",     #{fg:"low", bg:"bottom", at:"underline",     sp:"red"})
+call s:hl("MrakTestUndercurl",     #{fg:"low", bg:"bottom", at:"undercurl",     sp:"red"})
+call s:hl("MrakTestUnderdouble",   #{fg:"low", bg:"bottom", at:"underdouble",   sp:"red"})
+call s:hl("MrakTestUnderdotted",   #{fg:"low", bg:"bottom", at:"underdotted",   sp:"red"})
+call s:hl("MrakTestUnderdashed",   #{fg:"low", bg:"bottom", at:"underdashed",   sp:"red"})
+call s:hl("MrakTestStrikethrough", #{fg:"low", bg:"bottom", at:"strikethrough", sp:"red"})
 " Vim editor colors
-call s:hi("Cursor",        "bottom", "top", "")
-call s:hi("CursorColumn",  "", "bottom", "")
-call s:hi("CursorLine",    "", "bottom", "")
-call s:hi("LineNr",        "low", "bottom", "")
-call s:hi("CursorLineNr",  "low", "bottom", "")
-call s:hi("VertSplit",     "bottom", "bottom", "none")
-call s:hi("NonText",       "low", "", "")
-call s:hi("EndOfBuffer",   "bottom", "bottom", "")
-call s:hi("StatusLine",    "lowest", "high", "bold")
-call s:hi("StatusLineNor", "lowest", "high", "bold")
-call s:hi("StatusLineIns", "lowest", "green", "bold")
-call s:hi("StatusLineRep", "lowest", "purple", "bold")
-call s:hi("StatusLineVRep","lowest", "purple", "bold")
-call s:hi("StatusLineNC",  "low", "bottom", "bold")
+call s:hl("Cursor",        #{fg:"bottom", bg:"top"})
+call s:hl("CursorColumn",  #{             bg:"bottom"})
+call s:hl("CursorLine",    #{             bg:"bottom"})
+call s:hl("LineNr",        #{fg:"low",    bg:"bottom"})
+call s:hl("CursorLineNr",  #{fg:"low",    bg:"bottom"})
+call s:hl("VertSplit",     #{fg:"bottom", bg:"bottom"})
+hi! link NonText MrakLow
+call s:hl("EndOfBuffer",   #{fg:"bottom", bg:"bottom"})
+call s:hl("StatusLine",    #{fg:"lowest", bg:"high",   at:"bold"})
+call s:hl("StatusLineNor", #{fg:"lowest", bg:"high",   at:"bold"})
+call s:hl("StatusLineIns", #{fg:"lowest", bg:"green",  at:"bold"})
+call s:hl("StatusLineRep", #{fg:"lowest", bg:"purple", at:"bold"})
+call s:hl("StatusLineVRep",#{fg:"lowest", bg:"purple", at:"bold"})
+call s:hl("StatusLineNC",  #{fg:"low",    bg:"bottom", at:"bold"})
 hi! link FoldColumn LineNr
-call s:hi("Folded",        "low", "bottom", "")
-call s:hi("IncSearch",     "lowest", "orange", "none")
-call s:hi("Bold",          "", "", "bold")
-call s:hi("Italic",        "", "", "italic")
-call s:hi("ModeMsg",       "green", "", "")
-call s:hi("MoreMsg",       "green", "", "")
-call s:hi("Question",      "yellow", "", "")
-call s:hi("Search",        "", "",  "reverse")
-call s:hi("MatchParen",    "lowest", "high",  "")
-call s:hi("Underlined",    "red", "", "")
-call s:hi("Visual",        "top", "low", "")
-call s:hi("VisualNOS",     "red", "", "reverse")
-call s:hi("WarningMsg",    "red", "", "")
-call s:hi("WildMenu",      "red", "", "")
-call s:hi("Title",         "blue", "", "none")
-call s:hi("Conceal",       "blue", "lowest", "")
+call s:hl("Folded",        #{fg:"low", bg:"bottom"})
+call s:hl("IncSearch",     #{fg:"lowest", bg:"orange"})
+hi! link Bold     MrakBold
+hi! link Italic   MrakItalic
+hi! link ModeMsg  MrakGreen
+hi! link MoreMsg  MrakGreen
+hi! link Question MrakYellow
+hi! link Search   MrakReverse
+call s:hl("MatchParen",    #{fg:"lowest", bg:"high"})
+hi! link Underlined      MrakRed
+call s:hl("Visual",        #{fg:"top", bg:"low"})
+call s:hl("VisualNOS",     #{fg:"red", at:"reverse"})
+hi! link WarningMsg      MrakRed
+hi! link WildMenu        MrakRed
+hi! link Title           MrakBlue
+call s:hl("Conceal",       #{fg:"blue", bg:"lowest"})
 hi! link SignColumn LineNr
-call s:hi("SpecialKey",    "low", "", "")
-call s:hi("ColorColumn",   "low", "lowest", "none")
-call s:hi("PMenu",         "high", "bottom", "none")
-call s:hi("PMenuSel",      "lowest", "green", "")
-call s:hi("TabLine",       "low", "bottom", "none")
-call s:hi("TabLineFill",   "low", "bottom", "none")
-call s:hi("TabLineSel",    "green", "lowest", "none")
+hi! link SpecialKey MrakLow
+call s:hl("ColorColumn", #{fg:"low",    bg:"lowest"})
+call s:hl("PMenu",       #{fg:"high",   bg:"bottom"})
+call s:hl("PMenuSel",    #{fg:"lowest", bg:"green"})
+call s:hl("TabLine",     #{fg:"low",    bg:"bottom"})
+call s:hl("TabLineFill", #{fg:"low",    bg:"bottom"})
+call s:hl("TabLineSel",  #{fg:"green",  bg:"lowest"})
 
 hi! link Debug     MrakRed
 hi! link Directory MrakBlue
@@ -219,29 +209,29 @@ hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
 
 " Spelling highlighting
-call s:hi("SpellBad",     "", "", "undercurl", "red")
-call s:hi("SpellLocal",   "", "", "undercurl", "orange")
-call s:hi("SpellCap",     "", "", "undercurl", "blue")
-call s:hi("SpellRare",    "", "", "undercurl", "green")
+call s:hl("SpellBad",   #{at:"undercurl", sp:"red"})
+call s:hl("SpellLocal", #{at:"undercurl", sp:"orange"})
+call s:hl("SpellCap",   #{at:"undercurl", sp:"blue"})
+call s:hl("SpellRare",  #{at:"undercurl", sp:"green"})
 " Diagnostics
-call s:hi("DiagnosticSignError"               , "red", "bottom", "")
-call s:hi("DiagnosticSignWarn"                , "yellow", "bottom", "")
-call s:hi("DiagnosticSignInfo"                , "blue", "bottom", "")
-call s:hi("DiagnosticSignHint"                , "higher", "bottom", "")
-call s:hi("DiagnosticError"                   , "red", "", "")
-call s:hi("DiagnosticFloatingError"           , "red", "bottom", "")
-call s:hi("DiagnosticWarn"                    , "yellow", "", "")
-call s:hi("DiagnosticFloatingWarn"            , "yellow", "bottom", "")
-call s:hi("DiagnosticInfo"                    , "blue", "", "")
-call s:hi("DiagnosticFloatingInfo"            , "blue", "bottom", "")
-call s:hi("DiagnosticHint"                    , "higher", "", "")
-call s:hi("DiagnosticFloatingHint"            , "higher", "bottom", "")
-call s:hi("DiagnosticFloatingOk"              , "", "bottom", "")
-call s:hi("DiagnosticUnderlineError"          , "", "", 'undercurl')
-call s:hi("DiagnosticUnderlineWarning"        , "", "", 'undercurl')
-call s:hi("DiagnosticUnderlineWarn"           , "", "", 'undercurl')
-call s:hi("DiagnosticUnderlineInformation"    , "", "", 'undercurl')
-call s:hi("DiagnosticUnderlineHint"           , "", "", 'undercurl')
+hi! link DiagnosticError MrakRed
+hi! link DiagnosticWarn  MrakYellow
+hi! link DiagnosticInfo  MrakBlue
+hi! link DiagnosticHint  MrakHigher
+call s:hl("DiagnosticSignError"           , #{fg:"red",    bg:"bottom"})
+call s:hl("DiagnosticSignWarn"            , #{fg:"yellow", bg:"bottom"})
+call s:hl("DiagnosticSignInfo"            , #{fg:"blue",   bg:"bottom"})
+call s:hl("DiagnosticSignHint"            , #{fg:"higher", bg:"bottom"})
+call s:hl("DiagnosticFloatingError"       , #{fg:"red",    bg:"bottom"})
+call s:hl("DiagnosticFloatingWarn"        , #{fg:"yellow", bg:"bottom"})
+call s:hl("DiagnosticFloatingInfo"        , #{fg:"blue",   bg:"bottom"})
+call s:hl("DiagnosticFloatingHint"        , #{fg:"higher", bg:"bottom"})
+call s:hl("DiagnosticFloatingOk"          , #{bg:"bottom"})
+call s:hl("DiagnosticUnderlineError"      , #{at:'undercurl'})
+call s:hl("DiagnosticUnderlineWarning"    , #{at:'undercurl'})
+call s:hl("DiagnosticUnderlineWarn"       , #{at:'undercurl'})
+call s:hl("DiagnosticUnderlineInformation", #{at:'undercurl'})
+call s:hl("DiagnosticUnderlineHint"       , #{at:'undercurl'})
 hi! link LspDiagnosticsDefaultError         DiagnosticError
 hi! link LspDiagnosticsDefaultWarning       DiagnosticWarn
 hi! link LspDiagnosticsDefaultInformation   DiagnosticInfo
@@ -250,27 +240,27 @@ hi! link LspDiagnosticsUnderlineError       DiagnosticUnderlineError
 hi! link LspDiagnosticsUnderlineWarning     DiagnosticUnderlineWarning
 hi! link LspDiagnosticsUnderlineInformation DiagnosticUnderlineInformation
 hi! link LspDiagnosticsUnderlineHint        DiagnosticUnderlineHint
-call s:hi('LspInfoBorder', 'green', 'bottom', '')
+call s:hl('LspInfoBorder', #{fg:'green', bg:'bottom'})
 
 " Diff mode
-call s:hi("DiffAdd",      "lowest", "green", "bold")
-call s:hi("DiffChange",   "lowest", "purple", "")
-call s:hi("DiffDelete",   "lowest", "red", "bold")
-call s:hi("DiffText",     "lowest", "purple", "bold,underline")
+call s:hl("DiffAdd",    #{fg:"lowest", bg:"green",  at:"bold"})
+call s:hl("DiffChange", #{fg:"lowest", bg:"purple"})
+call s:hl("DiffDelete", #{fg:"lowest", bg:"red",    at:"bold"})
+call s:hl("DiffText",   #{fg:"lowest", bg:"purple", at:"bold,underline"})
 " Additional diff highlighting
-call s:hi("DiffAdded",    "green", "", "bold")
-call s:hi("DiffFile",     "low", "", "")
-call s:hi("diffOldFile",  "brown", "", "")
-call s:hi("DiffNewFile",  "orange", "", "")
-call s:hi("DiffLine",     "cyan", "", "")
-call s:hi("DiffRemoved",  "red", "", "bold")
-call s:hi("DiffSubname",  "high", "", "")
-call s:hi("diffIndexLine","purple", "", "")
+hi! link DiffAdded     MrakGreenBold
+hi! link DiffFile      MrakLow
+hi! link diffOldFile   MrakBrown
+hi! link DiffNewFile   MrakOrange
+hi! link DiffLine      MrakCyan
+hi! link DiffRemoved   MrakRedBold
+hi! link DiffSubname   MrakHigh
+hi! link diffIndexLine MrakPurple
 
 hi! link DirvishArg MrakOrangeBold
 
 hi! link LeapBackdrop Comment
-call s:hi("Sneak", "bottom", "green", "")
+call s:hl("Sneak", #{fg:"bottom", bg:"green"})
 
 " treesitter/lsp
 if has('nvim-0.8.0')
@@ -401,7 +391,7 @@ hi! link htmlTitle            MrakBold
 hi! link htmlH1               MrakBold
 hi! link htmlItalic           MrakItalic
 hi! link htmlBold             MrakBold
-call s:hi("htmlLink",      "blue", "", "undercurl")
+call s:hl("htmlLink", #{fg:"blue", at:"undercurl"})
 
 " Perl
 hi! link perlMethod              MrakClear
@@ -470,8 +460,8 @@ hi! link pythonBuiltin     MrakBlue
 hi! link markdownCode               MrakCyan
 hi! link markdownCodeBlock          MrakCyan
 hi! link markdownHeadingDelimiter   MrakPurpleBold
-call s:hi("markdownItalic",      "green", "", "italic")
 hi! link markdownBold               MrakGreenBold
+call s:hl("markdownItalic", #{fg:"green", at:"italic"})
 
 " Git highlighting
 hi! link gitcommitOverflow         MrakRed
@@ -483,15 +473,15 @@ hi! link gitcommitSelectedFile     MrakOrange
 hi! link gitcommitSelectedType     MrakYellow
 
 " GitGutter highlighting
-call s:hi("GitGutterAdd",          "green", "lowest", "")
-call s:hi("GitGutterChange",       "blue", "lowest", "")
-call s:hi("GitGutterDelete",       "red", "lowest", "")
-call s:hi("GitGutterChangeDelete", "purple", "lowest", "")
+call s:hl("GitGutterAdd",          #{fg:"green",  bg:"lowest"})
+call s:hl("GitGutterChange",       #{fg:"blue",   bg:"lowest"})
+call s:hl("GitGutterDelete",       #{fg:"red",    bg:"lowest"})
+call s:hl("GitGutterChangeDelete", #{fg:"purple", bg:"lowest"})
 
 " Signify highlighting
-call s:hi("SignifySignAdd",    "green", "lowest", "")
-call s:hi("SignifySignChange", "blue", "lowest", "")
-call s:hi("SignifySignDelete", "red", "lowest", "")
+call s:hl("SignifySignAdd",    #{fg:"green", bg:"lowest"})
+call s:hl("SignifySignChange", #{fg:"blue",  bg:"lowest"})
+call s:hl("SignifySignDelete", #{fg:"red",   bg:"lowest"})
 
 " Shell highlighting
 hi! link shShellVariables   MrakPurple
@@ -544,9 +534,9 @@ hi! link NERDTreeExecFile   MrakHigher
 hi! link NERDTreeFile       MrakHigher
 
 " CtrlP
-call s:hi("CtrlPMatch",        "cyan", "", "underline")
-call s:hi("CtrlPMode1",        "lower", "high", "bold")
-call s:hi("CtrlPMode2",        "lower", "high", "bold")
+call s:hl("CtrlPMatch",      #{fg:"cyan", at:"underline"})
+call s:hl("CtrlPMode1",      #{fg:"lower", bg:"high", at:"bold"})
+call s:hl("CtrlPMode2",      #{fg:"lower", bg:"high", at:"bold"})
 hi! link CtrlPBufferNr       MrakHigh
 hi! link CtrlPBufferInd      MrakGreen
 hi! link CtrlPBufferHid      MrakHigh
@@ -556,17 +546,17 @@ hi! link CtrlPBufferVisMod   MrakRed
 hi! link CtrlPBufferPath     MrakHigh
 
 " Syntastic
-call s:hi("SyntasticWarningSign", "yellow", "bottom", "")
-call s:hi("SyntasticErrorSign",   "red", "bottom", "")
+call s:hl("SyntasticWarningSign", #{fg:"yellow", bg:"bottom"})
+call s:hl("SyntasticErrorSign",   #{fg:"red", bg:"bottom"})
 
 " ALE
-call s:hi("ALEInfoSign",    "blue", "bottom", "")
-call s:hi("ALEWarningSign", "yellow", "bottom", "")
-call s:hi("ALEErrorSign",   "red", "bottom", "")
+call s:hl("ALEInfoSign",    #{fg:"blue",   bg:"bottom"})
+call s:hl("ALEWarningSign", #{fg:"yellow", bg:"bottom"})
+call s:hl("ALEErrorSign",   #{fg:"red",    bg:"bottom"})
 
 " netrw
-call s:hi("netrwMarkFile", "bottom", "green", "")
-call s:hi("netrwTreeBar",  "low", "", "")
+call s:hl("netrwMarkFile", #{fg:"bottom", bg:"green"})
+hi! link netrwTreeBar MrakLow
 
 " Rust
 "hi! link rustMacro            MrakYellow
@@ -598,20 +588,20 @@ hi! link NvimTreeGitNew     MrakBlue
 hi! link NvimTreeGitMerge   MrakPurple
 
 " Fern
-call s:hi("FernMarkedText", "orange", "bottom", "bold")
+call s:hl("FernMarkedText", #{fg:"orange", bg:"bottom", at:"bold"})
 hi! link FernMarkedLine MrakOrangeBold
 hi! link FernBranchSymbol MrakHigh
 hi! link FernLeafSymbol MrakLow
 
 " Since 'Normal' resets the &background, do last
 let s:background = &background
-call s:hi("Normal", "highest", "lowest", "")
-call s:hi("NormalNC", "highest", "bottom", "")
+call s:hl("Normal",   #{fg:"highest", bg:"lowest"})
+call s:hl("NormalNC", #{fg:"highest", bg:"bottom"})
 let &background = s:background
 unlet s:background
 
 " Remove functions
-delf s:hi
+delf s:hl
 
 " Remove color variables
 unlet s:gui
