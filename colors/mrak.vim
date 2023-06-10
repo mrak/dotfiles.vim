@@ -6,18 +6,10 @@ let g:colors_name = "mrak"
 let s:gui   = {}
 let s:cterm = {}
 
-if &background == "dark"
-    eval s:gui->extend(g:mrak#palette#dark_gui)->extend(g:->get('mrak_palette_dark_gui', {}))
-    eval s:cterm->extend(g:mrak#palette#dark_256)->extend(g:->get('mrak_palette_dark_256', {}))
-    if &t_Co != 256
-        eval s:cterm->extend(g:mrak#palette#dark_16)->extend(g:->get('mrak_palette_dark_16', {}))
-    endif
-else " &background == "light"
-    eval s:gui->extend(g:mrak#palette#light_gui)->extend(g:->get('mrak_palette_light_gui', {}))
-    eval s:cterm->extend(g:mrak#palette#light_256)->extend(g:->get('mrak_palette_light_256', {}))
-    if &t_Co != 256
-        eval s:cterm->extend(g:mrak#palette#light_16)->extend(g:->get('mrak_palette_light_16', {}))
-    endif
+eval s:gui->extend(g:->get('mrak#palette#'.&background.'_gui'))->extend(g:->get('mrak_palette_'.&background.'_gui', {}))
+eval s:cterm->extend(g:->get('mrak#palette#'.&background.'_256'))->extend(g:->get('mrak_palette_'.&background.'_256', {}))
+if &t_Co != 256
+  eval s:cterm->extend(g:->get('mrak#palette#'.&background.'_16'))->extend(g:->get('mrak_palette_'.&background.'_16', {}))
 endif
 
 function s:hl(group, settings)
@@ -25,8 +17,7 @@ function s:hl(group, settings)
   let l:bg = get(a:settings,"bg","none")
   let l:at = get(a:settings,"at","none")
   let l:sp = get(a:settings,"sp","none")
-  exe "hi" a:group "guifg=".s:gui[l:fg]     "guibg=".s:gui[l:bg]     "gui=".l:at "guisp=".s:gui[l:sp]
-               \ "ctermfg=".s:cterm[l:fg] "ctermbg=".s:cterm[l:bg] "cterm=".l:at
+  exe "hi" a:group "guifg=".s:gui[l:fg] "guibg=".s:gui[l:bg] "gui=".l:at "guisp=".s:gui[l:sp] "ctermfg=".s:cterm[l:fg] "ctermbg=".s:cterm[l:bg] "cterm=".l:at
 endfunction
 
 " linkables
