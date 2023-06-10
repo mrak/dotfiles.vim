@@ -3,13 +3,72 @@
 hi clear
 syntax reset
 let g:colors_name = "mrak"
-let s:gui   = {}
-let s:cterm = {}
+let s:palette = #{dark: {}, light: {}}
+let s:palette.dark.gui = #{ none: "NONE"
+  \, bottom  : "#1c1c1c" , red    : "#df5f87"
+  \, lowest  : "#262626" , orange : "#d78700"
+  \, lower   : "#303030" , yellow : "#ffd700"
+  \, low     : "#444444" , green  : "#87af5f"
+  \, high    : "#a8a8a8" , cyan   : "#00afaf"
+  \, higher  : "#dadada" , blue   : "#87afff"
+  \, highest : "#e4e4e4" , purple : "#af87ff"
+  \, top     : "#f5f5f5" , brown  : "#875f00"
+\}
+let s:palette.dark["256"] = #{ none: "NONE"
+  \, bottom  : "234" , red    : "168"
+  \, lowest  : "235" , orange : "172"
+  \, lower   : "236" , yellow : "220"
+  \, low     : "238" , green  : "107"
+  \, high    : "248" , cyan   : "037"
+  \, higher  : "253" , blue   : "111"
+  \, highest : "254" , purple : "141"
+  \, top     : "015" , brown  : "094"
+\}
+let s:palette.dark["16"] = #{ none: "NONE"
+  \, bottom  : "000" , red    : "001"
+  \, lowest  : "000" , orange : "001"
+  \, lower   : "008" , yellow : "003"
+  \, low     : "008" , green  : "002"
+  \, high    : "007" , cyan   : "006"
+  \, higher  : "007" , blue   : "004"
+  \, highest : "015" , purple : "005"
+  \, top     : "015" , brown  : "003"
+\}
+let s:palette.light.gui = #{ none: "NONE"
+  \, bottom  : "#f5f5f5" , red    : "#df005f"
+  \, lowest  : "#e4e4e4" , orange : "#df5f00"
+  \, lower   : "#dadada" , yellow : "#dfaf00"
+  \, low     : "#a8a8a8" , green  : "#5faf5f"
+  \, high    : "#444444" , cyan   : "#00afaf"
+  \, higher  : "#303030" , blue   : "#5f87ff"
+  \, highest : "#262626" , purple : "#af5fff"
+  \, top     : "#1c1c1c" , brown  : "#875f00"
+\}
+let s:palette.light["256"] = #{ none: "NONE"
+  \, bottom  : "015" , red    : "161"
+  \, lowest  : "254" , orange : "166"
+  \, lower   : "253" , yellow : "178"
+  \, low     : "248" , green  : "071"
+  \, high    : "238" , cyan   : "037"
+  \, higher  : "236" , blue   : "069"
+  \, highest : "235" , purple : "135"
+  \, top     : "234" , brown  : "094"
+\}
+let s:palette.light["16"] = #{ none: "NONE"
+  \, bottom  : "015" , red    : "001"
+  \, lowest  : "015" , orange : "001"
+  \, lower   : "007" , yellow : "003"
+  \, low     : "007" , green  : "002"
+  \, high    : "008" , cyan   : "006"
+  \, higher  : "008" , blue   : "004"
+  \, highest : "000" , purple : "005"
+  \, top     : "000" , brown  : "003"
+\}
 
-eval s:gui->extend(g:->get('mrak#palette#'.&background.'_gui'))->extend(g:->get('mrak_palette_'.&background.'_gui', {}))
-eval s:cterm->extend(g:->get('mrak#palette#'.&background.'_256'))->extend(g:->get('mrak_palette_'.&background.'_256', {}))
+let s:gui   = s:palette[&background].gui->extend(g:->get('mrak_palette_'.&background.'_gui', {}))
+let s:cterm = s:palette[&background].256->extend(g:->get('mrak_palette_'.&background.'_256', {}))
 if &t_Co != 256
-  eval s:cterm->extend(g:->get('mrak#palette#'.&background.'_16'))->extend(g:->get('mrak_palette_'.&background.'_16', {}))
+  let s:cterm = s:palette[background].16->extend(g:->get('mrak_palette_'.&background.'_16', {}))
 endif
 
 function s:hl(group, settings)
