@@ -79,6 +79,9 @@ function s:hl(group, settings)
   exe "hi" a:group "guifg=".s:gui[l:fg] "guibg=".s:gui[l:bg] "gui=".l:at "guisp=".s:gui[l:sp] "ctermfg=".s:cterm[l:fg] "ctermbg=".s:cterm[l:bg] "cterm=".l:at
 endfunction
 
+" Since 'Normal' resets the 'background', do first
+call s:hl("Normal",   #{fg:"highest", bg:"lowest"})
+call s:hl("NormalNC", #{fg:"highest", bg:"bottom"})
 " linkables
 call s:hl("MrakBottom", #{fg:"bottom"})
 call s:hl("MrakLowest", #{fg:"lowest"})
@@ -589,16 +592,10 @@ hi! link FernMarkedLine MrakOrangeBold
 hi! link FernBranchSymbol MrakHigh
 hi! link FernLeafSymbol MrakLow
 
-" Since 'Normal' resets the &background, do last
-let s:background = &background
-call s:hl("Normal",   #{fg:"highest", bg:"lowest"})
-call s:hl("NormalNC", #{fg:"highest", bg:"bottom"})
-let &background = s:background
-unlet s:background
-
 " Remove functions
 delf s:hl
 
 " Remove color variables
 unlet s:gui
 unlet s:cterm
+unlet s:palette
