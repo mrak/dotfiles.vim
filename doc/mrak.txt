@@ -1,0 +1,57 @@
+*mrak.txt* Eric Mrak's personal configuration
+
+================================================================================
+COLORSCHEME                                                     *mrak-colorscheme*
+
+The colorscheme is set up using sixteen different colors for each of six
+different palettes. For the grayscale colors, the darkness of top to
+bottom is reversed for a light 'background'. You can override colors for
+particular palettes by setting the appropriate global dictionaries. If you
+specify a partial dictionary, only the colors specified will be overwriten.
+
+                                                                   *mrak-palettes*
+                                                         *g:mrak_palette_dark_gui*
+                                                         *g:mrak_palette_dark_256*
+                                                          *g:mrak_palette_dark_16*
+                                                        *g:mrak_palette_light_gui*
+                                                        *g:mrak_palette_light_256*
+                                                         *g:mrak_palette_light_16*
+PALETTES
+    g:mrak_palette_dark_gui
+    g:mrak_palette_dark_256
+    g:mrak_palette_dark_16
+    g:mrak_palette_light_gui
+    g:mrak_palette_light_256
+    g:mrak_palette_light_16
+
+                                                                     *mrak-colors*
+COLORS
+    GREYSCALE             COLORED
+    bottom                red
+    lowest                orange
+    lower                 yellow
+    low                   green
+    high                  cyan
+    higher                blue
+    highest               purple
+    top                   brown
+
+If you wanted to change the `red` color for |termguicolors| you can set the
+|g:mrak_palette_dark_gui| dictionary and specify `red`.
+>
+    let g:mrak_palette_dark_gui = {}
+    let g:mrak_palette_dark_gui.red = "#FF4444"
+<
+Or you can change them all at once.
+>
+    let g:mrak_palette_dark_gui = #{
+    \, bottom  : "#1c1c1c" , red    : "#df5f87"
+    \, lowest  : "#262626" , orange : "#d78700"
+    \, lower   : "#303030" , yellow : "#ffd700"
+    \, low     : "#444444" , green  : "#87af5f"
+    \, high    : "#a8a8a8" , cyan   : "#00afaf"
+    \, higher  : "#dadada" , blue   : "#87afff"
+    \, highest : "#e4e4e4" , purple : "#af87ff"
+    \, top     : "#f5f5f5" , brown  : "#875f00"
+    \}
+<
