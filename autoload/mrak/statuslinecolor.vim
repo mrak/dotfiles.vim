@@ -19,7 +19,8 @@ function! mrak#statuslinecolor#mode(mode)
     elseif a:mode =~# "^S" | hi! link StatusLine StatusLineVis
     elseif a:mode =~# "" | hi! link StatusLine StatusLineVis
     elseif a:mode =~# "^c" | hi! link StatusLine StatusLineCmd
-    "elseif a:mode ==# "t"  | hi! link StatusLine StatusLineTerm
+    elseif a:mode ==# "t"  | hi! link StatusLine StatusLineTerm
     else                   | hi! link StatusLine StatusLineNor
     endif
+    redrawstatus
 endfunction
