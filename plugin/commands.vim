@@ -1,2 +1,3 @@
-command! Sudo %!sudo tee > /dev/null %
-command! Cd cd %:p:h
+" Use :SudoWrite from vim-eunuch instead
+"command! Sudo %!sudo tee > /dev/null %
+command! Cd cd %:h
