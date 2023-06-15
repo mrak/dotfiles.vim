@@ -2,7 +2,7 @@ augroup Mrak#autocmd
     autocmd!
     autocmd VimResized * wincmd =
     autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
-    autocmd ModeChanged * call mrak#statuslinecolor#mode(mode(1))
+    autocmd ModeChanged * call mrak#statuslinecolor#mode(v:event.new_mode)
     " autocmd InsertEnter * call mrak#statuslinecolor#ins(v:insertmode)
     " autocmd InsertChange * call mrak#statuslinecolor#ins(v:insertmode)
     " autocmd InsertLeave * highlight! link StatusLine StatusLineNor
