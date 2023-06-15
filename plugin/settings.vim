@@ -66,6 +66,9 @@ set statusline+=\ %=        " end left. start right
 set statusline+=\ %l:%c     " line:column
 set statusline+=\ %P        " percentage through
 set statusline+=\ %y%r%m    " flags
+"set tabline=%{mrak#tabtitle#get()}
+set guitablabel=%{mrak#tabtitle#get()}
+set guioptions+=e
 " Indent/Folding =============================================================
 set autoindent
 set smartindent

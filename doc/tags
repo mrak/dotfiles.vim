@@ -1,0 +1,10 @@
+g:mrak_palette_dark_16	mrak.txt	/*g:mrak_palette_dark_16*
+g:mrak_palette_dark_256	mrak.txt	/*g:mrak_palette_dark_256*
+g:mrak_palette_dark_gui	mrak.txt	/*g:mrak_palette_dark_gui*
+g:mrak_palette_light_16	mrak.txt	/*g:mrak_palette_light_16*
+g:mrak_palette_light_256	mrak.txt	/*g:mrak_palette_light_256*
+g:mrak_palette_light_gui	mrak.txt	/*g:mrak_palette_light_gui*
+mrak-colors	mrak.txt	/*mrak-colors*
+mrak-colorscheme	mrak.txt	/*mrak-colorscheme*
+mrak-palettes	mrak.txt	/*mrak-palettes*
+mrak.txt	mrak.txt	/*mrak.txt*
