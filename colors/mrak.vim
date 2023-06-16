@@ -335,6 +335,10 @@ if has('nvim-0.8.0')
     hi! link @lsp.type.enumMember MrakCyan
     hi! link @lsp.typemod.struct.defaultLibrary MrakPurple
     hi! link @lsp.type.attributeBracket Macro
+    " ini
+    hi! link @type.ini MrakOrange
+    hi! link @property.ini MrakRed
+    hi! link @punctuation.bracket.ini MrakHigh
     " yaml
     hi! link @field.yaml MrakHighest
 
