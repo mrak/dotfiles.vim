@@ -172,6 +172,7 @@ call s:c.hl("PMenuSel",     #{fg:"lowest", bg:"green"})
 call s:c.hl("TabLine",      #{fg:"low",    bg:"bottom"})
 call s:c.hl("TabLineFill",  #{fg:"low",    bg:"bottom"})
 call s:c.hl("TabLineSel",   #{fg:"green",  bg:"bottom"})
+call s:c.hl("TabLineProg",  #{fg:"low",    bg:"bottom"})
 call s:c.hl("TabLineNum",   #{fg:"bottom", bg:"low"})
 call s:c.hl("TabLineNumSel",#{fg:"bottom", bg:"green"})
 

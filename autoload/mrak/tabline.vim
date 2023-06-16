@@ -1,5 +1,5 @@
 function! mrak#tabline#main()
-  let s = ' ' .. v:progname .. ' '
+  let s = '%#TabLineProg# ' .. v:progname .. ' '
   for i in range(tabpagenr('$'))
     let tn = i + 1
     " set the tab page number (for mouse clicks)
@@ -22,7 +22,7 @@ function! mrak#tabline#main()
 
   " right-align the label to close the current tab page
   if tabpagenr('$') > 1
-    let s ..= '%=%#TabLine#%999XX'
+    let s ..= '%=%#TabLine#'
   endif
 
   return s
