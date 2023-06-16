@@ -1,5 +1,5 @@
 function! mrak#tabline#main()
-  let s = ''
+  let s = ' ' .. v:progname .. ' '
   for i in range(tabpagenr('$'))
     " select the highlighting
     if i + 1 == tabpagenr()
@@ -20,7 +20,7 @@ function! mrak#tabline#main()
 
   " right-align the label to close the current tab page
   if tabpagenr('$') > 1
-    let s ..= '%=%#TabLine#%999Xclose'
+    let s ..= '%=%#TabLine#%999XX'
   endif
 
   return s
