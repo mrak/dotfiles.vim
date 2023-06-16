@@ -1,5 +1,5 @@
 function! mrak#tabline#main()
-  let s = ' tabs '
+  let s = ' ' .. v:progname .. ' '
   for i in range(tabpagenr('$'))
     let tn = i + 1
     " set the tab page number (for mouse clicks)
