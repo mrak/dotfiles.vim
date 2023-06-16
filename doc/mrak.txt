@@ -51,7 +51,7 @@ Or you can change them all at once.
 <
 
 ================================================================================
-COMMANDS                                                        *mrak-colorscheme*
+COMMANDS                                                           *mrak-commands*
 
                                                                         *mrak-:Cd*
 :Cd              A simple alias for `:cd %:h`
