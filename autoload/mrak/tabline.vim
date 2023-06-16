@@ -44,5 +44,5 @@ function! mrak#tabline#tab(n)
   if l:title is '' | return '[No Name]' | endif
 
   let l:parts = split(l:title, '/', 1)
-  return l:parts->map(function('s:partsmap', len(l:parts)))->join('/')
+  return l:parts->map(function('s:partsmap', [len(l:parts)]))->join('/')
 endfunction
