@@ -166,12 +166,15 @@ hi! link Title           MrakBlue
 call s:c.hl("Conceal",       #{fg:"blue", bg:"lowest"})
 hi! link SignColumn LineNr
 hi! link SpecialKey MrakLow
-call s:c.hl("ColorColumn", #{fg:"low",    bg:"lowest"})
-call s:c.hl("PMenu",       #{fg:"high",   bg:"bottom"})
-call s:c.hl("PMenuSel",    #{fg:"lowest", bg:"green"})
-call s:c.hl("TabLine",     #{fg:"low",    bg:"bottom"})
-call s:c.hl("TabLineFill", #{fg:"low",    bg:"bottom"})
-call s:c.hl("TabLineSel",  #{fg:"green",  bg:"lowest"})
+call s:c.hl("ColorColumn",  #{fg:"low",    bg:"lowest"})
+call s:c.hl("PMenu",        #{fg:"high",   bg:"bottom"})
+call s:c.hl("PMenuSel",     #{fg:"lowest", bg:"green"})
+call s:c.hl("TabLine",      #{fg:"low",    bg:"bottom"})
+call s:c.hl("TabLineFill",  #{fg:"low",    bg:"bottom"})
+call s:c.hl("TabLineSel",   #{fg:"green",  bg:"bottom"})
+call s:c.hl("TabLineNum",   #{fg:"bottom", bg:"low"})
+call s:c.hl("TabLineNumSel",#{fg:"bottom", bg:"green"})
+
 
 hi! link Debug     MrakRed
 hi! link Directory MrakBlue
