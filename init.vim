@@ -20,7 +20,7 @@ endif
 packadd cfilter
 packadd matchit
 
-call plug#begin(expand("$HOME/.local/share/nvim/plugged"))
+call plug#begin(expand('<sfile>:p')->resolve()->fnamemodify(':h') .. '/plugged')
 Plug 'hashicorp/sentinel.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
