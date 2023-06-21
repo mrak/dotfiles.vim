@@ -341,6 +341,9 @@ if has('nvim-0.8.0')
     hi! link @punctuation.bracket.ini MrakHigh
     " yaml
     hi! link @field.yaml MrakHighest
+    " toml
+    hi! link @property.toml MrakRed
+    hi! link @punctuation.bracket.toml MrakHigh
 
     " terraform
     hi! link @variable.builtin.terraform MrakRed
