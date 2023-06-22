@@ -344,7 +344,8 @@ if has('nvim-0.8.0')
     " toml
     hi! link @property.toml MrakRed
     hi! link @punctuation.bracket.toml MrakHigh
-
+    " comment
+    call s:c.hl("@text.uri.comment", #{sp:"blue",at:"undercurl"})
     " terraform
     hi! link @variable.builtin.terraform MrakRed
     hi! link @type.terraform NONE
