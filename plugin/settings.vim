@@ -108,7 +108,7 @@ elseif executable('rg')
     let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 endif
 if executable('rg')
-    set grepprg=rg\ --vimgrep\ --hidden\ --smart-case
+    set grepprg=rg\ --vimgrep\ --hidden\ --smart-case\ -g\ !.git
     set grepformat+=%f:%l:%c:%m
 endif
 " vim-sensitble ==============================================================

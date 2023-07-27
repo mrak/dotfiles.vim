@@ -32,6 +32,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
 if has('nvim')
     Plug 'simrat39/rust-tools.nvim'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
