@@ -491,6 +491,11 @@ hi! link gitcommitBranch           MrakCyan
 hi! link gitcommitSelectedFile     MrakOrange
 hi! link gitcommitSelectedType     MrakYellow
 
+hi! link gvDate MrakBlue
+hi! link gvSha  MrakYellow
+hi! link gvJira MrakOrange
+hi! link gvGithub MrakOrange
+
 " GitGutter highlighting
 call s:c.hl("GitGutterAdd",          #{fg:"green",  bg:"lowest"})
 call s:c.hl("GitGutterChange",       #{fg:"blue",   bg:"lowest"})
