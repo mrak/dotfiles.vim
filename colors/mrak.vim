@@ -176,6 +176,7 @@ call s:c.hl("TabLineSel",   #{fg:"green",  bg:"bottom"})
 call s:c.hl("TabLineProg",  #{fg:"low",    bg:"bottom"})
 call s:c.hl("TabLineNum",   #{fg:"bottom", bg:"low"})
 call s:c.hl("TabLineNumSel",#{fg:"bottom", bg:"green"})
+call s:c.hl("WinSeparator" ,#{fg:"lower",  bg:"bottom", at:"strikethrough"})
 
 
 hi! link Debug     MrakRed
