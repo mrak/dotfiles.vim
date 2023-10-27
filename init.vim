@@ -22,6 +22,7 @@ packadd matchit
 
 call plug#begin(expand('<sfile>:p')->resolve()->fnamemodify(':h') .. '/plugged')
 Plug 'hashicorp/sentinel.vim'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
