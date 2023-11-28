@@ -58,14 +58,14 @@ vim.diagnostic.config({ update_in_insert = false })
 require'rust-tools'.setup{}
 require'nvim-treesitter.configs'.setup {
     ensure_installed = { 'go', 'comment', 'rust', 'lua', 'vim', 'vimdoc', 'terraform', 'yaml' },
-    context_commentstring = {
-        enable = true,
-        config = {
-            terraform = '# %s',
-        },
-    },
     auto_install = false,
     highlight = { enable = true }
+}
+require'ts_context_commentstring'.setup {
+    enable = true,
+    config = {
+        terraform = '# %s',
+    },
 }
 
 require'lspconfig.ui.windows'.default_options.border = 'single'
