@@ -5,8 +5,8 @@ let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_matchparen=1
-"let g:loaded_netrw = 1
-"let g:loaded_netrwPlugin = 1
+"let g:loaded_netrw = 1 " comment out to keep autoload functions for fugitive
+let g:loaded_netrwPlugin = 1
 let g:sneak#label = 1
 let g:sneak#prompt = '↯ '
 
