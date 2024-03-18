@@ -1,3 +1,4 @@
 .netrw*
 viminfo
 plugged/
+autoload/plug.vim.old
