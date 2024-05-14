@@ -471,8 +471,8 @@ hi! link jsUndefined              MrakPurple
 hi! link javaScriptRegexpString   MrakOrange
 
 " Python
-hi! link pythonInclude     MrakRed
-hi! link pythonStatement   MrakGreen
+hi! link pythonInclude     MrakYellow
+hi! link pythonStatement   MrakRed
 hi! link pythonFunction    MrakCyan
 hi! link pythonBuiltin     MrakBlue
 

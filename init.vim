@@ -36,7 +36,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 if has('nvim')
-    Plug 'simrat39/rust-tools.nvim'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
@@ -55,7 +54,6 @@ nnoremap <leader>fr <cmd>Rg<CR>
 if has('nvim')
 :lua << EOL
 vim.diagnostic.config({ update_in_insert = false })
-require'rust-tools'.setup{}
 require'nvim-treesitter.configs'.setup {
     ensure_installed = { 'go', 'comment', 'rust', 'lua', 'vim', 'vimdoc', 'terraform', 'yaml' },
     auto_install = false,
