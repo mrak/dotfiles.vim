@@ -343,6 +343,9 @@ if has('nvim-0.8.0')
     hi! link @punctuation.bracket.ini MrakHigh
     " yaml
     hi! link @field.yaml MrakHighest
+    hi! link @number.yaml MrakRed
+    hi! link @punctuation.special.yaml MrakLow
+    hi! link @punctuation.delimiter.yaml MrakHigh
     " toml
     hi! link @property.toml MrakRed
     hi! link @punctuation.bracket.toml MrakHigh
