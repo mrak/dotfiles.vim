@@ -53,7 +53,7 @@ if has('nvim')
 :lua << EOL
 vim.diagnostic.config({ update_in_insert = false })
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = { 'go', 'comment', 'rust', 'lua', 'vim', 'vimdoc', 'terraform', 'yaml' },
+    ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
     auto_install = false,
     highlight = { enable = true }
 }
