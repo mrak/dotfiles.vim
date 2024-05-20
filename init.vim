@@ -26,7 +26,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim' " requires vim-fugitive
@@ -36,7 +35,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 if has('nvim')
-    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
 endif
@@ -58,12 +56,6 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = { 'go', 'comment', 'rust', 'lua', 'vim', 'vimdoc', 'terraform', 'yaml' },
     auto_install = false,
     highlight = { enable = true }
-}
-require'ts_context_commentstring'.setup {
-    enable = true,
-    config = {
-        terraform = '# %s',
-    },
 }
 
 require'lspconfig.ui.windows'.default_options.border = 'single'
