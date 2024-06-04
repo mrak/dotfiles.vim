@@ -61,10 +61,20 @@ require'nvim-treesitter.configs'.setup {
 require'lspconfig.ui.windows'.default_options.border = 'single'
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 local lspc = require'lspconfig'
-if vim.fn.executable('terraform-ls') == 1        then lspc.terraformls.setup{filetypes = {"terraform"}} end
 if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
 if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
-if vim.fn.executable('gopls') == 1               then
+
+if vim.fn.executable('terraform-ls') == 1 then
+  lspc.terraformls.setup{}
+  vim.api.nvim_create_autocmd({"BufWritePre"}, {
+    pattern = {"*.tf", "*.tfvars"},
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  })
+end
+
+if vim.fn.executable('gopls') == 1 then
   lspc.gopls.setup({
     on_attach = function(client, bufnr)
       vim.api.nvim_create_autocmd('BufWritePre', {
