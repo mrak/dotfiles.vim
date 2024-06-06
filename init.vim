@@ -11,10 +11,10 @@ let g:sneak#label = 1
 let g:sneak#prompt = '↯ '
 
 if isdirectory('/opt/homebrew/opt/fzf')
-    set rtp+=/opt/homebrew/opt/fzf
+  set rtp+=/opt/homebrew/opt/fzf
 endif
 if isdirectory('/usr/local/opt/fzf')
-    set rtp+=/usr/local/opt/fzf
+  set rtp+=/usr/local/opt/fzf
 endif
 
 packadd cfilter
@@ -28,16 +28,17 @@ Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim' " requires vim-fugitive
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-obsession'
 Plug 'mg979/vim-visual-multi'
 if has('nvim')
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter'
+else
+Plug 'tpope/vim-commentary'
 endif
 call plug#end()
 
@@ -54,9 +55,9 @@ if has('nvim')
 :lua << EOL
 vim.diagnostic.config({ update_in_insert = false })
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
-    auto_install = false,
-    highlight = { enable = true }
+  ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
+  auto_install = false,
+  highlight = { enable = true }
 }
 
 require'lspconfig.ui.windows'.default_options.border = 'single'
