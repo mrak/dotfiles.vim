@@ -621,5 +621,11 @@ hi! link FernMarkedLine MrakOrangeBold
 hi! link FernBranchSymbol MrakHigh
 hi! link FernLeafSymbol MrakLow
 
+" vim-visual-multi
+call s:c.hl("VM_Cursor",   #{fg:"top", bg:"bottom", at:"bold,underline"})
+call s:c.hl("VM_Mono",   #{fg:"top", bg:"bottom", at:"bold,underline"})
+hi! link VM_Extend Visual
+hi! link VM_Insert StatusLineIns
+
 " Free variables/funcitons
 unlet s:c
