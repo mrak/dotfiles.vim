@@ -33,6 +33,7 @@ set wildignore+=*.pyc,*.class    " bytecode
 set wildignore+=*.o,*.obj,*.hi   " intermediary files
 set wildignore+=*.bak,*.lock     " misc
 set wildmode=list:longest
+set wildoptions+=fuzzy
 set nrformats=hex
 " Heads-up Display ===========================================================
 if !has('nvim')

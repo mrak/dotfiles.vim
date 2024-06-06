@@ -11,12 +11,12 @@ nnoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 inoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 noremap  <F5> <cmd>checktime<CR>
 "moving lines
-nnoremap <C-DOWN> :m .+1<CR>==
-nnoremap <C-UP> :m .-2<CR>==
-inoremap <C-DOWN> <ESC>:m .+1<CR>==gi
-inoremap <C-UP> <ESC>:m .-2<CR>==gi
-vnoremap <C-DOWN> :m '>+1<CR>gv=gv
-vnoremap <C-UP> :m '<-2<CR>gv=gv
+"nnoremap <C-DOWN> :m .+1<CR>==
+"nnoremap <C-UP> :m .-2<CR>==
+"inoremap <C-DOWN> <ESC>:m .+1<CR>==gi
+"inoremap <C-UP> <ESC>:m .-2<CR>==gi
+"vnoremap <C-DOWN> :m '>+1<CR>gv=gv
+"vnoremap <C-UP> :m '<-2<CR>gv=gv
 "formatting code
 nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 nnoremap <leader>e <cmd>Lexplore<CR>

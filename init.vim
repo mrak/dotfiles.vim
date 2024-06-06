@@ -34,6 +34,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
+Plug 'mg979/vim-visual-multi'
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
