@@ -38,7 +38,7 @@ if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter'
 else
-Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-commentary'
 endif
 call plug#end()
 
