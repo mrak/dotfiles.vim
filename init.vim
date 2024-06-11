@@ -57,7 +57,10 @@ vim.diagnostic.config({ update_in_insert = false })
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
   auto_install = false,
-  highlight = { enable = true }
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  }
 }
 
 require'lspconfig.ui.windows'.default_options.border = 'single'
