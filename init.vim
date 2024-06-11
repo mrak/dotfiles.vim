@@ -29,7 +29,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim' " requires vim-fugitive
+Plug 'rbong/vim-flog'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
