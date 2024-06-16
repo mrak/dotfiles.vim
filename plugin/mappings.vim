@@ -27,3 +27,5 @@ nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
+
+nnoremap git <cmd> call mrak#git#openfugitive()<CR>
