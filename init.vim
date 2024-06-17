@@ -37,6 +37,7 @@ Plug 'mg979/vim-visual-multi'
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'ray-x/go.nvim'
 else
   Plug 'tpope/vim-commentary'
 endif
@@ -79,6 +80,7 @@ if vim.fn.executable('terraform-ls') == 1 then
   })
 end
 
+require('go').setup()
 if vim.fn.executable('gopls') == 1 then
   lspc.gopls.setup({
     on_attach = function(client, bufnr)
