@@ -1,3 +1,4 @@
+" Open quickfix window. If already open, close it.
 function! mrak#quickfixtoggle#fn()
     for winnr in range(1, winnr('$'))
         let l:winfo = getwininfo(win_getid(winnr))[0]

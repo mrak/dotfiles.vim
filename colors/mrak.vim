@@ -266,7 +266,9 @@ hi! link DiffRemoved   MrakRedBold
 hi! link DiffSubname   MrakHigh
 hi! link diffIndexLine MrakPurple
 
-hi! link DirvishArg MrakOrangeBold
+hi! link DirvishArg  MrakOrangeBold
+hi! link DirvishLink Error
+hi! link DirvishExe  String
 
 hi! link LeapBackdrop Comment
 call s:c.hl("Sneak", #{fg:"bottom", bg:"green"})

@@ -1,3 +1,4 @@
+" Wipe all buffers not currently in a window in any tab.
 function! mrak#prunebuffers#fn()
     "From tabpagebuflist() help, get a list of all buffers in all tabs
     let tablist = []
