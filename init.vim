@@ -21,20 +21,20 @@ packadd cfilter
 packadd matchit
 
 call plug#begin(expand('<sfile>:p')->resolve()->fnamemodify(':h') .. '/plugged')
-Plug 'hashicorp/sentinel.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-dirvish'
-Plug 'justinmk/vim-sneak'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'rbong/vim-flog'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-obsession'
-Plug 'mg979/vim-visual-multi'
+Plug 'hashicorp/sentinel.vim' " support for sentinel language
+Plug 'junegunn/fzf'           " in case fzf is not installed on the system
+Plug 'junegunn/fzf.vim'       " fzf helper functions added to mappings
+Plug 'justinmk/vim-dirvish'   " file browser
+Plug 'justinmk/vim-sneak'     " s replacement for hopping around a buffer
+Plug 'tpope/vim-eunuch'       " GNU CLI wrappers
+Plug 'tpope/vim-fugitive'     " Git manipulation
+Plug 'tpope/vim-rhubarb'      " GitHub support for fugitive
+Plug 'rbong/vim-flog'         " Git log viewer
+Plug 'tpope/vim-repeat'       " Allows repeat of plugin actions
+Plug 'tpope/vim-surround'     " manipulate wrapper tokens like []
+Plug 'tpope/vim-unimpaired'   " nice assistance bindings
+Plug 'tpope/vim-obsession'    " session management made easy
+Plug 'mg979/vim-visual-multi' " mulitple cursors
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter'
