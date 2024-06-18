@@ -1,3 +1,5 @@
+" Also use space as leader
+map <space> <leader>
 " override defaults
 nnoremap Y y$
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -10,13 +12,6 @@ inoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
 nnoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 inoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 noremap  <F5> <cmd>checktime<CR>
-"moving lines
-"nnoremap <C-DOWN> :m .+1<CR>==
-"nnoremap <C-UP> :m .-2<CR>==
-"inoremap <C-DOWN> <ESC>:m .+1<CR>==gi
-"inoremap <C-UP> <ESC>:m .-2<CR>==gi
-"vnoremap <C-DOWN> :m '>+1<CR>gv=gv
-"vnoremap <C-UP> :m '<-2<CR>gv=gv
 "formatting code
 nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 nnoremap <leader>e <cmd>Lexplore<CR>
@@ -38,5 +33,13 @@ nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
-
+" Git
 nnoremap git <cmd> call mrak#git#openfugitive()<CR>
+" FZF
+nnoremap <leader>ff <cmd>Files<CR>
+nnoremap <leader>fg <cmd>GFiles<CR>
+nnoremap <leader>fb <cmd>Buffers<CR>
+nnoremap <leader>fl <cmd>Lines<CR>
+nnoremap <leader>ft <cmd>Tags<CR>
+nnoremap <leader>fm <cmd>History<CR>
+nnoremap <leader>fr <cmd>Rg<CR>

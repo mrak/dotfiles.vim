@@ -18,6 +18,7 @@ if has('nvim')
     let &spellfile=stdpath("config")."/spell/personal.utf-8.add"
 endif
 " Font/Colors ================================================================
+colorscheme mrak
 set termguicolors
 set background=dark
 set t_ut=

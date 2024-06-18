@@ -43,15 +43,6 @@ else
 endif
 call plug#end()
 
-colorscheme mrak
-nnoremap <leader>ff <cmd>Files<CR>
-nnoremap <leader>fg <cmd>GFiles<CR>
-nnoremap <leader>fb <cmd>Buffers<CR>
-nnoremap <leader>fl <cmd>Lines<CR>
-nnoremap <leader>ft <cmd>Tags<CR>
-nnoremap <leader>fm <cmd>History<CR>
-nnoremap <leader>fr <cmd>Rg<CR>
-
 function s:dirvish_icon_fn(p)
   if getftype(a:p) ==# 'link'
     return '▹'
