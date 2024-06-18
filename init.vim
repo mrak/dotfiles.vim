@@ -52,6 +52,16 @@ nnoremap <leader>ft <cmd>Tags<CR>
 nnoremap <leader>fm <cmd>History<CR>
 nnoremap <leader>fr <cmd>Rg<CR>
 
+function s:dirvish_icon_fn(p)
+  if getftype(a:p) ==# 'link'
+    return '▹'
+  elseif executable(a:p) && !isdirectory(a:p)
+    return '•'
+  endif
+  return ' '
+endfunction
+call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
+
 if has('nvim')
 :lua << EOL
 vim.diagnostic.config({ update_in_insert = false })
