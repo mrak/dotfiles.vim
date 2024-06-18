@@ -1,5 +1,6 @@
-" super slow startup for ruby files with jruby unless this is set
-"let g:ruby_path='/usr/bin'
+if &compatible
+  set nocompatible
+endif
 " Basics =====================================================================
 syntax on
 set backspace=indent,eol,start
@@ -8,6 +9,12 @@ set infercase
 set smartcase
 set noautochdir
 set fileformats=unix,dos,mac
+set nrformats-=octal
+set history=10000
+set tabpagemax=50
+set sessionoptions-=options
+set viewoptions-=options
+set langnoremap
 " Files/Directories ==========================================================
 set autoread
 set undofile
@@ -26,6 +33,7 @@ set t_ut=
 set fillchars+=vert:\ ,fold:-,stlnc:=
 " Completion menus ===========================================================
 set cpoptions=aABceFsmq
+set complete-=i
 set completeopt=menu,longest
 set wildmenu
 set wildignore=*.jpg,*.gif,*.png " pictures
@@ -41,9 +49,10 @@ if !has('nvim')
     set ttymouse=sgr
 endif
 set hidden
+set display+=lastline
+set display+=truncate
 set incsearch
 set laststatus=2
-"set lazyredraw
 set nolist
 set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
 set hlsearch
@@ -51,6 +60,7 @@ set nowrapscan
 set nostartofline
 set number
 set numberwidth=3
+set ruler
 set signcolumn=yes
 set report=0
 set scrolloff=5
@@ -82,6 +92,7 @@ set nowrap
 set whichwrap=b,s,<,>,~,[,]
 set shiftround
 set shiftwidth=4
+set smarttab
 set softtabstop=4
 set tabstop=4
 " No bells ===================================================================
@@ -89,6 +100,7 @@ set belloff=all
 set noerrorbells
 set visualbell
 " Other ======================================================================
+set ttimeout
 set ttimeoutlen=0
 " Netrw ======================================================================
 "let g:loaded_netrw = 1
@@ -111,7 +123,11 @@ if executable('rg')
     set grepprg=rg\ --vimgrep\ --hidden\ --smart-case\ -g\ !.git
     set grepformat+=%f:%l:%c:%m
 endif
-" vim-sensitble ==============================================================
+" vim-sensible ==============================================================
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^Eterm'
+  set t_Co=16
+endif
 " Correctly highlight $() and other modern affordances in filetype=sh.
 if !exists('g:is_posix') && !exists('g:is_bash') && !exists('g:is_kornshell') && !exists('g:is_dash')
   let g:is_posix = 1
@@ -119,4 +135,8 @@ endif
 " If the running Vim lacks support for the Fish shell, use Bash instead.
 if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
   set shell=/usr/bin/env\ bash
+endif
+" Enable the :Man command shipped inside Vim's man filetype plugin.
+if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
+  runtime ftplugin/man.vim
 endif
