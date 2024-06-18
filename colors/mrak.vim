@@ -164,7 +164,7 @@ call s:c.hl("VisualNOS",     #{fg:"red", at:"reverse"})
 hi! link WarningMsg      MrakRed
 hi! link WildMenu        MrakRed
 hi! link Title           MrakBlue
-call s:c.hl("Conceal",       #{fg:"blue", bg:"lowest"})
+hi! link Conceal  MrakLow
 hi! link SignColumn LineNr
 hi! link SpecialKey MrakLow
 call s:c.hl("ColorColumn",  #{fg:"low",    bg:"lowest"})
