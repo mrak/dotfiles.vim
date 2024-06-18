@@ -14,6 +14,7 @@ augroup Mrak#autocmd
         autocmd TermOpen * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}
         autocmd TermOpen * set signcolumn=no
         autocmd TermOpen * set nonumber
+        autocmd TermOpen * startinsert
     endif
 
     autocmd BufNewFile *.js 0put = \"'use strict';\" | norm j

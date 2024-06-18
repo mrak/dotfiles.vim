@@ -22,6 +22,17 @@ nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 nnoremap <leader>e <cmd>Lexplore<CR>
 " escape the terminal pane
 tnoremap <silent> <C-g> <C-\><C-n>
+if has('nvim')
+  " terminal window commands
+  tnoremap <silent> <c-w>h <C-\><C-n><c-w>h
+  tnoremap <silent> <c-w>j <C-\><C-n><c-w>j
+  tnoremap <silent> <c-w>k <C-\><C-n><c-w>k
+  tnoremap <silent> <c-w>l <C-\><C-n><c-w>l
+  tnoremap <silent> <c-w><c-w> <C-\><C-n><c-w><c-w>
+  tnoremap <silent> <c-w>s <C-\><C-n><c-w>s
+  tnoremap <silent> <c-w>v <C-\><C-n><c-w>v
+  tnoremap <silent> <c-w>c <cmd>bw!<CR>
+endif
 " Diagnostics
 nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
