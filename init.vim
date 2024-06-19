@@ -15,7 +15,7 @@ packadd matchit
 
 call plug#begin(expand('<sfile>:p')->resolve()->fnamemodify(':h') .. '/plugged')
 Plug 'hashicorp/sentinel.vim' " support for sentinel language
-Plug 'junegunn/fzf'           " in case fzf is not installed on the system
+Plug 'junegunn/fzf'           " main fzf plugin
 Plug 'junegunn/fzf.vim'       " fzf helper functions added to mappings
 Plug 'justinmk/vim-dirvish'   " file browser
 Plug 'justinmk/vim-sneak'     " s replacement for hopping around a buffer
@@ -33,7 +33,7 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'ray-x/go.nvim'
 else
-  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-commentary' " included by default with nvim
 endif
 call plug#end()
 
@@ -107,6 +107,7 @@ end
 local ok, ngo = pcall(require, 'go')
 if not ok then
   print('Run :PlugInstall to install go.nvim')
+  print('Afterward, run :GoInstallBinaries')
 else
   ngo.setup()
 end
