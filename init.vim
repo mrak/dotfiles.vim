@@ -10,13 +10,6 @@ let g:loaded_netrwPlugin = 1
 let g:sneak#label = 1
 let g:sneak#prompt = '↯ '
 
-if isdirectory('/opt/homebrew/opt/fzf')
-  set rtp+=/opt/homebrew/opt/fzf
-endif
-if isdirectory('/usr/local/opt/fzf')
-  set rtp+=/usr/local/opt/fzf
-endif
-
 packadd cfilter
 packadd matchit
 
