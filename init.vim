@@ -37,64 +37,85 @@ Plug 'tpope/vim-obsession'    " session management made easy
 Plug 'mg979/vim-visual-multi' " mulitple cursors
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'ray-x/go.nvim'
 else
   Plug 'tpope/vim-commentary'
 endif
 call plug#end()
 
-function s:dirvish_icon_fn(p)
-  if getftype(a:p) ==# 'link'
-    return '▹'
-  elseif executable(a:p) && !isdirectory(a:p)
-    return '•'
-  endif
-  return ' '
-endfunction
-call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
+try
+  function s:dirvish_icon_fn(p)
+    if getftype(a:p) ==# 'link'
+      return '▹'
+    elseif executable(a:p) && !isdirectory(a:p)
+      return '•'
+    endif
+    return ' '
+  endfunction
+  call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
+catch
+  echomsg "Run :PlugInstall to install dirvish."
+endtry
 
 if has('nvim')
 :lua << EOL
 vim.diagnostic.config({ update_in_insert = false })
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
-  auto_install = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
+
+local ok, ts = pcall(require, 'nvim-treesitter.configs')
+if not ok then
+  print('Run :PlugInstall to install nvim-treesitter')
+else
+  ts.setup {
+    ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
+    auto_install = false,
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = false,
+    }
   }
-}
-
-require'lspconfig.ui.windows'.default_options.border = 'single'
-local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
-local lspc = require'lspconfig'
-if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
-if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
-
-if vim.fn.executable('terraform-ls') == 1 then
-  lspc.terraformls.setup{}
-  vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    pattern = {"*.tf", "*.tfvars"},
-    callback = function()
-      vim.lsp.buf.format()
-    end,
-  })
 end
 
-require('go').setup()
-if vim.fn.executable('gopls') == 1 then
-  lspc.gopls.setup({
-    on_attach = function(client, bufnr)
-      vim.api.nvim_create_autocmd('BufWritePre', {
-      buffer = bufnr,
+local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
+
+local ok, lspc = pcall(require, 'lspconfig')
+if not ok then
+  print('Run :PlugInstall to install nvim-lspconfig')
+else
+  require'lspconfig.ui.windows'.default_options.border = 'single'
+  if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
+  if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
+
+  if vim.fn.executable('terraform-ls') == 1 then
+    lspc.terraformls.setup{}
+    vim.api.nvim_create_autocmd({"BufWritePre"}, {
+      pattern = {"*.tf", "*.tfvars"},
       callback = function()
-        vim.lsp.buf.format({async = false})
-        vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+        vim.lsp.buf.format()
+      end,
+    })
+  end
+
+  if vim.fn.executable('gopls') == 1 then
+    lspc.gopls.setup({
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({async = false})
+          vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+        end
+        })
       end
-      })
-    end
-  })
+    })
+  end
+end
+
+local ok, ngo = pcall(require, 'go')
+if not ok then
+  print('Run :PlugInstall to install go.nvim')
+else
+  ngo.setup()
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
