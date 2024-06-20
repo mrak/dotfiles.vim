@@ -96,7 +96,7 @@ colorscheme mrak
 
 if !has('nvim')
   " These are all set by default in nvim
-  set nocompatible
+  if &compatible | set nocompatible | endif
   syntax on
   set autoindent
   set autoread
@@ -141,10 +141,21 @@ if !has('nvim')
   set wildoptions=pum,tagfile
 endif
 
+set autoindent     " tabs: copy indent from current line when creating new line
+set expandtab      " tabs: spaces instead of tabs
+set shiftround     " tabs: indent to the neareast 'tabstop'
+set shiftwidth=0   " tabs: indent 'tabstop' columns
+set smarttab       " tabs: <Tab>/<BS> in front of a line inserts/deletes 'shifwidth'
+set smartindent    " tabs: do smart autoindenting when starting a new line
+set softtabstop=-1 " tabs: <Tab>/<BS> inserts/deletes 'shiftwidth'
+set tabstop=4      " tabs: width of tab character
+
+set noerrorbells   " bells: disable the bell for some things
+set belloff=all    " bells: disable it everywhere, dammit
+set visualbell     " bells: use visual bell instead of beeping
+
 set completeopt=menu,longest
 set display+=truncate
-set noerrorbells
-set expandtab
 set fileformats=unix,dos,mac
 set fillchars+=vert:\ ,fold:-,stlnc:=
 set foldmethod=indent
@@ -170,26 +181,20 @@ if has("patch314")
   set shortmess+=c
 endif
 set noshowmode
-set shiftround
-set shiftwidth=4
 set sidescrolloff=10
 set signcolumn=yes
 set smartcase
-set smartindent
 let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
-set softtabstop=4
 set statusline=
 set statusline+=\ %{mrak#mode#fn()} " vim mode
-set statusline+=\ %f      " filename and [modified]
-set statusline+=\ %=        " end left. start right
-set statusline+=\ %l:%c     " line:column
-set statusline+=\ %P        " percentage through
-set statusline+=\ %y%r%m    " flags
+set statusline+=\ %f                " filename and [modified]
+set statusline+=\ %=                " end left. start right
+set statusline+=\ %l:%c             " line:column
+set statusline+=\ %P                " percentage through
+set statusline+=\ %y%r%m            " flags
 set tabline=%!mrak#tabline#main()
-set tabstop=4
 set ttimeoutlen=0
 set undofile
-set visualbell
 set whichwrap=b,s,<,>,~,[,]
 set wildignore=*.jpg,*.gif,*.png " pictures
 set wildignore+=*.dll,*.exe      " windows
