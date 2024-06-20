@@ -1,9 +1,20 @@
+local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.diagnostic.config({ update_in_insert = false })
 
-local ok, ts = pcall(require, 'nvim-treesitter.configs')
-if not ok then
-  print('Run :PlugInstall to install nvim-treesitter')
-else
+local function try_require(module)
+  local ok, maybe_module = pcall(require, module)
+  if ok then
+    return ok, maybe_module
+  end
+  if string.find(maybe_module, "module '" .. module .. "' not found:") == nil then
+    print(maybe_module)
+  else
+    print('Run :PlugInstall to install ' .. module)
+  end
+end
+
+local ok, ts = try_require('nvim-treesitter.configs')
+if ok then
   ts.setup {
     ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
     auto_install = false,
@@ -14,12 +25,22 @@ else
   }
 end
 
-local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
+-- disable semantic highlights from LSP, treesitter is enough
+if vim.fn.exists('g:disable_lsp_highlights') then
+  local function disable_semantic_highlights()
+    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+      vim.api.nvim_set_hl(0, group, {})
+    end
+  end
+  vim.api.nvim_create_autocmd({'ColorScheme'}, {
+    group = lsp_augroup,
+    callback = disable_semantic_highlights,
+  })
+  disable_semantic_highlights()
+end
 
-local ok, lspc = pcall(require, 'lspconfig')
-if not ok then
-  print('Run :PlugInstall to install nvim-lspconfig')
-else
+local ok, lspc = try_require('lspconfig')
+if ok then
   require'lspconfig.ui.windows'.default_options.border = 'single'
   if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
   if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
@@ -49,11 +70,8 @@ else
   end
 end
 
-local ok, ngo = pcall(require, 'go')
-if not ok then
-  print('Run :PlugInstall to install go.nvim')
-  print('Afterward, run :GoInstallBinaries')
-else
+local ok, ngo = try_require('go')
+if ok then
   ngo.setup()
 end
 

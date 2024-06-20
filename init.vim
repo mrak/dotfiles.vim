@@ -19,6 +19,7 @@ let g:loaded_netrwPlugin = 1        " disable main netrw plugin
 let g:netrw_altfile=1               " make CTRL-^ work
 let g:netrw_banner=0                " disable the banner
 let g:netrw_liststyle = 0           " one file per line
+let g:disable_lsp_highlights = 1    " lua/plugins.lua, remove LSP highlight groups
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=sh', 'yaml']
 
 packadd cfilter " :Cfilter[!] for pruning quickfix/locationlist
@@ -57,9 +58,9 @@ Plug 'tpope/vim-unimpaired'   " nice assistance bindings
 Plug 'tpope/vim-obsession'    " session management made easy
 Plug 'mg979/vim-visual-multi' " mulitple cursors
 if has('nvim')
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'ray-x/go.nvim' " additional LSP code actions for go
+  Plug 'neovim/nvim-lspconfig'                                  " LSP configs
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } " tree-sitter setup
+  Plug 'ray-x/go.nvim', { 'do': ':GoInstallBinaries' }          " additional LSP code actions for go
 else
   Plug 'tpope/vim-commentary' " included by default with nvim
 endif
@@ -80,13 +81,14 @@ try
   endfunction
   call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
 catch
-  echomsg "Run :PlugInstall to install dirvish."
+  echomsg "Run :PlugInstall to install justinmk/vim-dirvish"
 endtry
 
+" lua plugin setup in lua/plugins.lua
 if has('nvim')
-  " lua plugin setup in lua/plugins.lua
   lua require('plugins')
 endif
+
 " Plugins }}}
 " Settings {{{
 
@@ -146,7 +148,7 @@ set shiftwidth=0   " tabs: indent 'tabstop' columns
 set smarttab       " tabs: <Tab>/<BS> in front of a line inserts/deletes 'shifwidth'
 set smartindent    " tabs: do smart autoindenting when starting a new line
 set softtabstop=-1 " tabs: <Tab>/<BS> inserts/deletes 'shiftwidth'
-set tabstop=4      " tabs: width of tab character
+set tabstop=2      " tabs: width of tab character
 
 set noerrorbells   " bells: disable the bell for some things
 set belloff=all    " bells: disable it everywhere, dammit
