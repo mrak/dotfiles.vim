@@ -36,6 +36,8 @@ if empty(glob(s:plug_path))
   if s:choice == 1
     silent execute '!curl -fLo '.s:plug_path.' --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  else
+    command! -nargs=+ -bar Plug echom 'Skipping Plug '..<q-args>
   endif
 endif
 
@@ -72,13 +74,9 @@ endif
 
 " Set conceal cchar for dirvish files
 try
-  function s:dirvish_icon_fn(p)
-    if getftype(a:p) ==# 'link'
-      return '⚠'
-    elseif executable(a:p) && !isdirectory(a:p)
-      return '•'
-    endif
-    return ' '
+  function! s:dirvish_icon_fn(p)
+    if getftype(a:p) ==# 'link' | return '⚠' | endif
+    return executable(a:p) && !isdirectory(a:p) ? '•' : ' '
   endfunction
   call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
 catch
