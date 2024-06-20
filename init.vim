@@ -1,20 +1,35 @@
 filetype plugin indent on
 
-let g:loaded_python3_provider = 0
-let g:loaded_ruby_provider = 0
-let g:loaded_node_provider = 0
-let g:loaded_perl_provider = 0
-let g:loaded_matchparen=1
-"let g:loaded_netrw = 1 " comment out to keep autoload functions for fugitive
-let g:loaded_netrwPlugin = 1
-let g:sneak#label = 1
-let g:sneak#prompt = '↯ '
+let s:config_dir = expand('<sfile>:p')->resolve()->fnamemodify(':h')
 
-packadd cfilter
-packadd matchit
+" Plugins {{{
+
+let g:did_install_default_menus = 1 " dissble GUI menus
+let g:did_install_syntax_menu = 1   " disable GUI menus for syntax
+let g:loaded_python3_provider = 0   " disable python plugin client
+let g:loaded_ruby_provider = 0      " disable ruby plugin client
+let g:loaded_node_provider = 0      " disable node plugin client
+let g:loaded_perl_provider = 0      " disable perl plugin client
+let g:loaded_matchparen=1           " disable matching paren highlighting
+let g:is_posix = 1                  " Correctly highlight $() and other modern affordances in filetype=sh.
+let g:sneak#label = 1               " use label mode with vim-sneak
+let g:sneak#prompt = '↯ '           " command area prompt when using sneak
+"let g:loaded_netrw = 1             " comment out to keep autoload functions for fugitive
+let g:loaded_netrwPlugin = 1        " disable main netrw plugin
+let g:netrw_altfile=1               " make CTRL-^ work
+let g:netrw_banner=0                " disable the banner
+let g:netrw_liststyle = 0           " one file per line
+let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=sh', 'yaml']
+
+packadd cfilter " :Cfilter[!] for pruning quickfix/locationlist
+packadd matchit " additional matching macros for %
+
+" Enable the :Man command shipped inside Vim's man filetype plugin.
+if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
+  runtime ftplugin/man.vim
+endif
 
 " Boostrap vim-plug and plugins on new system
-let s:config_dir = expand('<sfile>:p')->resolve()->fnamemodify(':h')
 let s:plug_path = s:config_dir .. '/autoload/plug.vim'
 if empty(glob(s:plug_path))
   let s:choice = inputlist(['Install plugins?', '1. yes'])
@@ -42,16 +57,24 @@ Plug 'mg979/vim-visual-multi' " mulitple cursors
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'ray-x/go.nvim'
+  Plug 'ray-x/go.nvim' " additional LSP code actions for go
 else
   Plug 'tpope/vim-commentary' " included by default with nvim
 endif
 call plug#end()
 
+" Use fd or rg with fzf if available
+if executable('fd')
+    let $FZF_DEFAULT_COMMAND = "fd --type file --follow --hidden --exclude .git"
+elseif executable('rg')
+    let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
+endif
+
+" Set conceal cchar for dirvish files
 try
   function s:dirvish_icon_fn(p)
     if getftype(a:p) ==# 'link'
-      return '▹'
+      return '⚠'
     elseif executable(a:p) && !isdirectory(a:p)
       return '•'
     endif
@@ -63,82 +86,211 @@ catch
 endtry
 
 if has('nvim')
-:lua << EOL
-vim.diagnostic.config({ update_in_insert = false })
-
-local ok, ts = pcall(require, 'nvim-treesitter.configs')
-if not ok then
-  print('Run :PlugInstall to install nvim-treesitter')
-else
-  ts.setup {
-    ensure_installed = { 'go', 'comment', 'rust', 'vim', 'terraform', 'yaml' },
-    auto_install = false,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    }
-  }
-end
-
-local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
-
-local ok, lspc = pcall(require, 'lspconfig')
-if not ok then
-  print('Run :PlugInstall to install nvim-lspconfig')
-else
-  require'lspconfig.ui.windows'.default_options.border = 'single'
-  if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
-  if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
-
-  if vim.fn.executable('terraform-ls') == 1 then
-    lspc.terraformls.setup{}
-    vim.api.nvim_create_autocmd({"BufWritePre"}, {
-      pattern = {"*.tf", "*.tfvars"},
-      callback = function()
-        vim.lsp.buf.format()
-      end,
-    })
-  end
-
-  if vim.fn.executable('gopls') == 1 then
-    lspc.gopls.setup({
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd('BufWritePre', {
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({async = false})
-          vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-        end
-        })
-      end
-    })
-  end
-end
-
-local ok, ngo = pcall(require, 'go')
-if not ok then
-  print('Run :PlugInstall to install go.nvim')
-  print('Afterward, run :GoInstallBinaries')
-else
-  ngo.setup()
-end
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = lsp_augroup,
-  callback = function(ev)
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    if vim.fn.getbufvar(ev.buf, '&filetype') == 'vim' then
-      vim.keymap.del('n', 'K', opts)
-    end
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  end,
-})
-EOL
+  " lua plugin setup in lua/plugins.lua
+  lua require('plugins')
 endif
+" Plugins }}}
+" Settings {{{
+
+colorscheme mrak
+
+if !has('nvim')
+  " These are all set by default in nvim
+  set nocompatible
+  syntax on
+  set autoindent
+  set autoread
+  set background=dark
+  set backspace=indent,eol,start
+  set belloff=all
+  set complete-=i
+  set display+=lastline
+  set hidden
+  set history=10000
+  set hlsearch
+  set incsearch
+  set nojoinspaces
+  set langnoremap
+  set nolangremap
+  set laststatus=2
+  set mouse=nvi
+  set mousemodel=popup_setpos
+  set nrformats-=octal
+  set ruler
+  set sessionoptions-=options
+  set showcmd
+  set sidescroll=1
+  set smarttab
+  set nostartofline
+  set switchbuf=uselast
+  " Allow color schemes to do bright colors without forcing bold.
+  if &t_Co == 8 && $TERM !~# '^Eterm'
+    set t_Co=16
+  endif
+  set t_ut= " clearing uses the current background color
+  set tabpagemax=50
+  set tags=./tags;,tags
+  set termguicolors
+  set ttimeout
+  set ttymouse=sgr
+  set viewoptions-=options
+  set viminfo+=!
+  let &viminfofile = s:config_dir .. '/viminfo'
+  let &undodir = s:config_dir .. '/undo'
+  set wildmenu
+  set wildoptions=pum,tagfile
+endif
+
+set completeopt=menu,longest
+set display+=truncate
+set noerrorbells
+set expandtab
+set fileformats=unix,dos,mac
+set fillchars+=vert:\ ,fold:-,stlnc:=
+set foldmethod=indent
+set foldlevelstart=99
+set formatoptions=tcqjr
+set guitablabel=%{mrak#tabtitle#get()}
+set guioptions+=e
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --hidden\ --smart-case\ -g\ !.git
+  set grepformat+=%f:%l:%c:%m
+endif
+set ignorecase
+set infercase
+set nolist
+set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
+set nrformats=hex
+set number
+set numberwidth=3
+set report=0
+set scrolloff=5
+set shortmess=aOstT
+if has("patch314")
+  set shortmess+=c
+endif
+set noshowmode
+set shiftround
+set shiftwidth=4
+set sidescrolloff=10
+set signcolumn=yes
+set smartcase
+set smartindent
+let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
+set softtabstop=4
+set statusline=
+set statusline+=\ %{mrak#mode#fn()} " vim mode
+set statusline+=\ %f      " filename and [modified]
+set statusline+=\ %=        " end left. start right
+set statusline+=\ %l:%c     " line:column
+set statusline+=\ %P        " percentage through
+set statusline+=\ %y%r%m    " flags
+set tabline=%!mrak#tabline#main()
+set tabstop=4
+set ttimeoutlen=0
+set undofile
+set visualbell
+set whichwrap=b,s,<,>,~,[,]
+set wildignore=*.jpg,*.gif,*.png " pictures
+set wildignore+=*.dll,*.exe      " windows
+set wildignore+=*.pyc,*.class    " bytecode
+set wildignore+=*.o,*.obj,*.hi   " intermediary files
+set wildignore+=*.bak,*.lock     " misc
+set wildmode=list:longest
+set wildoptions+=fuzzy
+set nowrap
+set nowrapscan
+
+" Settings }}}
+" Mappings {{{
+
+" Also use space as leader
+map <space> <leader>
+" override defaults
+nnoremap Y y$
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+" Pasting over content does not replace register contents
+xnoremap <expr> p 'pgv"'.v:register.'y'
+" F keys
+nnoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
+inoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
+nnoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
+inoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
+noremap  <F5> <cmd>checktime<CR>
+"formatting code
+nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
+nnoremap <leader>e <cmd>Lexplore<CR>
+" escape the terminal pane
+tnoremap <silent> <C-g> <C-\><C-n>
+if has('nvim')
+  " terminal window commands
+  tnoremap <silent> <c-w>h <C-\><C-n><c-w>h
+  tnoremap <silent> <c-w>j <C-\><C-n><c-w>j
+  tnoremap <silent> <c-w>k <C-\><C-n><c-w>k
+  tnoremap <silent> <c-w>l <C-\><C-n><c-w>l
+  tnoremap <silent> <c-w><c-w> <C-\><C-n><c-w><c-w>
+  tnoremap <silent> <c-w>s <C-\><C-n><c-w>s
+  tnoremap <silent> <c-w>v <C-\><C-n><c-w>v
+  tnoremap <silent> <c-w>c <cmd>bw!<CR>
+endif
+" Diagnostics
+nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
+nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
+" Git
+nnoremap git <cmd> call mrak#git#openfugitive()<CR>
+" FZF
+nnoremap <leader>ff <cmd>Files<CR>
+nnoremap <leader>fg <cmd>GFiles<CR>
+nnoremap <leader>fb <cmd>Buffers<CR>
+nnoremap <leader>fl <cmd>Lines<CR>
+nnoremap <leader>ft <cmd>Tags<CR>
+nnoremap <leader>fm <cmd>History<CR>
+nnoremap <leader>fr <cmd>Rg<CR>
+
+" Mappings }}}
+" Commands {{{
+
+" Use :SudoWrite from vim-eunuch instead
+"command! Sudo %!sudo tee > /dev/null %
+command! Cd cd %:h
+command! -nargs=* TabTitle call mrak#tabtitle#set(<f-args>)
+command! PruneBuffers call mrak#prunebuffers#fn()
+
+" Commands }}}
+" Autocommands {{{
+
+augroup Mrak#autocmd
+    autocmd!
+    autocmd VimResized * wincmd =
+    autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
+    autocmd ModeChanged *:* call mrak#statuslinecolor#mode(v:event.new_mode)
+    " autocmd InsertEnter * call mrak#statuslinecolor#ins(v:insertmode)
+    " autocmd InsertChange * call mrak#statuslinecolor#ins(v:insertmode)
+    " autocmd InsertLeave * highlight! link StatusLine StatusLineNor
+    autocmd FocusLost * silent! wa
+    autocmd BufEnter * silent! checktime %
+    autocmd BufWritePre * :call mrak#trimtrailingwhitespace#fn()
+
+    if has('nvim') " nvim terminal
+        autocmd TermOpen * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}
+        autocmd TermOpen * set signcolumn=no
+        autocmd TermOpen * set nonumber
+        autocmd TermOpen * startinsert
+    endif
+
+    autocmd BufNewFile *.js 0put = \"'use strict';\" | norm j
+    autocmd BufRead,BufNewFile ~/.xmonad/* call mrak#addxmonadpath#fn()
+augroup END
+
+" Autocommands }}}
+" Signs {{{
+
+for [type, text] in items(#{Error: '■', Warn: '▲', Info: '●', Hint: '♦'})
+    let s:hl = "DiagnosticSign".type
+    exe 'sign define '.s:hl.' text='.text.' texthl='.s:hl.' numhl='.s:hl
+endfor
+
+" Signs }}}
