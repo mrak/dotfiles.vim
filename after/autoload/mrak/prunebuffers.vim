@@ -1,18 +1,21 @@
 " Wipe all buffers not currently in a window in any tab.
-function! mrak#prunebuffers#fn()
-    "From tabpagebuflist() help, get a list of all buffers in all tabs
-    let tablist = []
-    for i in range(tabpagenr('$'))
-        call extend(tablist, tabpagebuflist(i + 1))
-    endfor
+function! mrak#prunebuffers#fn(bang)
+  "From tabpagebuflist() help, get a list of all buffers in all tabs
+  let tablist = []
+  let action = a:bang ? 'bwipeout' : 'bdelete'
+  for i in range(tabpagenr('$'))
+    call extend(tablist, tabpagebuflist(i + 1))
+  endfor
 
-    let nPruned = 0
-    for i in range(1, bufnr('$'))
-        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
+  let nPruned = 0
+  for i in range(1, bufnr('$'))
+    if (a:bang && bufexists(i)) || (!a:bang && buflisted(i))
+      if !getbufvar(i,"&mod") && index(tablist, i) == -1
         "bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
-            silent exec 'bwipeout' i
-            let nPruned = nPruned + 1
-        endif
-    endfor
-    echomsg nPruned . ' buffer(s) pruned'
+        silent exec action i
+        let nPruned = nPruned + 1
+      endif
+    endif
+  endfor
+  echomsg nPruned . ' buffer(s) pruned via :' . action
 endfunction

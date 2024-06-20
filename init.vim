@@ -260,7 +260,7 @@ nnoremap <leader>fr <cmd>Rg<CR>
 "command! Sudo %!sudo tee > /dev/null %
 command! Cd cd %:h
 command! -nargs=* TabTitle call mrak#tabtitle#set(<f-args>)
-command! PruneBuffers call mrak#prunebuffers#fn()
+command! -bang -nargs=0 -bar PruneBuffers call mrak#prunebuffers#fn(<bang>0)
 
 " Commands }}}
 " Autocommands {{{
