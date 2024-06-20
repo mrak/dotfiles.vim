@@ -221,8 +221,8 @@ noremap  <F5> <cmd>checktime<CR>
 "formatting code
 nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 nnoremap <leader>e <cmd>Lexplore<CR>
-" escape the terminal pane
-tnoremap <silent> <C-g> <C-\><C-n>
+" CTRL-Space for normal mode in the terminal pane
+tnoremap <silent> <c-space> <C-\><C-n>
 if has('nvim')
   " terminal window commands
   tnoremap <silent> <c-w>h <C-\><C-n><c-w>h

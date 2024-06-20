@@ -55,5 +55,7 @@ COMMANDS                                                           *mrak-command
 
                                                                         *mrak-:Cd*
 :Cd              A simple alias for `:cd %:h`
+:PruneBuffers    Wipeout all buffers not currently being displayed in a window
+:TabTitle        Retrieve or set the title of the current tab
 
  vim: ft=help et sw=2 ts=2 sts=2 tw=79
