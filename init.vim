@@ -13,7 +13,18 @@ let g:sneak#prompt = '↯ '
 packadd cfilter
 packadd matchit
 
-call plug#begin(expand('<sfile>:p')->resolve()->fnamemodify(':h') .. '/plugged')
+" Boostrap vim-plug and plugins on new system
+let s:config_dir = expand('<sfile>:p')->resolve()->fnamemodify(':h')
+let s:plug_path = s:config_dir .. '/autoload/plug.vim'
+if empty(glob(s:plug_path))
+  let s:choice = inputlist(['Install plugins?', '1. yes'])
+  if s:choice == 1
+    silent execute '!curl -fLo '.s:plug_path.' --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+endif
+
+call plug#begin(s:config_dir .. '/plugged')
 Plug 'hashicorp/sentinel.vim' " support for sentinel language
 Plug 'junegunn/fzf'           " main fzf plugin
 Plug 'junegunn/fzf.vim'       " fzf helper functions added to mappings

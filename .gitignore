@@ -2,3 +2,4 @@
 viminfo
 plugged/
 autoload/plug.vim.old
+autoload/plug.vim
