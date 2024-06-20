@@ -5,7 +5,7 @@ This configuration assumes you are using [Neovim](https://neovim.io/).
 
 ```
 mkdir -p ~/.config
-git clone https://github.com/mrak/mrak.vim ~/.config/nvim
+git clone https://github.com/mrak/dotfiles.vim ~/.config/nvim
 ```
 
 `init.vim` is the entrypoint and configures plugins using
