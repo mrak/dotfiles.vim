@@ -40,6 +40,7 @@ if empty(glob(s:plug_path))
   else
     command! -nargs=+ -bar Plug echom 'Skipping Plug '..<q-args>
   endif
+  unlet s:choice
 endif
 
 call plug#begin(s:config_dir .. '/plugged')
