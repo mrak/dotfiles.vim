@@ -102,12 +102,19 @@ if !has('nvim')
   set autoread
   set background=dark
   set backspace=indent,eol,start
+  let &backupdir=$TMDIR
   set belloff=all
+  set commentstring=
   set complete-=i
-  set display+=lastline
+  set define=
+  let &directory=$TMPDIR
+  set display=lastline
+  set encoding=utf-8
+  set formatoptions=tcqj
   set hidden
   set history=10000
   set hlsearch
+  set include=
   set incsearch
   set nojoinspaces
   set langnoremap
