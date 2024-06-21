@@ -148,50 +148,29 @@ if !has('nvim')
   set wildoptions=pum,tagfile
 endif
 
-set autoindent     " tabs: copy indent from current line when creating new line
-set expandtab      " tabs: spaces instead of tabs
-set shiftround     " tabs: indent to the neareast 'tabstop'
-set shiftwidth=0   " tabs: indent 'tabstop' columns
-set smarttab       " tabs: <Tab>/<BS> in front of a line inserts/deletes 'shifwidth'
-set smartindent    " tabs: do smart autoindenting when starting a new line
-set softtabstop=-1 " tabs: <Tab>/<BS> inserts/deletes 'shiftwidth'
-set tabstop=2      " tabs: width of tab character
-
-set noerrorbells   " bells: disable the bell for some things
-set belloff=all    " bells: disable it everywhere, dammit
-set visualbell     " bells: use visual bell instead of beeping
-
-set completeopt=menu,longest
-set display+=truncate
-set fileformats=unix,dos,mac
-set fillchars+=vert:\ ,fold:-,stlnc:=
-set foldmethod=indent
-set foldlevelstart=99
-set formatoptions=tcqjr
-set guitablabel=%{mrak#tabtitle#get()}
-set guioptions+=e
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --hidden\ --smart-case\ -g\ !.git
-  set grepformat+=%f:%l:%c:%m
-endif
-set ignorecase
-set infercase
-set nolist
-set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
-set nrformats=hex
-set number
-set numberwidth=3
-set report=0
-set scrolloff=5
-set shortmess=aOstT
-if has("patch314")
-  set shortmess+=c
-endif
-set noshowmode
-set sidescrolloff=10
-set signcolumn=yes
-set smartcase
-let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
+" Tab/indent
+set autoindent     " copy indent from current line when creating new line
+set expandtab      " spaces instead of tabs
+set shiftround     " indent to the neareast 'tabstop'
+set shiftwidth=0   " indent 'tabstop' columns
+set smarttab       " <Tab>/<BS> in front of a line inserts/deletes 'shifwidth'
+set smartindent    " do smart autoindenting when starting a new line
+set softtabstop=-1 " <Tab>/<BS> inserts/deletes 'shiftwidth'
+set tabstop=2      " width of tab character
+" Bell
+set noerrorbells   " disable the bell for some things
+set belloff=all    " disable it everywhere, dammit
+set visualbell     " use visual bell instead of beeping
+" Case sensitivity
+set ignorecase     " ignore case in search patterns
+set smartcase      " override ignorecase if search has upper case letter
+" UI messaging
+set nolist          " hide listchars by default
+set report=0        " always show '# of lines changed' reports
+set noshowmode      " i.e. '-- INSERT --' on last line
+set shortmess=aOstT " shorten or remove some UI messaging
+if has("patch314") | set shortmess+=c | endif
+" Tabline/statusline
 set statusline=
 set statusline+=\ %{mrak#mode#fn()} " vim mode
 set statusline+=\ %f                " filename and [modified]
@@ -200,18 +179,42 @@ set statusline+=\ %l:%c             " line:column
 set statusline+=\ %P                " percentage through
 set statusline+=\ %y%r%m            " flags
 set tabline=%!mrak#tabline#main()
-set ttimeoutlen=0
-set undofile
-set whichwrap=b,s,<,>,~,[,]
+set guioptions-=e " use a text-based tabline in the GUI
+" Gutter options
+set number         " show line numbers
+set numberwidth=3  " use at least 3 columns for line numbers
+set signcolumn=yes " always show a column for signs
+" Completion
+set completeopt=menu,longest
 set wildignore=*.jpg,*.gif,*.png " pictures
 set wildignore+=*.dll,*.exe      " windows
 set wildignore+=*.pyc,*.class    " bytecode
 set wildignore+=*.o,*.obj,*.hi   " intermediary files
 set wildignore+=*.bak,*.lock     " misc
-set wildmode=list:longest
-set wildoptions+=fuzzy
-set nowrap
-set nowrapscan
+set wildoptions+=fuzzy           " fuzzy complete in command-line mode
+" Cursor/line boundaries
+set display+=truncate " show @@@ at the beginning if last line long
+set scrolloff=5       " always show X lines above/below cursor
+set sidescrolloff=10  " always show X columns around cursor
+set nowrap            " don't wrap lines by default
+" Whilespace/filler/folds
+set fileformats=unix,dos,mac
+set fillchars+=vert:\ ,fold:-,stlnc:=
+set listchars=tab:\|-,trail:•,eol:↵,extends:>,precedes:<
+set foldmethod=syntax " works well for most C-style bracketed languages
+set foldlevelstart=99 " fully expand folds to start
+" Misc
+set nrformats=hex           " CTRL-A/X: don't try to interpret numbers as octal/binary
+set ttimeoutlen=0           " don't wait for ESC detection
+set undofile                " persist undo history
+set whichwrap=b,s,<,>,~,[,] " motions that line-wrap
+set nowrapscan              " don't jump to beginning after reaching end while searching
+set formatoptions=tcqjr
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --hidden\ --smart-case\ -g\ !.git
+  set grepformat+=%f:%l:%c:%m
+endif
+let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
 
 " Settings }}}
 " Mappings {{{
