@@ -102,7 +102,7 @@ if !has('nvim')
   set autoread
   set background=dark
   set backspace=indent,eol,start
-  let &backupdir=$TMDIR
+  let &backupdir=$TMPDIR
   set belloff=all
   set commentstring=
   set complete-=i
