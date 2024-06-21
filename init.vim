@@ -16,8 +16,8 @@ let g:sneak#label = 1               " use label mode with vim-sneak
 let g:sneak#prompt = '↯ '           " command area prompt when using sneak
 "let g:loaded_netrw = 1             " comment out to keep autoload functions for fugitive
 let g:loaded_netrwPlugin = 1        " disable main netrw plugin
-let g:netrw_altfile=1               " make CTRL-^ work
-let g:netrw_banner=0                " disable the banner
+let g:netrw_altfile = 1             " make CTRL-^ work
+let g:netrw_banner = 0              " disable the banner
 let g:netrw_liststyle = 0           " one file per line
 let g:disable_lsp_highlights = 1    " lua/plugins.lua, remove LSP highlight groups
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=sh', 'yaml']
@@ -43,26 +43,26 @@ if empty(glob(s:plug_path))
 endif
 
 call plug#begin(s:config_dir .. '/plugged')
-Plug 'hashicorp/sentinel.vim' " support for sentinel language
-Plug 'junegunn/fzf'           " main fzf plugin
-Plug 'junegunn/fzf.vim'       " fzf helper functions added to mappings
-Plug 'justinmk/vim-dirvish'   " file browser
-Plug 'justinmk/vim-sneak'     " s replacement for hopping around a buffer
-Plug 'tpope/vim-eunuch'       " GNU CLI wrappers
-Plug 'tpope/vim-fugitive'     " Git manipulation
-Plug 'tpope/vim-rhubarb'      " GitHub support for fugitive
-Plug 'rbong/vim-flog'         " Git log viewer
-Plug 'tpope/vim-repeat'       " Allows repeat of plugin actions
-Plug 'tpope/vim-surround'     " manipulate wrapper tokens like []
-Plug 'tpope/vim-unimpaired'   " nice assistance bindings
-Plug 'tpope/vim-obsession'    " session management made easy
-Plug 'mg979/vim-visual-multi' " mulitple cursors
+Plug 'hashicorp/sentinel.vim' |" support for sentinel language
+Plug 'junegunn/fzf'           |" main fzf plugin
+Plug 'junegunn/fzf.vim'       |" fzf helper functions added to mappings
+Plug 'justinmk/vim-dirvish'   |" file browser
+Plug 'justinmk/vim-sneak'     |" s replacement for hopping around a buffer
+Plug 'tpope/vim-eunuch'       |" GNU CLI wrappers
+Plug 'tpope/vim-fugitive'     |" Git manipulation
+Plug 'tpope/vim-rhubarb'      |" GitHub support for fugitive
+Plug 'rbong/vim-flog'         |" Git log viewer
+Plug 'tpope/vim-repeat'       |" Allows repeat of plugin actions
+Plug 'tpope/vim-surround'     |" manipulate wrapper tokens like []
+Plug 'tpope/vim-unimpaired'   |" nice assistance bindings
+Plug 'tpope/vim-obsession'    |" session management made easy
+Plug 'mg979/vim-visual-multi' |" mulitple cursors
 if has('nvim')
-  Plug 'neovim/nvim-lspconfig'                                  " LSP configs
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } " tree-sitter setup
-  Plug 'ray-x/go.nvim', { 'do': ':GoInstallBinaries' }          " additional LSP code actions for go
+  Plug 'neovim/nvim-lspconfig'                                  |" LSP configs
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } |" tree-sitter setup
+  Plug 'ray-x/go.nvim', { 'do': ':GoInstallBinaries' }          |" additional LSP code actions for go
 else
-  Plug 'tpope/vim-commentary' " included by default with nvim
+  Plug 'tpope/vim-commentary' |" included by default with nvim
 endif
 call plug#end()
 
@@ -102,12 +102,12 @@ if !has('nvim')
   set autoread
   set background=dark
   set backspace=indent,eol,start
-  let &backupdir=$TMPDIR
+  let &backupdir = $TMPDIR
   set belloff=all
   set commentstring=
   set complete-=i
   set define=
-  let &directory=$TMPDIR
+  let &directory = $TMPDIR
   set display=lastline
   set encoding=utf-8
   set formatoptions=tcqj
