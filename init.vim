@@ -180,6 +180,7 @@ set wildoptions+=fuzzy           " fuzzy complete in command-line mode
 set display+=truncate " show @@@ at the beginning if last line long
 set scrolloff=5       " always show X lines above/below cursor
 set sidescrolloff=10  " always show X columns around cursor
+set synmaxcol=200     " don't highlight long lines
 set nowrap            " don't wrap lines by default
 " Whilespace/filler/folds
 set fileformats=unix,dos,mac
@@ -207,6 +208,7 @@ let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
 map <space> <leader>
 " override defaults
 nnoremap Y y$
+nnoremap / ms/
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 " Pasting over content does not replace register contents
