@@ -259,12 +259,14 @@ nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 nnoremap git <cmd> call mrak#git#openfugitive()<CR>
 " FZF
 nnoremap <leader>ff <cmd>Files<CR>
+nnoremap <leader>fc <cmd>Commands<CR>
 nnoremap <leader>fg <cmd>GFiles<CR>
 nnoremap <leader>fb <cmd>Buffers<CR>
 nnoremap <leader>fl <cmd>Lines<CR>
 nnoremap <leader>ft <cmd>Tags<CR>
 nnoremap <leader>fm <cmd>History<CR>
 nnoremap <leader>fr <cmd>Rg<CR>
+nnoremap <leader>fh <cmd>Helptags<CR>
 
 " Mappings }}}
 " Commands {{{
