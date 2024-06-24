@@ -1,0 +1,72 @@
+[submodule "pack/submodules/opt/sentinel.vim"]
+	path = pack/submodules/opt/sentinel.vim
+	url = https://github.com/hashicorp/sentinel.vim
+  shallow = true
+[submodule "pack/submodules/opt/fzf"]
+	path = pack/submodules/opt/fzf
+	url = https://github.com/junegunn/fzf
+  shallow = true
+[submodule "pack/submodules/opt/fzf.vim"]
+	path = pack/submodules/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+  shallow = true
+[submodule "pack/submodules/opt/vim-dirvish"]
+	path = pack/submodules/opt/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish
+  shallow = true
+[submodule "pack/submodules/opt/vim-sneak"]
+	path = pack/submodules/opt/vim-sneak
+	url = https://github.com/justinmk/vim-sneak
+  shallow = true
+[submodule "pack/submodules/opt/vim-eunuch"]
+	path = pack/submodules/opt/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+  shallow = true
+[submodule "pack/submodules/opt/vim-fugitive"]
+	path = pack/submodules/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+  shallow = true
+[submodule "pack/submodules/opt/vim-rhubarb"]
+	path = pack/submodules/opt/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+  shallow = true
+[submodule "pack/submodules/opt/vim-flog"]
+	path = pack/submodules/opt/vim-flog
+	url = https://github.com/rbong/vim-flog
+  shallow = true
+[submodule "pack/submodules/opt/vim-repeat"]
+	path = pack/submodules/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+  shallow = true
+[submodule "pack/submodules/opt/vim-surround"]
+	path = pack/submodules/opt/vim-surround
+	url = https://github.com/tpope/vim-surround
+  shallow = true
+[submodule "pack/submodules/opt/vim-unimpaired"]
+	path = pack/submodules/opt/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+  shallow = true
+[submodule "pack/submodules/opt/vim-obsession"]
+	path = pack/submodules/opt/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+  shallow = true
+[submodule "pack/submodules/opt/vim-visual-multi"]
+	path = pack/submodules/opt/vim-visual-multi
+	url = https://github.com/mg979/vim-visual-multi
+  shallow = true
+[submodule "pack/submodules/opt/nvim-lspconfig"]
+	path = pack/submodules/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+  shallow = true
+[submodule "pack/submodules/opt/nvim-treesitter"]
+	path = pack/submodules/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+  shallow = true
+[submodule "pack/submodules/opt/go.nvim"]
+	path = pack/submodules/opt/go.nvim
+	url = https://github.com/ray-x/go.nvim
+  shallow = true
+[submodule "pack/submodules/opt/vim-commentary"]
+	path = pack/submodules/opt/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+  shallow = true

@@ -22,9 +22,6 @@ let g:netrw_liststyle = 0           " one file per line
 let g:disable_lsp_highlights = 1    " lua/plugins.lua, remove LSP highlight groups
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=sh', 'yaml']
 
-packadd cfilter " :Cfilter[!] for pruning quickfix/locationlist
-packadd matchit " additional matching macros for %
-
 " Enable the :Man command shipped inside Vim's man filetype plugin.
 if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
   runtime ftplugin/man.vim
@@ -43,29 +40,28 @@ if empty(glob(s:plug_path))
   unlet s:choice
 endif
 
-call plug#begin(s:config_dir .. '/plugged')
-Plug 'hashicorp/sentinel.vim' |" support for sentinel language
-Plug 'junegunn/fzf'           |" main fzf plugin
-Plug 'junegunn/fzf.vim'       |" fzf helper functions added to mappings
-Plug 'justinmk/vim-dirvish'   |" file browser
-Plug 'justinmk/vim-sneak'     |" s replacement for hopping around a buffer
-Plug 'tpope/vim-eunuch'       |" GNU CLI wrappers
-Plug 'tpope/vim-fugitive'     |" Git manipulation
-Plug 'tpope/vim-rhubarb'      |" GitHub support for fugitive
-Plug 'rbong/vim-flog'         |" Git log viewer
-Plug 'tpope/vim-repeat'       |" Allows repeat of plugin actions
-Plug 'tpope/vim-surround'     |" manipulate wrapper tokens like []
-Plug 'tpope/vim-unimpaired'   |" nice assistance bindings
-Plug 'tpope/vim-obsession'    |" session management made easy
-Plug 'mg979/vim-visual-multi' |" mulitple cursors
+packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
+packadd! sentinel.vim      " hashicorp: sentinel language support
+packadd! fzf               " junegunn: main fzf plugin
+packadd! fzf.vim           " junegunn: fzf helper functions
+packadd! vim-dirvish       " justinmk: file browser
+packadd! vim-sneak         " justinmk: 's' replacement motion
+packadd! vim-fugitive      " tpope: git inside vim
+packadd! vim-rhubarb       " tpope: github support for fugitive
+packadd! vim-flog          " rbong: git log viewer
+packadd! vim-repeat        " tpope: allows repeat plugin actions
+packadd! vim-surround      " tpope: manipulate wrapper tokens/brackets
+packadd! vim-unimpaired    " tpope: nice assistance bindings
+packadd! vim-obsession     " tpope: vim session management
+packadd! vim-visual-multi  " mg979: mulicursor
 if has('nvim')
-  Plug 'neovim/nvim-lspconfig'                                  |" LSP configs
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } |" tree-sitter setup
-  Plug 'ray-x/go.nvim', { 'do': ':GoInstallBinaries' }          |" additional LSP code actions for go
+  packadd! nvim-lspconfig  " neovim: LSP client configs
+  packadd! nvim-treesitter " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
+  packadd! go.nvim         " ray-x: Golang LSP code actions. Run :GoInstallBinaries
 else
-  Plug 'tpope/vim-commentary' |" included by default with nvim
+  packadd! matchit         " builtin: extended matching with %. Nvim enables by default
+  packadd! vim-commentary  " tpope: mappings for (un)commenting
 endif
-call plug#end()
 
 " Use fd or rg with fzf if available
 if executable('fd')
