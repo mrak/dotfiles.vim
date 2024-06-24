@@ -27,19 +27,6 @@ if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has
   runtime ftplugin/man.vim
 endif
 
-" Boostrap vim-plug and plugins on new system
-let s:plug_path = s:config_dir .. '/autoload/plug.vim'
-if empty(glob(s:plug_path))
-  let s:choice = inputlist(['Install plugins?', '1. yes'])
-  if s:choice == 1
-    silent execute '!curl -fLo '.s:plug_path.' --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  else
-    command! -nargs=+ -bar Plug echom 'Skipping Plug '..<q-args>
-  endif
-  unlet s:choice
-endif
-
 packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
 packadd! sentinel.vim      " hashicorp: sentinel language support
 packadd! fzf               " junegunn: main fzf plugin
