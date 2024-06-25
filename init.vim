@@ -10,7 +10,10 @@ let g:loaded_python3_provider = 0   " disable python plugin client
 let g:loaded_ruby_provider = 0      " disable ruby plugin client
 let g:loaded_node_provider = 0      " disable node plugin client
 let g:loaded_perl_provider = 0      " disable perl plugin client
+let g:loaded_remote_plugins = 1     " all diabled above anyway
 let g:loaded_matchparen=1           " disable matching paren highlighting
+let g:loaded_tutor_mode_plugin = 1  " disable vim tutor
+let g:loaded_2html_plugin = 1       " disable :TOhtml
 let g:is_posix = 1                  " Correctly highlight $() and other modern affordances in filetype=sh.
 let g:sneak#label = 1               " use label mode with vim-sneak
 let g:sneak#prompt = '↯ '           " command area prompt when using sneak
@@ -29,7 +32,9 @@ endif
 
 packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
 packadd! sentinel.vim      " hashicorp: sentinel language support
-packadd! fzf               " junegunn: main fzf plugin
+if !exists('g:loaded_fzf')
+  packadd! fzf             " junegunn: main fzf plugin
+endif
 packadd! fzf.vim           " junegunn: fzf helper functions
 packadd! vim-dirvish       " justinmk: file browser
 packadd! vim-sneak         " justinmk: 's' replacement motion
@@ -86,12 +91,12 @@ if !has('nvim')
   set autoread
   set background=dark
   set backspace=indent,eol,start
-  let &backupdir = $TMPDIR
+  let &backupdir = s:config_dir .. '/vim/backup'
   set belloff=all
   set commentstring=
   set complete-=i
   set define=
-  let &directory = $TMPDIR
+  let &directory = s:config_dir .. '/vim/swap'
   set display=lastline
   set encoding=utf-8
   set formatoptions=tcqj
@@ -126,8 +131,8 @@ if !has('nvim')
   set ttymouse=sgr
   set viewoptions-=options
   set viminfo+=!
-  let &viminfofile = s:config_dir .. '/viminfo'
-  let &undodir = s:config_dir .. '/undo'
+  let &viminfofile = s:config_dir .. '/vim/viminfo'
+  let &undodir = s:config_dir .. '/vim/undo'
   set wildmenu
   set wildoptions=pum,tagfile
 endif
