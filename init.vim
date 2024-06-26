@@ -154,11 +154,11 @@ set visualbell     " use visual bell instead of beeping
 set ignorecase     " ignore case in search patterns
 set smartcase      " override ignorecase if search has upper case letter
 " UI messaging
-set nolist          " hide listchars by default
-set report=0        " always show '# of lines changed' reports
-set noshowmode      " i.e. '-- INSERT --' on last line
-set shortmess=aOstT " shorten or remove some UI messaging
-if has("patch314") | set shortmess+=c | endif
+set nolist           " hide listchars by default
+set report=0         " always show '# of lines changed' reports
+set noshowmode       " i.e. '-- INSERT --' on last line
+set shortmess=aOstTI " shorten or remove some UI messaging
+if has("patch314") | set shortmess+=cC | endif
 " Tabline/statusline
 set statusline=
 set statusline+=\ %{mrak#mode#fn()} " vim mode
