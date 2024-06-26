@@ -32,12 +32,11 @@ endif
 
 packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
 packadd! sentinel.vim      " hashicorp: sentinel language support
-if !exists('g:loaded_fzf')
-  packadd! fzf             " junegunn: main fzf plugin
-endif
+packadd! fzf               " junegunn: main fzf plugin
 packadd! fzf.vim           " junegunn: fzf helper functions
 packadd! vim-dirvish       " justinmk: file browser
 packadd! vim-sneak         " justinmk: 's' replacement motion
+packadd! vim-eunuch        " tpope: move/delete/ helpers
 packadd! vim-fugitive      " tpope: git inside vim
 packadd! vim-rhubarb       " tpope: github support for fugitive
 packadd! vim-flog          " rbong: git log viewer
