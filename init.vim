@@ -222,6 +222,7 @@ nnoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
 inoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
 nnoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 inoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
+nnoremap <F4> <cmd>call mrak#prunebuffers#fn(0)<CR>
 noremap  <F5> <cmd>checktime<CR>
 "formatting code
 nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
