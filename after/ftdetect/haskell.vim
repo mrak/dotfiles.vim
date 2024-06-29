@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.hsc set filetype=haskell
+autocmd BufNewFile,BufRead *.hsc setfiletype haskell

@@ -1,5 +1,3 @@
-filetype plugin indent on
-
 let s:config_dir = expand('<sfile>:p')->resolve()->fnamemodify(':h')
 
 " Plugins {{{
@@ -30,6 +28,9 @@ if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has
   runtime ftplugin/man.vim
 endif
 
+" turn of auto-sourcing of plugin/ and indent/ until after all
+" plugins added.
+filetype off
 packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
 packadd! sentinel.vim      " hashicorp: sentinel language support
 packadd! fzf               " junegunn: main fzf plugin
@@ -53,6 +54,7 @@ else
   packadd! matchit         " builtin: extended matching with %. Nvim enables by default
   packadd! vim-commentary  " tpope: mappings for (un)commenting
 endif
+filetype plugin indent on
 
 " Use fd or rg with fzf if available
 if executable('fd')
