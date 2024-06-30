@@ -28,8 +28,9 @@ if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has
   runtime ftplugin/man.vim
 endif
 
-" turn of auto-sourcing of plugin/ and indent/ until after all
-" plugins added.
+" Turn of auto-sourcing of ftplugin/ and indent/ until after all plugins added.
+" Turning it on after all :packadd! ensures ftplugin/ scripts are loaded.
+" See :help :packadd
 filetype off
 packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
 packadd! sentinel.vim      " hashicorp: sentinel language support
@@ -54,6 +55,7 @@ else
   packadd! matchit         " builtin: extended matching with %. Nvim enables by default
   packadd! vim-commentary  " tpope: mappings for (un)commenting
 endif
+" Now source all ftplugin/ and indent/ files.
 filetype plugin indent on
 
 " Use fd or rg with fzf if available
@@ -71,7 +73,7 @@ try
   endfunction
   call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
 catch
-  echomsg "Run :PlugInstall to install justinmk/vim-dirvish"
+  echomsg "Run make to install justinmk/vim-dirvish"
 endtry
 
 " lua plugin setup in lua/plugins.lua
@@ -210,7 +212,7 @@ let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
 " Settings }}}
 " Mappings {{{
 
-" Also use space as leader
+" Also using space as leader, too
 map <space> <leader>
 " override defaults
 nnoremap Y y$
@@ -228,10 +230,9 @@ nnoremap <F4> <cmd>call mrak#prunebuffers#fn(0)<CR>
 noremap  <F5> <cmd>checktime<CR>
 "formatting code
 nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
-nnoremap <leader>e <cmd>Lexplore<CR>
-" CTRL-Space for normal mode in the terminal pane
-tnoremap <silent> <c-space> <C-\><C-n>
-if has('nvim')
+if has('nvim') || has('terminal')
+  " CTRL-Space for normal mode in the terminal pane
+  tnoremap <silent> <c-space> <C-\><C-n>
   " terminal window commands
   tnoremap <silent> <c-w>h <C-\><C-n><c-w>h
   tnoremap <silent> <c-w>j <C-\><C-n><c-w>j
@@ -243,10 +244,12 @@ if has('nvim')
   tnoremap <silent> <c-w>c <cmd>bw!<CR>
 endif
 " Diagnostics
-nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
-nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
-nnoremap <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
-nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
+if has('nvim')
+  nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
+  nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
+  nnoremap <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
+  nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
+endif
 " Git
 nnoremap git <cmd> call mrak#git#openfugitive()<CR>
 " FZF
