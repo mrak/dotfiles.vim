@@ -15,7 +15,7 @@ let g:loaded_2html_plugin = 1       " disable :TOhtml
 let g:is_posix = 1                  " Correctly highlight $() and other modern affordances in filetype=sh.
 let g:sneak#label = 1               " use label mode with vim-sneak
 let g:sneak#prompt = '↯ '           " command area prompt when using sneak
-"let g:loaded_netrw = 1             " comment out to keep autoload functions for fugitive
+let g:loaded_netrw = 1              " use custom :Browse instead of netrw for fugitive
 let g:loaded_netrwPlugin = 1        " disable main netrw plugin
 let g:netrw_altfile = 1             " make CTRL-^ work
 let g:netrw_banner = 0              " disable the banner
@@ -271,6 +271,7 @@ nnoremap <leader>fh <cmd>Helptags<CR>
 command! Cd cd %:h
 command! -nargs=* TabTitle call mrak#tabtitle#set(<f-args>)
 command! -bang -nargs=0 -bar PruneBuffers call mrak#prunebuffers#fn(<bang>0)
+command! -nargs=1 Browse call mrak#browse#fn(shellescape(<q-args>,1))
 
 " Commands }}}
 " Autocommands {{{
