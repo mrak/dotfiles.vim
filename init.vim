@@ -20,7 +20,6 @@ let g:loaded_netrwPlugin = 1        " disable main netrw plugin
 let g:netrw_altfile = 1             " make CTRL-^ work
 let g:netrw_banner = 0              " disable the banner
 let g:netrw_liststyle = 0           " one file per line
-"let g:disable_lsp_highlights = 1    " lua/plugins.lua, remove LSP highlight groups
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=sh', 'yaml']
 
 " Enable the :Man command shipped inside Vim's man filetype plugin.

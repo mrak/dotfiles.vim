@@ -59,20 +59,6 @@ if ok then
   }
 end
 
--- disable semantic highlights from LSP, treesitter is enough
--- if vim.fn.exists('g:disable_lsp_highlights') then
---   local function disable_semantic_highlights()
---     for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
---       vim.api.nvim_set_hl(0, group, {})
---     end
---   end
---   vim.api.nvim_create_autocmd({'ColorScheme'}, {
---     group = lsp_augroup,
---     callback = disable_semantic_highlights,
---   })
---   disable_semantic_highlights()
--- end
-
 local ok, lspc = try_require('lspconfig')
 if ok then
   require'lspconfig.ui.windows'.default_options.border = 'single'
