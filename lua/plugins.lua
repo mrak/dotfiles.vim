@@ -9,7 +9,7 @@ local function try_require(module)
   if string.find(maybe_module, "module '" .. module .. "' not found:") == nil then
     print(maybe_module)
   else
-    print('Run :PlugInstall to install ' .. module)
+    print('Run make to install ' .. module)
   end
 end
 
