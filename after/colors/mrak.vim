@@ -267,8 +267,8 @@ hi! link DiffSubname   MrakHigh
 hi! link diffIndexLine MrakPurple
 
 hi! link DirvishArg  MrakOrangeBold
-hi! link DirvishLink MrakRed
 hi! link DirvishExe  String
+call s:c.hl('DirvishLink', #{fg:'high',at:'undercurl'})
 
 hi! link LeapBackdrop Comment
 call s:c.hl("Sneak", #{fg:"bottom", bg:"green"})
