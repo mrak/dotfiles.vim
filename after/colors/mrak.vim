@@ -267,7 +267,7 @@ hi! link DiffSubname   MrakHigh
 hi! link diffIndexLine MrakPurple
 
 hi! link DirvishArg  MrakOrangeBold
-hi! link DirvishLink Error
+hi! link DirvishLink MrakRed
 hi! link DirvishExe  String
 
 hi! link LeapBackdrop Comment

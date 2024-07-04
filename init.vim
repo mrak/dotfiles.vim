@@ -64,17 +64,6 @@ elseif executable('rg')
     let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 endif
 
-" Set conceal cchar for dirvish files
-try
-  function! s:dirvish_icon_fn(p)
-    if getftype(a:p) ==# 'link' | return '⚠' | endif
-    return executable(a:p) && !isdirectory(a:p) ? '•' : ' '
-  endfunction
-  call dirvish#add_icon_fn(function('s:dirvish_icon_fn'))
-catch
-  echomsg "Run make to install justinmk/vim-dirvish"
-endtry
-
 " lua plugin setup in lua/plugins.lua
 if has('nvim')
   lua require('plugins')
