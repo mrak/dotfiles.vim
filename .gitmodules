@@ -70,3 +70,6 @@
 	path = pack/submodules/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary
   shallow = true
+[submodule "pack/submodules/opt/info.vim"]
+	path = pack/submodules/opt/info.vim
+	url = https://gitlab.com/HiPhish/info.vim.git
