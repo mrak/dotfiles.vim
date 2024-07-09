@@ -216,6 +216,7 @@ hi! link Tag          MrakCyan
 hi! link Todo         MrakYellow
 hi! link Type         MrakBlue
 hi! link Typedef      MrakPurple
+call s:c.hl('NormalFloat', #{fg:"highest",bg:"bottom"})
 
 " Spelling highlighting
 call s:c.hl("SpellBad",   #{at:"undercurl", sp:"red"})
