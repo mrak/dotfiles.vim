@@ -22,11 +22,6 @@ let g:netrw_banner = 0              " disable the banner
 let g:netrw_liststyle = 0           " one file per line
 let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=sh', 'yaml']
 
-" Enable the :Man command shipped inside Vim's man filetype plugin.
-if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
-  runtime ftplugin/man.vim
-endif
-
 " Turn of auto-sourcing of ftplugin/ and indent/ until after all plugins added.
 " Turning it on after all :packadd! ensures ftplugin/ scripts are loaded.
 " See :help :packadd
@@ -51,6 +46,7 @@ if has('nvim')
   packadd! nvim-treesitter " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
   packadd! go.nvim         " ray-x: Golang LSP code actions. Run :GoInstallBinaries
 else
+  runtime ftplugin/man.vim " builtin: :Man support
   packadd! matchit         " builtin: extended matching with %. Nvim enables by default
   packadd! vim-commentary  " tpope: mappings for (un)commenting
 endif
