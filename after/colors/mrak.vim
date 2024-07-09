@@ -280,11 +280,6 @@ if has('nvim-0.8.0')
   hi! link @property MrakBrown
   hi! link @variable.builtin Keyword
   hi! link @variable.member MrakBlue
-  hi! link @lsp.type.type.terraform NONE
-  hi! link @lsp.type.variable.terraform NONE
-  hi! link @lsp.type.property.terraform NONE
-  hi! link @lsp.type.property.terraform-vars NONE
-  hi! link @lsp.type.parameter.terraform-vars NONE
 endif
 
 " netrw

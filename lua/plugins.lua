@@ -66,7 +66,11 @@ if ok then
   if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
 
   if vim.fn.executable('terraform-ls') == 1 then
-    lspc.terraformls.setup{}
+    lspc.terraformls.setup{
+      on_init = function(client,_)
+        client.server_capabilities.semanticTokensProvider = nil -- terraform-ls has terrible symantic highlighting, use treesitter
+      end
+    }
     vim.api.nvim_create_autocmd({"BufWritePre"}, {
       pattern = {"*.tf", "*.tfvars"},
       callback = function()
