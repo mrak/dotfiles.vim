@@ -172,7 +172,7 @@ set wildoptions+=fuzzy           " fuzzy complete in command-line mode
 set display+=truncate " show @@@ at the beginning if last line long
 set scrolloff=5       " always show X lines above/below cursor
 set sidescrolloff=10  " always show X columns around cursor
-set synmaxcol=200     " don't highlight long lines
+set synmaxcol=400     " don't highlight long lines
 set nowrap            " don't wrap lines by default
 " Whilespace/filler/folds
 set fileformats=unix,dos,mac
