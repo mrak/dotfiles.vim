@@ -177,7 +177,10 @@ call s:c.hl("TabLineProg",  #{fg:"low",    bg:"bottom"})
 call s:c.hl("TabLineNum",   #{fg:"bottom", bg:"low"})
 call s:c.hl("TabLineNumSel",#{fg:"bottom", bg:"green"})
 call s:c.hl("WinSeparator" ,#{fg:"lower",  bg:"bottom", at:"strikethrough"})
-
+" Vim misc highlights
+hi! link qfFileName  MrakRed
+hi! link qfLineNr    MrakCyan
+hi! link qfSeparator MrakLow
 
 hi! link Debug     MrakRed
 hi! link Directory MrakBlue
