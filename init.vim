@@ -122,6 +122,10 @@ if !has('nvim')
   let &undodir = s:config_dir .. '/vim/undo'
   set wildmenu
   set wildoptions=pum,tagfile
+  if executable('rg')
+    set grepprg=rg\ --vimgrep\ -uu
+    set grepformat+=%f:%l:%c:%m
+  endif
 endif
 
 " Tab/indent
@@ -187,10 +191,6 @@ set undofile                " persist undo history
 set whichwrap=b,s,<,>,~,[,] " motions that line-wrap
 set nowrapscan              " don't jump to beginning after reaching end while searching
 set formatoptions=tcqjr
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --hidden\ --smart-case\ -g\ !.git
-  set grepformat+=%f:%l:%c:%m
-endif
 let &spellfile = s:config_dir .. '/spell/personal.utf-8.add'
 
 " Settings }}}
