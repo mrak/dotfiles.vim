@@ -94,6 +94,13 @@ if ok then
   end
 end
 
+if vim.fn.executable('pest-language-server') == 1 then
+  local ok, pest = try_require('pest-vim')
+  if ok then
+      pest.setup{}
+  end
+end
+
 local ok, ngo = try_require('go')
 if ok then
   ngo.setup()

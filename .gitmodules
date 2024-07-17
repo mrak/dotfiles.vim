@@ -73,3 +73,6 @@
 [submodule "pack/submodules/opt/info.vim"]
 	path = pack/submodules/opt/info.vim
 	url = https://gitlab.com/HiPhish/info.vim.git
+[submodule "pack/submodules/opt/pest.vim"]
+	path = pack/submodules/opt/pest.vim
+	url = https://github.com/pest-parser/pest.vim.git
