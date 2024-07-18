@@ -79,6 +79,10 @@ if ok then
     })
   end
 
+  if vim.fn.executable('rust-analyzer') == 1 then
+    lspc.rust_analyzer.setup{}
+  end
+
   if vim.fn.executable('gopls') == 1 then
     lspc.gopls.setup({
       on_attach = function(client, bufnr)
