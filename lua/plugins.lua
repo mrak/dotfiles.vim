@@ -92,6 +92,16 @@ if ok then
       end
     })
   end
+
+  if vim.fn.executable('rust-analyzer') == 1 then
+    lspc.rust_analyzer.setup{}
+    vim.api.nvim_create_autocmd({"BufWritePre"}, {
+      pattern = {"*.rs"},
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    })
+  end
 end
 
 if vim.fn.executable('pest-language-server') == 1 then
