@@ -80,7 +80,11 @@ if ok then
   end
 
   if vim.fn.executable('rust-analyzer') == 1 then
-    lspc.rust_analyzer.setup{}
+    lspc.rust_analyzer.setup{
+      on_init = function(client,_)
+        client.server_capabilities.semanticTokensProvider = nil -- terrible symantic highlighting, use treesitter
+      end
+    }
   end
 
   if vim.fn.executable('gopls') == 1 then
