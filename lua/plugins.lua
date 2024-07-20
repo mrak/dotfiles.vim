@@ -85,6 +85,12 @@ if ok then
         client.server_capabilities.semanticTokensProvider = nil -- terrible symantic highlighting, use treesitter
       end
     }
+    vim.api.nvim_create_autocmd({"BufWritePre"}, {
+      pattern = {"*.rs"},
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    })
   end
 
   if vim.fn.executable('gopls') == 1 then
@@ -98,16 +104,6 @@ if ok then
         end
         })
       end
-    })
-  end
-
-  if vim.fn.executable('rust-analyzer') == 1 then
-    lspc.rust_analyzer.setup{}
-    vim.api.nvim_create_autocmd({"BufWritePre"}, {
-      pattern = {"*.rs"},
-      callback = function()
-        vim.lsp.buf.format()
-      end,
     })
   end
 end
