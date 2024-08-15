@@ -45,6 +45,7 @@ if has('nvim')
   packadd! nvim-lspconfig  " neovim: LSP client configs
   packadd! nvim-treesitter " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
   packadd! go.nvim         " ray-x: Golang LSP code actions. Run :GoInstallBinaries
+  packadd! rustaceanvim    " mrcjkb: rust LSP setup
   packadd! pest.vim        " pest-parser: rust pest parsing crate LSP support
 else
   runtime ftplugin/man.vim " builtin: :Man support

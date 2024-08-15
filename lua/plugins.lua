@@ -1,3 +1,19 @@
+vim.g.rustaceanvim = {
+  server = {
+    on_init = function(client,_)
+      client.server_capabilities.semanticTokensProvider = nil -- terrible symantic highlighting, use treesitter
+    end,
+    on_attach = function(client, bufnr)
+      vim.api.nvim_create_autocmd({"BufWritePre"}, {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format()
+        end,
+      })
+    end
+  }
+}
+
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.diagnostic.config({ update_in_insert = false })
 
@@ -69,39 +85,27 @@ if ok then
     lspc.terraformls.setup{
       on_init = function(client,_)
         client.server_capabilities.semanticTokensProvider = nil -- terraform-ls has terrible symantic highlighting, use treesitter
+      end,
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd({"BufWritePre"}, {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format()
+          end,
+        })
       end
     }
-    vim.api.nvim_create_autocmd({"BufWritePre"}, {
-      pattern = {"*.tf", "*.tfvars"},
-      callback = function()
-        vim.lsp.buf.format()
-      end,
-    })
-  end
-
-  if vim.fn.executable('rust-analyzer') == 1 then
-    lspc.rust_analyzer.setup{
-      on_init = function(client,_)
-        client.server_capabilities.semanticTokensProvider = nil -- terrible symantic highlighting, use treesitter
-      end
-    }
-    vim.api.nvim_create_autocmd({"BufWritePre"}, {
-      pattern = {"*.rs"},
-      callback = function()
-        vim.lsp.buf.format()
-      end,
-    })
   end
 
   if vim.fn.executable('gopls') == 1 then
     lspc.gopls.setup({
       on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd('BufWritePre', {
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({async = false})
-          vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-        end
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({async = false})
+            vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+          end
         })
       end
     })
