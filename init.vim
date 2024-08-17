@@ -44,6 +44,9 @@ packadd! vim-visual-multi  " mg979: mulicursor
 if has('nvim')
   packadd! nvim-lspconfig  " neovim: LSP client configs
   packadd! nvim-treesitter " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
+  packadd! nvim-dap        " mfussenegger: debug adapter protocol
+  packadd! nvim-nio        " nvim-neotest: dependency of nvim-dap-ui
+  packadd! nvim-dap-ui     " rcarriga: variable/stack sidebars while debugging
   packadd! go.nvim         " ray-x: Golang LSP code actions. Run :GoInstallBinaries
   packadd! rustaceanvim    " mrcjkb: rust LSP setup
   packadd! pest.vim        " pest-parser: rust pest parsing crate LSP support

@@ -79,3 +79,12 @@
 [submodule "pack/submodules/opt/rustaceanvim"]
 	path = pack/submodules/opt/rustaceanvim
 	url = https://github.com/mrcjkb/rustaceanvim.git
+[submodule "pack/submodules/opt/nvim-dap"]
+	path = pack/submodules/opt/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "pack/submodules/opt/nvim-nio"]
+	path = pack/submodules/opt/nvim-nio
+	url = https://github.com/nvim-neotest/nvim-nio.git
+[submodule "pack/submodules/opt/nvim-dap-ui"]
+	path = pack/submodules/opt/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui

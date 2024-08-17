@@ -1,3 +1,4 @@
+
 vim.g.rustaceanvim = {
   server = {
     on_init = function(client,_)
@@ -27,6 +28,30 @@ local function try_require(module)
   else
     print('Run make to install ' .. module)
   end
+end
+
+local ok, dapui = try_require('dapui')
+if ok then
+  dapui.setup{
+    icons = {
+      collapsed = "⏵︎",
+      current_frame = "→",
+      expanded = "⏷︎"
+    },
+    controls = {
+      icons = {
+        disconnect = "×",
+        pause = "⏸︎",
+        play = "⏵︎",
+        run_last = "⟳",
+        step_back = "←",
+        step_into = "↓",
+        step_out = "↑",
+        step_over = "→",
+        terminate = "◼︎"
+      }
+    }
+  }
 end
 
 local ok, ts = try_require('nvim-treesitter.configs')
