@@ -284,6 +284,7 @@ if has('nvim-0.8.0')
   hi! link @property MrakBrown
   hi! link @variable.builtin Keyword
   hi! link @variable.member MrakBlue
+  hi! link @variable.member.rust MrakBrown
   hi! link @function.macro Macro
 endif
 
