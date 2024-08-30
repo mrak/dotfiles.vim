@@ -58,14 +58,18 @@ local ok, ts = try_require('nvim-treesitter.configs')
 if ok then
   ts.setup {
     ensure_installed = {
+      'awk',
       'bash',
       'comment',
+      'csv',
       'diff',
       'dockerfile',
       'fish',
       'git_config',
-      'gitignore',
+      'git_rebase',
+      'gitattributes',
       'gitcommit',
+      'gitignore',
       'go',
       'gomod',
       'gosum',
