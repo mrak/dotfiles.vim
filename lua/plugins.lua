@@ -1,3 +1,15 @@
+local function safe_require(module, fn)
+  local ok, maybe_module = pcall(require, module)
+  if ok then
+    fn(maybe_module)
+    return
+  end
+  if string.find(maybe_module, "module '" .. module .. "' not found:") == nil then
+    print(maybe_module)
+  else
+    print('Run make to install ' .. module)
+  end
+end
 
 vim.g.rustaceanvim = {
   server = {
@@ -18,20 +30,7 @@ vim.g.rustaceanvim = {
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.diagnostic.config({ update_in_insert = false })
 
-local function try_require(module)
-  local ok, maybe_module = pcall(require, module)
-  if ok then
-    return ok, maybe_module
-  end
-  if string.find(maybe_module, "module '" .. module .. "' not found:") == nil then
-    print(maybe_module)
-  else
-    print('Run make to install ' .. module)
-  end
-end
-
-local ok, dapui = try_require('dapui')
-if ok then
+safe_require('dapui', function(dapui)
   dapui.setup{
     icons = {
       collapsed = "⏵︎",
@@ -52,10 +51,9 @@ if ok then
       }
     }
   }
-end
+end)
 
-local ok, ts = try_require('nvim-treesitter.configs')
-if ok then
+safe_require('nvim-treesitter.configs', function(ts)
   ts.setup {
     ensure_installed = {
       'awk',
@@ -102,10 +100,9 @@ if ok then
       additional_vim_regex_highlighting = false,
     }
   }
-end
+end)
 
-local ok, lspc = try_require('lspconfig')
-if ok then
+safe_require('lspconfig', function(lspc)
   require'lspconfig.ui.windows'.default_options.border = 'single'
   if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
   if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
@@ -139,19 +136,15 @@ if ok then
       end
     })
   end
-end
+end)
 
 if vim.fn.executable('pest-language-server') == 1 then
-  local ok, pest = try_require('pest-vim')
-  if ok then
+  safe_require('pest-vim', function(pest)
       pest.setup{}
-  end
+  end)
 end
 
-local ok, ngo = try_require('go')
-if ok then
-  ngo.setup()
-end
+safe_require('go', function(ngo) ngo.setup() end)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_augroup,
