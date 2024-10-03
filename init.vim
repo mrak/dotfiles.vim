@@ -270,12 +270,9 @@ augroup Mrak#autocmd
     autocmd VimResized * wincmd =
     autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
     autocmd ModeChanged *:* call mrak#statuslinecolor#mode(v:event.new_mode)
-    " autocmd InsertEnter * call mrak#statuslinecolor#ins(v:insertmode)
-    " autocmd InsertChange * call mrak#statuslinecolor#ins(v:insertmode)
-    " autocmd InsertLeave * highlight! link StatusLine StatusLineNor
     autocmd FocusLost * silent! wa
     autocmd BufEnter * silent! checktime %
-    autocmd BufWritePre * :call mrak#trimtrailingwhitespace#fn()
+    autocmd BufWritePre * call mrak#trimtrailingwhitespace#fn()
 
     if has('nvim') " nvim terminal
         autocmd TermOpen * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}
