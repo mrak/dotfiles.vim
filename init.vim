@@ -283,6 +283,7 @@ augroup Mrak#autocmd
 
     autocmd BufNewFile *.js 0put = \"'use strict';\" | norm j
     autocmd BufRead,BufNewFile ~/.xmonad/* call mrak#addxmonadpath#fn()
+    autocmd DiffUpdated * call mrak#diff#setup()
 augroup END
 
 " Autocommands }}}
