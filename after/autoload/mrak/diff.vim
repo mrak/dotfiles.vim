@@ -1,6 +1,7 @@
 function! mrak#diff#setup()
   if exists('b:mrakdiffsetup')
     return
+  endif
   let b:mrakdiffsetup = 1
   nnoremap <buffer> <leader>dl <cmd>diffget LOCAL<CR>
   nnoremap <buffer> <leader>dr <cmd>diffget REMOTE<CR>
