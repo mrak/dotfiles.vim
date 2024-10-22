@@ -127,10 +127,11 @@ if !has('nvim')
   let &undodir = s:config_dir .. '/vim/undo'
   set wildmenu
   set wildoptions=pum,tagfile
-  if executable('rg')
-    set grepprg=rg\ --vimgrep\ -uu
-    set grepformat+=%f:%l:%c:%m
-  endif
+endif
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --hidden
+  set grepformat+=%f:%l:%c:%m
 endif
 
 " Tab/indent
