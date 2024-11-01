@@ -30,10 +30,6 @@
 	path = pack/submodules/opt/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb
   shallow = true
-[submodule "pack/submodules/opt/vim-flog"]
-	path = pack/submodules/opt/vim-flog
-	url = https://github.com/rbong/vim-flog
-  shallow = true
 [submodule "pack/submodules/opt/vim-repeat"]
 	path = pack/submodules/opt/vim-repeat
 	url = https://github.com/tpope/vim-repeat
@@ -45,10 +41,6 @@
 [submodule "pack/submodules/opt/vim-unimpaired"]
 	path = pack/submodules/opt/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
-  shallow = true
-[submodule "pack/submodules/opt/vim-obsession"]
-	path = pack/submodules/opt/vim-obsession
-	url = https://github.com/tpope/vim-obsession
   shallow = true
 [submodule "pack/submodules/opt/vim-visual-multi"]
 	path = pack/submodules/opt/vim-visual-multi
@@ -70,9 +62,6 @@
 	path = pack/submodules/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary
   shallow = true
-[submodule "pack/submodules/opt/info.vim"]
-	path = pack/submodules/opt/info.vim
-	url = https://gitlab.com/HiPhish/info.vim.git
 [submodule "pack/submodules/opt/pest.vim"]
 	path = pack/submodules/opt/pest.vim
 	url = https://github.com/pest-parser/pest.vim.git
