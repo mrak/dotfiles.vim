@@ -35,11 +35,9 @@ packadd! vim-sneak         " justinmk: 's' replacement motion
 packadd! vim-eunuch        " tpope: move/delete/ helpers
 packadd! vim-fugitive      " tpope: git inside vim
 packadd! vim-rhubarb       " tpope: github support for fugitive
-packadd! vim-flog          " rbong: git log viewer
 packadd! vim-repeat        " tpope: allows repeat plugin actions
 packadd! vim-surround      " tpope: manipulate wrapper tokens/brackets
 packadd! vim-unimpaired    " tpope: nice assistance bindings
-packadd! vim-obsession     " tpope: vim session management
 packadd! vim-visual-multi  " mg979: mulicursor
 if has('nvim')
   packadd! nvim-lspconfig  " neovim: LSP client configs
