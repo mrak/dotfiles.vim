@@ -1,6 +1,8 @@
-.PHONY: update-plugins sync root.vimrc unused-plugins
+.PHONY: plugins update-plugins sync-plugins root.vimrc clean-plugins
 
-sync:
+plugins: sync-plugins clean-plugins
+
+sync-plugins:
 	git submodule update -j 8 --init
 	nvim -es +'helptags ALL' -cq
 
@@ -11,5 +13,5 @@ update-plugins:
 root.vimrc:
 	sudo cp root.vimrc /root/.vimrc
 
-unused-plugins:
+clean-plugins:
 	git clean -dffx pack/submodules
