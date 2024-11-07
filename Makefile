@@ -1,4 +1,4 @@
-.PHONY: update-plugins sync root.vimrc clean-plugins
+.PHONY: update-plugins sync root.vimrc unused-plugins
 
 sync:
 	git submodule update -j 8 --init
@@ -11,5 +11,5 @@ update-plugins:
 root.vimrc:
 	sudo cp root.vimrc /root/.vimrc
 
-clean-plugins:
-	git clean -dfx pack/submodules
+unused-plugins:
+	git clean -xfdf
