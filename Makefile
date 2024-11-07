@@ -12,4 +12,4 @@ root.vimrc:
 	sudo cp root.vimrc /root/.vimrc
 
 unused-plugins:
-	git clean -xfdf
+	git clean -dffx pack/submodules
