@@ -98,6 +98,24 @@ safe_require('nvim-treesitter.configs', function(ts)
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
+    },
+    textobjects = {
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ["af"] = { query = "@function.outer", desc = "Select around function" },
+          ["if"] = { query = "@function.inner", desc = "Select inside function" },
+          ["at"] = { query = "@class.outer", desc = "Select around type/class" },
+          ["it"] = { query = "@class.inner", desc = "Select inside type/class" },
+          ["ac"] = { query = "@comment.outer", desc = "Select comment" },
+          ["as"] = { query = "@local.scope", desc = "Select language scope" },
+          ["ia"] = { query = "@parameter.inner", desc = "Select parameter/argument" },
+        },
+        selection_scopes = {
+          ['@function.outer'] = 'V',
+        },
+      }
     }
   }
 end)

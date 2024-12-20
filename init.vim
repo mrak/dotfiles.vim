@@ -40,14 +40,15 @@ packadd! vim-surround      " tpope: manipulate wrapper tokens/brackets
 packadd! vim-unimpaired    " tpope: nice assistance bindings
 packadd! vim-visual-multi  " mg979: mulicursor
 if has('nvim')
-  packadd! nvim-lspconfig  " neovim: LSP client configs
-  packadd! nvim-treesitter " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
-  packadd! nvim-dap        " mfussenegger: debug adapter protocol
-  packadd! nvim-nio        " nvim-neotest: dependency of nvim-dap-ui
-  packadd! nvim-dap-ui     " rcarriga: variable/stack sidebars while debugging
-  packadd! go.nvim         " ray-x: Golang LSP code actions. Run :GoInstallBinaries
-  packadd! rustaceanvim    " mrcjkb: rust LSP setup
-  packadd! pest.vim        " pest-parser: rust pest parsing crate LSP support
+  packadd! nvim-lspconfig              " neovim: LSP client configs
+  packadd! nvim-treesitter             " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
+  packadd! nvim-treesitter-textobjects " nvim-treesitter: tree-sitter text objects (functions/types)
+  packadd! nvim-dap                    " mfussenegger: debug adapter protocol
+  packadd! nvim-nio                    " nvim-neotest: dependency of nvim-dap-ui
+  packadd! nvim-dap-ui                 " rcarriga: variable/stack sidebars while debugging
+  packadd! go.nvim                     " ray-x: Golang LSP code actions. Run :GoInstallBinaries
+  packadd! rustaceanvim                " mrcjkb: rust LSP setup
+  packadd! pest.vim                    " pest-parser: rust pest parsing crate LSP support
 else
   runtime ftplugin/man.vim " builtin: :Man support
   packadd! matchit         " builtin: extended matching with %. Nvim enables by default

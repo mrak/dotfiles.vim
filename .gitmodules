@@ -77,3 +77,6 @@
 [submodule "pack/submodules/opt/nvim-dap-ui"]
 	path = pack/submodules/opt/nvim-dap-ui
 	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule "pack/submodules/opt/nvim-treesitter-textobjects"]
+	path = pack/submodules/opt/nvim-treesitter-textobjects
+	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects
