@@ -129,7 +129,7 @@ if !has('nvim')
 endif
 
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --hidden
+  set grepprg=rg\ --vimgrep\ --hidden\ -g\ !.git/\ --ignore-vcs
   set grepformat+=%f:%l:%c:%m
 endif
 
