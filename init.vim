@@ -61,7 +61,7 @@ filetype plugin indent on
 if executable('fd')
     let $FZF_DEFAULT_COMMAND = "fd --type file --follow --hidden --exclude .git"
 elseif executable('rg')
-    let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
+    let $FZF_DEFAULT_COMMAND = "rg --files --hidden -g !.git/ --ignore-vcs"
 endif
 
 " lua plugin setup in lua/plugins.lua
