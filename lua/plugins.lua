@@ -1,7 +1,13 @@
+-- pass arg 2 as a function to receive a handle to the module as the function arg
+-- pass arg 2 as a table to automatically call module.setup(arg)
 local function safe_require(module, fn)
   local ok, maybe_module = pcall(require, module)
   if ok then
-    fn(maybe_module)
+    if type(fn) == "function" then
+      fn(maybe_module)
+    else
+      maybe_module.setup(fn)
+    end
     return
   end
   if string.find(maybe_module, "module '" .. module .. "' not found:") == nil then
@@ -30,95 +36,91 @@ vim.g.rustaceanvim = {
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.diagnostic.config({ update_in_insert = false })
 
-safe_require('dapui', function(dapui)
-  dapui.setup{
+safe_require('dapui', {
+  icons = {
+    collapsed = "⏵︎",
+    current_frame = "→",
+    expanded = "⏷︎"
+  },
+  controls = {
     icons = {
-      collapsed = "⏵︎",
-      current_frame = "→",
-      expanded = "⏷︎"
-    },
-    controls = {
-      icons = {
-        disconnect = "×",
-        pause = "⏸︎",
-        play = "⏵︎",
-        run_last = "⟳",
-        step_back = "←",
-        step_into = "↓",
-        step_out = "↑",
-        step_over = "→",
-        terminate = "◼︎"
-      }
+      disconnect = "×",
+      pause = "⏸︎",
+      play = "⏵︎",
+      run_last = "⟳",
+      step_back = "←",
+      step_into = "↓",
+      step_out = "↑",
+      step_over = "→",
+      terminate = "◼︎"
     }
   }
-end)
+})
 
-safe_require('nvim-treesitter.configs', function(ts)
-  ts.setup {
-    ensure_installed = {
-      'awk',
-      'bash',
-      'comment',
-      'csv',
-      'diff',
-      'dockerfile',
-      'fish',
-      'git_config',
-      'git_rebase',
-      'gitattributes',
-      'gitcommit',
-      'gitignore',
-      'go',
-      'gomod',
-      'gosum',
-      'gotmpl',
-      'groovy',
-      'hcl',
-      'helm',
-      'jq',
-      'json',
-      'lua',
-      'make',
-      'markdown',
-      'markdown_inline',
-      'python',
-      'regex',
-      'rego',
-      'ruby',
-      'rust',
-      'ssh_config',
-      'terraform',
-      'tmux',
-      'toml',
-      'vim',
-      'vimdoc',
-      'yaml',
-    },
-    auto_install = false,
-    highlight = {
+safe_require('nvim-treesitter.configs', {
+  ensure_installed = {
+    'awk',
+    'bash',
+    'comment',
+    'csv',
+    'diff',
+    'dockerfile',
+    'fish',
+    'git_config',
+    'git_rebase',
+    'gitattributes',
+    'gitcommit',
+    'gitignore',
+    'go',
+    'gomod',
+    'gosum',
+    'gotmpl',
+    'groovy',
+    'hcl',
+    'helm',
+    'jq',
+    'json',
+    'lua',
+    'make',
+    'markdown',
+    'markdown_inline',
+    'python',
+    'regex',
+    'rego',
+    'ruby',
+    'rust',
+    'ssh_config',
+    'terraform',
+    'tmux',
+    'toml',
+    'vim',
+    'vimdoc',
+    'yaml',
+  },
+  auto_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  textobjects = {
+    select = {
       enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ["af"] = { query = "@function.outer", desc = "Select around function" },
-          ["if"] = { query = "@function.inner", desc = "Select inside function" },
-          ["at"] = { query = "@class.outer", desc = "Select around type/class" },
-          ["it"] = { query = "@class.inner", desc = "Select inside type/class" },
-          ["ac"] = { query = "@comment.outer", desc = "Select comment" },
-          ["as"] = { query = "@local.scope", desc = "Select language scope" },
-          ["ia"] = { query = "@parameter.inner", desc = "Select parameter/argument" },
-        },
-        selection_scopes = {
-          ['@function.outer'] = 'V',
-        },
-      }
+      lookahead = true,
+      keymaps = {
+        ["af"] = { query = "@function.outer", desc = "Select around function" },
+        ["if"] = { query = "@function.inner", desc = "Select inside function" },
+        ["at"] = { query = "@class.outer", desc = "Select around type/class" },
+        ["it"] = { query = "@class.inner", desc = "Select inside type/class" },
+        ["ac"] = { query = "@comment.outer", desc = "Select comment" },
+        ["as"] = { query = "@local.scope", desc = "Select language scope" },
+        ["ia"] = { query = "@parameter.inner", desc = "Select parameter/argument" },
+      },
+      selection_scopes = {
+        ['@function.outer'] = 'V',
+      },
     }
   }
-end)
+})
 
 safe_require('lspconfig', function(lspc)
   require'lspconfig.ui.windows'.default_options.border = 'single'
@@ -157,12 +159,10 @@ safe_require('lspconfig', function(lspc)
 end)
 
 if vim.fn.executable('pest-language-server') == 1 then
-  safe_require('pest-vim', function(pest)
-      pest.setup{}
-  end)
+  safe_require('pest-vim', {})
 end
 
-safe_require('go', function(ngo) ngo.setup() end)
+safe_require('go', {})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_augroup,
