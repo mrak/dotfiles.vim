@@ -208,8 +208,8 @@ nnoremap Y y$
 nnoremap / ms/
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-" Pasting over content does not replace register contents
-xnoremap <expr> p 'pgv"'.v:register.'y'
+" Pasting over content does not replace register contents (can now just use P)
+"xnoremap <expr> p 'pgv"'.v:register.'y'
 " F keys
 nnoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
 inoremap <F2> <cmd>call mrak#quickfixtoggle#fn()<CR>
