@@ -124,9 +124,10 @@ safe_require('nvim-treesitter.configs', {
 
 safe_require('lspconfig', function(lspc)
   require'lspconfig.ui.windows'.default_options.border = 'single'
-  if vim.fn.executable('tflint') == 1              then lspc.tflint.setup{} end
-  if vim.fn.executable('vim-language-server') == 1 then lspc.vimls.setup{} end
-  if vim.fn.executable('pyright') == 1             then lspc.pyright.setup{} end
+  if vim.fn.executable('tflint') == 1               then lspc.tflint.setup{} end
+  if vim.fn.executable('vim-language-server') == 1  then lspc.vimls.setup{} end
+  if vim.fn.executable('bash-language-server') == 1 then lspc.bashls.setup{} end
+  if vim.fn.executable('pyright') == 1              then lspc.pyright.setup{} end
 
   if vim.fn.executable('terraform-ls') == 1 then
     lspc.terraformls.setup{
