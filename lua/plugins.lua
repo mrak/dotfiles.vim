@@ -147,6 +147,7 @@ safe_require('lspconfig', function(lspc)
 
   if vim.fn.executable('gopls') == 1 then
     lspc.gopls.setup({
+      diagnosticTrigger = "Save",
       on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd('BufWritePre', {
           buffer = bufnr,
