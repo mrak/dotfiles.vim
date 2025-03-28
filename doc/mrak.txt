@@ -56,6 +56,10 @@ COMMANDS                                                           *mrak-command
                                                                         *mrak-:Cd*
 :Cd              A simple alias for `:cd %:h`
 
+:Tcd             A simple alias for `:tcd %:h`
+
+:Lcd             A simple alias for `:lcd %:h`
+
 :PruneBuffers[!] Delete all buffers not currently being displayed in a window.
                  Use ! to wipeout instead.
 

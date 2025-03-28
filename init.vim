@@ -270,6 +270,8 @@ nnoremap <leader>fh <cmd>Helptags<CR>
 " Use :SudoWrite from vim-eunuch instead
 "command! Sudo %!sudo tee > /dev/null %
 command! Cd cd %:h
+command! Tcd tcd %:h
+command! Lcd lcd %:h
 command! -nargs=* TabTitle call mrak#tabtitle#set(<f-args>)
 command! -bang -nargs=0 -bar PruneBuffers call mrak#prunebuffers#fn(<bang>0)
 command! -nargs=1 Browse call mrak#browse#fn(shellescape(<q-args>,1))
