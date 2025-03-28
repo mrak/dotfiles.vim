@@ -161,7 +161,7 @@ call s:c.hl("MatchParen",    #{fg:"lowest", bg:"high"})
 hi! link Underlined      MrakRed
 call s:c.hl("Visual",        #{fg:"top", bg:"low"})
 call s:c.hl("VisualNOS",     #{fg:"red", at:"reverse"})
-hi! link WarningMsg      MrakRed
+hi! link WarningMsg      MrakYellow
 hi! link WildMenu        MrakRed
 hi! link Title           MrakBlue
 hi! link Conceal  MrakLow
