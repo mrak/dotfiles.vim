@@ -37,7 +37,6 @@ packadd! vim-fugitive      " tpope: git inside vim
 packadd! vim-rhubarb       " tpope: github support for fugitive
 packadd! vim-repeat        " tpope: allows repeat plugin actions
 packadd! vim-surround      " tpope: manipulate wrapper tokens/brackets
-packadd! vim-unimpaired    " tpope: nice assistance bindings
 packadd! vim-visual-multi  " mg979: mulicursor
 if has('nvim')
   packadd! nvim-lspconfig              " neovim: LSP client configs
@@ -53,6 +52,7 @@ else
   runtime ftplugin/man.vim " builtin: :Man support
   packadd! matchit         " builtin: extended matching with %. Nvim enables by default
   packadd! vim-commentary  " tpope: mappings for (un)commenting
+  packadd! vim-unimpaired  " tpope: nice assistance bindings
 endif
 " Now source all ftplugin/ and indent/ files.
 filetype plugin indent on
@@ -237,9 +237,14 @@ endif
 " Diagnostics
 if has('nvim')
   nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
-  nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next()<CR>
-  nnoremap <leader>dp <cmd>lua vim.diagnostic.goto_prev()<CR>
   nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
+  " from vim-unimpaired
+  nnoremap yoh <cmd>set hlsearch!<cr>
+  nnoremap yoi <cmd>set ignorecase!<cr>
+  nnoremap yol <cmd>set list!<cr>
+  nnoremap yon <cmd>setlocal number!<cr>
+  nnoremap yos <cmd>setlocal spell!<cr>
+  nnoremap yow <cmd>setlocal wrap!<cr>
 endif
 " Git
 nnoremap git <cmd> call mrak#git#openfugitive()<CR>

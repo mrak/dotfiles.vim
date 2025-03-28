@@ -1,3 +1,8 @@
+vim.diagnostic.config({
+  update_in_insert = false,
+  virtual_text = true,
+  severity_sort = true,
+})
 -- pass arg 2 as a function to receive a handle to the module as the function arg
 -- pass arg 2 as a table to automatically call module.setup(arg)
 local function safe_require(module, fn)
@@ -32,9 +37,6 @@ vim.g.rustaceanvim = {
     end
   }
 }
-
-local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
-vim.diagnostic.config({ update_in_insert = false })
 
 safe_require('dapui', {
   icons = {
@@ -167,6 +169,7 @@ end
 
 safe_require('go', {})
 
+local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_augroup,
   callback = function(ev)
@@ -174,11 +177,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, opts)
   end,
 })
