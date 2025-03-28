@@ -37,7 +37,7 @@ packadd! vim-fugitive      " tpope: git inside vim
 packadd! vim-rhubarb       " tpope: github support for fugitive
 packadd! vim-repeat        " tpope: allows repeat plugin actions
 packadd! vim-surround      " tpope: manipulate wrapper tokens/brackets
-packadd! vim-visual-multi  " mg979: mulicursor
+packadd! vim-visual-multi  " mg979: multicursor
 if has('nvim')
   packadd! nvim-lspconfig              " neovim: LSP client configs
   packadd! nvim-treesitter             " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
