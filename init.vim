@@ -281,23 +281,25 @@ command! -nargs=1 Browse call mrak#browse#fn(shellescape(<q-args>,1))
 
 augroup Mrak#autocmd
     autocmd!
-    autocmd VimResized * wincmd =
-    autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
-    autocmd ModeChanged *:* call mrak#statuslinecolor#mode(v:event.new_mode)
-    autocmd FocusLost * silent! wa
     autocmd BufEnter * silent! checktime %
-    autocmd BufWritePre * call mrak#trimtrailingwhitespace#fn()
-
-    if has('nvim') " nvim terminal
-        autocmd TermOpen * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}
-        autocmd TermOpen * set signcolumn=no
-        autocmd TermOpen * set nonumber
-        autocmd TermOpen * startinsert
-    endif
-
     autocmd BufNewFile *.js 0put = \"'use strict';\" | norm j
-    autocmd BufRead,BufNewFile ~/.xmonad/* call mrak#addxmonadpath#fn()
+    autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
+    autocmd BufNewFile,BufRead ~/.xmonad/* call mrak#addxmonadpath#fn()
+    autocmd BufWritePre * call mrak#trimtrailingwhitespace#fn()
     autocmd DiffUpdated * call mrak#diff#setup()
+    "autocmd FocusLost * silent! wa
+    autocmd ModeChanged *:* call mrak#statuslinecolor#mode(v:event.new_mode)
+    autocmd VimResized * if &diff | wincmd = | endif
+
+    if has('nvim')
+      let s:termopen = "TermOpen"
+    else
+      let s:termopen = "TerminalWinOpen"
+    endif
+    execute 'autocmd '.s:termopen.' * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}'
+    execute 'autocmd '.s:termopen.' * set signcolumn=no'
+    execute 'autocmd '.s:termopen.' * set nonumber'
+    execute 'autocmd '.s:termopen.' * startinsert'
 augroup END
 
 " Autocommands }}}
