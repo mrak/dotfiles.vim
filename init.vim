@@ -45,7 +45,6 @@ if has('nvim')
   packadd! nvim-dap                    " mfussenegger: debug adapter protocol
   packadd! nvim-nio                    " nvim-neotest: dependency of nvim-dap-ui
   packadd! nvim-dap-ui                 " rcarriga: variable/stack sidebars while debugging
-  packadd! go.nvim                     " ray-x: Golang LSP code actions. Run :GoInstallBinaries
   packadd! rustaceanvim                " mrcjkb: rust LSP setup
   packadd! pest.vim                    " pest-parser: rust pest parsing crate LSP support
 else
@@ -126,6 +125,9 @@ if !has('nvim')
   let &undodir = s:config_dir .. '/vim/undo'
   set wildmenu
   set wildoptions=pum,tagfile
+else
+  " nvim only options
+  set winborder=solid
 endif
 
 if executable('rg')

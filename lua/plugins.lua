@@ -162,8 +162,6 @@ if vim.fn.executable('pest-language-server') == 1 then
   safe_require('pest-vim', {})
 end
 
-safe_require('go', {})
-
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_augroup,

@@ -54,10 +54,6 @@
 	path = pack/submodules/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
   shallow = true
-[submodule "pack/submodules/opt/go.nvim"]
-	path = pack/submodules/opt/go.nvim
-	url = https://github.com/ray-x/go.nvim
-  shallow = true
 [submodule "pack/submodules/opt/vim-commentary"]
 	path = pack/submodules/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary
@@ -65,18 +61,24 @@
 [submodule "pack/submodules/opt/pest.vim"]
 	path = pack/submodules/opt/pest.vim
 	url = https://github.com/pest-parser/pest.vim.git
+  shallow = true
 [submodule "pack/submodules/opt/rustaceanvim"]
 	path = pack/submodules/opt/rustaceanvim
 	url = https://github.com/mrcjkb/rustaceanvim.git
+  shallow = true
 [submodule "pack/submodules/opt/nvim-dap"]
 	path = pack/submodules/opt/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap.git
+  shallow = true
 [submodule "pack/submodules/opt/nvim-nio"]
 	path = pack/submodules/opt/nvim-nio
 	url = https://github.com/nvim-neotest/nvim-nio.git
+  shallow = true
 [submodule "pack/submodules/opt/nvim-dap-ui"]
 	path = pack/submodules/opt/nvim-dap-ui
 	url = https://github.com/rcarriga/nvim-dap-ui
+  shallow = true
 [submodule "pack/submodules/opt/nvim-treesitter-textobjects"]
 	path = pack/submodules/opt/nvim-treesitter-textobjects
 	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  shallow = true
