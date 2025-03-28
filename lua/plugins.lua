@@ -33,26 +33,41 @@ vim.g.rustaceanvim = {
   }
 }
 
-safe_require('dapui', {
-  icons = {
-    collapsed = "⏵︎",
-    current_frame = "→",
-    expanded = "⏷︎"
-  },
-  controls = {
-    icons = {
-      disconnect = "×",
-      pause = "⏸︎",
-      play = "⏵︎",
-      run_last = "⟳",
-      step_back = "←",
-      step_into = "↓",
-      step_out = "↑",
-      step_over = "→",
-      terminate = "◼︎"
-    }
-  }
-})
+safe_require('dap', function(dap)
+  safe_require('dapui', function(dapui)
+    dapui.setup({
+      icons = {
+        collapsed = "⏵︎",
+        current_frame = "→",
+        expanded = "⏷︎"
+      },
+      expand_lines = false,
+      controls = {
+        icons = {
+          disconnect = "×",
+          pause = "⏸︎",
+          play = "⏵︎",
+          run_last = "⟳",
+          step_back = "←",
+          step_into = "↓",
+          step_out = "↑",
+          step_over = "→",
+          terminate = "◼︎"
+        },
+      }
+    })
+    vim.fn.sign_define('DapBreakpoint', {text='●', texthl='Error', linehl='', numhl=''})
+    vim.fn.sign_define('DapStopped', {text='→', texthl='Error', linehl='', numhl=''})
+    vim.fn.sign_define('DapBreakpointCondition', {text='?', texthl='Error', linehl='', numhl=''})
+    vim.api.nvim_create_user_command('DapOpen',  function() dapui.open()  end, {nargs = 0})
+    vim.api.nvim_create_user_command('DapClose', function() dapui.close() end, {nargs = 0})
+    dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
+    dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
+    -- dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+    -- dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
+  end)
+end)
+safe_require('dap-go', {})
 
 safe_require('nvim-treesitter.configs', {
   ensure_installed = {

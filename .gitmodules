@@ -82,3 +82,6 @@
 	path = pack/submodules/opt/nvim-treesitter-textobjects
 	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   shallow = true
+[submodule "pack/submodules/opt/nvim-dap-go"]
+	path = pack/submodules/opt/nvim-dap-go
+	url = https://github.com/leoluz/nvim-dap-go
