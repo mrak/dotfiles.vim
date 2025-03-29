@@ -59,12 +59,8 @@ safe_require('dap', function(dap)
     vim.fn.sign_define('DapBreakpoint', {text='●', texthl='Error', linehl='', numhl=''})
     vim.fn.sign_define('DapStopped', {text='→', texthl='Error', linehl='', numhl=''})
     vim.fn.sign_define('DapBreakpointCondition', {text='?', texthl='Error', linehl='', numhl=''})
-    vim.api.nvim_create_user_command('DapOpen',  function() dapui.open()  end, {nargs = 0})
-    vim.api.nvim_create_user_command('DapClose', function() dapui.close() end, {nargs = 0})
-    dap.listeners.before.attach.dapui_config =           function() dapui.open()  end
-    dap.listeners.before.launch.dapui_config =           function() dapui.open()  end
-    -- dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
-    -- dap.listeners.before.event_exited.dapui_config =     function() dapui.close() end
+    dap.listeners.before.attach.dapui_config = function() dapui.open()  end
+    dap.listeners.before.launch.dapui_config = function() dapui.open()  end
   end)
 end)
 safe_require('dap-go', {})
