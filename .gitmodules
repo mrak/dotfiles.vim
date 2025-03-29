@@ -1,7 +1,3 @@
-[submodule "pack/submodules/opt/sentinel.vim"]
-	path = pack/submodules/opt/sentinel.vim
-	url = https://github.com/hashicorp/sentinel.vim
-  shallow = true
 [submodule "pack/submodules/opt/fzf"]
 	path = pack/submodules/opt/fzf
 	url = https://github.com/junegunn/fzf

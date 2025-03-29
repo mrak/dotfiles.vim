@@ -27,7 +27,6 @@ let g:markdown_fenced_languages = ['ruby', 'javascript', 'java', 'html', 'bash=s
 " See :help :packadd
 filetype off
 packadd! cfilter           " builtin: :Cfilter[!] for pruning quickfix/locationlist
-packadd! sentinel.vim      " hashicorp: sentinel language support
 packadd! fzf               " junegunn: main fzf plugin
 packadd! fzf.vim           " junegunn: fzf helper functions
 packadd! vim-dirvish       " justinmk: file browser
