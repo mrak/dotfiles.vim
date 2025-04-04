@@ -66,6 +66,7 @@ endif
 " lua plugin setup in lua/plugins.lua
 if has('nvim')
   lua require('plugins')
+  lua require('markdowncodehighlight')
 endif
 
 " Plugins }}}
