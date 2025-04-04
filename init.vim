@@ -11,7 +11,7 @@ let g:loaded_perl_provider = 0      " disable perl plugin client
 let g:loaded_remote_plugins = 1     " all diabled above anyway
 let g:loaded_matchparen=1           " disable matching paren highlighting
 let g:loaded_tutor_mode_plugin = 1  " disable vim tutor
-let g:loaded_2html_plugin = 1       " disable :TOhtml
+"let g:loaded_2html_plugin = 1       " disable :TOhtml
 let g:is_posix = 1                  " Correctly highlight $() and other modern affordances in filetype=sh.
 let g:sneak#label = 1               " use label mode with vim-sneak
 let g:sneak#prompt = '↯ '           " command area prompt when using sneak
