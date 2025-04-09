@@ -173,7 +173,7 @@ set number         " show line numbers
 set numberwidth=3  " use at least 3 columns for line numbers
 set signcolumn=yes " always show a column for signs
 " Completion
-set completeopt=menu,longest
+set completeopt=menu,longest,fuzzy
 set wildignore=*.jpg,*.gif,*.png " pictures
 set wildignore+=*.dll,*.exe      " windows
 set wildignore+=*.pyc,*.class    " bytecode
