@@ -32,9 +32,11 @@ function mrak#rename#merge()
     if l:i < len(l:targets) - 1
       if l:targets[l:i] == ""
         call add(l:results, "rm	'"..o.."'")
-      else
+      elseif l:targets[l:i] !=# o
         call add(l:results, "mv	'"..o.."'	'"..l:targets[l:i].."'")
       endif
+    else
+        call add(l:results, "rm	'"..o.."'")
     endif
     let l:i += 1
   endfor
