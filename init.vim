@@ -251,7 +251,12 @@ if has('nvim')
   nnoremap yow <cmd>setlocal wrap!<cr>
 endif
 " Git
-nnoremap <leader>git <cmd> call mrak#git#openfugitive()<CR>
+nnoremap <leader>gg <cmd> call mrak#git#openfugitive()<CR>
+nnoremap <leader>gl <cmd>tab G log<CR>
+nnoremap <leader>gL <cmd>tab G log -- %<CR>
+nnoremap <leader>gb <cmd>G blame<CR>
+nnoremap <leader>go <cmd>GBrowse<CR>
+xnoremap <leader>go <cmd>'<,'>GBrowse<CR>
 " FZF
 nnoremap <leader>ff <cmd>Files<CR>
 nnoremap <leader>fg <cmd>GFiles<CR>
