@@ -1,3 +1,13 @@
+function mrak#rename#fn()
+  if !exists("g:mrak#rename#original_bufnr") && !exists("g:mrak#rename#result_bufnr")
+    call mrak#rename#setup()
+  elseif exists("g:mrak#rename#original_bufnr") && exists("g:mrak#rename#result_bufnr")
+    call mrak#rename#merge()
+  else
+    call mrak#rename#commit()
+  endif
+endfunction
+
 function mrak#rename#setup()
   setlocal readonly
   silent! execute 'diffthis'
@@ -43,4 +53,5 @@ function mrak#rename#commit()
   silent! execute 'buffer' g:mrak#rename#result_bufnr
   execute 'w ! sh'
   unlet g:mrak#rename#result_bufnr
+  silent! execute 'bdelete!'
 endfunction
