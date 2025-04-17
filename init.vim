@@ -251,7 +251,7 @@ if has('nvim')
   nnoremap yow <cmd>setlocal wrap!<cr>
 endif
 " Git
-nnoremap git <cmd> call mrak#git#openfugitive()<CR>
+nnoremap <leader>git <cmd> call mrak#git#openfugitive()<CR>
 " FZF
 nnoremap <leader>ff <cmd>Files<CR>
 nnoremap <leader>fg <cmd>GFiles<CR>
