@@ -33,6 +33,7 @@ function mrak#rename#merge()
       if l:targets[l:i] == ""
         call add(l:results, "rm	'"..o.."'")
       elseif l:targets[l:i] !=# o
+        call add(l:results, "mkdir -p	 	'"..fnamemodify(l:targets[l:i], ':h').."'")
         call add(l:results, "mv	'"..o.."'	'"..l:targets[l:i].."'")
       endif
     else
