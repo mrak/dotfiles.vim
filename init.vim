@@ -223,8 +223,6 @@ nnoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 inoremap <F3> <cmd>call mrak#locationtoggle#fn()<CR>
 nnoremap <F4> <cmd>call mrak#prunebuffers#fn(0)<CR>
 noremap  <F5> <cmd>checktime<CR>
-"formatting code
-nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 if has('nvim') || has('terminal')
   " CTRL-Space for normal mode in the terminal pane
   tnoremap <silent> <c-space> <C-\><C-n>
@@ -238,18 +236,21 @@ if has('nvim') || has('terminal')
   tnoremap <silent> <c-w>v <C-\><C-n><c-w>v
   tnoremap <silent> <c-w>c <cmd>bw!<CR>
 endif
+"formatting code
+nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
 " Diagnostics
 if has('nvim')
   nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
   nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
-  " from vim-unimpaired
-  nnoremap yoh <cmd>set hlsearch!<cr>
-  nnoremap yoi <cmd>set ignorecase!<cr>
-  nnoremap yol <cmd>set list!<cr>
-  nnoremap yon <cmd>setlocal number!<cr>
-  nnoremap yos <cmd>setlocal spell!<cr>
-  nnoremap yow <cmd>setlocal wrap!<cr>
 endif
+" option toggles a la vim-unimpaired
+nnoremap <leader>oh <cmd>set hlsearch!<cr>
+nnoremap <leader>oi <cmd>set ignorecase!<cr>
+nnoremap <leader>ol <cmd>set list!<cr>
+nnoremap <leader>on <cmd>setlocal number!<cr>
+nnoremap <leader>or <cmd>setlocal relativenumber!<cr>
+nnoremap <leader>os <cmd>setlocal spell!<cr>
+nnoremap <leader>ow <cmd>setlocal wrap!<cr>
 " Git
 nnoremap <leader>gg <cmd> call mrak#git#openfugitive()<CR>
 nnoremap <leader>gl <cmd>tab G log<CR>
