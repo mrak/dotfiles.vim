@@ -257,9 +257,9 @@ call s:c.hl('LspInfoBorder', #{fg:'green', bg:'bottom'})
 
 " Diff mode
 call s:c.hl("DiffAdd",    #{fg:"lowest", bg:"green",  at:"bold"})
-call s:c.hl("DiffChange", #{fg:"lowest", bg:"purple"})
 call s:c.hl("DiffDelete", #{fg:"lowest", bg:"red",    at:"bold"})
-call s:c.hl("DiffText",   #{fg:"lowest", bg:"purple", at:"bold,underline"})
+call s:c.hl("DiffText",   #{fg:"lowest", bg:"purple", at:"none"})
+call s:c.hl("DiffChange", #{fg:"purple", at:"underline"})
 " Additional diff highlighting
 hi! link DiffAdded     MrakGreenBold
 hi! link DiffFile      MrakLow
