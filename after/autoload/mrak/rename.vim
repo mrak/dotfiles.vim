@@ -54,7 +54,7 @@ function mrak#rename#commands()
     let l:i += 1
   endfor
   silent execute g:mrak#rename#commands_winnr..'wincmd w'
-  silent %d
+  silent %d _
   call append(0, l:results)
   silent! execute "%!column -t -s ''"
   silent execute g:mrak#rename#after_winnr..'wincmd w'
