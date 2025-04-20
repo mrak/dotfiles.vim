@@ -1,9 +1,9 @@
-function mrak#rename#fn()
-    call mrak#rename#setup()
+function mrak#edidir#fn()
+    call mrak#edidir#setup()
 endfunction
 
-function mrak#rename#setup()
-  let g:mrak#rename#before_winnr = winnr()
+function mrak#edidir#setup()
+  let g:mrak#edidir#before_winnr = winnr()
   setlocal readonly
   silent! execute 'file' 'mrak:///before'
   silent! execute 'diffthis'
@@ -11,7 +11,7 @@ function mrak#rename#setup()
   silent! execute 'normal' 'ggyG'
 
   silent! execute 'vertical botright new'
-  let g:mrak#rename#after_winnr = winnr()
+  let g:mrak#edidir#after_winnr = winnr()
   setlocal readonly
   silent! execute 'file' 'mrak:///after'
   silent! execute 'normal' 'p'
@@ -20,18 +20,18 @@ function mrak#rename#setup()
   setlocal nofoldenable
 
   silent! execute 'horizontal botright new'
-  let g:mrak#rename#commands_winnr = winnr()
+  let g:mrak#edidir#commands_winnr = winnr()
   setlocal readonly
   silent! execute 'file' 'mrak:///commands'
   setlocal filetype=sh
 
-  silent execute g:mrak#rename#after_winnr..'wincmd w'
-  autocmd! DiffUpdated <buffer> call mrak#rename#commands()
+  silent execute g:mrak#edidir#after_winnr..'wincmd w'
+  autocmd! DiffUpdated <buffer> call mrak#edidir#commands()
 endfunction
 
-function mrak#rename#commands()
-  let l:originals = getbufline(winbufnr(g:mrak#rename#before_winnr), 1, '$')
-  let l:targets = getbufline(winbufnr(g:mrak#rename#after_winnr), 1, '$')
+function mrak#edidir#commands()
+  let l:originals = getbufline(winbufnr(g:mrak#edidir#before_winnr), 1, '$')
+  let l:targets = getbufline(winbufnr(g:mrak#edidir#after_winnr), 1, '$')
   if len(l:originals) != len(l:targets)
     echom "Must have same number of lines in each buffer"
     return
@@ -53,9 +53,9 @@ function mrak#rename#commands()
     endif
     let l:i += 1
   endfor
-  silent execute g:mrak#rename#commands_winnr..'wincmd w'
+  silent execute g:mrak#edidir#commands_winnr..'wincmd w'
   silent %d _
   call append(0, l:results)
   silent! execute "%!column -t -s ''"
-  silent execute g:mrak#rename#after_winnr..'wincmd w'
+  silent execute g:mrak#edidir#after_winnr..'wincmd w'
 endfunction

@@ -281,10 +281,10 @@ command! -nargs=0 -bar       Tcd tcd %:h
 command! -nargs=0 -bar       Lcd lcd %:h
 command! -nargs=* -bar       TabTitle call mrak#tabtitle#set(<f-args>)
 command! -nargs=0 -bar -bang PruneBuffers call mrak#prunebuffers#fn(<bang>0)
+command! -nargs=0 -bar       Edidir call mrak#edidir#fn()
 command! -nargs=1            Browse call mrak#browse#fn(shellescape(<q-args>,1))
 command! -nargs=0 -bar       DapOpen lua require'dapui'.open()
 command! -nargs=0 -bar       DapClose lua require'dapui'.close()
-command! -nargs=0 -bar       Mrename call mrak#rename#fn()
 
 " Commands }}}
 " Autocommands {{{
