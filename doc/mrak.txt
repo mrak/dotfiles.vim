@@ -9,7 +9,7 @@ bottom is reversed for a light 'background'. You can override colors for
 particular palettes by setting the appropriate global dictionaries. If you
 specify a partial dictionary, only the colors specified will be overwriten.
 
-                                                                   *mrak-palettes*
+								*mrak-palettes*
 PALETTES
     *g:mrak_palette_dark_gui*
     *g:mrak_palette_dark_256*
@@ -18,7 +18,7 @@ PALETTES
     *g:mrak_palette_light_256*
     *g:mrak_palette_light_16*
 
-                                                                     *mrak-colors*
+								*mrak-colors*
 COLORS
     GREYSCALE             COLORED
     bottom                red
@@ -53,16 +53,34 @@ Or you can change them all at once.
 ================================================================================
 COMMANDS                                                           *mrak-commands*
 
-                                                                        *mrak-:Cd*
+						*mrak-:Cd* *mrak-:Lcd* *mrak-:Tcd*
 :Cd              A simple alias for `:cd %:h`
-
 :Tcd             A simple alias for `:tcd %:h`
-
 :Lcd             A simple alias for `:lcd %:h`
 
-:PruneBuffers[!] Delete all buffers not currently being displayed in a window.
-                 Use ! to wipeout instead.
+:PruneBuffers[!]					*mrak-:PruneBuffers*
+		Delete all buffers not currently being displayed in a window.
+		Use ! to wipeout instead.
 
-:TabTitle        Retrieve or set the title of the current tab
+:TabTitle						*mrak-:TabTitle*
+		Retrieve or set the title of the current tab
 
- vim: ft=help et sw=2 ts=2 sts=2 tw=79
+:Edidir							*mrak-:Edidir*
+		Initiate a three-pane editing experience to ergonomically
+		and interactivly rename all the filenames in the current
+		buffer. The three-pane layout consists of the original
+		files, the target names for each file, and the generated
+		`mv`, `mkdir`, and `rm` commands needed to arrive at the
+		targeted state. Make your edits in the "target" buffer,
+		and when you are satisfied you can pipe the "commands" buffer
+		into your shell with `:w ! sh`. Typically you would start
+		with a new buffer, use something like `:r ! find ...` to
+		populate the buffer, and then invoke `:Edidir`.
+
+    +-----------------+-----------------+
+    | original files  | target files    |
+    +-----------------+-----------------+
+    | generated commands to execute     |
+    +-----------------------------------+
+
+ vim:ft=help:noet:sw=8:ts=8:sts=8:tw=78:norl:
