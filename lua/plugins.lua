@@ -130,49 +130,15 @@ safe_require('nvim-treesitter.configs', {
   }
 })
 
-safe_require('lspconfig', function(lspc)
-  require'lspconfig.ui.windows'.default_options.border = 'single'
-  if vim.fn.executable('tflint') == 1               then lspc.tflint.setup{} end
-  if vim.fn.executable('vim-language-server') == 1  then lspc.vimls.setup{} end
-  if vim.fn.executable('bash-language-server') == 1 then lspc.bashls.setup{} end
-  if vim.fn.executable('fish-lsp') == 1             then lspc.fish_lsp.setup{} end
-  if vim.fn.executable('pyright') == 1              then lspc.pyright.setup{} end
-
-  if vim.fn.executable('terraform-ls') == 1 then
-    lspc.terraformls.setup{
-      on_init = function(client,_)
-        client.server_capabilities.semanticTokensProvider = nil -- terraform-ls has terrible symantic highlighting, use treesitter
-      end,
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd({"BufWritePre"}, {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format()
-          end,
-        })
-      end
-    }
-  end
-
-  if vim.fn.executable('gopls') == 1 then
-    lspc.gopls.setup({
-      diagnosticTrigger = "Save",
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format({async = false})
-            vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-          end
-        })
-      end
-    })
-  end
-end)
-
-if vim.fn.executable('pest-language-server') == 1 then
-  safe_require('pest-vim', {})
-end
+vim.lsp.set_log_level("off")
+if vim.fn.executable('tflint') == 1               then vim.lsp.enable('tflint')      end
+if vim.fn.executable('vim-language-server') == 1  then vim.lsp.enable('vimls')       end
+if vim.fn.executable('bash-language-server') == 1 then vim.lsp.enable('bashls')      end
+if vim.fn.executable('fish-lsp') == 1             then vim.lsp.enable('fish_lsp')    end
+if vim.fn.executable('pyright') == 1              then vim.lsp.enable('pyright')     end
+if vim.fn.executable('terraform-ls') == 1         then vim.lsp.enable('terraformls') end
+if vim.fn.executable('gopls') == 1                then vim.lsp.enable('gopls')       end
+if vim.fn.executable('pest-language-server') == 1 then vim.lsp.enable('pest_ls')     end
 
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.api.nvim_create_autocmd('LspAttach', {

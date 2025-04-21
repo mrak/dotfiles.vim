@@ -67,7 +67,6 @@ endif
 if has('nvim')
   lua require('plugins')
   lua require('markdowncodehighlight')
-  lua vim.lsp.set_log_level("off")
 endif
 
 " Plugins }}}
