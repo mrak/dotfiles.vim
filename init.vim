@@ -248,7 +248,8 @@ nnoremap <leader>oh <cmd>set hlsearch!<cr>
 nnoremap <leader>oi <cmd>set ignorecase!<cr>
 nnoremap <leader>ol <cmd>set list!<cr>
 nnoremap <leader>on <cmd>setlocal number!<cr>
-nnoremap <leader>or <cmd>setlocal relativenumber!<cr>
+nnoremap <leader>or <cmd>setlocal readonly!<cr>
+nnoremap <leader>om <cmd>setlocal modifiable!<cr>
 nnoremap <leader>os <cmd>setlocal spell!<cr>
 nnoremap <leader>ow <cmd>setlocal wrap!<cr>
 " Git
