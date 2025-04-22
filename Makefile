@@ -3,11 +3,11 @@
 plugins: sync-plugins clean-plugins
 
 sync-plugins:
-	git submodule update -j 8 --init
+	git submodule update -j 8 --init --depth 1
 	nvim -es +'helptags ALL' -cq
 
 update-plugins:
-	git submodule update -j 8 --remote --init
+	git submodule update -j 8 --remote --init --depth 1
 	nvim -es +'helptags ALL' -cq
 
 root.vimrc:
