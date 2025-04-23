@@ -1,9 +1,11 @@
-vim.api.nvim_create_user_command("MarkdownCodeHighlight", function(opts)
+local M = {}
+
+function M.fn()
   local marker_start = 'ORIGINAL MARKDOWN CODE BLOCK BEGIN'
   local marker_middle = 'GENERATED MARKDOWN CODE BLOCK BEGIN'
   local marker_end = 'GENERATED MARKDOWN CODE BLOCK END'
 
-  function generate(opts)
+  function generate()
     local begin_fence = vim.fn.search(' *```', 'bnW')
     if begin_fence == 0 then
       return
@@ -36,7 +38,7 @@ vim.api.nvim_create_user_command("MarkdownCodeHighlight", function(opts)
     vim.fn.append(begin_fence - 1, '<!--- '..marker_start)
   end
 
-  function in_generated_section(opts)
+  function in_generated_section()
     b = vim.fn.search(marker_start, 'bnW')
     if b == 0 then
       return false
@@ -49,7 +51,7 @@ vim.api.nvim_create_user_command("MarkdownCodeHighlight", function(opts)
     return true
   end
 
-  function ungenerate(opts)
+  function ungenerate()
     b = vim.fn.search(marker_start, 'bW')
     vim.fn.deletebufline(vim.fn.bufname(), b)
     m = vim.fn.search(marker_middle, 'W')
@@ -58,9 +60,11 @@ vim.api.nvim_create_user_command("MarkdownCodeHighlight", function(opts)
     vim.fn.cursor(b+1, 0)
   end
 
-  if in_generated_section(opts) then
-    ungenerate(opts)
+  if in_generated_section() then
+    ungenerate()
   else
-    generate(opts)
+    generate()
   end
-end, {range = true})
+end
+
+return M

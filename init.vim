@@ -67,7 +67,6 @@ endif
 if has('nvim')
   lua require('mrak/lsp')
   lua require('mrak/plugins')
-  lua require('mrak/markdowncodehighlight')
 endif
 
 " Plugins }}}
@@ -286,6 +285,7 @@ command! -nargs=0 -bar       Edidir call mrak#edidir#fn()
 command! -nargs=1            Browse call mrak#browse#fn(shellescape(<q-args>,1))
 command! -nargs=0 -bar       DapOpen lua require'dapui'.open()
 command! -nargs=0 -bar       DapClose lua require'dapui'.close()
+command! -nargs=0 -bar       MarkdownCodeHighlight lua require'mrak/markdowncodehighlight'.fn()
 
 " Commands }}}
 " Autocommands {{{
