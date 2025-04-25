@@ -270,6 +270,12 @@ nnoremap <leader>ft <cmd>Tags<CR>
 nnoremap <leader>fm <cmd>History<CR>
 nnoremap <leader>fr <cmd>Rg<CR>
 nnoremap <leader>fh <cmd>Helptags<CR>
+" emacs-style command line editing
+noremap! <c-a> <home>
+noremap! <c-f> <right>
+noremap! <c-b> <left>
+inoremap <c-e> <end>
+inoremap <c-k> <c-o><s-d>
 
 " Mappings }}}
 " Commands {{{
