@@ -6,11 +6,11 @@ function M.fn()
   local marker_end = 'GENERATED MARKDOWN CODE BLOCK END'
 
   function generate()
-    local begin_fence = vim.fn.search(' *```', 'bnW')
+    local begin_fence = vim.fn.search('\\m *```', 'bnW')
     if begin_fence == 0 then
       return
     end
-    local end_fence = vim.fn.search(' *```', 'nW')
+    local end_fence = vim.fn.search('\\m *```', 'nW')
     local begin_code = begin_fence + 1
     local end_code = end_fence - 1
 
