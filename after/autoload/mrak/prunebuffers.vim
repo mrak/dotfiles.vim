@@ -4,7 +4,7 @@ function! mrak#prunebuffers#fn(bang)
   let tablist = []
   let action = a:bang ? 'bwipeout' : 'bdelete'
   for i in range(tabpagenr('$'))
-    call extend(tablist, tabpagebuflist(i + 1))
+    eval tablist->extend(tabpagebuflist(i + 1))
   endfor
 
   let nPruned = 0

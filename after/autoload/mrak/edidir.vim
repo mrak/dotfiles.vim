@@ -30,8 +30,8 @@ function mrak#edidir#setup()
 endfunction
 
 function mrak#edidir#commands()
-  let l:originals = getbufline(winbufnr(g:mrak#edidir#before_winnr), 1, '$')
-  let l:targets = getbufline(winbufnr(g:mrak#edidir#after_winnr), 1, '$')
+  let l:originals = winbufnr(g:mrak#edidir#before_winnr)->getbufline(1, '$')
+  let l:targets = winbufnr(g:mrak#edidir#after_winnr)->getbufline(1, '$')
   if len(l:originals) != len(l:targets)
     echom "Must have same number of lines in each buffer"
     return
