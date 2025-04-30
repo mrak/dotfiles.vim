@@ -128,11 +128,12 @@ safe_require('nvim-treesitter.configs', {
       keymaps = {
         ["af"] = { query = "@function.outer", desc = "Select around function" },
         ["if"] = { query = "@function.inner", desc = "Select inside function" },
-        ["at"] = { query = "@class.outer", desc = "Select around type/class" },
-        ["it"] = { query = "@class.inner", desc = "Select inside type/class" },
-        ["ac"] = { query = "@comment.outer", desc = "Select comment" },
-        ["as"] = { query = "@local.scope", desc = "Select language scope" },
-        ["ia"] = { query = "@parameter.inner", desc = "Select parameter/argument" },
+        ["ac"] = { query = "@class.outer", desc = "Select around class" },
+        ["ic"] = { query = "@class.inner", desc = "Select inside class" },
+        ["aa"] = { query = "@parameter.outer", desc = "Select around argument" },
+        ["ia"] = { query = "@parameter.inner", desc = "Select inside argument" },
+        ["ab"] = { query = "@block.outer", desc = "Select around block" },
+        ["ib"] = { query = "@block.inner", desc = "Select inside block" },
       },
       selection_scopes = {
         ['@function.outer'] = 'V',
