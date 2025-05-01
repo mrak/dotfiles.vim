@@ -5,7 +5,7 @@ function M.fn()
   local marker_middle = 'GENERATED MARKDOWN CODE BLOCK BEGIN'
   local marker_end = 'GENERATED MARKDOWN CODE BLOCK END'
 
-  function generate()
+  local function generate()
     local begin_fence = vim.fn.search('\\m *```', 'bnW')
     if begin_fence == 0 then
       return
@@ -18,7 +18,7 @@ function M.fn()
     local trimmed = {}
 
     local in_block = false
-    for i, l in pairs(html) do
+    for _, l in pairs(html) do
       if in_block then
         table.insert(trimmed, l)
         if string.match(l, "^</pre>") then
@@ -38,12 +38,12 @@ function M.fn()
     vim.fn.append(begin_fence - 1, '<!--- '..marker_start)
   end
 
-  function in_generated_section()
-    b = vim.fn.search(marker_start, 'bnW')
+  local function in_generated_section()
+    local b = vim.fn.search(marker_start, 'bnW')
     if b == 0 then
       return false
     end
-    e = vim.fn.search(marker_end, 'bnW')
+    local e = vim.fn.search(marker_end, 'bnW')
     if e > b then
       return false
     end
@@ -51,11 +51,11 @@ function M.fn()
     return true
   end
 
-  function ungenerate()
-    b = vim.fn.search(marker_start, 'bW')
+  local function ungenerate()
+    local b = vim.fn.search(marker_start, 'bW')
     vim.fn.deletebufline(vim.fn.bufname(), b)
-    m = vim.fn.search(marker_middle, 'W')
-    e = vim.fn.search(marker_end, 'W')
+    local m = vim.fn.search(marker_middle, 'W')
+    local e = vim.fn.search(marker_end, 'W')
     vim.fn.deletebufline(vim.fn.bufname(), m,e)
     vim.fn.cursor(b+1, 0)
   end
