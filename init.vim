@@ -58,9 +58,9 @@ filetype plugin indent on
 
 " Use fd or rg with fzf if available
 if executable('fd')
-    let $FZF_DEFAULT_COMMAND = "fd --type file --follow --hidden --exclude .git"
+  let $FZF_DEFAULT_COMMAND = "fd --type file --follow --hidden --exclude .git"
 elseif executable('rg')
-    let $FZF_DEFAULT_COMMAND = "rg --files --hidden -g !.git/ --ignore-vcs"
+  let $FZF_DEFAULT_COMMAND = "rg --files --hidden -g !.git/ --ignore-vcs"
 endif
 
 " lua plugin setup in lua/plugins.lua
@@ -297,26 +297,26 @@ command! -nargs=0 -bar       MarkdownCodeHighlight lua require'mrak/markdowncode
 " Autocommands {{{
 
 augroup Mrak#autocmd
-    autocmd!
-    autocmd BufEnter * silent! checktime %
-    autocmd BufNewFile *.js 0put = \"'use strict';\" | norm j
-    autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
-    autocmd BufNewFile,BufRead ~/.xmonad/* call mrak#addxmonadpath#fn()
-    autocmd BufWritePre * call mrak#trimtrailingwhitespace#fn()
-    autocmd DiffUpdated * call mrak#diff#setup()
-    "autocmd FocusLost * silent! wa
-    autocmd ModeChanged *:* call mrak#statuslinecolor#mode(v:event.new_mode)
-    autocmd VimResized * if &diff | wincmd = | endif
+  autocmd!
+  autocmd BufEnter * silent! checktime %
+  autocmd BufNewFile *.js 0put = \"'use strict';\" | norm j
+  autocmd BufNewFile *.sh 0put = '#!/bin/sh' | norm j
+  autocmd BufNewFile,BufRead ~/.xmonad/* call mrak#addxmonadpath#fn()
+  autocmd BufWritePre * call mrak#trimtrailingwhitespace#fn()
+  autocmd DiffUpdated * call mrak#diff#setup()
+  "autocmd FocusLost * silent! wa
+  autocmd ModeChanged *:* call mrak#statuslinecolor#mode(v:event.new_mode)
+  autocmd VimResized * if &diff | wincmd = | endif
 
-    if has('nvim')
-      let s:termopen = "TermOpen"
-    else
-      let s:termopen = "TerminalWinOpen"
-    endif
-    execute 'autocmd '.s:termopen.' * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}'
-    execute 'autocmd '.s:termopen.' * set signcolumn=no'
-    execute 'autocmd '.s:termopen.' * set nonumber'
-    execute 'autocmd '.s:termopen.' * startinsert'
+  if has('nvim')
+    let s:termopen = "TermOpen"
+  else
+    let s:termopen = "TerminalWinOpen"
+  endif
+  execute 'autocmd '.s:termopen.' * setlocal statusline=\ %{mrak#mode#fn()}\ %{b:term_title}'
+  execute 'autocmd '.s:termopen.' * set signcolumn=no'
+  execute 'autocmd '.s:termopen.' * set nonumber'
+  execute 'autocmd '.s:termopen.' * startinsert'
 augroup END
 
 " Autocommands }}}
