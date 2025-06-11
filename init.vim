@@ -188,7 +188,8 @@ set synmaxcol=400     " don't highlight long lines
 set nowrap            " don't wrap lines by default
 " Whilespace/filler/folds
 set fileformats=unix,dos,mac
-set fillchars+=vert:\ ,fold:-,stlnc:=
+set fillchars+=fold:─,stlnc:─,foldclose:▶︎,foldopen:▼
+set foldcolumn=auto
 set listchars=tab:\|-,leadmultispace:•---,trail:•,eol:↵,extends:>,precedes:<
 set foldmethod=syntax " works well for most C-style bracketed languages
 set foldlevelstart=99 " fully expand folds to start
