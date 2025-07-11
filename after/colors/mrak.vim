@@ -158,7 +158,7 @@ hi! link MoreMsg  MrakGreen
 hi! link Question MrakYellow
 hi! link Search   MrakReverse
 call s:c.hl("MatchParen",    #{fg:"lowest", bg:"high"})
-hi! link Underlined      MrakRed
+call s:c.hl("Underlined",    #{at:"underline"})
 call s:c.hl("Visual",        #{fg:"top", bg:"low"})
 call s:c.hl("VisualNOS",     #{fg:"red", at:"reverse"})
 hi! link WarningMsg      MrakYellow
