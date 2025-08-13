@@ -1,3 +1,4 @@
+if &compatible | set nocompatible | endif
 let s:config_dir = expand('<sfile>:p')->resolve()->fnamemodify(':h')
 
 " Plugins {{{
@@ -76,7 +77,6 @@ colorscheme mrak
 
 if !has('nvim')
   " These are all set by default in nvim
-  if &compatible | set nocompatible | endif
   syntax on
   set autoindent
   set autoread
