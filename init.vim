@@ -190,7 +190,7 @@ set nowrap            " don't wrap lines by default
 set fileformats=unix,dos,mac
 set fillchars+=fold:─,stlnc:─,foldclose:▶︎,foldopen:▼,foldsep:┊
 set foldcolumn=0
-set listchars=tab:\|-,leadmultispace:•---,trail:•,eol:↵,extends:>,precedes:<
+set listchars=tab:\|-,leadmultispace:•---,trail:⣿,eol:↵,extends:>,precedes:<
 set foldmethod=syntax " works well for most C-style bracketed languages
 set foldlevelstart=99 " fully expand folds to start
 " Misc
