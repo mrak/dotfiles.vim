@@ -182,8 +182,8 @@ set wildignore+=*.bak,*.lock     " misc
 set wildoptions+=fuzzy           " fuzzy complete in command-line mode
 " Cursor/line boundaries
 set display+=truncate " show @@@ at the beginning if last line long
-set scrolloff=5       " always show X lines above/below cursor
-set sidescrolloff=10  " always show X columns around cursor
+set scrolloff=1       " always show X lines above/below cursor
+set sidescrolloff=2   " always show X columns around cursor
 set synmaxcol=400     " don't highlight long lines
 set nowrap            " don't wrap lines by default
 " Whilespace/filler/folds
