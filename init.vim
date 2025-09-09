@@ -238,9 +238,18 @@ if has('nvim') || has('terminal')
 endif
 "formatting code
 nnoremap <leader>= <cmd>call mrak#equalprgfile#fn()<CR>
-" Diagnostics
+" Diagnostics/Debugging
 if has('nvim')
-  nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
+  nnoremap <leader>do <cmd>lua require'dapui'.open()<CR>
+  nnoremap <leader>dc <cmd>lua require'dapui'.close()<CR>
+  nnoremap <leader>dn <cmd>DapNew<CR>
+  nnoremap <leader>db <cmd>DapToggleBreakpoint<CR>
+  nnoremap <F9>  <cmd>DapContinue<CR>
+  nnoremap <F10> <cmd>DapStepInto<CR>
+  nnoremap <F11> <cmd>DapStepOver<CR>
+  nnoremap <F12> <cmd>DapStepOut<CR>
+  " use <C-w>d instead
+  "nnoremap <leader>do <cmd>lua vim.diagnostic.open_float()<CR>
   nnoremap <leader>dl <cmd>lua vim.diagnostic.setloclist()<CR>
 endif
 " option toggles a la vim-unimpaired
