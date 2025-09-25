@@ -26,3 +26,6 @@ kubectl
 doula
 doulas
 premie
+StatefulSet
+DaemonSet
+S3
