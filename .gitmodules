@@ -81,3 +81,6 @@
 [submodule "pack/submodules/opt/nvim-dap-go"]
 	path = pack/submodules/opt/nvim-dap-go
 	url = https://github.com/leoluz/nvim-dap-go
+[submodule "pack/submodules/opt/vim-exchange"]
+	path = pack/submodules/opt/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
