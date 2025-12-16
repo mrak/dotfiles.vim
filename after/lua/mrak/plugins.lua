@@ -69,121 +69,68 @@ safe_require('dap-go', {})
 
 -- treesitter
 -- enablement
-local treesitter_fold_enabled_languages = {
-  'bash',
-  'diff',
-  'fish',
-  'git_config',
-  'go',
-  'gotmpl',
-  'groovy',
-  'hcl',
-  'helm',
-  'json',
-  'make',
-  'python',
-  'ruby',
-  'rust',
-  'ssh_config',
-  'terraform',
-  'toml',
-  'yaml',
-}
-local treesitter_indent_enabled_languages = {}
-vim.api.nvim_create_autocmd({'FileType'}, {
-  group = augroup,
-  callback = function(ev)
-    if not ev.match or ev.match == '' or ev.match == 'text' then
-      vim.treesitter.stop()
-    end
-    pcall(function() vim.treesitter.start() end)
-    -- folds
-    if treesitter_fold_enabled_languages[ev.match] ~= nil then
-      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.wo[0][0].foldmethod = 'expr'
-    end
-    -- indent
-    if treesitter_indent_enabled_languages[ev.match] ~= nil then
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
-  end
-})
 safe_require('nvim-treesitter', function(nt)
-  nt.install {
-    'awk',
-    'bash',
-    'comment',
-    'csv',
-    'diff',
-    'dockerfile',
-    'fish',
-    'git_config',
-    'git_rebase',
-    'gitattributes',
-    'gitcommit',
-    'gitignore',
-    'go',
-    'gomod',
-    'gosum',
-    'gotmpl',
-    'groovy',
-    'hcl',
-    'helm',
-    'jq',
-    'json',
-    'make',
-    'python',
-    'regex',
-    'rego',
-    'ruby',
-    'rust',
-    'ssh_config',
-    'terraform',
-    'tmux',
-    'toml',
-    'yaml',
+  local treesitter_languages = {
+      awk           = {},
+      bash          = {F=true},
+      comment       = {},
+      csv           = {},
+      diff          = {F=true},
+      dockerfile    = {},
+      fish          = {F=true},
+      git_config    = {F=true},
+      git_rebase    = {},
+      gitattributes = {},
+      gitcommit     = {},
+      gitignore     = {},
+      go            = {F=true},
+      gomod         = {},
+      gosum         = {},
+      gotmpl        = {F=true},
+      groovy        = {F=true},
+      hcl           = {F=true},
+      helm          = {F=true},
+      jq            = {},
+      json          = {F=true},
+      make          = {F=true},
+      python        = {F=true},
+      regex         = {},
+      rego          = {},
+      ruby          = {F=true},
+      rust          = {F=true},
+      ssh_config    = {F=true},
+      terraform     = {F=true},
+      tmux          = {},
+      toml          = {F=true},
+      yaml          = {F=true},
   }
+  vim.api.nvim_create_autocmd({'FileType'}, {
+    group = augroup,
+    callback = function(ev)
+      if not ev.match or ev.match == '' or ev.match == 'text' then
+        vim.treesitter.stop()
+      end
+      pcall(function() vim.treesitter.start() end)
+      if treesitter_languages[ev.match] ~= nil then
+        -- folds
+        if treesitter_languages[ev.match]['F'] ~= nil then
+          vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          vim.wo[0][0].foldmethod = 'expr'
+        end
+        -- indent
+        if treesitter_languages[ev.match]['I'] ~= nil then
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end
+    end
+  })
+  local lang_list = {}
+  for l,_ in pairs(treesitter_languages) do
+    lang_list[#lang_list+1] = l
+  end
+  nt.install(lang_list)
 end)
 -- safe_require('nvim-treesitter.configs', {
---   ensure_installed = {
---     'awk',
---     'bash',
---     'comment',
---     'csv',
---     'diff',
---     'dockerfile',
---     'fish',
---     'git_config',
---     'git_rebase',
---     'gitattributes',
---     'gitcommit',
---     'gitignore',
---     'go',
---     'gomod',
---     'gosum',
---     'gotmpl',
---     'groovy',
---     'hcl',
---     'helm',
---     'jq',
---     'json',
---     'make',
---     'python',
---     'regex',
---     'rego',
---     'ruby',
---     'rust',
---     'ssh_config',
---     'terraform',
---     'tmux',
---     'toml',
---     'yaml',
---   },
---   auto_install = false,
---   highlight = {
---     enable = true,
---     additional_vim_regex_highlighting = false,
---   },
 --   textobjects = {
 --     move = {
 --       enable = true,
