@@ -69,7 +69,26 @@ safe_require('dap-go', {})
 
 -- treesitter
 -- enablement
-local treesitter_fold_enabled_languages = {}
+local treesitter_fold_enabled_languages = {
+  'bash',
+  'diff',
+  'fish',
+  'git_config',
+  'go',
+  'gotmpl',
+  'groovy',
+  'hcl',
+  'helm',
+  'json',
+  'make',
+  'python',
+  'ruby',
+  'rust',
+  'ssh_config',
+  'terraform',
+  'toml',
+  'yaml',
+}
 local treesitter_indent_enabled_languages = {}
 vim.api.nvim_create_autocmd({'FileType'}, {
   group = augroup,
