@@ -42,7 +42,7 @@ packadd! vim-exchange      " tommcdo: easy text exchange operator
 if has('nvim')
   packadd! nvim-lspconfig              " neovim: LSP client configs
   packadd! nvim-treesitter             " nvim-treesitter: tree-sitter setup. Run :TSUpdate afterward
-  packadd! nvim-treesitter-textobjects " nvim-treesitter: tree-sitter text objects (functions/types)
+  "packadd! nvim-treesitter-textobjects " nvim-treesitter: tree-sitter text objects (functions/types)
   packadd! nvim-dap                    " mfussenegger: debug adapter protocol
   packadd! nvim-nio                    " nvim-neotest: dependency of nvim-dap-ui
   packadd! nvim-dap-ui                 " rcarriga: variable/stack sidebars while debugging

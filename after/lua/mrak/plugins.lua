@@ -1,3 +1,5 @@
+local augroup = vim.api.nvim_create_augroup('Mrak#plugins', {clear=false})
+
 -- pass arg 2 as a function to receive a handle to the module as the function arg
 -- pass arg 2 as a table to automatically call module.setup(arg)
 local function safe_require(module, fn)
@@ -65,8 +67,30 @@ safe_require('dap', function(dap)
 end)
 safe_require('dap-go', {})
 
-safe_require('nvim-treesitter.configs', {
-  ensure_installed = {
+-- treesitter
+-- enablement
+local treesitter_fold_enabled_languages = {}
+local treesitter_indent_enabled_languages = {}
+vim.api.nvim_create_autocmd({'FileType'}, {
+  group = augroup,
+  callback = function(ev)
+    if not ev.match or ev.match == '' or ev.match == 'text' then
+      vim.treesitter.stop()
+    end
+    pcall(function() vim.treesitter.start() end)
+    -- folds
+    if treesitter_fold_enabled_languages[ev.match] ~= nil then
+      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo[0][0].foldmethod = 'expr'
+    end
+    -- indent
+    if treesitter_indent_enabled_languages[ev.match] ~= nil then
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end
+})
+safe_require('nvim-treesitter', function(nt)
+  nt.install {
     'awk',
     'bash',
     'comment',
@@ -99,48 +123,85 @@ safe_require('nvim-treesitter.configs', {
     'tmux',
     'toml',
     'yaml',
-  },
-  auto_install = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  textobjects = {
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        ["]f"] = "@function.outer",
-      },
-      goto_next_end = {
-        ["]F"] = "@function.outer",
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer",
-      },
-      goto_previous_end = {
-        ["[F"] = "@function.outer",
-      },
-    },
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["af"] = { query = "@function.outer", desc = "Select around function" },
-        ["if"] = { query = "@function.inner", desc = "Select inside function" },
-        ["ac"] = { query = "@class.outer", desc = "Select around class" },
-        ["ic"] = { query = "@class.inner", desc = "Select inside class" },
-        ["aa"] = { query = "@parameter.outer", desc = "Select around argument" },
-        ["ia"] = { query = "@parameter.inner", desc = "Select inside argument" },
-        ["ab"] = { query = "@block.outer", desc = "Select around block" },
-        ["ib"] = { query = "@block.inner", desc = "Select inside block" },
-      },
-      selection_scopes = {
-        ['@function.outer'] = 'V',
-      },
-    }
   }
-})
+end)
+-- safe_require('nvim-treesitter.configs', {
+--   ensure_installed = {
+--     'awk',
+--     'bash',
+--     'comment',
+--     'csv',
+--     'diff',
+--     'dockerfile',
+--     'fish',
+--     'git_config',
+--     'git_rebase',
+--     'gitattributes',
+--     'gitcommit',
+--     'gitignore',
+--     'go',
+--     'gomod',
+--     'gosum',
+--     'gotmpl',
+--     'groovy',
+--     'hcl',
+--     'helm',
+--     'jq',
+--     'json',
+--     'make',
+--     'python',
+--     'regex',
+--     'rego',
+--     'ruby',
+--     'rust',
+--     'ssh_config',
+--     'terraform',
+--     'tmux',
+--     'toml',
+--     'yaml',
+--   },
+--   auto_install = false,
+--   highlight = {
+--     enable = true,
+--     additional_vim_regex_highlighting = false,
+--   },
+--   textobjects = {
+--     move = {
+--       enable = true,
+--       set_jumps = true,
+--       goto_next_start = {
+--         ["]f"] = "@function.outer",
+--       },
+--       goto_next_end = {
+--         ["]F"] = "@function.outer",
+--       },
+--       goto_previous_start = {
+--         ["[f"] = "@function.outer",
+--       },
+--       goto_previous_end = {
+--         ["[F"] = "@function.outer",
+--       },
+--     },
+--     select = {
+--       enable = true,
+--       lookahead = true,
+--       keymaps = {
+--         ["af"] = { query = "@function.outer", desc = "Select around function" },
+--         ["if"] = { query = "@function.inner", desc = "Select inside function" },
+--         ["ac"] = { query = "@class.outer", desc = "Select around class" },
+--         ["ic"] = { query = "@class.inner", desc = "Select inside class" },
+--         ["aa"] = { query = "@parameter.outer", desc = "Select around argument" },
+--         ["ia"] = { query = "@parameter.inner", desc = "Select inside argument" },
+--         ["ab"] = { query = "@block.outer", desc = "Select around block" },
+--         ["ib"] = { query = "@block.inner", desc = "Select inside block" },
+--       },
+--       selection_scopes = {
+--         ['@function.outer'] = 'V',
+--       },
+--     }
+--   }
+-- })
+
 
 -- configure this last to avoid others from overwriting
 vim.diagnostic.config({
