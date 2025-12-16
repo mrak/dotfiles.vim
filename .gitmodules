@@ -49,6 +49,7 @@
 [submodule "pack/submodules/opt/nvim-treesitter"]
 	path = pack/submodules/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+	fetch = +refs/heads/*:refs/remotes/origin/*
 	shallow = true
 [submodule "pack/submodules/opt/vim-commentary"]
 	path = pack/submodules/opt/vim-commentary
