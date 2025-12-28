@@ -1,14 +1,16 @@
 vim.lsp.set_log_level("off")
 
-if vim.fn.executable('tflint') == 1               then vim.lsp.enable('tflint')      end
-if vim.fn.executable('vim-language-server') == 1  then vim.lsp.enable('vimls')       end
-if vim.fn.executable('bash-language-server') == 1 then vim.lsp.enable('bashls')      end
-if vim.fn.executable('fish-lsp') == 1             then vim.lsp.enable('fish_lsp')    end
-if vim.fn.executable('pyright') == 1              then vim.lsp.enable('pyright')     end
-if vim.fn.executable('terraform-ls') == 1         then vim.lsp.enable('terraformls') end
-if vim.fn.executable('gopls') == 1                then vim.lsp.enable('gopls')       end
-if vim.fn.executable('pest-language-server') == 1 then vim.lsp.enable('pest_ls')     end
-if vim.fn.executable('lua-language-server') == 1  then vim.lsp.enable('lua_ls')      end
+if vim.fn.executable('tflint') == 1                          then vim.lsp.enable('tflint')      end
+if vim.fn.executable('vim-language-server') == 1             then vim.lsp.enable('vimls')       end
+if vim.fn.executable('bash-language-server') == 1            then vim.lsp.enable('bashls')      end
+if vim.fn.executable('fish-lsp') == 1                        then vim.lsp.enable('fish_lsp')    end
+if vim.fn.executable('pyright') == 1                         then vim.lsp.enable('pyright')     end
+if vim.fn.executable('terraform-ls') == 1                    then vim.lsp.enable('terraformls') end
+if vim.fn.executable('gopls') == 1                           then vim.lsp.enable('gopls')       end
+if vim.fn.executable('pest-language-server') == 1            then vim.lsp.enable('pest_ls')     end
+if vim.fn.executable('lua-language-server') == 1             then vim.lsp.enable('lua_ls')      end
+if vim.fn.executable('gleam') == 1                           then vim.lsp.enable('gleam')       end
+if vim.fn.executable('haskell-language-server-wrapper') == 1 then vim.lsp.enable('hls')         end
 
 local lsp_augroup = vim.api.nvim_create_augroup('Mrak#LSP', {clear = true})
 vim.api.nvim_create_autocmd('LspAttach', {
